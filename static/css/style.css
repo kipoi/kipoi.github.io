@@ -1,0 +1,208 @@
+/* old main color: #4c5568*/
+/*   new main color: #4B515D */
+
+/*   Old table button color: #45526E */
+/*   New table button color: #45526E */
+
+min_width_panel_1 {
+    min-width: 800px;
+}
+
+body {
+    color: #4c5568;
+    /* color: #4c5568; */
+}
+/* nav-title-link navbar-brand text-hide {
+   width: 70px;
+   height: 38px;
+   background-size: contain;
+   background-repeat: no-repeat;
+   } */
+
+/* model-list DataTables */
+.dataTables_wrapper div.mdl-grid:first-child {
+    margin-top: 0.5rem;
+    /* width: 100%; */
+    /* margin-left: 0; */
+    /* margin-right: 0; */
+}
+
+p.header-text {
+  /* Kipoi short description on the root page (top right) */
+  font-size: 18px;
+}
+
+.kipoi-descr {
+  font-size: 28px;
+}
+/* Override dataTable.material.css */
+div.dataTables_wrapper div.dataTables_length {
+    /* text-align: right; */
+    /* width: 300px; */
+}
+div.dataTables_wrapper div.dataTables_length label{
+    /* max-width: 400px; */
+    /* width: inherit; */
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    /* text-align: left; */
+    /* min-width: 300px; */
+}
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;
+}
+
+.dataTables_wrapper div.mdl-grid.dt-table {
+    margin-top: 0.5rem;
+}
+
+.dataTables_wrapper div.mdl-grid:last-child {
+    width: 100%;
+}
+
+.dataTables_wrapper div.mdl-grid:first-child div.mdl-cell:first-child label {
+    margin-top: 4px;
+}
+
+.dataTables_wrapper div.mdl-grid:first-child div.mdl-cell:first-child select {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.dataTables_wrapper div.mdl-grid:first-child div.mdl-cell:last-child input {
+    padding-bottom: 0rem;
+    margin-bottom: 0.6rem;
+}
+
+.mdl-button.previous {
+    min-width: 100px;
+}
+
+.mdl-button--raised {
+  background: #45526E !important;
+}
+
+.nav-title-link {
+    font-weight: bold;
+}
+
+.promenent-search {
+    background-color: white;
+}
+
+.promenent-search input.model-search {
+    width: 500px !important;
+    color: #4c5568 !important;
+}
+
+.promenent-search input::-webkit-input-placeholder {
+    color: #4c5568 !important;
+}
+    
+.promenent-search input:-moz-placeholder { /* Firefox 18- */
+    color: #4c5568 !important;  
+}
+    
+.promenent-search input::-moz-placeholder {  /* Firefox 19+ */
+    color: #4c5568 !important;  
+}
+    
+.promenent-search input:-ms-input-placeholder {  
+    color: #4c5568 !important;  
+}
+
+.navbar.navbar-dark form input[type=text] {
+    /* border-bottom: none !important; */
+}
+.navbar.navbar-dark form input[type=text]:focus:not([readonly]) {
+    box-shadow: none;
+}
+
+ul.dependencies > li {
+    padding-left: 10px;
+}
+
+/* 
+*
+* Code snippet box
+*
+*/
+.code-snippet-container {
+    border-color: #ddd !important;
+}
+
+.code-title {
+    background-color: #eaeaea;
+    padding: 0.4em 0.3em 0.1em 0.3em;
+    
+}
+
+.code-container {
+  position: relative;
+}
+
+
+.code-toolbar {
+  display: block;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+}
+
+/* pre[class*=language-] {
+   margin-bottom: 0;
+   min-height: 38px;
+   overflow: auto;
+   padding: 0.5em;
+   color: #4c5568;
+   font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+   white-space: pre;
+   word-spacing: normal;
+   word-break: normal;
+   word-wrap: normal;
+   line-height: 1.5;
+   -moz-tab-size: 4;
+   -o-tab-size: 4;
+   tab-size: 4;
+   -webkit-hyphens: none;
+   -moz-hyphens: none;
+   -ms-hyphens: none;
+   hyphens: none;
+   font-size: .85rem;
+   } */
+
+/* 
+ *
+ * Overvrite material design shadows
+ *
+ */
+.card:not([class*=card-outline-]), .jumbotron {
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: none;
+}
+
+hr.clearfix {
+  border-color: rgba(0,0,0,.125);
+}
+
+/* Footer */
+footer.page-footer {
+  background-color: #4c5568;
+  margin-top: 2rem;
+}
+
+/* body { */
+/* Margin bottom by footer height */
+/* margin-bottom: 232px; */
+/* } */
+
+/* .page-footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 232px;
+   line-height: 232px;
+   background-color: #f5f5f5;
+   } */

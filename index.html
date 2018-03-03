@@ -1,1 +1,384 @@
-hey there
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Nejc Zupan">
+    <title>Kipoi</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+<!-- Material Design Bootstrap -->
+<link rel="stylesheet" type="text/css" href="/static/css/mdb.min.css">
+<!-- Material Design Lite -->
+<link rel="stylesheet" type="text/css" href="/static/css/material.min.css">
+<!-- DataTables Material Design -->    
+<link rel="stylesheet" type="text/css" href="/static/css/dataTables.material.css"/>
+<!-- Highlight -->
+<link rel="stylesheet" type="text/css" href="/static/css/custom_highlight_github.css"/>
+
+<!-- Custom styles -->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css?v=2201183">
+</head>
+
+<body>
+    <section class="mb-3">
+        
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark unique-color">
+
+    <!-- Navbar brand -->
+  <!-- <span class="related-content-heading text-white"> -->
+      <a class="nav-title-link navbar-brand text-hide" href="/"
+	 style="background-image: url('/static/img/logo-white-kipoi.svg'); width: 70px; height: 38px; background-position: center; background-size: contain; background-repeat: no-repeat;">Kipoi</a>
+      <!-- </span> -->
+    
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse text-center" id="navbarNav1">
+        
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto text-center">
+	   <!-- Group list --> 
+            <li class="nav-item ">
+              <a id="components-related-1" class="nav-link waves-effect waves-light" href="/groups/">Models</a>
+            </li>
+            
+	    <!-- Docs --> 
+            <li class="nav-item">
+              <a id="components-related-3" class="nav-link waves-effect waves-light" href="/docs/">Docs</a>
+            </li>
+        </ul>
+
+        <!-- Search form -->
+        
+
+        <ul class="navbar-nav ml-auto nav-flex-icons text-center">
+          <li class="nav-item">
+            <a id="components-related-4" class="nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="components-related-5" class="nav-link waves-effect waves-light" href="https://github.com/kipoi/kipoi">API repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+        
+    </div>
+</nav>
+    </section>
+
+    
+<!-- <div class="row" style="margin-right: 0; margin-left: 0;"> -->
+<div class="row justify-content-center">
+  <div class="col-lg-9 output min_width_panel_1">
+    <h2> Kipoi: Model zoo for genomics</h2>
+    <!-- <section class="card"> -->
+    <div style="padding:10px"></div>
+    <div class="row">
+      <div class="col-md-6">
+	<img src="/static/img/fig1.svg" alt="Kipoi overview figure">
+      </div>
+      <div class="col-md-6">
+	<p style="padding:10px">
+	  Kipoi (pronounce: kípi; from the Greek &kappa;&#x3AE;&pi;&omicron;&iota;: gardens) is an API and a repository of ready-to-use
+	  trained models for regulatory genomics. It currently contains 780
+	  different models, covering canonical predictive tasks in transcriptional and post-transcriptional gene regulation.
+
+	  Kipoi's API is implemented as a python package (github.com/kipoi/kipoi) and it is also accessible from the command line or R.
+	  <!-- API to use, re-use and combine these models efficiently
+	       and a flexible toolbox for downstream analysis like variant effect prediction. -->
+
+
+	  <!-- The model is an abstraction over the model from major machine-learning frameworks in python
+	       (Keras, TensorFlow, PyTorch, Scikit-learn) with the option to write a custom model.
+	       The dataloader loads data from raw files and returns processed data, ready to be consumed by the
+	       model together with the metadata.
+	       This allows the models to be used directly with typical bioinformatics file formats like fasta or
+	       bed and to, out-of-the-box, predict the effects of genetic variants.
+	       The source is a remote storage for models and dataloaders. Users can access models from private or public sources.
+	       The main public Kipoi source is hosted on github.com/kipoi/models with model parameters being stored with Git Large File Storage (LFS).
+	       Model and dataloader are defined with YAML description files.
+	       These provide general information about the model, authors, supported downstream analysis and required dependencies managed by pip or conda.
+	       Models and dataloaders are contributed and reviewed through pull-requests on github.  -->
+
+	  <!-- - Unified and easy way to run models on new data
+	     - Model dependencies managed by Conda
+	     - Variant effect prediction for x models
+	     - Transparency and overview
+	     - Enriched functionality for the contributed models (less boilerplate code)
+	     - Flexibility and ease of contribution
+	  -->
+	</p>
+      </div>
+      <div style="padding:15px"></div>
+    </div>
+    <!-- </section> -->
+
+    <hr class="w-100 clearfix">
+    <div class="row">
+      <div class="col-lg-4">
+	<h4>Numbers</h4>
+	<p><strong># of models:</strong> 780</p>
+	<p><strong># of model groups:</strong> 14</p>
+	<p><strong># of contributors:</strong> 6</p>
+	<p><strong># of model groups supporting postprocessing:</strong></p>
+	<ul>
+	  <li><strong>Variant effect prediction:</strong> 11/14</li>
+	</ul>
+      </div>
+      <div class="col-md-4">
+	<h4>Model groups by framework</h4>
+	<div style="height: 200px">
+	  <canvas id="models-by-framework"></canvas>
+	</div>
+      </div>
+      <!-- <div class="col-md-4">
+	   <h4>Model groups by <br />license</h4>
+	   <canvas id="models-by-license"></canvas>
+	   </div> -->
+      <div class="col-md-4">
+	<h4>Model groups by tag</h4>
+	<div style="height: 300px">
+	  <canvas id="models-by-genomics-tag"></canvas>
+	</div>
+      </div>
+    </div>
+	  <div style="padding:15px"></div>
+    <hr class="w-100 clearfix">
+    <div class="row">
+      <h3>Getting Started</h3>
+    </div>
+	  <div style="padding:10px"></div>
+    <div class="row">
+      <div class="col-lg-4">
+	<h4>Use models</h4>
+	<ul>
+	  <li>Install Kipoi: <code>$ pip install kipoi</code></li>
+	  <li>Choose the model from <a href="/groups/">http://kipoi.org/models</a></li>
+	  <li>Use the model from CLI/python/bash by copying code snippets from <a href="../models/basenji">http://kipoi.org/models/my_model</a></li>
+	</ul>
+	<a class="btn btn-outline-info waves-effect" href="../docs/using/01_Getting_started/">Learn more</a>
+
+      </div>
+      <div class="col-lg-4">
+	<h4>Contribute models</h4>
+	<ul>
+	  <li>Install Kipoi: <code>$ pip install kipoi</code></li>
+	  <li>Run <code>$ kipoi ls</code></li>
+	  <li>Explore the models locally at <code>~/.kipoi/models</code></li>
+	  <li>Add the model to <code>~/.kipoi/models/</code> (copy&edit the existing model or run <code>kipoi init</code>)</li>
+	  <li>Test test model: <code>kipoi test ~/.kipoi/models/my_model</code></li>
+	  <li>Submit the pull-request to <a href="https://github.com/kipoi/models">github.com/kipoi/models</a></li>
+	</ul>
+	<a class="btn btn-outline-info waves-effect" href="../docs/contributing/01_Getting_started/">Learn more</a>
+      </div>
+      <div class="col-lg-4">
+	<h4>Contribute code</h4>
+	<ul>
+	  <li>Setup the development environment: <code>$ pip install kipoi[develop]</code></li>
+	  <li>Read <a href="https://github.com/kipoi/kipoi/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+	  <li>Submit an issue/pull-request to <a href="https://github.com/kipoi/models">github.com/kipoi/models</a></li>
+	</ul>
+      </div>
+    </div>
+    <!--Show some plots about Kipoi-->
+    
+    <!--/Section: model-list content-->                        
+  </div>
+</div>
+
+    
+    <footer class="page-footer center-on-small-only unique-color">
+    <!--Footer links-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--First column-->
+            <div class="col-lg-3 col-md-6 ml-auto">
+                <h5 class="title mb-3"><strong>About KIPOI project</strong></h5>
+                <p>Kipoi is an API and a repository of ready-to-use trained models for regulatory genomics.</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Second column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+              <h5 class="title mb-3"><strong>Useful links</strong></h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/kipoi/kipoi">github.com/kipoi/kipoi</a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/models">Model repository - github.com/kipoi/models</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Second column-->
+            <hr class="w-100 clearfix d-lg-none">
+            <!--Third column-->
+            <div class="col-lg-4 col-md-12 ml-auto text-center">
+                <br>
+                <ul>
+                    <li>
+                        <h5>Like the project?</h5>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://twitter.com/" class="btn btn-primary waves-effect waves-light" rel="nofollow">Tweet us!</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Third column-->
+        </div>
+    </div>
+    <!--/.Footer links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="containter-fluid">
+            © 2018 Copyright: <a href="http://kipoi.org"> KIPOI project website </a>
+        </div>
+    </div>
+    <!--/.Copyright-->
+</footer>
+
+    <!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/static/js/mdb.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/dataTables.material.min.js"></script>
+
+
+<!-- Highlight -->
+<script type="text/javascript" src="/static/js/highlight.pack.js"></script>
+    
+    
+<script src="https://codepen.io/anon/pen/aWapBE.js"></script>
+<script language="JavaScript">
+  $(document).ready(function() {
+    $('#model-list-table').DataTable({
+      "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+      "pageLength": 50,
+      "dom": 'rtip'
+    });
+    $('.dt-table').css('width', '100%');
+
+    oTable = $('#model-list-table').DataTable();
+    $('#search-bar').keyup(function(){
+      oTable.search($(this).val()).draw() ;
+    })
+    $('.dataTables_info').addClass('col-md-5 text-right mt-2');
+    $('.dataTables_paginate').addClass('col-md-7 mt-4');
+
+    var color_pallete = 'cb-Set2';
+    // models-by-framework
+    var colors = palette(color_pallete, 4).map(function(hex) {
+      return '#' + hex;
+    });
+    var ctxP = document.getElementById("models-by-framework").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'doughnut',
+      data: {
+        labels: ['keras', 'custom', 'pytorch', 'tensorflow'],
+        datasets: [
+          {
+            data: [7, 4, 2, 1],
+            backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
+	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
+            /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+	       hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]*/
+          }
+        ]
+      },
+      options: {
+        responsive: false
+      }    
+    });
+    // models-by-license
+    /* var ctxP = document.getElementById("models-by-license").getContext('2d');
+     * var myPieChart = new Chart(ctxP, {
+     *   type: 'doughnut',
+     *   data: {
+     *     labels: ['MIT', 'GPL-v3', 'Apache License v2'],
+     *     datasets: [
+     *       {
+     *         data: [12, 1, 1],
+     *         backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+     *         hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+     *       }
+     *     ]
+     *   },
+     *   options: {
+     *     responsive: false
+     *   }    
+     * });*/
+    //bar
+    var ctxB = document.getElementById("models-by-genomics-tag").getContext('2d');
+    var myBarChart = new Chart(ctxB, {
+      type: 'horizontalBar',
+      data: {
+        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'DNA methylation', 'RNA binding', 'RNA expression'],
+        datasets: [{
+          label: null,
+          data: [5, 4, 3, 3, 2, 2, 1],
+          /* backgroundColor: ["#F7464A80", "#46BFBD80", "#FDB45C80", "#949FB180", "#F3E06980", "#4D536080", "#AAABAA80"],*/
+	  backgroundColor: palette(color_pallete, 7).map(function(hex) {
+	    return '#' + hex;
+	  }),
+	  /* borderColor: [
+	     'rgba(255,99,132,1)',
+	     'rgba(54, 162, 235, 1)',
+	     'rgba(255, 206, 86, 1)',
+	     'rgba(75, 192, 192, 1)',
+	     'rgba(153, 102, 255, 1)',
+	     'rgba(255, 159, 64, 1)',
+	     'rgba(255, 159, 64, 1)'
+	     ],*/
+          /* borderWidth: 1*/
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+	responsive: true,
+	legend: {
+	  display: false,
+	},
+
+        scales: {
+	  ticks: {
+	    autoSkip: false
+	  },
+	  xAxes: [{
+	    beginAtZero: true,
+	    ticks: {
+	      beginAtZero: true,
+	      autoSkip: false
+	      /* maxRotation: 90*/
+	    },
+	  }],
+          yAxes: [{
+            beginAtZero:true,
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        }
+      }
+    });
+    
+  });
+</script>
+
+</body>
+
+</html>
