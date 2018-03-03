@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Variant effect predictions - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Variant effect predictions";
+    var mkdocs_page_input_path = "using/02_Variant_effect_prediction.md";
+    var mkdocs_page_url = "/using/02_Variant_effect_prediction/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../01_Getting_started/">Getting started</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Variant effect predictions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#using-variant-effect-prediction">Using variant effect prediction</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#variant-effect-prediction-in-python">Variant effect prediction in python</a></li>
+        
+            <li><a class="toctree-l4" href="#using-the-command-line-interface">Using the command line interface</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Using &raquo;</li>
+        
+      
+    
+    <li>Variant effect predictions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/using/02_Variant_effect_prediction.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="using-variant-effect-prediction">Using variant effect prediction</h1>
+<p>This chapter describes how to run variant prediction using a model in the zoo either using the python functionality or using the command line. A prerequesite is that the model is compatible with variant effect prediction (see: Variant effect prediction prerequesites for the model.yaml and dataloader.yaml)</p>
+<h2 id="variant-effect-prediction-in-python">Variant effect prediction in python</h2>
+<p>Using variant effect prediction within python allows more flexibility in the finegrain details compared to using the command line interface. The core function of variant effect prediction is <code>predict_snvs</code>, which on the one hand requires a model with its dataloader as well as a valid VCF.</p>
+<p>The easiest way to run variant effect prediction is the following:</p>
+<pre><code class="python">import kipoi.postprocessing.snv_predict as sp
+from kipoi.postprocessing import kipoi VcfWriter
+from kipoi.postprocessing.variant_effects import Diff
+
+model = kipoi.get_model(&quot;my_model_name&quot;)
+
+Dataloader = kipoi.get_dataloader_factory(model_dir, source=&quot;dir&quot;)
+
+dataloader_arguments = {...}
+
+vcf_path = &quot;path/to/my_vcf.vcf&quot;
+out_vcf_fpath = &quot;path/to/my_annotated_vcf.vcf&quot;
+
+writer = VcfWriter(model, vcf_path, out_vcf_fpath)
+
+sp.predict_snvs(model, Dataloader, vcf_path, batch_size = 32,
+                      dataloader_args=dataloader_arguments,
+                      evaluation_function_kwargs={'diff_types': {'diff': Diff()}},
+                      sync_pred_writer=writer)
+</code></pre>
+
+<p>Where <code>model</code> is a kipoi model - replace <code>my_model_name</code> by a valid model name and <code>Dataloader</code> is a dataloader factory that fits to the model. <code>dataloader_arguments</code> contains all the kwargs that are necessary to run the dataloader. In <code>vcf_path</code> the path to a valid VCF has to be set. Coordinates have to match the genome / assembly etc. of the raw input files used by the dataloader. In order to generate an output VCF the <code>VcfWriter</code> class is used. For it work it needs to be initialised with the model object, the inpput VCF path and the path where the annotated VCF should be stored. The last missing element that has to be set is the scoring function. This is the function that defines how to compare reference with alternative predictions of the model. For details on the different scoring methods please take a look at the detailed explanation of variant effect prediction or the API defintion.</p>
+<p>The above code will run the dataloader based with <code>dataloader_arguments</code> and try to overlap the input VCF with the sequences generated by the dataloader. Then the predicitons are compared using whichever scoring functions ae defined in <code>evaluation_function_kwargs</code>. The results are then stored in the output VCF using the <code>writer</code> object.</p>
+<h3 id="model-info-extractor">Model info extractor</h3>
+<p>The model info extractor class which will be used for further fine-grain control of variant effect prediction. It encapsulates functionality to extract model configuration and setup, such as input sequence length of the model, ability to handle reverse complement sequences and much more. It is instaciated as follows and its objects are then used as arguments to other functions and classes:</p>
+<pre><code>from kipoi.postprocessing import ModelInfoExtractor
+model_info = ModelInfoExtractor(model, Dataloader)
+</code></pre>
+
+<h3 id="variant-centered-effect-prediction">Variant-centered effect prediction</h3>
+<p>In the above example the regions were defined by the dataloader arguments, but if the dataloader supports bed file input (see dataloader.yaml definition for variant effect prediction) then the <code>SnvCenteredRg</code> class can generate a temporary bed file using a VCF and information on the required input sequence length from the model.yaml which is extracted by the <code>ModelInfoExtractor</code> instance <code>model_info</code>:</p>
+<pre><code class="python">from kipoi.postprocessing import SnvCenteredRg
+vcf_to_region = SnvCenteredRg(model_info)
+</code></pre>
+
+<p>The resulting <code>vcf_to_region</code> object can then be used as the <code>vcf_to_region</code> argument when calling <code>predict_snvs</code>.</p>
+<h3 id="restricted-variant-centered-effect-prediction">Restricted variant-centered effect prediction</h3>
+<p>This funcionality is similar to variant-centered effect prediction - the only difference is that this function is designed for models that can't predict on arbitrary regions of the genome, but only in certain regions of the genome. If those regions can be defined in a bed file (further on called 'restriction-bed' file) then this approach can be used. Variant effect prediction will then intersect the VCF with the restriction-bed and generate another bed file that is then passed on to the dataloader. Regions in the restriction-bed file may be larger than the input sequence lenght, in that case the generated seuqence will be centered on the variant position as much as possible - restricted by what is defined in the restrictions-bed file. The <code>SnvPosRestrictedRg</code> class can generate a temporary bed file using a VCF, the restrictions-bed file (<code>restricted_regions_fpath</code> in the example below) and information on the required input sequence length from the model.yaml which is extracted by the <code>ModelInfoExtractor</code> instance <code>model_info</code>:</p>
+<pre><code class="python">from kipoi.postprocessing import SnvPosRestrictedRg
+import pybedtools as pb
+
+pbd = pb.BedTool(restricted_regions_fpath)
+vcf_to_region = SnvPosRestrictedRg(model_info, pbd)
+</code></pre>
+
+<p>The resulting <code>vcf_to_region</code> object can then be used as the <code>vcf_to_region</code> argument when calling <code>predict_snvs</code>.</p>
+<h3 id="scoring-functions">Scoring functions</h3>
+<p>Scoring functions perform calculations on the model predictions for the reference and alternative sequences. Default scoring functions are: <code>Logit</code>, <code>LogitAlt</code>, <code>LogitRef</code>, <code>Diff</code>, <code>DeepSEA_effect</code>. These functions are described in more detail in the variant effect prediction pages.</p>
+<p>These and custom scoring functions can be used by setting the <code>evaluation_function_kwargs</code> accoringly, for example:
+<code>{'diff_types': {'diff': Diff()}}</code> which was used before defines that <code>diff_types</code>, a.k.a. scoring function contains a dictionary with scoring function labels as keys and callable scoring functions as values. In the example above only the scoring function <code>Diff</code> will be used, which is initialised with its default parameters. It is assigned the label <code>diff</code>. This label is then used in the annotated VCF and in the <code>predict_snvs</code> return dictionary, details see below. If a custom scoring function should be defined it has to be a subclass of <code>Rc_merging_pred_analysis</code>.</p>
+<h4 id="fine-tuning-scoring-functions">Fine-tuning scoring functions</h4>
+<p>The default scoring functions (<code>Logit</code>, <code>LogitAlt</code>, <code>LogitRef</code>, <code>Diff</code>, <code>DeepSEA_effect</code>) offer different options on how the forward and the reverse complement sequences are merged together. They have an <code>rc_merging</code> argument which can be <code>"min"</code>, <code>"max"</code>, <code>"mean"</code>, <code>"median"</code> or <code>"absmax"</code>. So if the maximum between forward and reverse complement sequences for the alt-ref prediction differences should be returned, then the <code>evaluation_function_kwargs</code> argument would be: <code>{'diff_types': {'diff': Diff('max')}}</code>. By default <code>"mean"</code> is used.</p>
+<h3 id="saving-mutated-sequence-sets-to-a-file">Saving mutated sequence sets to a file</h3>
+<p>A feature that is only available in using the python functions is to save the mutated sequence sets in a file. This can be useful for quality control or if a non-deeplearning model outside the model zoo should be run using the same data. For those cases instances of the <code>SyncHdf5SeqWriter</code> can be used. If they are passed to <code>predict_snvs</code> as the argument <code>generated_seq_writer</code> then the respective sequences are written to a file. Keep in mind that when defining a <code>generated_seq_writer</code> then no actual effect prediction is performed, but only the reference/alternative sequence sets are generated and saved.</p>
+<h3 id="return-predictions">Return predictions</h3>
+<p>By default effect predicions are not kept in memory, but only written to the output VCF to ensure a low memory profile. By setting the parameter <code>return_predictions = True</code> in <code>predict_snvs</code> the effect predictions are accumulated in memory and the results are returned as a dictionary of DataFrames, where the keys are the labels of the used scoring functions and the DataFrames have the shape (number effect predictions, number of output tasks of the model).</p>
+<h2 id="using-the-command-line-interface">Using the command line interface</h2>
+<p>Similar to <code>kipoi predict</code> variant effect prediction can be run by executing:</p>
+<pre><code class="shell">kipoi postproc score_variants my_model_name \
+    --dataloader_args '{...}' \
+    --vcf_path path/to/my_vcf.vcf \
+    --out_vcf_fpath path/to/my_annotated_vcf.vcf
+</code></pre>
+
+<p>Exceptions are that if the dataloader of the model allows the definition of a bed input file, then the respective field in the <code>--dataloader_args</code> JSON will be replaced by a bad file that consists in regions that are centered on the variant position. That is, if in the dataloader.yaml file of the respective model the <code>bed_input</code> flag is set then the respective argument in the <code>--dataloader_args</code> will be overwritten.</p>
+<h3 id="scoring-functions_1">Scoring functions</h3>
+<p>Scoring functions perform calculations on the model predictions for the reference and alternative sequences. Default scoring functions are: <code>logit</code>, <code>logit_alt</code>, <code>logit_ref</code>, <code>diff</code>, <code>deepsea_scr</code>. These functions are described in more detail in the variant effect prediction pages.</p>
+<p>Given a model is compatible with said scoring functions one or more of those can be selected by using the <code>--scoring</code> argument, e.g.: <code>--scoring diff logit</code>. The model.yaml file defines which scoring functions are available for a model, with the exception that the <code>diff</code> scoring function is available for all models. In the model.yaml also additional custom scoring functions can be defined, for details on please see the variant effect prediction pages. The labels by which the different scoring functions are made available can also be defined in the model.yaml file using the <code>name</code> tag.</p>
+<h4 id="fine-tuning-scoring-functions_1">Fine-tuning scoring functions</h4>
+<p>Scoring functions may have or may even require arguments at instantiation. Those arguments can be passed as JSON dictionaries to scoring functions by using the <code>--scoring_kwargs</code> argument. If <code>--scoring_kwargs</code> is used then for every label set in <code>--scoring</code> there must be a <code>--scoring_kwargs</code> JSON in the exact same order. If the degault values should be used or no arguments are required then an empty dictionary (<code>{}</code>) can be used. For example: <code>--scoring diff my_scr --scoring_kwargs '{}' '{my_arg:2}'</code> will use <code>diff</code> with the default parameters and will instantiate <code>my_scr(my_arg=2)</code>.</p>
+<p>The default scoring functions (<code>logit</code>, <code>logit_alt</code>, <code>logit_ref</code>, <code>diff</code>, <code>deepsea_scr</code>) offer different options on how the forward and the reverse complement sequences are merged together. They have an <code>rc_merging</code> argument which can be <code>"min"</code>, <code>"max"</code>, <code>"mean"</code>, <code>"median"</code> or <code>"absmax"</code>. So if the maximum between forward and reverse complement sequences for the alt-ref prediction differences should be returned, then the command would be: <code>--scoring diff --scoring_kwargs '{rc_merging:"max"}'</code>. By default <code>rc_merging</code> is set to <code>"mean"</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../03_Model_sources/" class="btn btn-neutral float-right" title="Private and public model sources">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../01_Getting_started/" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../01_Getting_started/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../03_Model_sources/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

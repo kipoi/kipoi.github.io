@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Dataloader - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dataloader";
+    var mkdocs_page_input_path = "api/dataloader.md";
+    var mkdocs_page_url = "/api/dataloader/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../model/">Model</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Dataloader</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#dataloader">Dataloader</a></li>
+    
+
+    <li class="toctree-l3"><a href="#available-dataloaders">Available dataloaders</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#dataset">Dataset</a></li>
+        
+            <li><a class="toctree-l4" href="#batchdataset">BatchDataset</a></li>
+        
+            <li><a class="toctree-l4" href="#sampleiterator">SampleIterator</a></li>
+        
+            <li><a class="toctree-l4" href="#batchiterator">BatchIterator</a></li>
+        
+            <li><a class="toctree-l4" href="#get_dataloader_factory">get_dataloader_factory</a></li>
+        
+            <li><a class="toctree-l4" href="#preloadeddataset">PreloadedDataset</a></li>
+        
+            <li><a class="toctree-l4" href="#samplegenerator">SampleGenerator</a></li>
+        
+            <li><a class="toctree-l4" href="#batchgenerator">BatchGenerator</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api &raquo;</li>
+        
+      
+    
+    <li>Dataloader</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/api/dataloader.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="dataloader">Dataloader</h2>
+<ul>
+<li>[ ] What args does dataloader have</li>
+<li>[ ] How do the fields relate to the yaml file</li>
+</ul>
+<h2 id="available-dataloaders">Available dataloaders</h2>
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L147">[source]</a></span></p>
+<h3 id="dataset">Dataset</h3>
+<pre><code class="python">kipoi.data.Dataset()
+</code></pre>
+
+<p>An abstract class representing a Dataset.</p>
+<p>All other datasets should subclass it. All subclasses should override
+<code>__len__</code>, that provides the size of the dataset, and <code>__getitem__</code>,
+supporting integer indexing in range from 0 to len(self) exclusive.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L212">[source]</a></span></p>
+<h3 id="batchdataset">BatchDataset</h3>
+<pre><code class="python">kipoi.data.BatchDataset()
+</code></pre>
+
+<p>An abstract class representing a BatchDataset.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L258">[source]</a></span></p>
+<h3 id="sampleiterator">SampleIterator</h3>
+<pre><code class="python">kipoi.data.SampleIterator()
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L288">[source]</a></span></p>
+<h3 id="batchiterator">BatchIterator</h3>
+<pre><code class="python">kipoi.data.BatchIterator()
+</code></pre>
+
+<hr />
+<h3 id="get_dataloader_factory">get_dataloader_factory</h3>
+<pre><code class="python">get_dataloader_factory(dataloader, source='kipoi')
+</code></pre>
+
+<hr />
+<h3 id="preloadeddataset">PreloadedDataset</h3>
+<pre><code class="python">PreloadedDataset(self)
+</code></pre>
+
+<p>Generated by supplying a function returning the full dataset.</p>
+<p>The full dataset is a nested (list/dict) python structure of numpy arrays
+with the same first axis dimension.</p>
+<hr />
+<h3 id="samplegenerator">SampleGenerator</h3>
+<pre><code class="python">SampleGenerator(self)
+</code></pre>
+
+<p>Transform a generator of samples into SampleIterator</p>
+<hr />
+<h3 id="batchgenerator">BatchGenerator</h3>
+<pre><code class="python">BatchGenerator(self)
+</code></pre>
+
+<p>Transform a generator of batches into BatchIterator</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pipeline/" class="btn btn-neutral float-right" title="Pipeline">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../model/" class="btn btn-neutral" title="Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../model/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../pipeline/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

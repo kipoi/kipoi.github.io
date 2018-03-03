@@ -1,1 +1,432 @@
-docs
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation of Kipoi, model zoo for genomics.">
+  
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>Home - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  <link href="./css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#kipoi-model-zoo-for-genomics">Kipoi: model zoo for genomics</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#quick-start">Quick start</a></li>
+        
+            <li><a class="toctree-l3" href="#postprocessing">Postprocessing</a></li>
+        
+            <li><a class="toctree-l3" href="#documentation">Documentation</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="tutorials/contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="tutorials/python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="tutorials/R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="tutorials/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="tutorials/composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <!-- <div align="center"> -->
+
+<!--     <img src="img/concise_logo_text.jpg" alt="Concise logo" height="64" width="64"> -->
+
+<!-- </div> -->
+
+<h1 id="kipoi-model-zoo-for-genomics">Kipoi: model zoo for genomics</h1>
+<h2 id="installation">Installation</h2>
+<h3 id="1-install-minicondaanaconda">1. Install miniconda/anaconda</h3>
+<p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
+Make sure you have either anaconda (<a href="https://conda.io/miniconda.html">download page</a>) or miniconda (<a href="https://www.anaconda.com/download/">download page</a>) installed.</p>
+<h3 id="2-install-git-lfs">2. Install Git LFS</h3>
+<p>For downloading models, Kipoi uses <a href="https://git-lfs.github.com/">Git Large File Storage</a> (LFS). To install it on Ubuntu, run:</p>
+<pre><code class="bash"># on Ubuntu
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install -y git-lfs
+git-lfs install
+</code></pre>
+
+<p>Alternatively, install it through conda:</p>
+<pre><code class="bash">conda install -c conda-forge git-lfs 
+</code></pre>
+
+<h3 id="3-install-kipoi">3. Install Kipoi</h3>
+<p>Next, install Kipoi using <a href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<pre><code class="bash">pip install kipoi
+</code></pre>
+
+<h4 id="development">Development</h4>
+<p>If you wish to develop <code>kipoi</code>, run instead:</p>
+<pre><code class="bash">conda install pytorch-cpu
+pip install -e '.[develop]'
+</code></pre>
+
+<p>This will install some additional packages like <code>pytest</code>. You can test the package by running <code>py.test</code>. </p>
+<p>If you wish to run tests in parallel, run <code>py.test -n 6</code>.</p>
+<h2 id="quick-start">Quick start</h2>
+<p><img src="docs/theme_dir/img/kipoi-workflow.png" height=400></p>
+<h3 id="python">Python</h3>
+<p>List available models</p>
+<pre><code class="python">import kipoi
+
+kipoi.list_models()
+</code></pre>
+
+<p>Load the model from model source or local directory</p>
+<pre><code class="python"># Load the model from github.com/kipoi/models/rbp
+model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;, source=&quot;kipoi&quot;) # source=&quot;kipoi&quot; is the default
+
+# Load the model from a local directory
+model = kipoi.get_model(&quot;~/mymodels/rbp&quot;, source=&quot;dir&quot;)  
+# Note: Custom model sources are defined in ~/.kipoi/config.yaml
+</code></pre>
+
+<p>Main model attributes and methods</p>
+<pre><code class="python"># See the information about the author:
+model.info
+
+# Access the default dataloader
+model.default_dataloader
+
+# Access the Keras model
+model.model
+
+# Predict on batch - implemented by all the models regardless of the framework
+# (i.e. works with sklearn, Keras, tensorflow, ...)
+model.predict_on_batch(x)
+
+# Get predictions for the raw files
+# Kipoi runs: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; predictions 
+model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;inputs.csv&quot;})
+</code></pre>
+
+<p>Load the dataloader</p>
+<pre><code class="python">Dl = kipoi.get_dataloader_factory(&quot;rbp_eclip/UPF1&quot;) # returns a class that needs to be instantiated
+dl = Dl(dataloader_arg1=&quot;inputs.csv&quot;)  # Create/instantiate an object
+</code></pre>
+
+<p>Dataloader attributes and methods</p>
+<pre><code class="python"># batch_iter - common to all dataloaders
+# Returns an iterator generating batches of model-ready numpy.arrays
+it = dl.batch_iter(batch_size=32)
+out = next(it)  # {&quot;inputs&quot;: np.array, (optional) &quot;targets&quot;: np.arrays.., &quot;metadata&quot;: np.arrays...}
+
+# To get predictions, run
+model.predict_on_batch(out['inputs'])
+
+# load the whole dataset into memory
+dl.load_all()
+</code></pre>
+
+<p>Re-train the model</p>
+<pre><code class="python"># re-train example for Keras
+dl = Dl(dataloader_arg1=&quot;inputs.csv&quot;, targets_file=&quot;mytargets.csv&quot;)
+it_train = dl.batch_train_iter(batch_size=32)  
+# batch_train_iter is a convenience wrapper of batch_iter
+# yielding (inputs, targets) tuples indefinitely
+model.model.fit_generator(it_train, steps_per_epoch=len(dl)//32, epochs=10)
+</code></pre>
+
+<p>For more information see: <a href="./nbs/python-api.ipynb">nbs/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
+<h3 id="command-line">Command-line</h3>
+<pre><code>$ kipoi
+usage: kipoi &lt;command&gt; [-h] ...
+
+    # Kipoi model-zoo command line tool. Available sub-commands:
+    # - using models:
+    ls               List all the available models
+    predict          Run the model prediction
+    pull             Download the directory associated with the model
+    preproc          Run the dataloader and save the results to an hdf5 array
+    postproc         Tools for model postprocessing like variant effect prediction
+    env              Tools for managing Kipoi conda environments
+
+    # - contribuing models:
+    init             Initialize a new Kipoi model
+    test             Runs a set of unit-tests for the model
+    test-source      Runs a set of unit-tests for many/all models in a source
+</code></pre>
+
+<p>Explore the CLI usage by running <code>kipoi &lt;command&gt; -h</code>. Also, see <a href="http://kipoi.org/docs/using/01_Getting_started/#command-line-interface-quick-start">docs/using/getting started cli</a> for more information.</p>
+<h3 id="configure-kipoi-in-kipoiconfigyaml">Configure Kipoi in <code>.kipoi/config.yaml</code></h3>
+<p>Setup your preference in: <code>.kipoi/config.yaml</code></p>
+<p>You can add your own model sources. See <a href="http://kipoi.org/docs/using/03_Model_sources/">docs/using/03_Model_sources/</a> for more information.</p>
+<h3 id="contributing-models">Contributing models</h3>
+<p>See <a href="http://kipoi.org/docs/contributing/01_Getting_started/">docs/contributing getting started</a> and <a href="http://kipoi.org/docs/tutorials/contributing_models/">docs/tutorials/contributing/models</a> for more information.</p>
+<h2 id="postprocessing">Postprocessing</h2>
+<h3 id="snv-effect-prediction">SNV effect prediction</h3>
+<p>Functionality to predict the effect of SNVs is available in the API as well as in the command line interface. The input
+is a VCF which can then be annotated with effect predictions and returned in the process. For more details on the requirements for the models and
+ dataloaders please check <a href="http://kipoi.org/docs/using/02_Variant_effect_prediction/">docs/using/02_Variant_effect_prediction</a></p>
+<h2 id="documentation">Documentation</h2>
+<p>Documentation can be found here: <a href="http://kipoi.org/docs">kipoi.org/docs</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using/01_Getting_started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="using/01_Getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.17.2
+Build Date UTC : 2018-03-03 15:16:07
+-->

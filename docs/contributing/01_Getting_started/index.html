@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Getting started - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Getting started";
+    var mkdocs_page_input_path = "contributing/01_Getting_started.md";
+    var mkdocs_page_url = "/contributing/01_Getting_started/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Getting started</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#contributing-models-getting-started">Contributing models - Getting started</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#required-steps">Required steps</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-write-the-model">How to write the model</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-test-the-model">How to test the model</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Contributing &raquo;</li>
+        
+      
+    
+    <li>Getting started</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/contributing/01_Getting_started.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="contributing-models-getting-started">Contributing models - Getting started</h2>
+<p>Kipoi stores models (descriptions, parameter files, dataloader code, ...) as folders in the <a href="https://github.com/kipoi/models">kipoi/models</a> github repository. Files residing in folders with a suffix of <code>_files</code> are tracked via Git Large File Storage (LFS). New models are added by simply submitting a pull-request to <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a>.</p>
+<h3 id="required-steps">Required steps</h3>
+<p>Here is a list of steps required to contribute a model to <a href="https://github.com/kipoi/models">kipoi/models</a>:</p>
+<h4 id="1-install-kipoi">1. Install Kipoi</h4>
+<ol>
+<li>Install git-lfs<ul>
+<li><code>conda install -c conda-forge git-lfs</code> (alternatively see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>)</li>
+</ul>
+</li>
+<li>Install kipoi<ul>
+<li><code>pip install kipoi</code></li>
+</ul>
+</li>
+<li>Run <code>kipoi ls</code> (this will checkout the <code>kipoi/models</code> repo to <code>~/.kipoi/models</code>)</li>
+</ol>
+<h4 id="2-add-the-model">2. Add the model</h4>
+<ol>
+<li><code>cd ~/.kipoi/models</code></li>
+<li><a href="#how-to-write-the-model">Write the model</a>: Create a new folder <code>&lt;my new model&gt;</code> containing all the required files<ul>
+<li>Option 1: Copy the existing model: <code>cp -R &lt;existing model&gt; &lt;my new model&gt;</code> &amp; edit the copied files</li>
+<li>Option 2: Run <code>kipoi init</code>, answer the questions &amp; edit the created files</li>
+<li>Option 3: <code>mkdir &lt;my new model&gt;</code> &amp; write all the files from scratch</li>
+</ul>
+</li>
+<li><a href="#how-to-test-the-model">Test the model</a><ul>
+<li>Step 1: <code>kipoi test ~/.kipoi/models/my_new_model</code></li>
+<li>Step 2: <code>kipoi test-source kipoi --all -k my_new_model</code></li>
+</ul>
+</li>
+<li>Commit your changes<ul>
+<li><code>cd ~/.kipoi/models &amp;&amp; git commit -m "Added &lt;my new model&gt;"</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="3-submit-the-pull-request">3. Submit the pull-request</h4>
+<ol>
+<li><a href="https://guides.github.com/activities/forking/">Fork</a> the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repo on github (click on the Fork button)</li>
+<li>Add your fork as a git remote to <code>~/.kipoi/models</code><ul>
+<li><code>cd ~/.kipoi/models &amp;&amp; git remote add fork https://github.com/&lt;username&gt;/models.git</code></li>
+</ul>
+</li>
+<li>Push to your fork<ul>
+<li><code>git push fork master</code></li>
+</ul>
+</li>
+<li>Submit a pull-request (click the <a href="https://help.github.com/articles/creating-a-pull-request/">New pull request</a> button on your github fork - <code>https://github.com/&lt;username&gt;/models&gt;</code>)</li>
+</ol>
+<p>Rest of this document will go more into the details about steps writing the model and testing the model.</p>
+<h3 id="how-to-write-the-model">How to write the model</h3>
+<p>Best place to start figuring out which files you need to contribute is to look at some of the existing models. Explore the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repository and see if there are any models similar to yours (in terms of the dependencies, framework, input-output data modalities). See <a href="../../tutorials/contributing_models">tutorials/contributing_models</a> for a step-by-step procedure for contributing models.</p>
+<h4 id="option-1-copy-existing-model">Option #1: Copy existing model</h4>
+<p>Once you have found the closest match, simply copy the directory and start editing/replacing the files. Edit the files in this order:</p>
+<ul>
+<li>model.yaml</li>
+<li>dataloader.yaml</li>
+<li>dataloader.py</li>
+<li>overwrite files in <code>model_files/</code></li>
+<li><code>example_files/</code></li>
+<li>LICENSE</li>
+</ul>
+<h4 id="option-2-use-kipoi-init">Option #2: Use <code>kipoi init</code></h4>
+<p>Alternatively, you can use <code>kipoi init</code> instead of copying the existing model:</p>
+<pre><code class="bash">cd ~/.kipoi/models &amp;&amp; kipoi init
+</code></pre>
+
+<p>This will ask you a few questions and create a new model folder.</p>
+<pre><code class="bash">$ kipoi init
+INFO [kipoi.cli.main] Initializing a new Kipoi model
+
+Please answer the questions bellow. Defaults are shown in square brackets.
+
+You might find the following links useful: 
+- (model_type) https://github.com/kipoi/kipoi/blob/master/docs/writing_models.md
+- (dataloader_type) https://github.com/kipoi/kipoi/blob/master/docs/writing_dataloaders.md
+--------------------------------------------
+
+model_name [my_model]: my_new_model
+author_name [Your name]: Ziga Avsec
+author_github [Your github username]: avsecz
+author_email [Your email(optional)]: 
+model_doc [Model description]: Model predicting iris species
+Select model_license:
+1 - MIT
+2 - BSD
+3 - ISCL
+4 - Apache Software License 2.0
+5 - Not open source
+Choose from 1, 2, 3, 4, 5 [1]:  
+Select model_type:
+1 - keras
+2 - custom
+3 - sklearn
+Choose from 1, 2, 3 [1]: 1
+Select model_input_type:
+1 - np.array
+2 - list of np.arrays
+3 - dict of np.arrays
+Choose from 1, 2, 3 [1]: 2
+Select model_output_type:
+1 - np.array
+2 - list of np.arrays
+3 - dict of np.arrays
+Choose from 1, 2, 3 [1]: 3
+Select dataloader_type:
+1 - Dataset
+2 - PreloadedDataset
+3 - BatchDataset
+4 - SampleIterator
+5 - SampleGenerator
+6 - BatchIterator
+7 - BatchGenerator
+Choose from 1, 2, 3, 4, 5, 6, 7 [1]: 1
+--------------------------------------------
+INFO [kipoi.cli.main] Done!
+Created the following folder into the current working directory: my_new_model
+</code></pre>
+
+<p>The created folder contains a model and a dataloader for predicting the Iris species. You can check if the tests pass for this newly created folder by running the comands bellow.</p>
+<h3 id="how-to-test-the-model">How to test the model</h3>
+<h4 id="step-1-run-kipoi-test-kipoimodelsmy_new_model">Step 1: Run <code>kipoi test ~/.kipoi/models/my_new_model</code></h4>
+<!-- To make sure this work as you expect, test your model by running: -->
+
+<!-- ```bash -->
+
+<!-- kipoi test ~/.kipoi/models/my_new_model -->
+
+<!-- ``` -->
+
+<p>This checks the yaml files and runs <code>kipoi predict</code> for the example files (specified in <code>dataloader.yaml &gt; args &gt; my_arg &gt; example</code>). Once this command returns no errors or warnings proceed to the next step.</p>
+<h4 id="step-2-run-kipoi-test-source-kipoi-all-k-my_new_model">Step 2: Run <code>kipoi test-source kipoi --all -k my_new_model</code></h4>
+<!-- To also test that the conda environment for the model can be installed correctly, run: -->
+
+<!-- ```bash -->
+
+<!-- kipoi test-source kipoi --all -k my_new_model -->
+
+<!-- ``` -->
+
+<p>This will run <code>kipoi test</code> in a new conda environment with dependencies specified in <code>model.yaml</code> and <code>dataloader.yaml</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../02_Writing_model.yaml/" class="btn btn-neutral float-right" title="model.yaml">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../postprocessing/variant_effect_prediction/" class="btn btn-neutral" title="Variant effect prediction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../postprocessing/variant_effect_prediction/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../02_Writing_model.yaml/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Python API - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python API";
+    var mkdocs_page_input_path = "tutorials/python-api.md";
+    var mkdocs_page_url = "/tutorials/python-api/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../contributing_models/">Contributing models</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Python API</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#kipoi-python-api">Kipoi python API</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#quick-start">Quick start</a></li>
+        
+            <li><a class="toctree-l4" href="#list-of-main-commands">List of main commands</a></li>
+        
+            <li><a class="toctree-l4" href="#model">Model</a></li>
+        
+            <li><a class="toctree-l4" href="#dataloader_1">DataLoader</a></li>
+        
+            <li><a class="toctree-l4" href="#run-dataloader-on-some-examples">Run dataloader on some examples</a></li>
+        
+            <li><a class="toctree-l4" href="#pipeline-raw-files-dataloader-numpy-arrays-model-prediction">Pipeline: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; prediction</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Python API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/tutorials/python-api.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/nbs/python-api.ipynb">nbs/python-api.ipynb</a></p>
+<h1 id="kipoi-python-api">Kipoi python API</h1>
+<h2 id="quick-start">Quick start</h2>
+<p>There are three basic building blocks in kipoi:</p>
+<ul>
+<li><strong>Source</strong> - provides Models and DataLoaders.</li>
+<li><strong>Model</strong> - makes the prediction given the numpy arrays. </li>
+<li><strong>Dataloader</strong> - loads the data from raw files and transforms them into a form that is directly consumable by the Model</li>
+</ul>
+<p><img alt="img" src="../../img/kipoi-workflow.png" /></p>
+<h2 id="list-of-main-commands">List of main commands</h2>
+<ul>
+<li><code>kipoi.list_sources()</code></li>
+<li>
+<p><code>kipoi.get_source()</code></p>
+</li>
+<li>
+<p><code>kipoi.list_models()</code></p>
+</li>
+<li>
+<p><code>kipoi.list_dataloaders()</code></p>
+</li>
+<li>
+<p><code>kipoi.get_model()</code></p>
+</li>
+<li><code>kipoi.get_dataloader_factory()</code></li>
+</ul>
+<h3 id="source">Source</h3>
+<p>Available sources are specified in the config file located at: <code>~/.kipoi/config.yaml</code>. Here is an example config file:</p>
+<pre><code class="yaml">model_sources:
+    kipoi: # default
+        type: git-lfs # git repository with large file storage (git-lfs)
+        remote_url: git@github.com:kipoi/models.git # git remote
+        local_path: ~/.kipoi/models/ # local storage path
+    gl:
+        type: git-lfs  # custom model
+        remote_url: https://i12g-gagneurweb.informatik.tu-muenchen.de/gitlab/gagneurlab/model-zoo.git
+        local_path: /s/project/model-zoo
+</code></pre>
+
+<p>There are three different model sources possible: </p>
+<ul>
+<li><strong><code>git-lfs</code></strong> - git repository with source files tracked normally by git and all the binary files like model weights (located in <code>files*</code> directories) are tracked by <a href="https://git-lfs.github.com">git-lfs</a>. </li>
+<li>Requires <code>git-lfs</code> to be installed.</li>
+<li><strong><code>git</code></strong> - all the files including weights (not recommended)</li>
+<li><strong><code>local</code></strong> - local directory containing models defined in subdirectories</li>
+</ul>
+<p>For <strong><code>git-lfs</code></strong> source type, larger files tracked by <code>git-lfs</code> will be downloaded into the specified directory <code>local_path</code> only after the model has been requested (when invoking <code>kipoi.get_model()</code>).</p>
+<h4 id="note">Note</h4>
+<p>A particular model/dataloader is defined by its source (say <code>kipoi</code> or <code>my_git_models</code>) and the relative path of the desired model directory from the model source root (say <code>rbp/</code>).</p>
+<p>A directory is considered a model if it contains a <code>model.yaml</code> file.</p>
+<pre><code class="python">import kipoi
+</code></pre>
+
+<pre><code class="python">import warnings
+warnings.filterwarnings('ignore')
+
+import logging
+logging.disable(1000)
+</code></pre>
+
+<pre><code class="python">kipoi.list_sources()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source</th>
+      <th>type</th>
+      <th>location</th>
+      <th>local_size</th>
+      <th>n_models</th>
+      <th>n_dataloaders</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>kipoi</td>
+      <td>git-lfs</td>
+      <td>/home/avsec/.kipoi/mo...</td>
+      <td>8,6G</td>
+      <td>779</td>
+      <td>779</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">s = kipoi.get_source(&quot;kipoi&quot;)
+</code></pre>
+
+<pre><code class="python">s
+</code></pre>
+
+<pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/home/avsec/.kipoi/models/')
+</code></pre>
+<pre><code class="python">kipoi.list_models()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source</th>
+      <th>model</th>
+      <th>version</th>
+      <th>authors</th>
+      <th>doc</th>
+      <th>type</th>
+      <th>inputs</th>
+      <th>targets</th>
+      <th>license</th>
+      <th>cite_as</th>
+      <th>trained_on</th>
+      <th>training_procedure</th>
+      <th>tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>kipoi</td>
+      <td>DeepSEAKeras</td>
+      <td>0.1</td>
+      <td>[Author(name='Lara Ur...</td>
+      <td>This CNN is based on ...</td>
+      <td>keras</td>
+      <td>seq</td>
+      <td>TFBS_DHS_probs</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.10...</td>
+      <td>ENCODE and Roadmap Ep...</td>
+      <td>https://www.nature.co...</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>kipoi</td>
+      <td>extended_coda</td>
+      <td>0.1</td>
+      <td>[Author(name='Johnny ...</td>
+      <td>Single bp resolution ...</td>
+      <td>keras</td>
+      <td>[H3K27AC_subsampled]</td>
+      <td>[H3K27ac]</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.10...</td>
+      <td>Described in https://...</td>
+      <td>Described in https://...</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kipoi</td>
+      <td>DeepCpG_DNA/Hou2016_m...</td>
+      <td>1.0.4</td>
+      <td>[Author(name='Christo...</td>
+      <td>This is the extractio...</td>
+      <td>keras</td>
+      <td>[dna]</td>
+      <td>[cpg/mESC1, cpg/mESC2...</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.11...</td>
+      <td>scBS-seq and scRRBS-s...</td>
+      <td>Described in https://...</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>780</th>
+      <td>kipoi</td>
+      <td>CpGenie/SK_N_SH_ENCSR...</td>
+      <td>0.1</td>
+      <td>[Author(name='Haoyang...</td>
+      <td>Abstract: DNA methyla...</td>
+      <td>keras</td>
+      <td>seq</td>
+      <td>methylation_prob</td>
+      <td>Apache License v2</td>
+      <td>https://doi.org/10.10...</td>
+      <td>RRBS (restricted repr...</td>
+      <td>RMSprop</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>781</th>
+      <td>kipoi</td>
+      <td>CpGenie/SK_N_SH_ENCSR...</td>
+      <td>0.1</td>
+      <td>[Author(name='Haoyang...</td>
+      <td>Abstract: DNA methyla...</td>
+      <td>keras</td>
+      <td>seq</td>
+      <td>methylation_prob</td>
+      <td>Apache License v2</td>
+      <td>https://doi.org/10.10...</td>
+      <td>RRBS (restricted repr...</td>
+      <td>RMSprop</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>782</th>
+      <td>kipoi</td>
+      <td>CpGenie/HEK293_ENCSR0...</td>
+      <td>0.1</td>
+      <td>[Author(name='Haoyang...</td>
+      <td>Abstract: DNA methyla...</td>
+      <td>keras</td>
+      <td>seq</td>
+      <td>methylation_prob</td>
+      <td>Apache License v2</td>
+      <td>https://doi.org/10.10...</td>
+      <td>RRBS (restricted repr...</td>
+      <td>RMSprop</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+<p>779 rows × 13 columns</p>
+</div>
+
+<h2 id="model">Model</h2>
+<p>Let's choose to use the <code>rbp_eclip/UPF1</code> model from kipoi</p>
+<pre><code class="python"># Note. Install all the dependencies for that model using
+# kipoi env install 
+model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
+</code></pre>
+
+<h3 id="available-fields">Available fields:</h3>
+<h4 id="model_1">Model</h4>
+<ul>
+<li>type</li>
+<li>args</li>
+<li>info</li>
+<li>authors</li>
+<li>name</li>
+<li>version</li>
+<li>tags</li>
+<li>doc</li>
+<li>schema</li>
+<li>inputs</li>
+<li>targets</li>
+<li>
+<p>default_dataloader - loaded dataloader class</p>
+</li>
+<li>
+<p>predict_on_batch()</p>
+</li>
+<li>source</li>
+<li>source_dir</li>
+<li>pipeline</li>
+<li>predict()</li>
+<li>predict_example()</li>
+<li>predict_generator()</li>
+</ul>
+<h4 id="dataloader">Dataloader</h4>
+<ul>
+<li>type</li>
+<li>defined_as</li>
+<li>args</li>
+<li>info (same as for the model)</li>
+<li>output_schema</li>
+<li>inputs</li>
+<li>targets</li>
+<li>
+<p>metadata</p>
+</li>
+<li>
+<p>source</p>
+</li>
+<li>source_dir</li>
+<li>example_kwargs</li>
+<li>init_example()</li>
+<li>batch_iter()</li>
+<li>batch_train_iter()</li>
+<li>batch_predict_iter()</li>
+<li>load_all()</li>
+</ul>
+<pre><code class="python">model
+</code></pre>
+
+<pre><code>&lt;kipoi.model.KerasModel at 0x7f60ef774dd8&gt;
+</code></pre>
+<pre><code class="python">model.type
+</code></pre>
+
+<pre><code>'keras'
+</code></pre>
+<h3 id="info">Info</h3>
+<pre><code class="python">model.info
+</code></pre>
+
+<pre><code>ModelInfo(authors=[Author(name='Ziga Avsec', github='avsecz', email=None)], doc='\'RBP binding model from Avsec et al: "Modeling positional effects of regulatory sequences with spline transformations increases prediction accuracy of deep neural networks". \'
+</code></pre>
+<p>', name=None, version='0.1', license='MIT', tags=[], cite_as='https://doi.org/10.1093/bioinformatics/btx727', trained_on='RBP occupancy peaks measured by eCLIP-seq (Van Nostrand et al., 2016 - https://doi.org/10.1038/nmeth.3810), https://github.com/gagneurlab/Manuscript_Avsec_Bioinformatics_2017
+', training_procedure='Single task training with ADAM')</p>
+<pre><code class="python">model.info.version
+</code></pre>
+
+<pre><code>'0.1'
+</code></pre>
+<h3 id="schema">Schema</h3>
+<pre><code class="python">dict(model.schema.inputs)
+</code></pre>
+
+<pre><code>{'dist_exon_intron': ArraySchema(shape=(1, 10), doc='Distance the nearest exon_intron (splice donor) site transformed with B-splines', name='dist_exon_intron', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_gene_end': ArraySchema(shape=(1, 10), doc='Distance the nearest gene end transformed with B-splines', name='dist_gene_end', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_gene_start': ArraySchema(shape=(1, 10), doc='Distance the nearest gene start transformed with B-splines', name='dist_gene_start', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_intron_exon': ArraySchema(shape=(1, 10), doc='Distance the nearest intron_exon (splice acceptor) site transformed with B-splines', name='dist_intron_exon', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_polya': ArraySchema(shape=(1, 10), doc='Distance the nearest Poly-A site transformed with B-splines', name='dist_polya', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_start_codon': ArraySchema(shape=(1, 10), doc='Distance the nearest start codon transformed with B-splines', name='dist_start_codon', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_stop_codon': ArraySchema(shape=(1, 10), doc='Distance the nearest stop codon transformed with B-splines', name='dist_stop_codon', special_type=None, associated_metadata=[], column_labels=None),
+ 'dist_tss': ArraySchema(shape=(1, 10), doc='Distance the nearest TSS site transformed with B-splines', name='dist_tss', special_type=None, associated_metadata=[], column_labels=None),
+ 'seq': ArraySchema(shape=(101, 4), doc='One-hot encoded RNA sequence', name='seq', special_type=&lt;ArraySpecialType.DNASeq: 'DNASeq'&gt;, associated_metadata=[], column_labels=None)}
+</code></pre>
+<pre><code class="python">model.schema.targets
+</code></pre>
+
+<pre><code>ArraySchema(shape=(1,), doc='Predicted binding strength', name=None, special_type=None, associated_metadata=[], column_labels=None)
+</code></pre>
+<h3 id="default-dataloader">Default dataloader</h3>
+<p>Model already has the default dataloder present. To use it, specify</p>
+<pre><code class="python">model.source_dir
+</code></pre>
+
+<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
+</code></pre>
+<pre><code class="python">model.default_dataloader
+</code></pre>
+
+<pre><code>dataloader.SeqDistDataset
+</code></pre>
+<pre><code class="python">model.default_dataloader.info
+</code></pre>
+
+<pre><code>Info(authors=[Author(name='Ziga Avsec', github='avsecz', email=None)], doc='RBP binding prediction for UPF1 protein', name=None, version='0.1', license='MIT', tags=[])
+</code></pre>
+<h3 id="predict_on_batch">Predict_on_batch</h3>
+<pre><code class="python">model.predict_on_batch
+</code></pre>
+
+<pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x7f60ef774dd8&gt;&gt;
+</code></pre>
+<h3 id="pipeline">Pipeline</h3>
+<p>Pipeline object will take the dataloader arguments and run the whole pipeline:</p>
+<pre><code>dataloader arguments --Dataloader--&gt;  numpy arrays --Model--&gt; prediction
+</code></pre>
+
+<pre><code class="python">#model.pipeline.predict
+</code></pre>
+
+<pre><code class="python">#model.pipeline.predict_generator
+</code></pre>
+
+<h3 id="others">Others</h3>
+<pre><code class="python"># Model source
+model.source
+</code></pre>
+
+<pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/home/avsec/.kipoi/models/')
+</code></pre>
+<pre><code class="python"># model location directory
+model.source_dir
+</code></pre>
+
+<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
+</code></pre>
+<h2 id="dataloader_1">DataLoader</h2>
+<pre><code class="python">DataLoader = kipoi.get_dataloader_factory(&quot;rbp_eclip/UPF1&quot;)
+</code></pre>
+
+<pre><code class="python">?DataLoader
+</code></pre>
+
+<pre><code>[0;31mInit signature:[0m [0mDataLoader[0m[0;34m([0m[0mintervals_file[0m[0;34m,[0m [0mfasta_file[0m[0;34m,[0m [0mgtf_file[0m[0;34m,[0m [0mtarget_file[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0muse_linecache[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+[0;31mDocstring:[0m     
+Args:
+    intervals_file: file path; tsv file
+        Assumes bed-like `chrom start end id score strand` format.
+    fasta_file: file path; Genome sequence
+    gtf_file: file path; Genome annotation GTF file.
+    preproc_transformer: file path; tranformer used for pre-processing.
+    target_file: file path; path to the targets
+    batch_size: int
+[0;31mType:[0m           type
+</code></pre>
+<h2 id="run-dataloader-on-some-examples">Run dataloader on some examples</h2>
+<pre><code class="python"># each dataloader already provides the example files
+DataLoader.example_kwargs
+</code></pre>
+
+<pre><code>{'fasta_file': 'example_files/hg38_chr22.fa',
+ 'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf',
+ 'intervals_file': 'example_files/intervals.bed',
+ 'target_file': 'example_files/targets.tsv'}
+</code></pre>
+<pre><code class="python">import os
+</code></pre>
+
+<pre><code class="python"># cd into the source directory 
+os.chdir(DataLoader.source_dir)
+</code></pre>
+
+<pre><code class="python">!tree
+</code></pre>
+
+<pre><code>.
+├── custom_keras_objects.py -&gt; ../template/custom_keras_objects.py
+├── dataloader_files
+│   └── position_transformer.pkl
+├── dataloader.py -&gt; ../template/dataloader.py
+├── dataloader.yaml -&gt; ../template/dataloader.yaml
+├── example_files -&gt; ../template/example_files
+├── model_files
+│   └── model.h5
+├── model.yaml -&gt; ../template/model.yaml
+└── __pycache__
+    ├── custom_keras_objects.cpython-36.pyc
+    └── dataloader.cpython-36.pyc
+
+4 directories, 8 files
+</code></pre>
+<pre><code class="python">dl = DataLoader(**DataLoader.example_kwargs)
+# could be also done with DataLoader.init_example()
+</code></pre>
+
+<pre><code class="python"># This particular dataloader is of type Dataset
+# i.e. it implements the __getitem__ method:
+dl[0].keys()
+</code></pre>
+
+<pre><code>dict_keys(['inputs', 'targets', 'metadata'])
+</code></pre>
+<pre><code class="python">dl[0][&quot;inputs&quot;].keys()
+</code></pre>
+
+<pre><code>dict_keys(['seq', 'dist_tss', 'dist_polya', 'dist_exon_intron', 'dist_intron_exon', 'dist_start_codon', 'dist_stop_codon', 'dist_gene_start', 'dist_gene_end'])
+</code></pre>
+<pre><code class="python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
+</code></pre>
+
+<pre><code>array([[0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25]], dtype=float32)
+</code></pre>
+<pre><code class="python">len(dl)
+</code></pre>
+
+<pre><code>14
+</code></pre>
+<h3 id="get-the-whole-dataset">Get the whole dataset</h3>
+<pre><code class="python">whole_data = dl.load_all()
+</code></pre>
+
+<pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  7.59it/s]
+</code></pre>
+<pre><code class="python">whole_data.keys()
+</code></pre>
+
+<pre><code>dict_keys(['inputs', 'targets', 'metadata'])
+</code></pre>
+<pre><code class="python">whole_data[&quot;inputs&quot;][&quot;seq&quot;].shape
+</code></pre>
+
+<pre><code>(14, 101, 4)
+</code></pre>
+<h3 id="get-the-iterator-to-run-predictions">Get the iterator to run predictions</h3>
+<pre><code class="python">it = dl.batch_iter(batch_size=1, shuffle=False, num_workers=0, drop_last=False)
+</code></pre>
+
+<pre><code class="python">next(it)[&quot;inputs&quot;][&quot;seq&quot;].shape
+</code></pre>
+
+<pre><code>(1, 101, 4)
+</code></pre>
+<pre><code class="python">model.predict_on_batch(next(it)[&quot;inputs&quot;])
+</code></pre>
+
+<pre><code>array([[0.0005]], dtype=float32)
+</code></pre>
+<h3 id="train-the-keras-model">Train the Keras model</h3>
+<p>Keras model is stored under the <code>.model</code> attribute.</p>
+<pre><code class="python">model.model.compile(&quot;adam&quot;, &quot;binary_crossentropy&quot;)
+</code></pre>
+
+<pre><code class="python">train_it = dl.batch_train_iter(batch_size=2)
+</code></pre>
+
+<pre><code class="python"># model.model.summary()
+</code></pre>
+
+<pre><code class="python">model.model.fit_generator(train_it, steps_per_epoch=3, epochs=1)
+</code></pre>
+
+<pre><code>Epoch 1/1
+3/3 [==============================] - 1s 309ms/step - loss: 1.3466
+
+
+
+
+
+&lt;keras.callbacks.History at 0x7f6067500240&gt;
+</code></pre>
+<h2 id="pipeline-raw-files-dataloader-numpy-arrays-model-prediction">Pipeline: <code>raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; prediction</code></h2>
+<pre><code class="python">example_kwargs = model.default_dataloader.example_kwargs
+</code></pre>
+
+<pre><code class="python">model.pipeline.predict(example_kwargs)
+</code></pre>
+
+<pre><code>array([[0.1351],
+       [0.0005],
+       [0.0005],
+       [0.1351],
+       [0.1351],
+       [0.1351],
+       [0.0005],
+       [0.1351],
+       [0.1351],
+       [0.1351],
+       [0.1351],
+       [0.1351],
+       [0.1351],
+       [0.1351]], dtype=float32)
+</code></pre>
+<pre><code class="python">next(model.pipeline.predict_generator(example_kwargs, batch_size=2))
+</code></pre>
+
+<pre><code>array([[0.3588],
+       [0.0004]], dtype=float32)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../R-api/" class="btn btn-neutral float-right" title="R API">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../contributing_models/" class="btn btn-neutral" title="Contributing models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../contributing_models/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../R-api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Contributing models - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Contributing models";
+    var mkdocs_page_input_path = "tutorials/contributing_models.md";
+    var mkdocs_page_url = "/tutorials/contributing_models/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Contributing models</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#contributing-a-model-to-the-kipoi-model-repository">Contributing a model to the Kipoi model repository</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#kipoi-basics">Kipoi basics</a></li>
+        
+            <li><a class="toctree-l4" href="#contributing-a-simple-iris-classifier">Contributing a simple Iris-classifier</a></li>
+        
+            <li><a class="toctree-l4" href="#accessing-the-model-through-kipoi">Accessing the model through kipoi</a></li>
+        
+            <li><a class="toctree-l4" href="#recap">Recap</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Contributing models</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/tutorials/contributing_models.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/nbs/contributing_models.ipynb">nbs/contributing_models.ipynb</a></p>
+<h1 id="contributing-a-model-to-the-kipoi-model-repository">Contributing a model to the Kipoi model repository</h1>
+<p>This notebook will show you how to contribute a model to the <a href="https://github.com/kipoi/models">Kipoi model repository</a>. </p>
+<h2 id="kipoi-basics">Kipoi basics</h2>
+<p>Contributing a model to Kipoi means writing a sub-folder with all the required files to the <a href="https://github.com/kipoi/models">Kipoi model repository</a> via pull request.</p>
+<p>Two main components of the model repository are <strong>model</strong> and <strong>dataloader</strong>.</p>
+<p><img alt="img" src="../../img/kipoi-workflow.png" /></p>
+<h3 id="model">Model</h3>
+<p>Model takes as input numpy arrays and outputs numpy arrays. In practice, a model needs to implement the <code>predict_on_batch(x)</code> method, where <code>x</code> is dictionary/list of numpy arrays. The model contributor needs to provide one of the following:</p>
+<ul>
+<li>Serialized Keras model</li>
+<li>Serialized Sklearn model</li>
+<li>Custom model inheriting from <code>keras.model.BaseModel</code>.</li>
+<li>all the required files, i.e. weights need to be loaded in the <code>__init__</code></li>
+</ul>
+<p>See <a href="../docs/writing_models.md">../docs/writing_models.md</a> for more info.</p>
+<h3 id="dataloader">Dataloader</h3>
+<p>Dataloader takes raw file paths or other parameters as argument and outputs modelling-ready numpy arrays. The dataloading can be done through a generator---batch-by-batch, sample-by-sample---or by just returning the whole dataset. The goal is to work really with raw files (say fasta, bed, vcf, etc in bioinformatics), as this allows to make model predictions on new datasets without going through the burden of running custom pre-processing scripts. The model contributor needs to implement one of the following:</p>
+<ul>
+<li>PreloadedDataset</li>
+<li>Dataset</li>
+<li>BatchDataset</li>
+<li>SampleIterator</li>
+<li>BatchIterator</li>
+<li>SampleGenerator</li>
+<li>BatchGenerator</li>
+</ul>
+<p>See <a href="../docs/writing_dataloaders.md">../docs/writing_dataloaders.md</a> for more info.</p>
+<h3 id="folder-layout">Folder layout</h3>
+<p>Here is an example folder structure of a Kipoi model:</p>
+<pre><code>├── dataloader.py     # implements the dataloader
+├── dataloader.yaml   # describes the dataloader
+├── dataloader_files/      #/ files required by the dataloader
+│   ├── x_transfomer.pkl
+│   └── y_transfomer.pkl
+├── model.yaml        # describes the model
+├── model_files/           #/ files required by the model
+│   ├── model.json
+│   └── weights.h5
+└── example_files/         #/ small example files
+    ├── features.csv
+    └── targets.csv
+</code></pre>
+
+<p>Two most important files are <code>model.yaml</code> and <code>dataloader.yaml</code>. They provide a complete description about the model, the dataloader and the files they depend on.</p>
+<h2 id="contributing-a-simple-iris-classifier">Contributing a simple Iris-classifier</h2>
+<p>Details about the individual files will be revealed throught the tutorial bellow. A simple Keras model will be trained to predict the Iris plant class from the well-known <a href="../archive.ics.uci.edu/ml/datasets/Iris">Iris</a> dataset.</p>
+<h3 id="outline">Outline</h3>
+<ol>
+<li>Train the model</li>
+<li>Generate <code>dataloader_files/</code></li>
+<li>Generate <code>model_files/</code></li>
+<li>Generate <code>example_files/</code></li>
+<li>Write <code>model.yaml</code></li>
+<li>Write <code>dataloader.yaml</code></li>
+<li>Write <code>dataloader.py</code></li>
+<li>Test with the model with <code>$ kipoi test .</code></li>
+</ol>
+<h3 id="1-train-the-model">1. Train the model</h3>
+<h4 id="load-and-pre-process-the-data">Load and pre-process the data</h4>
+<pre><code class="python">import pandas as pd
+import os
+from sklearn.preprocessing import LabelBinarizer, StandardScaler
+
+from sklearn import datasets
+iris = datasets.load_iris()
+</code></pre>
+
+<pre><code class="python"># view more info about the dataset
+# print(iris[&quot;DESCR&quot;])
+</code></pre>
+
+<pre><code class="python"># Data pre-processing
+y_transformer = LabelBinarizer().fit(iris[&quot;target&quot;])
+x_transformer = StandardScaler().fit(iris[&quot;data&quot;])
+</code></pre>
+
+<pre><code class="python">x = x_transformer.transform(iris[&quot;data&quot;])
+y = y_transformer.transform(iris[&quot;target&quot;])
+</code></pre>
+
+<pre><code class="python">x[:3]
+</code></pre>
+
+<pre><code>array([[-0.9007,  1.0321, -1.3413, -1.313 ],
+       [-1.143 , -0.125 , -1.3413, -1.313 ],
+       [-1.3854,  0.3378, -1.3981, -1.313 ]])
+</code></pre>
+<pre><code class="python">y[:3]
+</code></pre>
+
+<pre><code>array([[1, 0, 0],
+       [1, 0, 0],
+       [1, 0, 0]])
+</code></pre>
+<h4 id="train-an-example-model">Train an example model</h4>
+<p>Let's train a simple linear-regression model using Keras.</p>
+<pre><code class="python">from keras.models import Model
+import keras.layers as kl
+
+inp = kl.Input(shape=(4, ), name=&quot;features&quot;)
+out = kl.Dense(units=3)(inp)
+model = Model(inp, out)
+model.compile(&quot;adam&quot;, &quot;categorical_crossentropy&quot;)
+
+model.fit(x, y, verbose=0)
+</code></pre>
+
+<pre><code>Using TensorFlow backend.
+
+
+
+
+
+&lt;keras.callbacks.History at 0x7f5c537f2d68&gt;
+</code></pre>
+<h3 id="2-generate-dataloader_files">2. Generate <code>dataloader_files/</code></h3>
+<p>Now that we have everything we need, let's start writing the files to model's directory (here <code>model_template/</code>). </p>
+<p>In reality, you would need to </p>
+<ol>
+<li>Fork the <a href="https://github.com/kipoi/models">kipoi/models repository</a></li>
+<li>Clone your repository fork, ignoring all the git-lfs files<ul>
+<li><code>$ git lfs clone git@github.com:&lt;your_username&gt;/models.git '-I /'</code></li>
+</ul>
+</li>
+<li>Create a new folder <code>&lt;mynewmodel&gt;</code> containing all the model files in the repostiory root<ul>
+<li>put all the non-code files (serialized models, test data) into a <code>*files/</code> directory, where <code>*</code> can be anything. These will namely be tracked by <code>git-lfs</code> instead of <code>git</code>.</li>
+<li>Examples: <code>model_files/</code>, <code>dataloader_files/</code></li>
+</ul>
+</li>
+<li>Test your repository locally:<ul>
+<li><code>$ kipoi test &lt;mynewmodel_folder&gt;</code></li>
+</ul>
+</li>
+<li>Commit, push to your forked remote and submit a pull request to <a href="https://github.com/kipoi/models">github.com/kipoi/models</a></li>
+</ol>
+<p>Dataloader can use some trained transformer (here the <code>LabelBinarizer</code> and <code>StandardScaler</code> transformers form sklearn). These should be written to <code>dataloader_files/</code>.</p>
+<pre><code class="python">cd ../examples/iris_model_template
+</code></pre>
+
+<pre><code>/data/nasif12/home_if12/avsec/projects-work/kipoi/examples/iris_model_template
+</code></pre>
+<pre><code class="python">os.makedirs(&quot;dataloader_files&quot;, exist_ok=True)
+</code></pre>
+
+<pre><code class="python">ls
+</code></pre>
+
+<pre><code>[0m[38;5;27mdataloader_files[0m/  dataloader.yaml  [38;5;27mmodel_files[0m/  [38;5;27m__pycache__[0m/
+dataloader.py      [38;5;27mexample_files[0m/   model.yaml
+</code></pre>
+<pre><code class="python">import pickle
+</code></pre>
+
+<pre><code class="python">with open(&quot;dataloader_files/y_transformer.pkl&quot;, &quot;wb&quot;) as f:
+    pickle.dump(y_transformer, f)
+
+with open(&quot;dataloader_files/x_transformer.pkl&quot;, &quot;wb&quot;) as f:
+    pickle.dump(x_transformer, f)
+</code></pre>
+
+<pre><code class="python">ls dataloader_files
+</code></pre>
+
+<pre><code>x_transformer.pkl  y_transformer.pkl
+</code></pre>
+<h3 id="3-generate-model_files">3. Generate <code>model_files/</code></h3>
+<p>The serialized model weights and architecture go to <code>model_files/</code>.</p>
+<pre><code class="python">os.makedirs(&quot;model_files&quot;, exist_ok=True)
+</code></pre>
+
+<pre><code class="python"># Architecture
+with open(&quot;model_files/model.json&quot;, &quot;w&quot;) as f:
+    f.write(model.to_json())
+</code></pre>
+
+<pre><code class="python"># Weights
+model.save_weights(&quot;model_files/weights.h5&quot;)
+</code></pre>
+
+<pre><code class="python"># Alternatively, for the scikit-learn model we would save the pickle file
+from sklearn.linear_model import LogisticRegression
+from sklearn.multiclass import OneVsRestClassifier
+lr = OneVsRestClassifier(LogisticRegression())
+lr.fit(x, y)
+
+with open(&quot;model_files/sklearn_model.pkl&quot;, &quot;wb&quot;) as f:
+    pickle.dump(lr, f)
+</code></pre>
+
+<h3 id="4-generate-example_files">4. Generate <code>example_files/</code></h3>
+<p><code>example_files/</code> should contain a small subset of the raw files the dataloader will read.</p>
+<h4 id="numpy-arrays-pddataframe">Numpy arrays -&gt; pd.DataFrame</h4>
+<pre><code class="python">iris.keys()
+</code></pre>
+
+<pre><code>dict_keys(['target_names', 'feature_names', 'data', 'DESCR', 'target'])
+</code></pre>
+<pre><code class="python">X = pd.DataFrame(iris[&quot;data&quot;][:20], columns=iris[&quot;feature_names&quot;])
+</code></pre>
+
+<pre><code class="python">X.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">y = pd.DataFrame({&quot;class&quot;: iris[&quot;target&quot;][:20]})
+</code></pre>
+
+<pre><code class="python">y.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 id="save-example-files">Save example files</h4>
+<pre><code class="python">os.makedirs(&quot;example_files&quot;, exist_ok=True)
+</code></pre>
+
+<pre><code class="python">X.to_csv(&quot;example_files/features.csv&quot;, index=False)
+</code></pre>
+
+<pre><code class="python">y.to_csv(&quot;example_files/targets.csv&quot;, index=False)
+</code></pre>
+
+<pre><code class="python">!head -n 2 example_files/targets.csv
+</code></pre>
+
+<pre><code>class
+0
+</code></pre>
+<pre><code class="python">!head -n 2 example_files/features.csv
+</code></pre>
+
+<pre><code>sepal length (cm),sepal width (cm),petal length (cm),petal width (cm)
+5.1,3.5,1.4,0.2
+</code></pre>
+<h3 id="5-write-modelyaml">5. Write <code>model.yaml</code></h3>
+<p>The <code>model.yaml</code> for this model should look like this:</p>
+<pre><code class="yaml">type: keras  # use `kipoi.model.KerasModel`
+args:  # arguments of `kipoi.model.KerasModel`
+    arch: model_files/model.json
+    weights: model_files/weights.h5
+default_dataloader: . # path to the dataloader directory. Here it's defined in the same directory
+info: # General information about the model
+    authors: 
+        - name: Your Name
+          github: your_github_username
+          email: your_email@host.org
+    doc: Model predicting the Iris species
+    version: 0.1  # optional 
+    cite_as: https://doi.org:/... # preferably a doi url to the paper
+    trained_on: Iris species dataset (http://archive.ics.uci.edu/ml/datasets/Iris) # short dataset description
+    license: MIT # Software License - defaults to MIT
+dependencies:
+    conda: # install via conda
+      - python=3.5
+      - h5py
+      # - soumith::pytorch  # specify packages from other channels via &lt;channel&gt;::&lt;package&gt;      
+    pip:   # install via pip
+      - keras&gt;=2.0.4
+      - tensorflow&gt;=1.0
+schema:  # Model schema
+    inputs:
+        features:
+            shape: (4,)  # array shape of a single sample (omitting the batch dimension)
+            doc: &quot;Features in cm: sepal length, sepal width, petal length, petal width.&quot;
+    targets:
+        shape: (3,)
+        doc: &quot;One-hot encoded array of classes: setosa, versicolor, virginica.&quot;
+</code></pre>
+
+<p>All file paths are relative relative to <code>model.yaml</code>.</p>
+<h3 id="6-write-dataloaderyaml">6. Write <code>dataloader.yaml</code></h3>
+<pre><code class="yaml">type: Dataset
+defined_as: dataloader.py::MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
+args:
+    features_file:
+        # descr: &gt; allows multi-line fields
+        doc: &gt;
+          Csv file of the Iris Plants Database from
+          http://archive.ics.uci.edu/ml/datasets/Iris features.
+        type: str
+        example: example_files/features.csv  # example files
+    targets_file:
+        doc: &gt;
+          Csv file of the Iris Plants Database targets.
+          Not required for making the prediction.
+        type: str
+        example: example_files/targets.csv
+        optional: True  # if not present, the `targets` field will not be present in the dataloader output
+info:
+    authors: 
+        - name: Your Name
+          github: your_github_account
+          email: your_email@host.org
+    version: 0.1
+    doc: Model predicting the Iris species
+dependencies:
+    conda:
+      - python=3.5
+      - pandas
+      - numpy
+      - sklearn
+output_schema:
+    inputs:
+        features:
+            shape: (4,)
+            doc: Features in cm: sepal length, sepal width, petal length, petal width.
+    targets:
+        shape: (3, )
+        doc: One-hot encoded array of classes: setosa, versicolor, virginica.
+    metadata:  # field providing additional information to the samples (not directly required by the model)
+        example_row_number:
+            shape: int
+            doc: Just an example metadata column
+</code></pre>
+
+<h3 id="7-write-dataloaderpy">7. Write <code>dataloader.py</code></h3>
+<p>Finally, let's implement MyDataset. We need to implement two methods: <code>__len__</code> and <code>__getitem__</code>. </p>
+<p><code>__getitem__</code> will return one item of the dataset. In our case, this is a dictionary with <code>output_schema</code> described in <code>dataloader.yaml</code>.</p>
+<p>For more information about writing such dataloaders, see the <a href="http://pytorch.org/tutorials/beginner/data_loading_tutorial.html">Data Loading and Processing Tutorial from pytorch</a>.</p>
+<pre><code class="python">import pickle
+from kipoi.data import Dataset
+import pandas as pd
+import numpy as np
+
+def read_pickle(f):
+    with open(f, &quot;rb&quot;) as f:
+        return pickle.load(f)
+
+class MyDataset(Dataset):
+
+    def __init__(self, features_file, targets_file=None):
+        self.features_file = features_file
+        self.targets_file = targets_file
+
+        self.y_transformer = read_pickle(&quot;dataloader_files/y_transformer.pkl&quot;)
+        self.x_transformer = read_pickle(&quot;dataloader_files/x_transformer.pkl&quot;)
+
+        self.features = pd.read_csv(features_file)
+        if targets_file is not None:
+            self.targets = pd.read_csv(targets_file)
+            assert len(self.targets) == len(self.features)
+
+    def __len__(self):
+        return len(self.features)
+
+    def __getitem__(self, idx):
+        x_features = np.ravel(self.x_transformer.transform(self.features.iloc[idx].values[np.newaxis]))
+        if self.targets_file is None:
+            y_class = {}
+        else:
+            y_class = np.ravel(self.y_transformer.transform(self.targets.iloc[idx].values[np.newaxis]))
+        return {
+            &quot;inputs&quot;: {
+                &quot;features&quot;: x_features
+            },
+            &quot;targets&quot;: y_class,
+            &quot;metadata&quot;: {
+                &quot;example_row_number&quot;: idx
+            }
+        }
+</code></pre>
+
+<h4 id="example-usage-of-the-dataset">Example usage of the dataset</h4>
+<pre><code class="python">ds = MyDataset(&quot;example_files/features.csv&quot;, &quot;example_files/targets.csv&quot;)
+</code></pre>
+
+<pre><code class="python"># call __getitem__
+ds[5]
+</code></pre>
+
+<pre><code>{'inputs': {'features': array([-0.5372,  1.9577, -1.1707, -1.05  ])},
+ 'metadata': {'example_row_number': 5},
+ 'targets': array([1, 0, 0])}
+</code></pre>
+<p>Since MyDatset inherits from <code>kipoi.data.Dataset</code>, it has some additional nice feature. See <a href="../python-sdk.ipynb">python-sdk.ipynb</a> for more information.</p>
+<pre><code class="python"># batch-iterator
+it = ds.batch_iter(batch_size=3, shuffle=False, num_workers=2)
+next(it)
+</code></pre>
+
+<pre><code>{'inputs': {'features': array([[-0.9007,  1.0321, -1.3413, -1.313 ],
+         [-1.143 , -0.125 , -1.3413, -1.313 ],
+         [-1.3854,  0.3378, -1.3981, -1.313 ]])},
+ 'metadata': {'example_row_number': array([0, 1, 2])},
+ 'targets': array([[1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0]])}
+</code></pre>
+<pre><code class="python"># ds.load_all()  # load the whole dataset into memory
+</code></pre>
+
+<h3 id="8-test-with-the-model-with-kipoi-test">8. Test with the model with <code>$ kipoi test .</code></h3>
+<p>Before we contribute the model to the repository, let's run the test:</p>
+<pre><code class="python">!kipoi test .
+</code></pre>
+
+<pre><code>[32mINFO[0m [44m[kipoi.data][0m successfully loaded the dataloader from dataloader.py::MyDataset[0m
+Using TensorFlow backend.
+2017-11-29 17:26:21.755321: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 17:26:21.755368: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 17:26:21.755385: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 17:26:21.755399: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 17:26:21.755414: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+[32mINFO[0m [44m[kipoi.model][0m successfully loaded model architecture from &lt;_io.TextIOWrapper name='model_files/model.json' mode='r' encoding='UTF-8'&gt;[0m
+[32mINFO[0m [44m[kipoi.model][0m successfully loaded model weights from model_files/weights.h5[0m
+[32mINFO[0m [44m[kipoi.pipeline][0m dataloader.output_schema is compatible with model.schema[0m
+[32mINFO[0m [44m[kipoi.pipeline][0m Initialized data generator. Running batches...[0m
+/opt/modules/i12g/anaconda/3-4.1.1/lib/python3.5/site-packages/sklearn/base.py:315: UserWarning: Trying to unpickle estimator LabelBinarizer from version 0.19.1 when using version 0.18.1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/opt/modules/i12g/anaconda/3-4.1.1/lib/python3.5/site-packages/sklearn/base.py:315: UserWarning: Trying to unpickle estimator StandardScaler from version 0.19.1 when using version 0.18.1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+[32mINFO[0m [44m[kipoi.pipeline][0m Returned data schema correct[0m
+100%|█████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 89.45it/s]
+[32mINFO[0m [44m[kipoi.pipeline][0m predict_example done![0m
+[32mINFO[0m [44m[kipoi.pipeline][0m Successfully ran test_predict[0m
+[0m
+</code></pre>
+<p>This command did the following:</p>
+<ul>
+<li>validated if <code>output_schema</code> defined in <code>dataloader.yaml</code> matches the shapes of the returned arrays</li>
+<li>validated that model and dataloader are compatible in <code>inputs</code> and <code>targets</code></li>
+<li>executed the model pipeline for the example </li>
+</ul>
+<h2 id="accessing-the-model-through-kipoi">Accessing the model through kipoi</h2>
+<pre><code class="python">import kipoi
+</code></pre>
+
+<pre><code class="python">reload(kipoi)
+</code></pre>
+
+<pre><code>&lt;module 'kipoi' from '/data/nasif12/home_if12/avsec/projects-work/kipoi/kipoi/__init__.py'&gt;
+</code></pre>
+<pre><code class="python">m = kipoi.get_model(&quot;.&quot;, source=&quot;dir&quot;)  # See also python-sdk.ipynb
+</code></pre>
+
+<pre><code>Using TensorFlow backend.
+</code></pre>
+<pre><code class="python">m.pipeline.predict({&quot;features_file&quot;: &quot;example_files/features.csv&quot;, &quot;targets_file&quot;: &quot;example_files/targets.csv&quot; })[:5]
+</code></pre>
+
+<pre><code>array([[ 1.5356, -0.8118, -0.2712],
+       [ 0.4649, -0.22  , -1.1491],
+       [ 0.6735, -0.1923, -0.8083],
+       [ 0.3958,  0.0178, -0.9159],
+       [ 1.6362, -0.79  , -0.0849]], dtype=float32)
+</code></pre>
+<pre><code class="python">m.info
+</code></pre>
+
+<pre><code>Info(authors=[Author(name='Your Name', github='your_github_username', email=None)], doc='Model predicting the Iris species', name=None, version='0.1', tags=[])
+</code></pre>
+<pre><code class="python">m.default_dataloader
+</code></pre>
+
+<pre><code>dataloader.MyDataset
+</code></pre>
+<pre><code class="python">m.model
+</code></pre>
+
+<pre><code>&lt;keras.engine.training.Model at 0x7f0dbe68f8d0&gt;
+</code></pre>
+<pre><code class="python">m.predict_on_batch
+</code></pre>
+
+<pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x7f0dc19cf400&gt;&gt;
+</code></pre>
+<h2 id="recap">Recap</h2>
+<p>Congrats! You made it through the tutorial! Feel free to use this model for your model template.</p>
+<p>Fastest way to create a new model:</p>
+<ul>
+<li>Fork <a href="https://github.com/kipoi/models">github.com/kipoi/models</a> and run </li>
+<li><code>git lfs clone git@github.com:&lt;your_username&gt;/models.git '-I /'</code></li>
+<li><code>mkdir -p models/my_new_model</code></li>
+<li><code>cd models/my_new_model</code></li>
+<li><code>mkdir model_files dataloader_files example_files</code></li>
+<li>copy the <code>dataloader.yaml</code> and <code>model.yaml</code> from this notebook into the folder</li>
+<li>edit <code>dataloader.yaml</code> and <code>model.yaml</code></li>
+<li>provide the required files</li>
+<li>run <code>$ kipoi test .</code></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python-api/" class="btn btn-neutral float-right" title="Python API">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../contributing/06_dumping_models_programatically/" class="btn btn-neutral" title="Multiple very similar models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../contributing/06_dumping_models_programatically/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../python-api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

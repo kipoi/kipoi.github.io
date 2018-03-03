@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Private and public model sources - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Private and public model sources";
+    var mkdocs_page_input_path = "using/03_Model_sources.md";
+    var mkdocs_page_url = "/using/03_Model_sources/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Private and public model sources</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#kipoiconfigyaml">~/.kipoi/config.yaml</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#all-possible-model-source-types">All possible model source types</a></li>
+        
+            <li><a class="toctree-l4" href="#about-model-definition">About model definition</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../tutorials/composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Using &raquo;</li>
+        
+      
+    
+    <li>Private and public model sources</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/using/03_Model_sources.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="kipoiconfigyaml"><code>~/.kipoi/config.yaml</code></h2>
+<p><code>kipoi</code> package has a config file located at <code>~/.kipoi/config.yaml</code>. By default, it will look like this (without comments):</p>
+<pre><code class="yaml">model_sources:
+  kipoi: # source name 
+    type: git-lfs  # git repository with large file storage (lfs)
+    remote_url: git@github.com:kipoi/models.git  # git remote
+    local_path: /home/avsec/.kipoi/models/ # local storage path
+</code></pre>
+
+<p><code>model_sources</code> defines all the places where kipoi will search for models and pull them to a local directory.
+By default, it contains the model-zoo from <code>github.com/kipoi/models</code>. It is not a normal git repository,
+since bigger files are stored with <a href="https://git-lfs.github.com/">git large file storage (git-lfs)</a>.
+This repository will be stored locally under <code>local_path</code>. Advantage of using <code>git-lfs</code> is that only the files tracked by <code>git</code> will be downloaded first. Larger files stored in <code>git-lfs</code> will be downloaded individually for each model upon request (say when a user invokes a <code>kipoi predict</code> command).</p>
+<h3 id="all-possible-model-source-types">All possible model source types</h3>
+<p>In addition to the default <code>kipoi</code> source, you can modify <code>~/.kipoi/config.yaml</code> and add additional (private or public) model sources. Available model source types are:</p>
+<ul>
+<li><code>git-lfs</code> - As for <code>kipoi</code> model source. Model weights will get downloaded upon request (say when running <code>kipoi predict</code>).</li>
+<li><code>git</code> - Normal git repository, all the files will be downloaded on checkout.</li>
+<li><code>local</code> - Local directory.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="yaml">model_sources:
+  kipoi:
+    type: git-lfs
+    remote_url: git@github.com:kipoi/models.git
+    local_path: /home/avsec/.kipoi/models/
+
+  my_git_models:
+    type: git
+    remote_url: git@github.com:asd/other_models.git
+    local_path: ~/.kipoi/other_models/
+
+  my_local_models:
+    type: local
+    local_path: /data/mymodels/
+</code></pre>
+
+<h3 id="about-model-definition">About model definition</h3>
+<p>A particular model is defined by its source (key under <code>model_sources</code>, say <code>kipoi</code>) and the relative path of the desired model directory from the model source root (say <code>rbp_eclip/UPF1</code>).</p>
+<p>A directory is considered a model if it contains a <code>model.yaml</code> file.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../postprocessing/variant_effect_prediction/" class="btn btn-neutral float-right" title="Variant effect prediction">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../02_Variant_effect_prediction/" class="btn btn-neutral" title="Variant effect predictions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../02_Variant_effect_prediction/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../postprocessing/variant_effect_prediction/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

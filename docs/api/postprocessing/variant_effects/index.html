@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Variant effect prediction - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+  <link href="../../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Variant effect prediction";
+    var mkdocs_page_input_path = "api/postprocessing/variant_effects.md";
+    var mkdocs_page_url = "/api/postprocessing/variant_effects/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'TODO', 'TODO');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../tutorials/contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../tutorials/python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../tutorials/R-api/">R API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../tutorials/composing_models/">Composing models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../remote/">Remotes</a>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">Variant effect prediction</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#variant-effects">Variant effects</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#predict_snvs">predict_snvs</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#arguments">Arguments</a></li>
+    
+
+    <li class="toctree-l4"><a href="#returns">Returns</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api &raquo;</li>
+        
+      
+        
+          <li>Postprocessing &raquo;</li>
+        
+      
+    
+    <li>Variant effect prediction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/api/postprocessing/variant_effects.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="variant-effects">Variant effects</h2>
+<p>Main function:</p>
+<h3 id="predict_snvs">predict_snvs</h3>
+<pre><code class="python">predict_snvs(model, dataloader, vcf_fpath, batch_size, num_workers=0, dataloader_args=None, vcf_to_region=None, vcf_id_generator_fn=&lt;function default_vcf_id_gen at 0x7f0cddf6a598&gt;, evaluation_function=&lt;function analyse_model_preds at 0x7f0cde1ed598&gt;, evaluation_function_kwargs={'diff_types': {'logit': &lt;kipoi.postprocessing.variant_effects.Logit object at 0x7f0cddf2d780&gt;}}, sync_pred_writer=None, use_dataloader_example_data=False, return_predictions=False, generated_seq_writer=None)
+</code></pre>
+
+<p>Predict the effect of SNVs</p>
+<p>Prediction of effects of SNV based on a VCF. If desired the VCF can be stored with the predicted values as
+annotation. For a detailed description of the requirements in the yaml files please take a look at
+kipoi/nbs/variant_effect_prediction.ipynb.</p>
+<h1 id="arguments">Arguments</h1>
+<pre><code>- __model__: A kipoi model handle generated by e.g.: kipoi.get_model()
+- __dataloader__: Dataloader factory generated by e.g.: kipoi.get_dataloader_factory()
+- __vcf_fpath__: Path of the VCF defining the positions that shall be assessed. Only SNVs will be tested.
+- __batch_size__: Prediction batch size used for calling the data loader. Each batch will be generated in 4
+mutated states yielding a system RAM consumption of &gt;= 4x batch size.
+- __num_workers__: Number of parallel workers for loading the dataset.
+- __dataloader_args__: arguments passed on to the dataloader for sequence generation, arguments
+mentioned in dataloader.yaml &gt; postprocessing &gt; variant_effects &gt; bed_input will be overwritten
+by the methods here.
+- __vcf_to_region__: Callable that generates a region compatible with dataloader/model from a cyvcf2 record
+- __vcf_id_generator_fn__: Callable that generates a unique ID from a cyvcf2 record
+- __evaluation_function__: effect evaluation function. Default is `analyse_model_preds`, which will get
+arguments defined in `evaluation_function_kwargs`
+- __evaluation_function_kwargs__: kwargs passed on to `evaluation_function`.
+- __sync_pred_writer__: Single writer or list of writer objects like instances of `VcfWriter`. This object
+will be called after effect prediction of a batch is done.
+- __use_dataloader_example_data__: Fill out the missing dataloader arguments with the example values given in the
+dataloader.yaml.
+- __return_predictions__: Return all variant effect predictions as a dictionary. Setting this to False will
+help maintain a low memory profile and is faster as it avoids concatenating batches after prediction.
+- __generated_seq_writer__: Single writer or list of writer objects like instances of `SyncHdf5SeqWriter`.
+This object will be called after the DNA sequence sets have been generated. If this parameter is
+not None, no prediction will be performed and only DNA sequence will be written!! This is relevant
+if you want to use the `predict_snvs` to generate appropriate input DNA sequences for your model.
+</code></pre>
+<h1 id="returns">Returns</h1>
+<pre><code>If return_predictions: Dictionary which contains a pandas DataFrame containing the calculated values
+for each model output (target) column VCF SNV line. If return_predictions == False, returns None.
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../variant_effect_scores/" class="btn btn-neutral float-right" title="Variant effect scores">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../remote/" class="btn btn-neutral" title="Remotes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../remote/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../variant_effect_scores/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/require.js"></script>
+      <script src="../../../search/search.js"></script>
+
+</body>
+</html>
