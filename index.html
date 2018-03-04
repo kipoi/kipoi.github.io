@@ -45,14 +45,13 @@
         
         <!-- Links -->
         <ul class="navbar-nav mr-auto text-center">
-	   <!-- Group list --> 
-            <li class="nav-item ">
-              <a id="components-related-1" class="nav-link waves-effect waves-light" href="/groups/">Models</a>
-            </li>
-            
-	    <!-- Docs --> 
+	          <!-- Group list --> 
             <li class="nav-item">
-              <a id="components-related-3" class="nav-link waves-effect waves-light" href="/docs/">Docs</a>
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/groups/">Models</a>
+            </li>
+	          <!-- Docs --> 
+            <li class="nav-item">
+              <a id="components-related-3" class="nav-button btn btn-outline-primary navbar-dark nabar-button" href="/docs/">Docs</a>
             </li>
         </ul>
 
@@ -262,7 +261,11 @@
     <!--Copyright-->
     <div class="footer-copyright">
         <div class="containter-fluid">
-            © 2018 Copyright: <a href="http://kipoi.org"> KIPOI project website </a>
+            © 2018 The Kipoi team, website developed by 
+            <a href="https://github.com/zupan" class="Nejc Zupan github">
+                Nejc Zupan
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
         </div>
     </div>
     <!--/.Copyright-->
@@ -311,7 +314,7 @@
         labels: ['keras', 'custom', 'pytorch', 'tensorflow'],
         datasets: [
           {
-            data: [7, 4, 2, 1],
+            data: [8, 3, 2, 1],
             backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
 	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
@@ -320,7 +323,6 @@
         ]
       },
       options: {
-        // Shouldn't be true
         responsive: true
       }    
     });
@@ -329,7 +331,7 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'GPL-v3', 'Apache License v2'],
+     *     labels: ['MIT', 'Apache License v2', 'GPL-v3'],
      *     datasets: [
      *       {
      *         data: [12, 1, 1],
@@ -347,7 +349,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['DNA accessibility', 'Histone modification', 'RNA splicing', 'DNA binding', 'DNA methylation', 'RNA binding', 'RNA expression'],
+        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'DNA methylation', 'RNA binding', 'RNA expression'],
         datasets: [{
           label: null,
           data: [5, 4, 3, 3, 2, 2, 1],
