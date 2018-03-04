@@ -250,7 +250,7 @@
               
                 <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/nbs/contributing_models.ipynb">nbs/contributing_models.ipynb</a></p>
 <h1 id="contributing-a-model-to-the-kipoi-model-repository">Contributing a model to the Kipoi model repository</h1>
-<p>This notebook will show you how to contribute a model to the <a href="https://github.com/kipoi/models">Kipoi model repository</a>. </p>
+<p>This notebook will show you how to contribute a model to the <a href="https://github.com/kipoi/models">Kipoi model repository</a>. For a simple 'model contribution checklist' see also <a href="http://kipoi.org/docs/contributing/01_Getting_started/">http://kipoi.org/docs/contributing/01_Getting_started/</a>.</p>
 <h2 id="kipoi-basics">Kipoi basics</h2>
 <p>Contributing a model to Kipoi means writing a sub-folder with all the required files to the <a href="https://github.com/kipoi/models">Kipoi model repository</a> via pull request.</p>
 <p>Two main components of the model repository are <strong>model</strong> and <strong>dataloader</strong>.</p>
@@ -263,7 +263,7 @@
 <li>Custom model inheriting from <code>keras.model.BaseModel</code>.</li>
 <li>all the required files, i.e. weights need to be loaded in the <code>__init__</code></li>
 </ul>
-<p>See <a href="../docs/writing_models.md">../docs/writing_models.md</a> for more info.</p>
+<p>See <a href="http://kipoi.org/docs/contributing/02_Writing_model.yaml/">http://kipoi.org/docs/contributing/02_Writing_model.yaml/</a> and <a href="http://kipoi.org/docs/contributing/05_Writing_model.py/">http://kipoi.org/docs/contributing/05_Writing_model.py/</a> for more info.</p>
 <h3 id="dataloader">Dataloader</h3>
 <p>Dataloader takes raw file paths or other parameters as argument and outputs modelling-ready numpy arrays. The dataloading can be done through a generator---batch-by-batch, sample-by-sample---or by just returning the whole dataset. The goal is to work really with raw files (say fasta, bed, vcf, etc in bioinformatics), as this allows to make model predictions on new datasets without going through the burden of running custom pre-processing scripts. The model contributor needs to implement one of the following:</p>
 <ul>
@@ -275,7 +275,7 @@
 <li>SampleGenerator</li>
 <li>BatchGenerator</li>
 </ul>
-<p>See <a href="../docs/writing_dataloaders.md">../docs/writing_dataloaders.md</a> for more info.</p>
+<p>See <a href="http://kipoi.org/docs/contributing/04_Writing_dataloader.py/">http://kipoi.org/docs/contributing/04_Writing_dataloader.py/</a> for more info.</p>
 <h3 id="folder-layout">Folder layout</h3>
 <p>Here is an example folder structure of a Kipoi model:</p>
 <pre><code>├── dataloader.py     # implements the dataloader
@@ -823,19 +823,7 @@ Using TensorFlow backend.
 <pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x7f0dc19cf400&gt;&gt;
 </code></pre>
 <h2 id="recap">Recap</h2>
-<p>Congrats! You made it through the tutorial! Feel free to use this model for your model template.</p>
-<p>Fastest way to create a new model:</p>
-<ul>
-<li>Fork <a href="https://github.com/kipoi/models">github.com/kipoi/models</a> and run </li>
-<li><code>git lfs clone git@github.com:&lt;your_username&gt;/models.git '-I /'</code></li>
-<li><code>mkdir -p models/my_new_model</code></li>
-<li><code>cd models/my_new_model</code></li>
-<li><code>mkdir model_files dataloader_files example_files</code></li>
-<li>copy the <code>dataloader.yaml</code> and <code>model.yaml</code> from this notebook into the folder</li>
-<li>edit <code>dataloader.yaml</code> and <code>model.yaml</code></li>
-<li>provide the required files</li>
-<li>run <code>$ kipoi test .</code></li>
-</ul>
+<p>Congrats! You made it through the tutorial! Feel free to use this model for your model template. Alternatively, you can use <code>kipoi init</code> to setup a model directory. Make sure you have read the <a href="http://kipoi.org/docs/contributing/01_Getting_started/">getting started guide</a> for contributing models.</p>
               
             </div>
           </div>
