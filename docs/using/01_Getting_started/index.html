@@ -301,6 +301,11 @@ model.model # Access the underlying Keras model
 </code></pre>
 
 <h4 id="get-predictions-for-the-raw-files">Get predictions for the raw files</h4>
+<p>For any generation of the model output the dataloader has to be executed first A dataloader will most likely require input arguments in which the input files are defined, for example input fasta files or bed files, based on which the model input is generated. One way to display the keyword arguments a dataloader accepts is the following:</p>
+<pre><code class="python">kipoi.print_dl_kwargs(model.default_dataloader)
+</code></pre>
+
+<p>The output of the function above will tell you which arguments you can use when running the following command. Let's assume that <code>kipoi.print_dl_kwargs</code> has informed us that the dataloader accepts the arguments <code>dataloader_arg1</code> and <code>targets_file</code>. </p>
 <pre><code class="python">model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;inputs.csv&quot;})
 </code></pre>
 
@@ -335,6 +340,10 @@ model.model.fit_generator(it_train, steps_per_epoch=len(dl)//32, epochs=10)
 
 <h4 id="list-all-models_1">List all models</h4>
 <pre><code class="bash">kipoi ls
+</code></pre>
+
+<h4 id="get-information-on-how-the-required-dataloader-keyword-arguments">Get information on how the required dataloader keyword arguments</h4>
+<pre><code class="bash">kipoi info -i --source kipoi rbp_eclip/UPF1
 </code></pre>
 
 <h4 id="run-model-prediction">Run model prediction</h4>

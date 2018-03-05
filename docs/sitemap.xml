@@ -4,7 +4,7 @@
     
     <url>
      <loc>http://kipoi.org/docs//</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,19 @@
         
     <url>
      <loc>http://kipoi.org/docs//using/01_Getting_started/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//using/02_Variant_effect_prediction/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//using/03_Model_sources/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,37 +41,37 @@
         
     <url>
      <loc>http://kipoi.org/docs//contributing/01_Getting_started/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//contributing/02_Writing_model.yaml/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//contributing/04_Writing_dataloader.py/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//contributing/03_Writing_dataloader.yaml/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//contributing/05_Writing_model.py/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//contributing/06_dumping_models_programatically/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -81,31 +81,31 @@
         
     <url>
      <loc>http://kipoi.org/docs//tutorials/contributing_models/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//tutorials/python-api/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//tutorials/R-api/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//tutorials/variant_effect_prediction/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//tutorials/composing_models/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -115,31 +115,31 @@
         
     <url>
      <loc>http://kipoi.org/docs//api/model/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//api/dataloader/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//api/pipeline/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//api/metadata/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//api/remote/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
