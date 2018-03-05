@@ -265,18 +265,18 @@
 <h4 id="2-choose-the-model-from-httpkipoiorgmodels">2. Choose the model from <a href="http://kipoi.org/groups">http://kipoi.org/models</a></h4>
 <ol>
 <li>Navigate to <a href="http://kipoi.org/groups">http://kipoi.org/models</a> and select a model of your interest</li>
-<li>On model's page (<code>http://kipoi.org/models/&lt;model&gt;</code>), check the required arguments in the dataloader section</li>
+<li>On model's page (<code>http://kipoi.org/models/&lt;model&gt;</code>), check the required arguments in the dataloader section and copy the code snippets</li>
 </ol>
 <h4 id="3-use-the-model">3. Use the model</h4>
 <p>You can use the model from:</p>
 <ul>
 <li>Python</li>
-<li>Crommand-line interface</li>
+<li>Command-line interface</li>
 <li>R (via the <a href="https://github.com/rstudio/reticulate">reticulate</a> package)</li>
 </ul>
 <hr />
 <h3 id="python-quick-start">Python - quick start</h3>
-<p>See the ipython notebook <a href="../../tutorials/python-api/">tutorials/python-api</a> for additional information. Here is a list of most useful python commands</p>
+<p>See the ipython notebook <a href="../../tutorials/python-api/">tutorials/python-api</a> for additional information and a working example of the API. Here is a list of most useful python commands.</p>
 <pre><code class="python">import kipoi
 </code></pre>
 
@@ -301,19 +301,32 @@ model.model # Access the underlying Keras model
 </code></pre>
 
 <h4 id="get-predictions-for-the-raw-files">Get predictions for the raw files</h4>
-<p>For any generation of the model output the dataloader has to be executed first A dataloader will most likely require input arguments in which the input files are defined, for example input fasta files or bed files, based on which the model input is generated. One way to display the keyword arguments a dataloader accepts is the following:</p>
+<p>For any generation of the model output the dataloader has to be executed first. A dataloader will require input arguments in which the input files are defined, for example input fasta files or bed files, based on which the model input is generated. One way to display the keyword arguments a dataloader accepts is the following:</p>
 <pre><code class="python">kipoi.print_dl_kwargs(model.default_dataloader)
 </code></pre>
 
-<p>The output of the function above will tell you which arguments you can use when running the following command. Let's assume that <code>kipoi.print_dl_kwargs</code> has informed us that the dataloader accepts the arguments <code>dataloader_arg1</code> and <code>targets_file</code>. </p>
-<pre><code class="python">model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;inputs.csv&quot;})
+<p>The output of the function above will tell you which arguments you can use when running the following command. Alternatively, you can view the dataloader arguments on the model's website (<code>http://kipoi.org/models/&lt;model&gt;</code>). Let's assume that <code>kipoi.print_dl_kwargs</code> has informed us that the dataloader accepts the arguments <code>dataloader_arg1</code> and <code>targets_file</code>. You can get the model prediction using <code>kipoi.pipeline.predict</code>:</p>
+<pre><code class="python">model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;...&quot;, &quot;targets_file&quot;: &quot;...&quot;})
+</code></pre>
+
+<p>Specifically, for the <code>rbp_eclip/UPF1</code> model, you would run the following:</p>
+<pre><code class="python"># Make sure we are in the directory containing the example files
+import os
+os.chdir(os.path.expanduser('~/.kipoi/models/rbp_eclip/UPF1'))
+
+# Run the prediction
+model.pipeline.predict({'intervals_file': 'example_files/intervals.bed', 
+                        'fasta_file': 'example_files/hg38_chr22.fa', 
+                    'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf', 
+                    'filter_protein_coding': True, 
+                    'target_file': 'example_files/targets.tsv'})
 </code></pre>
 
 <h4 id="setup-the-dataloader">Setup the dataloader</h4>
-<pre><code class="python">dl = model.default_dataloader(dataloader_arg1=&quot;inputs.csv&quot;, targets_file=&quot;targets.csv&quot;)
+<pre><code class="python">dl = model.default_dataloader(dataloader_arg1=&quot;...&quot;, targets_file=&quot;...&quot;)
 </code></pre>
 
-<p>Note: <code>model.default_dataloader</code> is the same as <code>kipoi.get_dataloader_factory("rbp_eclip/UPF1")</code></p>
+<p>Note: <code>kipoi.get_model("&lt;mymodel&gt;").default_dataloader</code> is the same as <code>kipoi.get_dataloader_factory("&lt;mymodel&gt;")</code></p>
 <h4 id="predict-for-a-single-batch">Predict for a single batch</h4>
 <pre><code class="python"># Get the batch iterator
 it = dl.batch_iter(batch_size=32)
