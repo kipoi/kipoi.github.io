@@ -370,7 +370,7 @@
           default: true
 </code></pre>
 
-<p>The scoring function is identified by the <code>type</code> field in <code>scoring_functions</code> which is the only mandatory field. Allowed values for the <code>type</code> field are: <code>diff</code>, <code>logit</code>, <code>deepsea_scr</code> and <code>custom</code>.</p>
+<p>The scoring function is identified by the <code>type</code> field in <code>scoring_functions</code> which is the only mandatory field. Allowed values for the <code>type</code> field are: <code>diff</code>, <code>logit</code>, <code>deepsea_effect</code> and <code>custom</code>.</p>
 <p>Setting <code>default:true</code> for a scoring function indicates that that respective scoring function is executed by variant effect prediction if none is selected by the used on execution time. If multiple scoring functions have set <code>default:true</code> then all of those will be run by default. If <code>default:true</code> is not set for any scoring function defined in <code>scoring_functions</code> then all entries in <code>scoring_functions</code> will be run by default.</p>
 <p>Scoring functions can be assigned a different name with the <code>name</code> flag by which they are then selected using the command line interface. In general it is not advisable to rename the scoring functions that come with Kipoi.</p>
 <h4 id="diff">Diff</h4>
@@ -384,7 +384,7 @@
 <h4 id="logitref">LogitRef</h4>
 <p>Returns the logits transformed predictions for the sequences carrying the reference allele:
 <code>logit(prediction(ref))</code>. This scoring method only makes sense if the model output can be interpreted as probabilities. In a wider sense, it will only produce valid values if the predictions are in the range [0,1].</p>
-<h4 id="deepsea_scr">Deepsea_scr</h4>
+<h4 id="deepsea_effect">Deepsea_effect</h4>
 <p>Calculates the variant scores as defined in the publication of the DeepSEA model (Troyanskaya et al., 2015) by using the absolute value of the logit difference and diff values multiplied together: <code>abs(Logit * Diff)</code> with <code>Logit</code> and <code>Diff</code> defined as above.</p>
 <h4 id="custom">Custom</h4>
 <p>Custom scoring methods can be defined and shipped with the models. In that case the model.yaml will look similar to this:</p>
