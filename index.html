@@ -85,7 +85,7 @@
       <div class="col-md-6 col-sm-12">
         <p class="p-3">
           Kipoi (pronounce: kípi; from the Greek &kappa;&#x3AE;&pi;&omicron;&iota;: gardens) is an API and a repository of ready-to-use
-          trained models for regulatory genomics. It currently contains 780
+          trained models for regulatory genomics. It currently contains 1707
           different models, covering canonical predictive tasks in transcriptional and post-transcriptional gene regulation.
 
           Kipoi's API is implemented as a python package (github.com/kipoi/kipoi) and it is also accessible from the command line or R.
@@ -120,12 +120,12 @@
     <div class="row mb-5">
       <div class="col-lg-4 col-md-6 col-sm-6 col-12">
         <h4>Numbers</h4>
-        <p><strong># of models:</strong> 780</p>
-        <p><strong># of model groups:</strong> 14</p>
+        <p><strong># of models:</strong> 1707</p>
+        <p><strong># of model groups:</strong> 15</p>
         <p><strong># of contributors:</strong> 6</p>
         <p><strong># of model groups supporting postprocessing:</strong></p>
         <ul>
-          <li><strong>Variant effect prediction:</strong> 11/14</li>
+          <li><strong>Variant effect prediction:</strong> 11/15</li>
         </ul>
       </div>
 
@@ -311,7 +311,7 @@
         labels: ['keras', 'custom', 'pytorch', 'tensorflow'],
         datasets: [
           {
-            data: [7, 4, 2, 1],
+            data: [9, 3, 2, 1],
             backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
 	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
@@ -328,10 +328,10 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'Apache License v2', 'GPL-v3'],
+     *     labels: ['MIT', 'GPL-v3', 'BSD 3-Clause', 'Apache License v2'],
      *     datasets: [
      *       {
-     *         data: [12, 1, 1],
+     *         data: [12, 1, 1, 1],
      *         backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
      *         hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
      *       }
@@ -346,7 +346,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['DNA accessibility', 'Histone modification', 'RNA splicing', 'DNA binding', 'RNA binding', 'DNA methylation', 'RNA expression'],
+        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'RNA binding', 'DNA methylation', 'RNA expression'],
         datasets: [{
           label: null,
           data: [5, 4, 3, 3, 2, 2, 1],
