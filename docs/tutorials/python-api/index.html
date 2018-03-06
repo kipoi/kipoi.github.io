@@ -150,8 +150,6 @@
         
             <li><a class="toctree-l4" href="#run-dataloader-on-some-examples">Run dataloader on some examples</a></li>
         
-            <li><a class="toctree-l4" href="#pipeline-raw-files-dataloader-numpy-arrays-model-prediction">Pipeline: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; prediction</a></li>
-        
         </ul>
     
 
@@ -263,22 +261,26 @@
 </ul>
 <p><img alt="img" src="../../img/kipoi-workflow.png" /></p>
 <h2 id="list-of-main-commands">List of main commands</h2>
+<p>Get/list sources
+- <code>kipoi.list_sources()</code>
+- <code>kipoi.get_source()</code></p>
+<p>List models/dataloaders
+- <code>kipoi.list_models()</code>
+- <code>kipoi.list_dataloaders()</code></p>
+<p>Get model/dataloader
+- <code>kipoi.get_model()</code>
+- <code>kipoi.get_dataloader_factory()</code></p>
+<p>Load only model/dataloader description from the yaml file without loading the model</p>
 <ul>
-<li><code>kipoi.list_sources()</code></li>
-<li>
-<p><code>kipoi.get_source()</code></p>
-</li>
-<li>
-<p><code>kipoi.list_models()</code></p>
-</li>
-<li>
-<p><code>kipoi.list_dataloaders()</code></p>
-</li>
-<li>
-<p><code>kipoi.get_model()</code></p>
-</li>
-<li><code>kipoi.get_dataloader_factory()</code></li>
+<li><code>kipoi.get_model_descr()</code>  </li>
+<li><code>kipoi.get_dataloader_descr()</code></li>
 </ul>
+<p>Install the dependencies
+- <code>kipoi.install_model_dependencies()</code>
+- <code>kipoi.install_dataloader_dependencies()</code></p>
+<pre><code class="python">import kipoi
+</code></pre>
+
 <h3 id="source">Source</h3>
 <p>Available sources are specified in the config file located at: <code>~/.kipoi/config.yaml</code>. Here is an example config file:</p>
 <pre><code class="yaml">model_sources:
@@ -347,8 +349,8 @@ logging.disable(1000)
       <th>0</th>
       <td>kipoi</td>
       <td>git-lfs</td>
-      <td>/homes/rkreuzhu/.kipoi/models/</td>
-      <td>5.0G</td>
+      <td>/home/avsec/.kipoi/mo...</td>
+      <td>1,2G</td>
       <td>780</td>
       <td>780</td>
     </tr>
@@ -362,9 +364,9 @@ logging.disable(1000)
 <pre><code class="python">s
 </code></pre>
 
-<pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/homes/rkreuzhu/.kipoi/models/')
+<pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/home/avsec/.kipoi/models/')
 </code></pre>
-<pre><code class="python">kipoi.list_models()
+<pre><code class="python">kipoi.list_models().head()
 </code></pre>
 
 <div>
@@ -406,1144 +408,108 @@ logging.disable(1000)
     <tr>
       <th>0</th>
       <td>kipoi</td>
-      <td>CpGenie/A549_ENCSR000DDI</td>
+      <td>DeepSEAKeras</td>
       <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
+      <td>[Author(name='Jian Zh...</td>
+      <td>[Author(name='Lara Ur...</td>
+      <td>This CNN is based on ...</td>
       <td>keras</td>
       <td>seq</td>
-      <td>methylation_prob</td>
+      <td>TFBS_DHS_probs</td>
       <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.10...</td>
+      <td>ENCODE and Roadmap Ep...</td>
+      <td>https://www.nature.co...</td>
+      <td>[Histone modification...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>kipoi</td>
-      <td>CpGenie/BE2C_ENCSR000DEB</td>
+      <td>extended_coda</td>
       <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
+      <td>[Author(name='Pang We...</td>
+      <td>[Author(name='Johnny ...</td>
+      <td>Single bp resolution ...</td>
       <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
+      <td>[H3K27AC_subsampled]</td>
+      <td>[H3K27ac]</td>
+      <td>False</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.10...</td>
+      <td>Described in https://...</td>
+      <td>Described in https://...</td>
+      <td>[Histone modification]</td>
     </tr>
     <tr>
       <th>2</th>
       <td>kipoi</td>
-      <td>CpGenie/BJ_ENCSR000DEA</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
+      <td>DeepCpG_DNA/Hou2016_m...</td>
+      <td>1.0.4</td>
+      <td>[Author(name='Christo...</td>
+      <td>[Author(name='Roman K...</td>
+      <td>This is the extractio...</td>
       <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
+      <td>[dna]</td>
+      <td>[cpg/mESC1, cpg/mESC2...</td>
       <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.11...</td>
+      <td>scBS-seq and scRRBS-s...</td>
+      <td>Described in https://...</td>
       <td>[DNA methylation]</td>
     </tr>
     <tr>
       <th>3</th>
       <td>kipoi</td>
-      <td>CpGenie/CMK_ENCSR000DGJ</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
+      <td>DeepCpG_DNA/Smallwood...</td>
+      <td>1.0.4</td>
+      <td>[Author(name='Christo...</td>
+      <td>[Author(name='Roman K...</td>
+      <td>This is the extractio...</td>
       <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
+      <td>[dna]</td>
+      <td>[cpg/BS24_1_2I, cpg/B...</td>
       <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.11...</td>
+      <td>scBS-seq and scRRBS-s...</td>
+      <td>Described in https://...</td>
       <td>[DNA methylation]</td>
     </tr>
     <tr>
       <th>4</th>
       <td>kipoi</td>
-      <td>CpGenie/Caco_2_ENCSR000DDO</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
+      <td>DeepCpG_DNA/Hou2016_H...</td>
+      <td>1.0.4</td>
+      <td>[Author(name='Christo...</td>
+      <td>[Author(name='Roman K...</td>
+      <td>This is the extractio...</td>
       <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
+      <td>[dna]</td>
+      <td>[cpg/HepG21, cpg/HepG...</td>
       <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
+      <td>MIT</td>
+      <td>https://doi.org/10.11...</td>
+      <td>scBS-seq and scRRBS-s...</td>
+      <td>Described in https://...</td>
       <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM06990_ENCSR000DDN</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM12878_ENCSR000DEY</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM12878_ENCSR000DFT</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM12891_ENCSR000DFO</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM12892_ENCSR000DFN</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM19239_ENCSR000DGH</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>kipoi</td>
-      <td>CpGenie/GM19240_ENCSR000DGG</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>kipoi</td>
-      <td>CpGenie/HCT116_ENCSR000DFS</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>kipoi</td>
-      <td>CpGenie/HEK293_ENCSR087IEW</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>kipoi</td>
-      <td>CpGenie/HEK293_ENCSR794HFF</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>kipoi</td>
-      <td>CpGenie/HGPS_cell_ENCSR000DFA</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>kipoi</td>
-      <td>CpGenie/HL_60_ENCSR000DDM</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>kipoi</td>
-      <td>CpGenie/HTR_8_SVneo_ENCSR000DDP</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>kipoi</td>
-      <td>CpGenie/HeLa_S3_ENCSR000DFL</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>kipoi</td>
-      <td>CpGenie/HepG2_ENCSR530RCY</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>kipoi</td>
-      <td>CpGenie/HepG2_ENCSR592WWM</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>kipoi</td>
-      <td>CpGenie/IMR_90_ENCSR000DEX</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>kipoi</td>
-      <td>CpGenie/Ishikawa_ENCSR000DDZ</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>kipoi</td>
-      <td>CpGenie/Jurkat_ENCSR000DFP</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>kipoi</td>
-      <td>CpGenie/K562_ENCSR000DFK</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>kipoi</td>
-      <td>CpGenie/LNCaP_clone_FGC_ENCSR000DFH</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>kipoi</td>
-      <td>CpGenie/LNCaP_clone_FGC_ENCSR439FXM</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>kipoi</td>
-      <td>CpGenie/LNCaP_clone_FGC_ENCSR859PDD</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>kipoi</td>
-      <td>CpGenie/MCF_10A_ENCSR000DEV</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>kipoi</td>
-      <td>CpGenie/MCF_10A_ENCSR000DEW</td>
-      <td>0.1</td>
-      <td>[Author(name='Haoyang Zeng', github='haoyangz'...</td>
-      <td>[Author(name='Roman Kreuzhuber', github='krrom...</td>
-      <td>Abstract: DNA methylation plays a crucial role...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>methylation_prob</td>
-      <td>True</td>
-      <td>Apache License v2</td>
-      <td>https://doi.org/10.1093/nar/gkx177</td>
-      <td>RRBS (restricted representation bisulfite sequ...</td>
-      <td>RMSprop</td>
-      <td>[DNA methylation]</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>753</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZEP1</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>754</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZEP2</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>755</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZFHX3</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>756</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZFX</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>757</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZIC1</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>758</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZIC2</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>759</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZIC3</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>760</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZIC4</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>761</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZKSC1</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>762</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZKSC3</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>763</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN143</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>764</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN148</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>765</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN219</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>766</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN232</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>767</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN282</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>768</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN333</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>769</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN350</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>770</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN384</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>771</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN410</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>772</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN423</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>773</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN524</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>774</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN589</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>775</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN639</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>776</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN652</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>777</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN713</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>778</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN740</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>779</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZN784</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>780</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZSC16</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>781</th>
-      <td>kipoi</td>
-      <td>tf-binding/human/pwm/HOCOMOCO/ZSCA4</td>
-      <td>0.1</td>
-      <td>[Author(name='Ivan V. Kulakovskiy', github=Non...</td>
-      <td>[Author(name='Ziga Avsec', github='avsecz', em...</td>
-      <td>'''Simple PWM-scanning model
-PWM database: HO...</td>
-      <td>keras</td>
-      <td>seq</td>
-      <td>pwm_match</td>
-      <td>True</td>
-      <td>MIT</td>
-      <td>https://doi:10.1093/nar/gkv1249</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA binding]</td>
-    </tr>
-    <tr>
-      <th>783</th>
-      <td>kipoi</td>
-      <td>BassetGM12878_Demo</td>
-      <td>0.1</td>
-      <td>[Author(name='Nancy Xu', github='xnancy', emai...</td>
-      <td>[Author(name='Nancy Xu', github='xnancy', emai...</td>
-      <td>test</td>
-      <td>keras</td>
-      <td>[data/genome_data_dir]</td>
-      <td>None</td>
-      <td>False</td>
-      <td>MIT</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>[DNA accessibility]</td>
     </tr>
   </tbody>
 </table>
-<p>780 rows × 15 columns</p>
 </div>
 
 <h2 id="model">Model</h2>
 <p>Let's choose to use the <code>rbp_eclip/UPF1</code> model from kipoi</p>
-<pre><code class="python"># Note. Install all the dependencies for that model using
-# kipoi env install 
-model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
+<pre><code class="python">MODEL = &quot;rbp_eclip/UPF1&quot;
 </code></pre>
 
-<pre><code>Using TensorFlow backend.
+<p><strong>NOTE:</strong> If you are using python2, use a different model like <code>MaxEntScan/3prime</code> to following this example.</p>
+<pre><code class="python"># Note. Install all the dependencies for that model using
+# kipoi env install rbp_eclip/UPF1
+model = kipoi.get_model(MODEL)
 </code></pre>
+
 <h3 id="available-fields">Available fields:</h3>
 <h4 id="model_1">Model</h4>
 <ul>
@@ -1597,7 +563,7 @@ model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
 <pre><code class="python">model
 </code></pre>
 
-<pre><code>&lt;kipoi.model.KerasModel at 0x2ada1ede6cc0&gt;
+<pre><code>&lt;kipoi.model.KerasModel at 0x7f95b27af2b0&gt;
 </code></pre>
 <pre><code class="python">model.type
 </code></pre>
@@ -1641,7 +607,7 @@ model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
 <pre><code class="python">model.source_dir
 </code></pre>
 
-<pre><code>'/homes/rkreuzhu/.kipoi/models/rbp_eclip/UPF1'
+<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
 </code></pre>
 <pre><code class="python">model.default_dataloader
 </code></pre>
@@ -1658,34 +624,24 @@ model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
 <pre><code class="python">model.predict_on_batch
 </code></pre>
 
-<pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x2ada1ede6cc0&gt;&gt;
+<pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x7f95b27af2b0&gt;&gt;
 </code></pre>
-<h3 id="pipeline">Pipeline</h3>
-<p>Pipeline object will take the dataloader arguments and run the whole pipeline:</p>
-<pre><code>dataloader arguments --Dataloader--&gt;  numpy arrays --Model--&gt; prediction
-</code></pre>
-
-<pre><code class="python">#model.pipeline.predict
-</code></pre>
-
-<pre><code class="python">#model.pipeline.predict_generator
-</code></pre>
-
 <h3 id="others">Others</h3>
 <pre><code class="python"># Model source
 model.source
 </code></pre>
 
-<pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/homes/rkreuzhu/.kipoi/models/')
+<pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/home/avsec/.kipoi/models/')
 </code></pre>
 <pre><code class="python"># model location directory
 model.source_dir
 </code></pre>
 
-<pre><code>'/homes/rkreuzhu/.kipoi/models/rbp_eclip/UPF1'
+<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
 </code></pre>
 <h2 id="dataloader_1">DataLoader</h2>
-<pre><code class="python">DataLoader = kipoi.get_dataloader_factory(&quot;rbp_eclip/UPF1&quot;)
+<pre><code class="python">DataLoader = kipoi.get_dataloader_factory(MODEL)
+# same as DataLoader = model.default_dataloader
 </code></pre>
 
 <p>A dataloader will most likely require input arguments in which the input files are defined, for example input fasta files or bed files, based on which the model input is generated. There are several options where the dataloader input keyword arguments are displayed:</p>
@@ -1737,7 +693,7 @@ Keyword argument: `use_linecache`
     type: str
     optional: True
 --------------------------------------------------------------------------------
-Example keyword arguments are: {'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf', 'fasta_file': 'example_files/hg38_chr22.fa', 'target_file': 'example_files/targets.tsv', 'intervals_file': 'example_files/intervals.bed', 'filter_protein_coding': True}
+Example keyword arguments are: {'intervals_file': 'example_files/intervals.bed', 'fasta_file': 'example_files/hg38_chr22.fa', 'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf', 'filter_protein_coding': True, 'target_file': 'example_files/targets.tsv'}
 </code></pre>
 <h2 id="run-dataloader-on-some-examples">Run dataloader on some examples</h2>
 <pre><code class="python"># each dataloader already provides example files which can be used to illustrate its use:
@@ -1771,8 +727,8 @@ os.chdir(DataLoader.source_dir)
 │   └── model.h5
 ├── model.yaml -&gt; ../template/model.yaml
 └── __pycache__
-    ├── custom_keras_objects.cpython-35.pyc
-    └── dataloader.cpython-35.pyc
+    ├── custom_keras_objects.cpython-36.pyc
+    └── dataloader.cpython-36.pyc
 
 4 directories, 8 files
 </code></pre>
@@ -1785,12 +741,16 @@ os.chdir(DataLoader.source_dir)
 dl[0].keys()
 </code></pre>
 
-<pre><code>dict_keys(['metadata', 'inputs', 'targets'])
+<pre><code>dict_keys(['inputs', 'targets', 'metadata'])
 </code></pre>
-<pre><code class="python">dl[0][&quot;inputs&quot;].keys()
+<pre><code class="python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
 </code></pre>
 
-<pre><code>dict_keys(['dist_gene_start', 'dist_gene_end', 'dist_stop_codon', 'dist_exon_intron', 'dist_start_codon', 'dist_tss', 'seq', 'dist_polya', 'dist_intron_exon'])
+<pre><code>array([[0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25]], dtype=float32)
 </code></pre>
 <pre><code class="python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
 </code></pre>
@@ -1810,12 +770,12 @@ dl[0].keys()
 <pre><code class="python">whole_data = dl.load_all()
 </code></pre>
 
-<pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  3.29it/s]
+<pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  6.24it/s]
 </code></pre>
 <pre><code class="python">whole_data.keys()
 </code></pre>
 
-<pre><code>dict_keys(['metadata', 'inputs', 'targets'])
+<pre><code>dict_keys(['inputs', 'targets', 'metadata'])
 </code></pre>
 <pre><code class="python">whole_data[&quot;inputs&quot;][&quot;seq&quot;].shape
 </code></pre>
@@ -1834,9 +794,79 @@ dl[0].keys()
 <pre><code class="python">model.predict_on_batch(next(it)[&quot;inputs&quot;])
 </code></pre>
 
-<pre><code>array([[0.00050414]], dtype=float32)
+<pre><code>array([[0.1351]], dtype=float32)
 </code></pre>
-<h3 id="train-the-keras-model">Train the Keras model</h3>
+<h3 id="pipeline">Pipeline</h3>
+<p>Pipeline object will take the dataloader arguments and run the whole pipeline directly:</p>
+<pre><code>dataloader arguments --Dataloader--&gt;  numpy arrays --Model--&gt; prediction
+</code></pre>
+
+<pre><code class="python">example_kwargs = model.default_dataloader.example_kwargs
+</code></pre>
+
+<pre><code class="python">preds = model.pipeline.predict_example()
+preds
+</code></pre>
+
+<pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  6.78it/s]
+
+
+
+
+
+array([[0.4208],
+       [0.0005],
+       [0.0005],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.0005],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208]], dtype=float32)
+</code></pre>
+<pre><code class="python">model.pipeline.predict(example_kwargs)
+</code></pre>
+
+<pre><code>1it [00:01,  1.56s/it]
+
+
+
+
+
+array([0.4208, 0.0005, 0.0005, 0.4208, 0.4208, 0.4208, 0.0005, 0.4208, 0.4208, 0.4208, 0.4208,
+       0.4208, 0.4208, 0.4208], dtype=float32)
+</code></pre>
+<pre><code class="python">next(model.pipeline.predict_generator(example_kwargs, batch_size=2))
+</code></pre>
+
+<pre><code>array([[0.4208],
+       [0.0005]], dtype=float32)
+</code></pre>
+<pre><code class="python">from kipoi.data_utils import numpy_collate
+numpy_collate_concat(list(model.pipeline.predict_generator(example_kwargs)))
+</code></pre>
+
+<pre><code>array([[0.4208],
+       [0.0005],
+       [0.0005],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.0005],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208],
+       [0.4208]], dtype=float32)
+</code></pre>
+<h3 id="re-train-the-keras-model">Re-train the Keras model</h3>
 <p>Keras model is stored under the <code>.model</code> attribute.</p>
 <pre><code class="python">model.model.compile(&quot;adam&quot;, &quot;binary_crossentropy&quot;)
 </code></pre>
@@ -1851,36 +881,13 @@ dl[0].keys()
 </code></pre>
 
 <pre><code>Epoch 1/1
-3/3 [==============================] - 1s 270ms/step - loss: 1.0971
+3/3 [==============================] - 1s 291ms/step - loss: 1.3592
 
 
 
 
 
-&lt;keras.callbacks.History at 0x2ada28e3cba8&gt;
-</code></pre>
-<h2 id="pipeline-raw-files-dataloader-numpy-arrays-model-prediction">Pipeline: <code>raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; prediction</code></h2>
-<pre><code class="python">example_kwargs = model.default_dataloader.example_kwargs
-</code></pre>
-
-<pre><code class="python">model.pipeline.predict(example_kwargs)
-</code></pre>
-
-<pre><code>1it [00:02,  2.67s/it]
-
-
-
-
-
-array([1.        , 0.52299094, 0.52299094, 1.        , 1.        ,
-       1.        , 0.52299094, 1.        , 1.        , 1.        ,
-       1.        , 1.        , 1.        , 1.        ], dtype=float32)
-</code></pre>
-<pre><code class="python">next(model.pipeline.predict_generator(example_kwargs, batch_size=2))
-</code></pre>
-
-<pre><code>array([[1.        ],
-       [0.52299076]], dtype=float32)
+&lt;keras.callbacks.History at 0x7f95b0095fd0&gt;
 </code></pre>
               
             </div>

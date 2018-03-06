@@ -468,13 +468,15 @@ kipoi_list_models &lt;- function() {
 <h3 id="get-the-kipoi-model-and-make-a-prediction-for-the-example-files">Get the kipoi model and make a prediction for the example files</h3>
 <p>To run the following example, make sure you have all the dependencies installed. Run:</p>
 <pre><code class="R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
+
+kipoi$install_dataloader_requirements(&quot;MaxEntScan/3prime&quot;)
 </code></pre>
 
 <p>from R or</p>
 <pre><code class="bash">kipoi env install MaxEntScan/3prime
 </code></pre>
 
-<p>from the command-line.</p>
+<p>from the command-line. This will install all the required dependencies for both, the model and the dataloader.</p>
 <pre><code class="R">model &lt;- kipoi$get_model(&quot;MaxEntScan/3prime&quot;)
 </code></pre>
 
@@ -544,28 +546,25 @@ model$predict_on_batch(batch$inputs)
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Since Kipoi is not natively implemented in R, the error messages are cryptic and hence debugging can be a bit of a pain. </p>
 <h3 id="run-the-same-code-in-python-or-cli">Run the same code in python or CLI</h3>
-<p>When you encounter an error, try to run the analogous code snippet from the command line or python. </p>
+<p>When you encounter an error, try to run the analogous code snippet from the command line or python. A good starting point is to first run</p>
+<pre><code>$ kipoi test MaxEntScan/3prime --source=kipoi
+</code></pre>
+
+<p>from the command-line first. </p>
 <h3 id="dependency-issues">Dependency issues</h3>
-<p>The code snippet snipped above will only work with python3 (since <code>rbp_eclip/UPF1</code> reqires python 3). Also make sure you have all the model dependencies installed. It's best to test that by running</p>
-<pre><code>$ kipoi test rbp_eclip/UPF1 --source=kipoi
+<p>It's very likely that the error will be due to missing dependencies. Also note that some models will work only with python 3 or python 2. To install all the required dependencies for the model, run:</p>
+<pre><code>$ kipoi env install MaxEntScan/3prime
 </code></pre>
 
-<p>from the command-line first. In case you are missing some dependencies, run:</p>
-<pre><code>$ kipoi env install rbp_eclip/UPF1
+<p>This will install the dependencies into your current conda environment. If you wish to create a new environment with all the dependencies installed, run</p>
+<pre><code>$ kipoi env create MaxEntScan/3prime
 </code></pre>
 
-<p>to install the dependencies into the current (probably root) conda environment. If you wish to use an independent environment, run</p>
-<pre><code>$ kipoi env create rbp_eclip/UPF1
+<p>To use that environment in R, run:</p>
+<pre><code class="R">use_condaenv(&quot;kipoi-MaxEntScan__3prime&quot;)
 </code></pre>
 
-<p>and then in R, run:</p>
-<pre><code class="R">use_condaenv(&quot;kipoi-rbp_eclip__UPF1&quot;)
-</code></pre>
-
-<p>before running </p>
-<pre><code class="R">kipoi &lt;- import('kipoi')
-</code></pre>
-
+<p>Make sure you run that code snippet right after importing the <code>reticulate</code> library (i.e. make sure you run it before <code>kipoi &lt;- import('kipoi')</code>)</p>
 <h3 id="floatdouble-type-issues">Float/Double type issues</h3>
 <p>When using a pytorch model: <code>DeepSEA/predict</code></p>
 <pre><code class="R"># Get the dataloader
