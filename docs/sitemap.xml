@@ -98,13 +98,19 @@
     </url>
         
     <url>
-     <loc>http://kipoi.org/docs//tutorials/variant_effect_prediction/</loc>
+     <loc>http://kipoi.org/docs//tutorials/tf_binding_models/</loc>
      <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://kipoi.org/docs//tutorials/composing_models/</loc>
+     <lastmod>2018-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://kipoi.org/docs//tutorials/variant_effect_prediction/</loc>
      <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>

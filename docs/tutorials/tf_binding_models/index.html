@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Comparing models - Kipoi Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Comparing models";
+    var mkdocs_page_input_path = "tutorials/tf_binding_models.md";
+    var mkdocs_page_url = "/tutorials/tf_binding_models/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-115025493-1', 'kipoi.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contributing</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../contributing_models/">Contributing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../R-api/">R API</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Comparing models</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#model-benchmarking-with-kipoi">Model benchmarking with Kipoi</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#load-software-tools">Load software tools</a></li>
+        
+            <li><a class="toctree-l4" href="#prepare-data-files">Prepare data files</a></li>
+        
+            <li><a class="toctree-l4" href="#install-deepbind-model-software-requirements">Install DeepBind model software requirements</a></li>
+        
+            <li><a class="toctree-l4" href="#load-deepbind-model">Load DeepBind model</a></li>
+        
+            <li><a class="toctree-l4" href="#get-deepbind-predictions">Get DeepBind predictions</a></li>
+        
+            <li><a class="toctree-l4" href="#evaluate-deepbind-predictions">Evaluate DeepBind predictions</a></li>
+        
+            <li><a class="toctree-l4" href="#load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../composing_models/">Composing models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction/">Variant effect prediction</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/model/">Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/dataloader/">Dataloader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/pipeline/">Pipeline</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/metadata/">Metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/remote/">Remotes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Postprocessing</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Comparing models</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/tutorials/tf_binding_models.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/nbs/tf_binding_models.ipynb">nbs/tf_binding_models.ipynb</a></p>
+<h1 id="model-benchmarking-with-kipoi">Model benchmarking with Kipoi</h1>
+<p>This tutorial will show to to easily benchmark tf-binding models in Kipoi. By providing a unified access to models, it takes the same effort to run a simple PWM scanning model then to run a more complicated model (DeepBind in this example).</p>
+<h2 id="load-software-tools">Load software tools</h2>
+<p>Let's start by loading software for this tutorial: the kipoi model zoo, </p>
+<pre><code class="python">import kipoi
+import numpy as np
+from sklearn.metrics import roc_auc_score
+</code></pre>
+
+<h2 id="prepare-data-files">Prepare data files</h2>
+<p>Next, we introduce a labeled BED-format interval file and a genome fasta file</p>
+<pre><code class="python">intervals_file = 'example_data/chr22.101bp.2000_intervals.JUND.HepG2.tsv'
+fasta_file  = 'example_data/hg19_chr22.fa'
+dl_kwargs = {'intervals_file': intervals_file, 'fasta_file': fasta_file}
+</code></pre>
+
+<p>Let's look at the first few lines in the intervals file</p>
+<pre><code class="python">!head $intervals_file
+</code></pre>
+
+<pre><code>chr22   20208963    20209064    0
+chr22   29673572    29673673    0
+chr22   28193720    28193821    0
+chr22   43864274    43864375    0
+chr22   18261550    18261651    0
+chr22   7869409 7869510 0
+chr22   49798024    49798125    0
+chr22   43088594    43088695    0
+chr22   35147671    35147772    0
+chr22   49486843    49486944    0
+</code></pre>
+<p>The four columns in this file contain chromosomes, interval start coordinate, interval end coordinate, and the label. This file contains 2000 examples, 1000 positives and 1000 negatives.</p>
+<p>Let's load the labels from the last column: </p>
+<pre><code class="python">labels = np.loadtxt(intervals_file, usecols=(3,))
+</code></pre>
+
+<p>Next, to evaluate the DeepBind model for JUND, we will 1) install software requirements to run the model, 2) load the model, and 3) get model predictions using our intervals and fasta file.</p>
+<h2 id="install-deepbind-model-software-requirements">Install DeepBind model software requirements</h2>
+<pre><code class="python">deepbind_model_name = &quot;DeepBind/D00776.005&quot;
+kipoi.pipeline.install_model_requirements(deepbind_model_name)
+# Use `$ kipoi env install DeepBind/D00776.005 --gpu` from the command-line to install the gpu version of the dependencies
+</code></pre>
+
+<pre><code>Conda dependencies to be installed:
+['python=2.7', 'h5py']
+Fetching package metadata ...........
+Solving package specifications: .
+
+# All requested packages already installed.
+# packages in environment at /users/jisraeli/local/anaconda/envs/kipoi:
+#
+h5py                      2.7.1            py27h2697762_0  
+pip dependencies to be installed:
+['tensorflow==1.4', 'keras==2.1.4']
+Requirement already satisfied: tensorflow==1.4 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages
+Collecting keras==2.1.4
+  Using cached Keras-2.1.4-py2.py3-none-any.whl
+Requirement already satisfied: enum34&gt;=1.1.6 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: backports.weakref&gt;=1.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: wheel in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: mock&gt;=2.0.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: numpy&gt;=1.12.1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: protobuf&gt;=3.3.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: six&gt;=1.10.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
+Requirement already satisfied: pyyaml in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from keras==2.1.4)
+Requirement already satisfied: scipy&gt;=0.14 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from keras==2.1.4)
+Requirement already satisfied: funcsigs&gt;=1; python_version &lt; "3.3" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow==1.4)
+Requirement already satisfied: pbr&gt;=0.11 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow==1.4)
+Requirement already satisfied: bleach==1.5.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
+Requirement already satisfied: futures&gt;=3.1.1; python_version &lt; "3.2" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
+Requirement already satisfied: markdown&gt;=2.6.8 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
+Requirement already satisfied: werkzeug&gt;=0.11.10 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
+Requirement already satisfied: html5lib==0.9999999 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
+Requirement already satisfied: setuptools in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from protobuf&gt;=3.3.0-&gt;tensorflow==1.4)
+Installing collected packages: keras
+  Found existing installation: Keras 2.0.4
+    Uninstalling Keras-2.0.4:
+      Successfully uninstalled Keras-2.0.4
+Successfully installed keras-2.1.4
+</code></pre>
+<h2 id="load-deepbind-model">Load DeepBind model</h2>
+<pre><code class="python">deepbind_model = kipoi.get_model(deepbind_model_name)
+</code></pre>
+
+<pre><code>/users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+</code></pre>
+<h2 id="get-deepbind-predictions">Get DeepBind predictions</h2>
+<pre><code class="python">deepbind_predictions = deepbind_model.pipeline.predict(dl_kwargs, batch_size=1000)
+</code></pre>
+
+<h2 id="evaluate-deepbind-predictions">Evaluate DeepBind predictions</h2>
+<p>Let's check the auROC of deepbind predictions:</p>
+<pre><code class="python">roc_auc_score(labels, deepbind_predictions)
+</code></pre>
+
+<pre><code>0.808138
+</code></pre>
+<h2 id="load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</h2>
+<pre><code class="python">pwm_model_name = &quot;pwm_HOCOMOCO/human/JUND&quot;
+kipoi.pipeline.install_model_requirements(pwm_model_name)
+# Use `$ kipoi env install pwm_HOCOMOCO/human/JUND --gpu` from the command-line to install the gpu version of the dependencies
+pwm_model = kipoi.get_model(pwm_model_name)
+pwm_predictions = pwm_model.pipeline.predict(dl_kwargs, batch_size=1000)
+print(&quot;PWM auROC:&quot;)
+roc_auc_score(labels, pwm_predictions)
+</code></pre>
+
+<pre><code>Conda dependencies to be installed:
+['python=3.5', 'h5py']
+Fetching package metadata ...........
+Solving package specifications: .
+
+# All requested packages already installed.
+# packages in environment at /users/jisraeli/local/anaconda/envs/kipoi:
+#
+h5py                      2.7.1            py27h2697762_0  
+pip dependencies to be installed:
+['tensorflow', 'keras==2.0.4']
+Requirement already satisfied: tensorflow in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages
+Collecting keras==2.0.4
+Requirement already satisfied: enum34&gt;=1.1.6 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: backports.weakref&gt;=1.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: wheel in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: mock&gt;=2.0.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: numpy&gt;=1.12.1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: protobuf&gt;=3.3.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: six&gt;=1.10.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
+Requirement already satisfied: theano in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages/Theano-1.0.1-py2.7.egg (from keras==2.0.4)
+Requirement already satisfied: pyyaml in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from keras==2.0.4)
+Requirement already satisfied: funcsigs&gt;=1; python_version &lt; "3.3" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow)
+Requirement already satisfied: pbr&gt;=0.11 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow)
+Requirement already satisfied: bleach==1.5.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
+Requirement already satisfied: futures&gt;=3.1.1; python_version &lt; "3.2" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
+Requirement already satisfied: markdown&gt;=2.6.8 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
+Requirement already satisfied: werkzeug&gt;=0.11.10 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
+Requirement already satisfied: html5lib==0.9999999 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
+Requirement already satisfied: setuptools in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from protobuf&gt;=3.3.0-&gt;tensorflow)
+Requirement already satisfied: scipy&gt;=0.14 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from theano-&gt;keras==2.0.4)
+Installing collected packages: keras
+  Found existing installation: Keras 2.1.4
+    Uninstalling Keras-2.1.4:
+      Successfully uninstalled Keras-2.1.4
+Successfully installed keras-2.0.4
+
+
+/users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages/keras/models.py:255: UserWarning: No training configuration found in save file: the model was *not* compiled. Compile it manually.
+  custom_objects=custom_objects)
+
+
+PWM auROC:
+
+
+
+
+
+0.6431155
+</code></pre>
+<p>In this example, DeepBind's auROC of 80.8% outperforms the HOCOMOCO PWM auROC of 64.3%</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../composing_models/" class="btn btn-neutral float-right" title="Composing models">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../R-api/" class="btn btn-neutral" title="R API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../R-api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../composing_models/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
