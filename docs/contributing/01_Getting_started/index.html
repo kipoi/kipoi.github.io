@@ -81,6 +81,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Postprocessing</span>
     <ul class="subnav">
                 <li class="toctree-l3">
@@ -110,6 +114,8 @@
             <li><a class="toctree-l4" href="#how-to-write-the-model">How to write the model</a></li>
         
             <li><a class="toctree-l4" href="#how-to-test-the-model">How to test the model</a></li>
+        
+            <li><a class="toctree-l4" href="#removing-or-updating-models">Removing or updating models</a></li>
         
         </ul>
     
@@ -257,7 +263,8 @@
 <h4 id="1-install-kipoi">1. Install Kipoi</h4>
 <ol>
 <li>Install git-lfs<ul>
-<li><code>conda install -c conda-forge git-lfs</code> (alternatively see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>)</li>
+<li><code>conda install -c conda-forge git-lfs &amp;&amp; git lfs install</code></li>
+<li>For alternative installation options  see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>.</li>
 </ul>
 </li>
 <li>Install kipoi<ul>
@@ -269,9 +276,9 @@
 <h4 id="2-add-the-model">2. Add the model</h4>
 <ol>
 <li><code>cd ~/.kipoi/models</code></li>
-<li><a href="#how-to-write-the-model">Write the model</a>: Create a new folder <code>&lt;my new model&gt;</code> containing all the required files<ul>
-<li>Option 1: Copy the existing model: <code>cp -R &lt;existing model&gt; &lt;my new model&gt;</code> &amp; edit the copied files</li>
-<li>Option 2: Run <code>kipoi init</code>, answer the questions &amp; edit the created files</li>
+<li><a href="#how-to-write-the-model">Write the model</a>: Create a new folder <code>&lt;my new model&gt;</code> containing all the required files. The required files can be created by doing one of the following three options:<ul>
+<li>Option 1: Copy the existing model: <code>cp -R &lt;existing model&gt; &lt;my new model&gt;</code>, edit/replace/add the copied files until they fit your new model.</li>
+<li>Option 2: Run <code>kipoi init</code>, answer the questions, edit/replace the created files until they fit your new model.</li>
 <li>Option 3: <code>mkdir &lt;my new model&gt;</code> &amp; write all the files from scratch</li>
 </ul>
 </li>
@@ -280,23 +287,61 @@
 <li>Step 2: <code>kipoi test-source kipoi --all -k my_new_model</code></li>
 </ul>
 </li>
-<li>Commit your changes<ul>
-<li><code>cd ~/.kipoi/models &amp;&amp; git commit -m "Added &lt;my new model&gt;"</code></li>
-</ul>
-</li>
 </ol>
 <h4 id="3-submit-the-pull-request">3. Submit the pull-request</h4>
+<h5 id="option-1-fork-the-repository">Option 1: Fork the repository</h5>
 <ol>
+<li>Make sure you have all the recent changes locally<ul>
+<li><code>cd ~/.kipoi/models</code></li>
+<li><code>export GIT_LFS_SKIP_SMUDGE=1 &amp;&amp; git pull</code> - pulls all the changes but doesn't download the files tracked by git-lfs.</li>
+</ul>
+</li>
+<li>Commit your changes<ul>
+<li><code>git add my_new_model/</code></li>
+<li><code>git commit -m "Added &lt;my new model&gt;"</code></li>
+</ul>
+</li>
 <li><a href="https://guides.github.com/activities/forking/">Fork</a> the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repo on github (click on the Fork button)</li>
 <li>Add your fork as a git remote to <code>~/.kipoi/models</code><ul>
-<li><code>cd ~/.kipoi/models &amp;&amp; git remote add fork https://github.com/&lt;username&gt;/models.git</code></li>
+<li><code>git remote add fork https://github.com/&lt;username&gt;/models.git</code></li>
 </ul>
 </li>
 <li>Push to your fork<ul>
 <li><code>git push fork master</code></li>
 </ul>
 </li>
-<li>Submit a pull-request (click the <a href="https://help.github.com/articles/creating-a-pull-request/">New pull request</a> button on your github fork - <code>https://github.com/&lt;username&gt;/models&gt;</code>)</li>
+<li>Submit a pull-request<ul>
+<li>click the <a href="https://help.github.com/articles/creating-a-pull-request/">New pull request</a> button on your github fork - <code>https://github.com/&lt;username&gt;/models&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h5 id="option-2-create-a-new-branch-on-kipoimodels">Option 2: Create a new branch on kipoi/models</h5>
+<p>If you wish to contribute models more frequently, please <a href="https://github.com/kipoi/models/issues/55">join the team</a>. You will be added to the Kipoi organization. This will allow you to push to branches of the <code>kipoi/models</code> github repo directly.</p>
+<ol>
+<li>Make sure you have all the recent changes locally<ul>
+<li><code>cd ~/.kipoi/models</code></li>
+<li><code>export GIT_LFS_SKIP_SMUDGE=1 &amp;&amp; git pull</code> - pulls all the changes but doesn't download the files tracked by git-lfs.</li>
+</ul>
+</li>
+<li>Create a new branch in <code>~/.kipoi/models</code><ul>
+<li><code>git stash</code> - this will store/stash all local changes in <a href="https://git-scm.com/book/en/v1/Git-Tools-Stashing">git stash</a></li>
+<li><code>git checkout -b my_new_model</code> - create a new branch</li>
+<li><code>git stash pop</code> - get the stashed files back</li>
+</ul>
+</li>
+<li>Commit changes<ul>
+<li><code>git add my_new_model/</code></li>
+<li><code>git commit -m "Added &lt;my new model&gt;"</code></li>
+</ul>
+</li>
+<li>Push changes to <code>my_new_model</code> branch<ul>
+<li><code>git push -u origin my_new_model</code></li>
+</ul>
+</li>
+<li>Submit a pull-request<ul>
+<li>click the <a href="https://help.github.com/articles/creating-a-pull-request/">New pull request</a> button on <code>my_new_model</code> branch of repo <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a>.</li>
+</ul>
+</li>
 </ol>
 <p>Rest of this document will go more into the details about steps writing the model and testing the model.</p>
 <h3 id="how-to-write-the-model">How to write the model</h3>
@@ -320,7 +365,7 @@
 <pre><code class="bash">$ kipoi init
 INFO [kipoi.cli.main] Initializing a new Kipoi model
 
-Please answer the questions bellow. Defaults are shown in square brackets.
+Please answer the questions below. Defaults are shown in square brackets.
 
 You might find the following links useful: 
 - (model_type) https://github.com/kipoi/kipoi/blob/master/docs/writing_models.md
@@ -368,8 +413,9 @@ INFO [kipoi.cli.main] Done!
 Created the following folder into the current working directory: my_new_model
 </code></pre>
 
-<p>The created folder contains a model and a dataloader for predicting the Iris species. You can check if the tests pass for this newly created folder by running the comands bellow.</p>
+<p>The created folder contains a model and a dataloader for predicting the Iris species. You will now have to <a href="../02_Writing_model.yaml">edit the model.yaml</a> and to <a href="../04_Writing_dataloader.yaml">edit the dataloader.yaml</a> files according to your model. Also you will have to copy you rmodel files into the model_files directory. You can check whether you have succeeded and your model is setup correctly with the commands below.</p>
 <h3 id="how-to-test-the-model">How to test the model</h3>
+<p>Be aware that the test functions will only check whether the definition side of things (model.yaml, dataloader.yaml, syntax errors, etc.) is setup correctly, you will have to validate yourself whether the outputs created by using the predict function produce the desired model output!</p>
 <h4 id="step-1-run-kipoi-test-kipoimodelsmy_new_model">Step 1: Run <code>kipoi test ~/.kipoi/models/my_new_model</code></h4>
 <!-- To make sure this work as you expect, test your model by running: -->
 
@@ -390,6 +436,8 @@ Created the following folder into the current working directory: my_new_model
 <!-- ``` -->
 
 <p>This will run <code>kipoi test</code> in a new conda environment with dependencies specified in <code>model.yaml</code> and <code>dataloader.yaml</code>.</p>
+<h3 id="removing-or-updating-models">Removing or updating models</h3>
+<p>To remove, rename or update an existing model, send a pull-request (as when contributing models, see <a href="#3-submit-the-pull-request">3. Submit the pull-request</a>).</p>
               
             </div>
           </div>

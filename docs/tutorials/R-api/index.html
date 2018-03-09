@@ -81,6 +81,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Postprocessing</span>
     <ul class="subnav">
                 <li class="toctree-l3">
@@ -260,7 +264,7 @@
 <p>Make sure you have git-lfs and Kipoi correctly installed: </p>
 <ol>
 <li>Install git-lfs<ul>
-<li><code>conda install -c conda-forge git-lfs</code> (alternatively see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>)</li>
+<li><code>conda install -c conda-forge git-lfs &amp;&amp; git lfs install</code> (alternatively see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>)</li>
 </ul>
 </li>
 <li>Install kipoi<ul>
@@ -472,8 +476,6 @@ kipoi_list_models &lt;- function() {
 <h3 id="get-the-kipoi-model-and-make-a-prediction-for-the-example-files">Get the kipoi model and make a prediction for the example files</h3>
 <p>To run the following example, make sure you have all the dependencies installed. Run:</p>
 <pre><code class="R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
-
-kipoi$install_dataloader_requirements(&quot;MaxEntScan/3prime&quot;)
 </code></pre>
 
 <p>from R or</p>
@@ -481,6 +483,9 @@ kipoi$install_dataloader_requirements(&quot;MaxEntScan/3prime&quot;)
 </code></pre>
 
 <p>from the command-line. This will install all the required dependencies for both, the model and the dataloader.</p>
+<pre><code class="R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
+</code></pre>
+
 <pre><code class="R">model &lt;- kipoi$get_model(&quot;MaxEntScan/3prime&quot;)
 </code></pre>
 
@@ -571,6 +576,9 @@ model$predict_on_batch(batch$inputs)
 <p>Make sure you run that code snippet right after importing the <code>reticulate</code> library (i.e. make sure you run it before <code>kipoi &lt;- import('kipoi')</code>)</p>
 <h3 id="floatdouble-type-issues">Float/Double type issues</h3>
 <p>When using a pytorch model: <code>DeepSEA/predict</code></p>
+<pre><code class="R">kipoi$install_model_requirements(&quot;DeepSEA/predict&quot;)
+</code></pre>
+
 <pre><code class="R"># Get the dataloader
 setwd('~/.kipoi/models/DeepSEA/predict')
 model &lt;- kipoi$get_model(&quot;DeepSEA/predict&quot;)
