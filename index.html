@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Nejc Zupan">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
     <title>Kipoi</title>
     <!-- Font Awesome -->
 <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
@@ -29,12 +30,12 @@
     <section class="mb-3">
         
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark unique-color">
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark unique-color-kipoi">
 
     <!-- Navbar brand -->
     <span>
-      <a class="nav-title-link navbar-brand text-hide" href="/"
-	 ><img src="/static/img/logo-white-kipoi.svg" width="70px" height="38px" alt="Kipoi"/></a>
+      <a class="nav-title-link navbar-brand-nopad text-hide left-margin" href="/"
+	 ><img src="/static/img/nav_bar_logo_v3.png" height="50px" alt="Kipoi"/></a>
     </span>
 
     <!-- Collapse button -->
@@ -76,7 +77,19 @@
 <div class="row" style="margin-right: 0; margin-left: 0;">
   <div class="col-lg-9 mx-auto">
     <div class="row mb-4">
-      <h2 class="col"> Kipoi: Model zoo for genomics</h2>
+      <div class="col media kipoi-title-box d-none d-sm-flex">
+        <div class="media-left">
+            <img src="/static/img/kipoi_small.png" class="media-object" alt="Kipoi logo" height="80px">
+        </div>
+        <div class="media-body ">
+          <h3 class="media-heading">: Model zoo for genomics</h3>
+        </div>
+      </div>
+      <div class="col media kipoi-title-box d-flex d-sm-none">
+        <div class="media-body ">
+          <h3 class="media-heading">Model zoo for genomics</h3>
+        </div>
+      </div>
     </div>
     <div class="row mb-5">
       <div class="col-md-6 col-sm-12">
@@ -311,7 +324,7 @@
         labels: ['keras', 'custom', 'pytorch', 'tensorflow'],
         datasets: [
           {
-            data: [9, 4, 2, 1],
+            data: [10, 3, 2, 1],
             backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
 	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
@@ -346,7 +359,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['DNA accessibility', 'Histone modification', 'RNA splicing', 'DNA binding', 'DNA methylation', 'RNA binding', 'RNA expression'],
+        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'DNA methylation', 'RNA binding', 'RNA expression'],
         datasets: [{
           label: null,
           data: [5, 4, 3, 3, 2, 2, 1],
