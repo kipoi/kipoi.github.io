@@ -67,6 +67,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#links">Links</a></li>
+        
             <li><a class="toctree-l3" href="#installation">Installation</a></li>
         
             <li><a class="toctree-l3" href="#quick-start">Quick start</a></li>
@@ -259,11 +261,16 @@
 <!-- </div> -->
 
 <h1 id="kipoi-model-zoo-for-genomics">Kipoi: model zoo for genomics</h1>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="http://kipoi.org">kipoi.org</a> - Main website</li>
+<li><a href="http://kipoi.org/docs">kipoi.org/docs</a> - Documentation</li>
+<li><a href="https://github.com/kipoi/models">github.com/kipoi/models</a> - Model zoo for genomics maintained by the Kipoi team</li>
+</ul>
 <h2 id="installation">Installation</h2>
-<p>OSX users, depending on the version of the OS, might have to check whether they have a functional version of python installed, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX/">Installing on OSX</a>.</p>
 <h3 id="1-install-minicondaanaconda">1. Install miniconda/anaconda</h3>
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
-Make sure you have either anaconda (<a href="https://conda.io/miniconda.html">download page</a>) or miniconda (<a href="https://www.anaconda.com/download/">download page</a>) installed.</p>
+Make sure you have either anaconda (<a href="https://conda.io/miniconda.html">download page</a>) or miniconda (<a href="https://www.anaconda.com/download/">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX/">Installing python on OSX</a>.</p>
 <h3 id="2-install-git-lfs">2. Install Git LFS</h3>
 <p>For downloading models, Kipoi uses <a href="https://git-lfs.github.com/">Git Large File Storage</a> (LFS). To install it on Ubuntu, run:</p>
 <pre><code class="bash"># on Ubuntu
@@ -298,7 +305,7 @@ pip install -e '.[develop]'
 kipoi.list_models()
 </code></pre>
 
-<p>Hint: For an overview over the available models also check the <a href="http://kipoi.org/groups/">model overview</a> on our website, where you can see example commands for how to use the models on the CLI, python and R!</p>
+<p>Hint: For an overview over the available models also check the <a href="http://kipoi.org/groups/">model overview</a> on our website, where you can see example commands for how to use the models on the CLI, python and R.</p>
 <p>Load the model from model source or local directory</p>
 <pre><code class="python"># Load the model from github.com/kipoi/models/rbp
 model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;, source=&quot;kipoi&quot;) # source=&quot;kipoi&quot; is the default
@@ -376,8 +383,7 @@ usage: kipoi &lt;command&gt; [-h] ...
 
 <p>Explore the CLI usage by running <code>kipoi &lt;command&gt; -h</code>. Also, see <a href="http://kipoi.org/docs/using/01_Getting_started/#command-line-interface-quick-start">docs/using/getting started cli</a> for more information.</p>
 <h3 id="configure-kipoi-in-kipoiconfigyaml">Configure Kipoi in <code>.kipoi/config.yaml</code></h3>
-<p>Setup your preference in: <code>.kipoi/config.yaml</code></p>
-<p>You can add your own model sources. See <a href="http://kipoi.org/docs/using/03_Model_sources/">docs/using/03_Model_sources/</a> for more information.</p>
+<p>You can add your own (private) model sources. See <a href="http://kipoi.org/docs/using/03_Model_sources/">docs/using/03_Model_sources/</a>.</p>
 <h3 id="contributing-models">Contributing models</h3>
 <p>See <a href="http://kipoi.org/docs/contributing/01_Getting_started/">docs/contributing getting started</a> and <a href="http://kipoi.org/docs/tutorials/contributing_models/">docs/tutorials/contributing/models</a> for more information.</p>
 <h2 id="postprocessing">Postprocessing</h2>
@@ -438,5 +444,5 @@ is a VCF which can then be annotated with effect predictions and returned in the
 
 <!--
 MkDocs version : 0.17.3
-Build Date UTC : 2018-03-09 18:42:40
+Build Date UTC : 2018-03-12 22:11:03
 -->
