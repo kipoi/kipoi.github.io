@@ -46,11 +46,15 @@
         
         <!-- Links -->
         <ul class="navbar-nav mr-auto text-center">
-	          <!-- Group list --> 
+	  <!-- Group list --> 
             <li class="nav-item">
               <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/groups/">Models</a>
             </li>
-	          <!-- Docs --> 
+            <!-- About --> 
+            <li class="nav-item">
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/about/">About</a>
+            </li>
+	    <!-- Docs --> 
             <li class="nav-item">
               <a id="components-related-3" class="nav-button btn btn-outline-primary navbar-dark nabar-button" href="/docs/">Docs</a>
             </li>
@@ -174,9 +178,10 @@
       <div class="col-lg-4">
         <h4>Use models</h4>
         <ul>
+          <li>Install git-lfs: <code>$ conda install -c conda-forge git-lfs && git lfs install</code></li>
           <li>Install Kipoi: <code>$ pip install kipoi</code></li>
           <li>Choose the model from <a href="/groups/">http://kipoi.org/models</a></li>
-          <li>Use the model from CLI/python/bash by copying code snippets from <a href="../models/basenji">http://kipoi.org/models/my_model</a></li>
+          <li>Use the model from CLI/python/bash by copying code snippets from <a href="../models/Basenji">http://kipoi.org/models/my_model</a></li>
         </ul>
         <a class="btn btn-outline-info waves-effect" href="../docs/using/01_Getting_started/">Learn more</a>
       </div>
@@ -184,6 +189,7 @@
       <div class="col-lg-4">
         <h4>Contribute models</h4>
         <ul>
+          <li>Install git-lfs: <code>$ conda install -c conda-forge git-lfs && git lfs install</code></li>
           <li>Install Kipoi: <code>$ pip install kipoi</code></li>
           <li>Run <code>$ kipoi ls</code></li>
           <li>Explore the models locally at <code>~/.kipoi/models</code></li>
@@ -199,7 +205,7 @@
         <ul>
           <li>Setup the development environment: <code>$ pip install kipoi[develop]</code></li>
           <li>Read <a href="https://github.com/kipoi/kipoi/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
-          <li>Submit an issue/pull-request to <a href="https://github.com/kipoi/models">github.com/kipoi/models</a></li>
+          <li>Submit an issue/pull-request to <a href="https://github.com/kipoi/kipoi">github.com/kipoi/kipoi</a></li>
         </ul>
       </div>
     </div>
@@ -362,7 +368,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['DNA accessibility', 'Histone modification', 'RNA splicing', 'DNA binding', 'RNA binding', 'DNA methylation', 'RNA expression'],
+        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'RNA binding', 'DNA methylation', 'RNA expression'],
         datasets: [{
           label: null,
           data: [5, 4, 3, 3, 2, 2, 1],
