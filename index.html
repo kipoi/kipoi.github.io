@@ -30,7 +30,8 @@
     <section class="mb-3">
         
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark unique-color-kipoi">
+
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark unique-color-kipoi">
 
     <!-- Navbar brand -->
     <span>
@@ -63,12 +64,14 @@
         <!-- Search form -->
         
 
-        <ul class="navbar-nav ml-auto text-center">
+      
+        <ul class="navbar-nav ml-auto text-center d-sm-none d-md-flex">
+      
           <li class="nav-item">
-            <a id="components-related-4" class="nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
+            <a id="components-related-4" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item">
-            <a id="components-related-5" class="nav-link waves-effect waves-light" href="https://github.com/kipoi/kipoi">API repository<i class="fa fa-github" aria-hidden="true"></i></a>
+            <a id="components-related-5" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/kipoi">API repository<i class="fa fa-github" aria-hidden="true"></i></a>
           </li>
         </ul>
         
@@ -76,7 +79,8 @@
 </nav>
     </section>
 
-    
+    <section class="main-content">
+        
 
 <div class="row" style="margin-right: 0; margin-left: 0;">
   <div class="col-lg-9 mx-auto">
@@ -232,6 +236,7 @@
   </div>
 </div>
 
+    </section>
     
     <footer class="page-footer center-on-small-only unique-color">
     <!--Footer links-->
@@ -350,7 +355,7 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'GPL-v3', 'BSD 3-Clause', 'Apache License v2'],
+     *     labels: ['MIT', 'BSD 3-Clause', 'GPL-v3', 'Apache License v2'],
      *     datasets: [
      *       {
      *         data: [13, 1, 1, 1],
@@ -368,7 +373,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'RNA binding', 'DNA methylation', 'RNA expression'],
+        labels: ['DNA accessibility', 'Histone modification', 'DNA binding', 'RNA splicing', 'DNA methylation', 'RNA binding', 'RNA expression'],
         datasets: [{
           label: null,
           data: [6, 4, 3, 3, 2, 2, 1],
