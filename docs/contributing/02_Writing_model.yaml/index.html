@@ -310,7 +310,15 @@ schema:  # Model schema
 <h2 id="args">args</h2>
 <p>Model arguments define where the files are files and functions are located to instantiate the model. Most entries of <code>args</code> will contain paths to files, those paths are relative to the location of the model.yaml file. The correct definition of <code>args</code> depends on the <code>type</code> that was selected:</p>
 <h3 id="keras-models"><code>keras</code> models</h3>
-<p>For Keras models the following args are available: <code>weights</code>, <code>arch</code>, <code>custom_objects</code>. The Keras framework offers different ways to store model architecture and weights:</p>
+<p>For Keras models the following args are available:</p>
+<ul>
+<li><code>weights</code>: File path to the hdf5 weights or the hdf5 Keras model.</li>
+<li><code>arch</code>: Architecture json model. If None, <code>weights</code> is assumed to speficy the whole model</li>
+<li><code>custom_objects</code>: Python file defining the custom Keras objects in a <code>OBJECTS</code> dictionary</li>
+<li><code>backend</code>: Keras backend to use ('tensorflow', 'theano', 'cntk')</li>
+<li><code>image_dim_ordering</code>: <code>'tf'</code> or <code>'th'</code>: Whether the model was trained with using 'tf' ('channels_last') or 'th' ('cannels_first') dimension ordering.</li>
+</ul>
+<p>The Keras framework offers different ways to store model architecture and weights:</p>
 <ul>
 <li>Architecture and weights can be stored separately:</li>
 </ul>

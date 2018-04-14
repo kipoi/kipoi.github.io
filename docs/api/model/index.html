@@ -269,18 +269,20 @@
 <h2 id="available-models">Available models</h2>
 <p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L175">[source]</a></span></p>
 <h3 id="kerasmodel">KerasModel</h3>
-<pre><code class="python">kipoi.model.KerasModel(weights, arch=None, custom_objects=None, backend=None)
+<pre><code class="python">kipoi.model.KerasModel(weights, arch=None, custom_objects=None, backend=None, image_dim_ordering=None)
 </code></pre>
 
 <p>Loads the serialized Keras model</p>
 <p><strong>Arguments</strong></p>
 <ul>
 <li><strong>weights</strong>: File path to the hdf5 weights or the hdf5 Keras model</li>
-<li><strong>arhc</strong>: Architecture json model. If None, <code>weights</code> is
+<li><strong>arch</strong>: Architecture json model. If None, <code>weights</code> is
 assumed to speficy the whole model</li>
 <li><strong>custom_objects</strong>: Python file defining the custom Keras objects
 in a <code>OBJECTS</code> dictionary</li>
 <li><strong>backend</strong>: Keras backend to use ('tensorflow', 'theano', ...)</li>
+<li><strong>image_dim_ordering</strong>: 'tf' or 'th': Whether to use 'tf' ('channels_last')
+    or 'th' ('cannels_first') dimension ordering.</li>
 </ul>
 <p><strong><code>model.yml</code> entry</strong></p>
 <pre><code>- __Model__:
@@ -292,14 +294,14 @@ in a <code>OBJECTS</code> dictionary</li>
 </code></pre>
 
 <hr />
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L457">[source]</a></span></p>
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L463">[source]</a></span></p>
 <h3 id="pytorchmodel">PyTorchModel</h3>
 <pre><code class="python">kipoi.model.PyTorchModel(file=None, build_fn=None, weights=None, auto_use_cuda=True)
 </code></pre>
 
 <p>Loads a pytorch model. </p>
 <hr />
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L757">[source]</a></span></p>
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L763">[source]</a></span></p>
 <h3 id="sklearnmodel">SklearnModel</h3>
 <pre><code class="python">kipoi.model.SklearnModel(pkl_file)
 </code></pre>
@@ -317,7 +319,7 @@ in a <code>OBJECTS</code> dictionary</li>
 </code></pre>
 
 <hr />
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L807">[source]</a></span></p>
+<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/model.py#L813">[source]</a></span></p>
 <h3 id="tensorflowmodel">TensorFlowModel</h3>
 <pre><code class="python">kipoi.model.TensorFlowModel(input_nodes, target_nodes, checkpoint_path, const_feed_dict_pkl=None)
 </code></pre>
