@@ -272,14 +272,13 @@
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
 Make sure you have either anaconda (<a href="https://conda.io/miniconda.html">download page</a>) or miniconda (<a href="https://www.anaconda.com/download/">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX/">Installing python on OSX</a>.</p>
 <h3 id="2-install-git-lfs">2. Install Git LFS</h3>
-<p>For downloading models, Kipoi uses <a href="https://git-lfs.github.com/">Git Large File Storage</a> (LFS). To install it on Ubuntu, run:</p>
-<pre><code class="bash"># on Ubuntu
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get install -y git-lfs
+<p>For downloading models, Kipoi uses git and <a href="https://git-lfs.github.com/">Git Large File Storage</a> (LFS). See how to install git <a href="https://www.atlassian.com/git/tutorials/install-git">here</a>. To install git-lfs on Ubuntu, run:</p>
+<pre><code class="bash">curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install -y git git-lfs
 git-lfs install
 </code></pre>
 
-<p>Alternatively, install it through conda:</p>
+<p>Alternatively, you can install git-lfs through conda:</p>
 <pre><code class="bash">conda install -c conda-forge git-lfs &amp;&amp; git lfs install
 </code></pre>
 
@@ -444,5 +443,5 @@ is a VCF which can then be annotated with effect predictions and returned in the
 
 <!--
 MkDocs version : 0.17.3
-Build Date UTC : 2018-04-16 05:36:01
+Build Date UTC : 2018-04-20 04:54:36
 -->
