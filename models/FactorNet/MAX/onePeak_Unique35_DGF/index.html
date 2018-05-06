@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Nejc Zupan">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <title>Kipoi</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+<!-- Material Design Bootstrap -->
+<link rel="stylesheet" type="text/css" href="/static/css/mdb.min.css">
+<!-- Material Design Lite -->
+<link rel="stylesheet" type="text/css" href="/static/css/material.min.css">
+<!-- DataTables Material Design -->    
+<link rel="stylesheet" type="text/css" href="/static/css/dataTables.material.css"/>
+<!-- Highlight -->
+<link rel="stylesheet" type="text/css" href="/static/css/custom_highlight_github.css"/>
+
+<!-- Custom styles -->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css?v=150318">
+</head>
+
+<body>
+    <section class="mb-3">
+        
+<!--Navbar-->
+
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark unique-color-kipoi">
+
+    <!-- Navbar brand -->
+    <span>
+      <a class="nav-title-link navbar-brand-nopad text-hide left-margin" href="/"
+	 ><img src="/static/img/nav_bar_logo_v3.png" height="50px" alt="Kipoi"/></a>
+    </span>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse text-center" id="navbarNav1">
+        
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto text-center">
+	  <!-- Group list --> 
+            <li class="nav-item">
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/groups/">Models</a>
+            </li>
+            <!-- About --> 
+            <li class="nav-item">
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/about/">About</a>
+            </li>
+	    <!-- Docs --> 
+            <li class="nav-item">
+              <a id="components-related-3" class="nav-button btn btn-outline-primary navbar-dark nabar-button" href="/docs/">Docs</a>
+            </li>
+        </ul>
+
+        <!-- Search form -->
+        
+
+      
+        <ul class="navbar-nav ml-auto text-center d-sm-none d-md-flex">
+      
+          <li class="nav-item">
+            <a id="components-related-4" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="components-related-5" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/kipoi">API repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+        
+    </div>
+</nav>
+    </section>
+
+    <section class="main-content">
+        
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <!--Section: model-details content-->
+        <section class="model-details">
+            <!--<h2 class="">Model Details</h2>-->
+
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <!-- Model title -->
+                            <h1 class="h1-responsive"><a href="/models/FactorNet">FactorNet</a>/<a href="/models/FactorNet/MAX">MAX</a>/onePeak_Unique35_DGF</h1>
+                        </div>
+                        <!-- Model details -->
+                        <div class="col-lg-5">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <p>Authors: 
+  
+    
+      
+  Daniel Quang
+  
+    <a href="https://github.com/daquang" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+    
+    , 
+  
+    
+      
+  Xiaohui Xie
+  
+  
+
+    
+    
+  
+</p>
+                                    <!-- <p>
+                                         Name:
+                                         
+					 </p> -->
+                                    <p>Version: 0.1</p>
+                                    <!-- License -->
+                                    <p>License: MIT</p>
+                                    <p>Contributed by: 
+  
+    
+      
+  Ziga Avsec
+  
+    <a href="https://github.com/avsecz" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+    
+    
+  
+</p>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <!-- Cite as -->
+                                    <p>Cite as: 
+  
+    
+      
+  
+    <a href="https://doi.org/10.1101/151274">https://doi.org/10.1101/151274</a>
+  
+
+    
+  
+</p>
+
+                                    <!-- Trained on -->
+                                    <p>Trained on: 
+  
+</p>
+
+                                    <!-- Model type -->
+                                    <p>
+                                        Type:
+                                        
+                                            <a data-toggle="tooltip" data-placement="top" data-html="true" title="
+  <div>
+    
+      <strong>arch</strong>: model_files/model.json<br>
+    
+      <strong>weights</strong>: model_files/best_model.hdf5<br>
+    
+      <strong>image_dim_ordering</strong>: tf<br>
+    
+  </div>
+"><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
+                                        
+                                    </p>
+
+                                    <!-- Model postprocessing -->
+                                    <p>
+                                        Postprocessing:
+                                        
+                                            
+					        
+                                            
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12 col-sm-12">
+                            <!-- Model description -->
+                            <p class="lead">FactorNet: a deep learning framework for predicting cell type specific transcription factor binding from nucleotide-resolution sequential data
+Github link - https://github.com/uci-cbcl/FactorNet
+Abststract:
+Due to the large numbers of transcription factors (TFs) and cell types, querying binding profiles of all TF/cell type pairs is not experimentally feasible, owing to constraints in time and resources. To address this issue, we developed a convolutional-recurrent neural network model, called FactorNet, to computationally impute the missing binding data. FactorNet trains on binding data from reference cell types to make accurate predictions on testing cell types by leveraging a variety of features, including genomic sequences, genome annotations, gene expression, and single-nucleotide resolution sequential signals, such as DNase I cleavage. To the best of our knowledge, this is the first deep learning method to study the rules governing TF binding at such a fine resolution. With FactorNet, a researcher can perform a single sequencing assay, such as DNase-seq, on a cell type and computationally impute dozens of TF binding profiles. This is an integral step for reconstructing the complex networks underlying gene regulation. While neural networks can be computationally expensive to train, we introduce several novel strategies to significantly reduce the overhead. By visualizing the neural network models, we can interpret how the model predicts binding which in turn reveals additional insights into regulatory grammar. We also investigate the variables that affect cross-cell type predictive performance to explain why the model performs better on some TF/cell types than others, and offer insights to improve upon this field. Our method ranked among the top four teams in the ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction Challenge.
+</p>    
+                        </div>
+
+                        <div class="col-lg-5 col-md-12 col-sm-12">
+                            <!-- Model code snippets -->
+                            <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#cli" role="tab">CLI</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#python" role="tab">python</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#r" role="tab">R</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <!-- CLI code snippet tab -->
+    <div class="tab-pane active" id="cli" role="tabpanel">
+        <div class="border border-top-0 code-snippet-container">
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Create a new conda environment with all dependencies installed</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>kipoi env create FactorNet/MAX/onePeak_Unique35_DGF
+source activate kipoi-FactorNet__MAX__onePeak_Unique35_DGF</code></pre> -->
+	<pre><code class="bash">kipoi env create FactorNet/MAX/onePeak_Unique35_DGF
+source activate kipoi-FactorNet__MAX__onePeak_Unique35_DGF</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Install model dependencies into current environment</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>kipoi env install FactorNet/MAX/onePeak_Unique35_DGF</code></pre> -->
+	<pre><code class="bash">kipoi env install FactorNet/MAX/onePeak_Unique35_DGF</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Test the model</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>kipoi test FactorNet/MAX/onePeak_Unique35_DGF --source=kipoi</code></pre> -->
+	<pre><code class="bash">kipoi test FactorNet/MAX/onePeak_Unique35_DGF --source=kipoi</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Make a prediction</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/FactorNet/MAX/onePeak_Unique35_DGF
+kipoi predict FactorNet/MAX/onePeak_Unique35_DGF \
+  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;}&#39; \
+  -o &#39;/tmp/FactorNet|MAX|onePeak_Unique35_DGF.example_pred.tsv&#39;
+# check the results
+head &#39;/tmp/FactorNet|MAX|onePeak_Unique35_DGF.example_pred.tsv&#39;
+</code></pre> -->
+	<pre><code class="bash">cd ~/.kipoi/models/FactorNet/MAX/onePeak_Unique35_DGF
+kipoi predict FactorNet/MAX/onePeak_Unique35_DGF \
+  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;}&#39; \
+  -o &#39;/tmp/FactorNet|MAX|onePeak_Unique35_DGF.example_pred.tsv&#39;
+# check the results
+head &#39;/tmp/FactorNet|MAX|onePeak_Unique35_DGF.example_pred.tsv&#39;
+</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+        </div>
+    </div>
+
+    <!-- python code snippet tab -->
+    <div class="tab-pane" id="python" role="tabpanel">
+        <div class="border border-top-0 code-snippet-container">
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Get the model</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>import kipoi
+model = kipoi.get_model(&#39;FactorNet/MAX/onePeak_Unique35_DGF&#39;)</code></pre> -->
+	<pre><code class="python">import kipoi
+model = kipoi.get_model(&#39;FactorNet/MAX/onePeak_Unique35_DGF&#39;)</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Make a prediction for example files</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>pred = model.pipeline.predict_example()</code></pre> -->
+	<pre><code class="python">pred = model.pipeline.predict_example()</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Use dataloader and model separately</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
+dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;}
+import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/FactorNet/MAX/onePeak_Unique35_DGF&#39;))
+# Get the dataloader and instantiate it
+dl = model.default_dataloader(**dl_kwargs)
+# get a batch iterator
+it = dl.batch_iter(batch_size=4)
+# predict for a batch
+batch = next(it)
+model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
+	<pre><code class="python"># setup the example dataloader kwargs
+dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;}
+import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/FactorNet/MAX/onePeak_Unique35_DGF&#39;))
+# Get the dataloader and instantiate it
+dl = model.default_dataloader(**dl_kwargs)
+# get a batch iterator
+it = dl.batch_iter(batch_size=4)
+# predict for a batch
+batch = next(it)
+model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Make predictions for custom files directly</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>pred = model.pipeline.predict(dl_kwargs, batch_size=4)</code></pre> -->
+	<pre><code class="python">pred = model.pipeline.predict(dl_kwargs, batch_size=4)</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+        </div>
+    </div>
+    
+    <!-- R code snippet tab -->
+    <div class="tab-pane" id="r" role="tabpanel">
+        <div class="border border-top-0 code-snippet-container">
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Get the model</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>library(reticulate)
+kipoi &lt;- import(&#39;kipoi&#39;)
+model &lt;- kipoi$get_model(&#39;FactorNet/MAX/onePeak_Unique35_DGF&#39;)</code></pre> -->
+	<pre><code class="R">library(reticulate)
+kipoi &lt;- import(&#39;kipoi&#39;)
+model &lt;- kipoi$get_model(&#39;FactorNet/MAX/onePeak_Unique35_DGF&#39;)</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Make a prediction for example files</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>predictions &lt;- model$pipeline$predict_example()</code></pre> -->
+	<pre><code class="R">predictions &lt;- model$pipeline$predict_example()</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Use dataloader and model separately</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code># Get the dataloader
+setwd(&#39;~/.kipoi/models/FactorNet/MAX/onePeak_Unique35_DGF&#39;)
+dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;, dnase_file=&#39;example_files/dnase_synth.chr22.bw&#39;)
+# get a batch iterator
+it &lt;- dl$batch_iter(batch_size=4)
+# predict for a batch
+batch &lt;- iter_next(it)
+model$predict_on_batch(batch$inputs)</code></pre> -->
+	<pre><code class="R"># Get the dataloader
+setwd(&#39;~/.kipoi/models/FactorNet/MAX/onePeak_Unique35_DGF&#39;)
+dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;, dnase_file=&#39;example_files/dnase_synth.chr22.bw&#39;)
+# get a batch iterator
+it &lt;- dl$batch_iter(batch_size=4)
+# predict for a batch
+batch &lt;- iter_next(it)
+model$predict_on_batch(batch$inputs)</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Make predictions for custom files directly</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>pred &lt;- model$pipeline$predict(dl_kwargs, batch_size=4)</code></pre> -->
+	<pre><code class="R">pred &lt;- model$pipeline$predict(dl_kwargs, batch_size=4)</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+        </div>
+    </div>
+</div>
+                        </div>
+                    </div>
+                    
+                    <hr class="w-100 clearfix">
+
+                    <div class="row">
+                        <div class="col-lg-5 col-md-12">
+                            <!-- Model schema -->
+                            <div class="card">
+    <div class="card-header primary-color white-text">
+        Schema
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h4 class="card-title mt-2 mb-3">Inputs</h4>
+                
+  <p>List of numpy arrays</p>
+  
+    <p><strong>Name</strong>: seq</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1002, 6)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: DNA sequence and other big-wig channels (mappability and DNAseq)</p>
+
+    <p><strong>Name</strong>: seq_rc</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1002, 6)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Reverse-complemented DNA sequence and reversed other bigwig channels</p>
+
+
+            </div>
+            <hr class="w-100 clearfix d-md-none">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h4 class="card-title mt-2 mb-3">Targets</h4>
+                
+  <p>Single numpy array</p>
+  
+    <p><strong>Name</strong>: is_binding_site</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: TF binding class</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+                        </div>
+                        <hr class="w-100 clearfix d-lg-none">
+                        <div class="col-lg-7 col-md-12">
+                            <!-- Dataloader details -->
+                            <div class="card">
+        <div class="card-header warning-color-dark white-text clearfix">
+            Dataloader
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-5">
+                    <p><strong>Relative path:</strong> .</p>
+                    <p><strong>Version:</strong> 0.1</p>
+                    <p><strong>Doc:</strong> Dataloader for the FactorNet model.</p>
+                    <p><strong>Authors:</strong> 
+  
+    
+      
+  Ziga Avsec
+  
+    <a href="https://github.com/avsecz" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+    
+    
+  
+</p>
+                    <p><strong>Type:</strong> Dataset</p>
+                    <p><strong>License:</strong> MIT</p>
+
+                </div>
+                <hr class="w-100 clearfix d-lg-none">
+                <div class="col-lg-7">
+                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                    
+  <div>
+    
+      <p>
+	<strong>intervals_file</strong> :
+	bed3 file with `chrom start end id score strand`
+      </p>
+    
+      <p>
+	<strong>fasta_file</strong> :
+	Reference genome sequence
+      </p>
+    
+      <p>
+	<strong>dnase_file</strong> :
+	DNase bigwig file
+      </p>
+    
+      <p>
+	<strong>mappability_file</strong> (optional):
+	USCS mappability track - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig. by deafult, provide this file with the dataloader, download in background
+      </p>
+    
+      <p>
+	<strong>use_linecache</strong> (optional):
+	if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+      </p>
+    
+  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                        </div>
+                    </div>
+                
+                    <hr class="w-100 clearfix">
+                    
+                    <!-- Model and dataloader dependencies -->
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="card-header">
+            Model dependencies
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <strong>conda</strong>:<br>
+                    
+  <ul class="dependencies">
+    
+      <li>python=3.5</li>
+    
+</u>
+
+                </div>
+                <hr class="w-100 clearfix d-sm-none">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <strong>pip</strong>:<br>
+                    
+  <ul class="dependencies">
+    
+      <li>tensorflow&gt;=1.4.1<br></li>
+    
+      <li>keras&gt;=2.0.4</li>
+    
+</u>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="w-100 clearfix d-md-none">
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="card-header">
+            Dataloader dependencies
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <strong>conda</strong>:<br>
+                    
+  <ul class="dependencies">
+    
+      <li>numpy<br></li>
+    
+      <li>cython<br></li>
+    
+      <li>bioconda::bedtools</li>
+    
+</u>
+
+                </div>
+                <hr class="w-100 clearfix d-sm-none">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <strong>pip</strong>:<br>
+                    
+  <ul class="dependencies">
+    
+      <li>genomelake<br></li>
+    
+      <li>pybedtools</li>
+    
+</u>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="w-100 clearfix">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                          <div id="disqus_thread"></div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!--/Section: model-details content-->                        
+    </div>
+
+    </section>
+    
+    <footer class="page-footer center-on-small-only unique-color">
+    <!--Footer links-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--First column-->
+            <div class="col-lg-3 col-md-6 ml-auto">
+                <h5 class="title mb-3"><strong>About KIPOI project</strong></h5>
+                <p>Kipoi is an API and a repository of ready-to-use trained models for regulatory genomics.</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Second column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+              <h5 class="title mb-3"><strong>Useful links</strong></h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/kipoi/kipoi">API repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/models">Model repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/website">Website repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!--/.Second column-->
+            <hr class="w-100 clearfix d-lg-none">
+            <!--Third column-->
+            <div class="col-lg-4 col-md-12 ml-auto text-center">
+                <ul>
+                    <li>
+                        <h5>Like the project?</h5>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://twitter.com/KipoiZoo" class="btn btn-primary waves-effect waves-light" rel="nofollow">Tweet us!</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Third column-->
+        </div>
+    </div>
+    <!--/.Footer links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="containter-fluid">
+            © 2018 The Kipoi team, website developed by 
+            <a href="https://github.com/zupan" class="Nejc Zupan github">
+                Nejc Zupan
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <!--/.Copyright-->
+</footer>
+
+    <!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/static/js/mdb.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/dataTables.material.min.js"></script>
+
+<!-- Highlight -->
+<script type="text/javascript" src="/static/js/highlight.pack.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115025493-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115025493-1');
+</script>
+    
+    
+    <script language="JavaScript">
+      // Enable code highlighting
+      hljs.initHighlightingOnLoad();
+
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.copy-to-clipboard').on('click', function() {
+          /* Get the code field */
+          var copyCode = $(this).closest('.code-container').find('code').text();
+          var $temp = $("<textarea>");
+          $("body").append($temp);
+          $temp.val(copyCode).select();
+          document.execCommand("copy");
+          $temp.remove();
+        });
+      });
+
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      
+      var disqus_config = function () {
+        this.page.url = "http://localhost/models/FactorNet/MAX/onePeak_Unique35_DGF/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/models/FactorNet/MAX/onePeak_Unique35_DGF/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kipoi-org.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+</body>
+
+</html>
