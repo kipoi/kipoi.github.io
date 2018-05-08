@@ -299,6 +299,10 @@
 <pre><code class="python">model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
 </code></pre>
 
+<p>If you wish to acces the model for a particular commit, use the github permalink:</p>
+<pre><code class="python">model = kipoi.get_model(&quot;https://github.com/kipoi/models/tree/7d3ea7800184de414aac16811deba6c8eefef2b6/pwm_HOCOMOCO/human/CTCF&quot;, source='github-permalink')
+</code></pre>
+
 <h4 id="access-information-about-the-model">Access information about the model</h4>
 <pre><code class="python">model.info # Information about the author:
 

@@ -312,6 +312,9 @@ model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;, source=&quot;kipoi&quot;) # 
 # Load the model from a local directory
 model = kipoi.get_model(&quot;~/mymodels/rbp&quot;, source=&quot;dir&quot;)  
 # Note: Custom model sources are defined in ~/.kipoi/config.yaml
+
+# Load the model via github permalink for a particular commit:
+model = kipoi.get_model(&quot;https://github.com/kipoi/models/tree/7d3ea7800184de414aac16811deba6c8eefef2b6/pwm_HOCOMOCO/human/CTCF&quot;, source='github-permalink')
 </code></pre>
 
 <p>Main model attributes and methods</p>
@@ -443,5 +446,5 @@ is a VCF which can then be annotated with effect predictions and returned in the
 
 <!--
 MkDocs version : 0.17.3
-Build Date UTC : 2018-05-07 04:33:01
+Build Date UTC : 2018-05-08 13:22:58
 -->
