@@ -73,7 +73,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../using/02_Variant_effect_prediction/">Variant effect predictions</a>
+    <a class="" href="../../../using/02_Postprocessing/">Prostprocessing</a>
                 </li>
                 <li class="">
                     
@@ -85,7 +85,7 @@
                 </li>
                 <li class="">
                     
-    <span class="caption-text">Postprocessing</span>
+    <span class="caption-text">Postprocessing details</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
@@ -263,7 +263,7 @@
                 <h2 id="variant-effects">Variant effects</h2>
 <p>Main function:</p>
 <h3 id="predict_snvs">predict_snvs</h3>
-<pre><code class="python">predict_snvs(model, dataloader, vcf_fpath, batch_size, num_workers=0, dataloader_args=None, vcf_to_region=None, vcf_id_generator_fn=&lt;function default_vcf_id_gen at 0x7f4faab03c80&gt;, evaluation_function=&lt;function analyse_model_preds at 0x7f4fab08f400&gt;, evaluation_function_kwargs={'diff_types': {'logit': &lt;kipoi.postprocessing.variant_effects.scores.Logit object at 0x7f4fab081b70&gt;}}, sync_pred_writer=None, use_dataloader_example_data=False, return_predictions=False, generated_seq_writer=None)
+<pre><code class="python">predict_snvs(model, dataloader, vcf_fpath, batch_size, num_workers=0, dataloader_args=None, vcf_to_region=None, vcf_id_generator_fn=&lt;function default_vcf_id_gen at 0x7fc0d953cc80&gt;, evaluation_function=&lt;function analyse_model_preds at 0x7fc0d9ac7400&gt;, evaluation_function_kwargs={'diff_types': {'logit': &lt;kipoi.postprocessing.variant_effects.scores.Logit object at 0x7fc0d9ab9b70&gt;}}, sync_pred_writer=None, use_dataloader_example_data=False, return_predictions=False, generated_seq_writer=None)
 </code></pre>
 
 <p>Predict the effect of SNVs</p>
