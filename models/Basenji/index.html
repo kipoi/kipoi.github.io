@@ -517,7 +517,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     <p><strong>Name</strong>: seq</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (131072, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: DNA sequence</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: * one-hot encoded DNA sequence  * 4096bp starting flank sequence * 122880bp core sequence (960 * 128), predicted by the model in 128bp bins * 4096bp end flank sequence
+</p>
 
 
             </div>
@@ -530,7 +531,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     <p><strong>Name</strong>: genomic_features</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (960, 4229)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Specific Basenji output features.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: * 960 bins corresponding to 128bp regions on input sequence  * 4229 different output tracks ordered according to https://storage.googleapis.com/131k/sample_wigs.txt
+</p>
 
 
             </div>
