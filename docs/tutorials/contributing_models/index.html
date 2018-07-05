@@ -370,7 +370,7 @@ model.fit(x, y, verbose=0)
 
 
 
-&lt;keras.callbacks.History at 0x7f5c537f2d68&gt;
+&lt;keras.callbacks.History at 0x7ff456b9b9b0&gt;
 </code></pre>
 <h3 id="2-generate-dataloader_files">2. Generate <code>dataloader_files/</code></h3>
 <p>Now that we have everything we need, let's start writing the files to model's directory (here <code>model_template/</code>). </p>
@@ -393,10 +393,10 @@ model.fit(x, y, verbose=0)
 <li>Commit, push to your forked remote and submit a pull request to <a href="https://github.com/kipoi/models">github.com/kipoi/models</a></li>
 </ol>
 <p>Dataloader can use some trained transformer (here the <code>LabelBinarizer</code> and <code>StandardScaler</code> transformers form sklearn). These should be written to <code>dataloader_files/</code>.</p>
-<pre><code class="python">cd ../examples/iris_model_template
+<pre><code class="python">cd ../examples/sklearn_iris/
 </code></pre>
 
-<pre><code>/data/nasif12/home_if12/avsec/projects-work/kipoi/examples/iris_model_template
+<pre><code>/data/nasif12/home_if12/avsec/workspace/kipoi/kipoi/examples/sklearn_iris
 </code></pre>
 <pre><code class="python">os.makedirs(&quot;dataloader_files&quot;, exist_ok=True)
 </code></pre>
@@ -404,17 +404,17 @@ model.fit(x, y, verbose=0)
 <pre><code class="python">ls
 </code></pre>
 
-<pre><code>[0m[38;5;27mdataloader_files[0m/  dataloader.yaml  [38;5;27mmodel_files[0m/  [38;5;27m__pycache__[0m/
-dataloader.py      [38;5;27mexample_files[0m/   model.yaml
+<pre><code>[0m[38;5;27mdataloader_files[0m/  dataloader.pyc   [38;5;27mexample_files[0m/  model.yaml
+dataloader.py      dataloader.yaml  [38;5;27mmodel_files[0m/    [38;5;27m__pycache__[0m/
 </code></pre>
 <pre><code class="python">import pickle
 </code></pre>
 
 <pre><code class="python">with open(&quot;dataloader_files/y_transformer.pkl&quot;, &quot;wb&quot;) as f:
-    pickle.dump(y_transformer, f)
+    pickle.dump(y_transformer, f, protocol=2)
 
 with open(&quot;dataloader_files/x_transformer.pkl&quot;, &quot;wb&quot;) as f:
-    pickle.dump(x_transformer, f)
+    pickle.dump(x_transformer, f, protocol=2)
 </code></pre>
 
 <pre><code class="python">ls dataloader_files
@@ -443,7 +443,7 @@ lr = OneVsRestClassifier(LogisticRegression())
 lr.fit(x, y)
 
 with open(&quot;model_files/sklearn_model.pkl&quot;, &quot;wb&quot;) as f:
-    pickle.dump(lr, f)
+    pickle.dump(lr, f, protocol=2)
 </code></pre>
 
 <h3 id="4-generate-example_files">4. Generate <code>example_files/</code></h3>
