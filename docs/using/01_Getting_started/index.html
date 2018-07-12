@@ -299,6 +299,13 @@
 <pre><code class="python">model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
 </code></pre>
 
+<hr />
+<p><strong> Aside: <code>get_model</code> and models versus model groups</strong>: </p>
+<blockquote>
+<p><code>get_model</code> expects to receive a path to a directory containing a <code>model.yaml</code> file.  This file specifies the underlying model, data loader, and other model attributes.<br />
+If instead you provide <code>get_model</code> a path to a model <em>group</em> (e.g "lsgkm-SVM/Tfbs/Ap2alpha/"), rather than one model (e.g "lsgkm-SVM/Tfbs/Ap2alpha/Helas3/Sydh_Std"), or any other directory without a <code>model.yaml</code> file, <code>get_model</code> will throw a <code>ValueError</code>.</p>
+</blockquote>
+<hr />
 <p>If you wish to acces the model for a particular commit, use the github permalink:</p>
 <pre><code class="python">model = kipoi.get_model(&quot;https://github.com/kipoi/models/tree/7d3ea7800184de414aac16811deba6c8eefef2b6/pwm_HOCOMOCO/human/CTCF&quot;, source='github-permalink')
 </code></pre>
