@@ -200,21 +200,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="api/remote/">Remotes</a>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Postprocessing</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="api/postprocessing/variant_effects/">Variant effect prediction</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="api/postprocessing/variant_effect_scores/">Variant effect scores</a>
-                </li>
-    </ul>
+    <a class="" href="api/sources/">Sources</a>
                 </li>
     </ul>
 	    </li>
@@ -363,7 +349,7 @@ it_train = dl.batch_train_iter(batch_size=32)
 model.model.fit_generator(it_train, steps_per_epoch=len(dl)//32, epochs=10)
 </code></pre>
 
-<p>For more information see: <a href="./nbs/python-api.ipynb">nbs/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
+<p>For more information see: <a href="./notebooks/python-api.ipynb">notebooks/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
 <h3 id="command-line">Command-line</h3>
 <pre><code>$ kipoi
 usage: kipoi &lt;command&gt; [-h] ...
@@ -446,5 +432,5 @@ is a VCF which can then be annotated with effect predictions and returned in the
 
 <!--
 MkDocs version : 0.17.5
-Build Date UTC : 2018-07-13 21:15:42
+Build Date UTC : 2018-07-17 22:18:57
 -->

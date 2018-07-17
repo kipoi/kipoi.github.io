@@ -209,21 +209,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/remote/">Remotes</a>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Postprocessing</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../api/postprocessing/variant_effects/">Variant effect prediction</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../api/postprocessing/variant_effect_scores/">Variant effect scores</a>
-                </li>
-    </ul>
+    <a class="" href="../../api/sources/">Sources</a>
                 </li>
     </ul>
 	    </li>
@@ -267,11 +253,11 @@
           <div role="main">
             <div class="section">
               
-                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/nbs/composing_models.ipynb">nbs/composing_models.ipynb</a></p>
+                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/notebooks/composing_models.ipynb">notebooks/composing_models.ipynb</a></p>
 <h2 id="composing-models">Composing models</h2>
 <p>by Ziga Avsec</p>
 <p>Composing models means that we take the predictions of some model and use it as input for another model like this:</p>
-<p><img alt="img" src="../../img/nbs/comp_models.gv.svg" /></p>
+<p><img alt="img" src="../../img/notebooks/comp_models.gv.svg" /></p>
 <p>Three different scenarios can occur when we want to compose models from Kipoi:</p>
 <ol>
 <li>all models are written in the same framework (say Keras)</li>
@@ -280,7 +266,7 @@
 </ol>
 <h2 id="all-models-in-the-same-framework">All models in the same framework</h2>
 <p>In case all models are written in the same framework, you can stitch things together in the framework. Here is an example of how to do this in Keras.</p>
-<p><img alt="img" src="../../img/nbs/comp_models3.gv.svg" /></p>
+<p><img alt="img" src="../../img/notebooks/comp_models3.gv.svg" /></p>
 <p>Let's first dump 4 dummy models:</p>
 <pre><code class="python">import keras.layers as kl
 from keras.models import Model
@@ -348,7 +334,7 @@ SVG(svg_img)
 <p>There are two scenarios when composing models from different frameworks. Either their dependencies (dataloader, etc) are compatible (say a tensorflow and a keras model) or they are incompatible (one model uses <code>keras=0.3</code> and and another one <code>keras=2.0</code>).</p>
 <h3 id="compatible-dependencies">Compatible dependencies</h3>
 <p>To compose compatible models, we pack the majority of the models into the dataloader and then have the final ensembling model stored as the model.</p>
-<p><img alt="img" src="../../img/nbs/comp_models2.gv.svg" /></p>
+<p><img alt="img" src="../../img/notebooks/comp_models2.gv.svg" /></p>
 <pre><code class="python">def new_dataloader(dl1_kwargs, dl2_kwargs, target_file, batch_size=32, num_workers=1):
     m1 = kipoi.get_model(&quot;model1&quot;)
     m2 = kipoi.get_model(&quot;model2&quot;)
@@ -411,7 +397,7 @@ m4.save(&quot;model_files/model.h5&quot;)
 <p>In that case, we should run the prediction of each model in a separate environment and save the predictions to the disk.</p>
 <p>Luckily, there exist many Make-like tools that can support this kind of a workflow. My favorite is Snakemake <a href="http://snakemake.readthedocs.io/">http://snakemake.readthedocs.io/</a>. I'll show you how to do this in snakemake.</p>
 <p>Let's consider the following case:</p>
-<p><img alt="img" src="../../img/nbs/comp_models4.gv.svg" /></p>
+<p><img alt="img" src="../../img/notebooks/comp_models4.gv.svg" /></p>
 <pre><code class="python"># Python part of the Snakefile
 import os
 import subprocess
