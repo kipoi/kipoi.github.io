@@ -1,0 +1,9009 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Nejc Zupan">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <title>Kipoi</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+<!-- Material Design Bootstrap -->
+<link rel="stylesheet" type="text/css" href="/static/css/mdb.min.css">
+<!-- Material Design Lite -->
+<link rel="stylesheet" type="text/css" href="/static/css/material.min.css">
+<!-- DataTables Material Design -->    
+<link rel="stylesheet" type="text/css" href="/static/css/dataTables.material.css"/>
+<!-- Highlight -->
+<link rel="stylesheet" type="text/css" href="/static/css/custom_highlight_github.css"/>
+
+<!-- Custom styles -->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css?v=150318">
+</head>
+
+<body>
+    <section class="mb-3">
+        
+<!--Navbar-->
+
+<nav class="navbar fixed-top navbar-expand-md navbar-dark unique-color-kipoi">
+
+    <!-- Navbar brand -->
+    <span>
+      <a class="nav-title-link navbar-brand-nopad text-hide left-margin" href="/"
+	 ><img src="/static/img/nav_bar_logo_v3.png" height="50px" alt="Kipoi"/></a>
+    </span>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse text-center" id="navbarNav1">
+        
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto text-center">
+	  <!-- Group list --> 
+            <li class="nav-item">
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button btn-active" href="/groups/">Models</a>
+            </li>
+            <!-- About --> 
+            <li class="nav-item">
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button btn-active" href="/about/">About</a>
+            </li>
+	    <!-- Docs --> 
+            <li class="nav-item">
+              <a id="components-related-3" class="nav-button btn btn-outline-primary navbar-dark nabar-button" href="/docs/">Docs</a>
+            </li>
+        </ul>
+
+        <!-- Search form -->
+        
+          <form class="navbar-nav form-inline promenent-search rounded">
+            <div class="text-nowrap" style="width: 100%;">
+              <label for="search-bar"><i class="fa fa-search fa-fw px-3" aria-hidden="true"></i></label>
+              <input id="search-bar" class="form-control model-search" type="text" placeholder="Search" aria-label="Search" autofocus/>
+            </div>
+          </form>
+        
+
+      
+        <ul class="navbar-nav ml-auto text-center d-md-none d-lg-flex">
+      
+          <li class="nav-item">
+            <a id="components-related-4" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="components-related-5" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/kipoi">API repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+        
+    </div>
+</nav>
+    </section>
+
+    <section class="main-content">
+        
+<div class="row" style="margin-right: 0; margin-left: 0;">
+    <div class="col-xl-12">
+        <!--Section: model-list content-->
+        <section class="model-list">
+            <table id="model-list-table" class="mdl-data-table table-responsive-xl" cellspacing="0" style="width:100%">
+    <thead>
+        <tr>
+            <th class="text-left">Model name</th>
+            <th>Version</th>
+            <th>Authors</th>
+            <th>Contributed by</th>
+            <th>Type</th>
+            <th>Cite as</th>
+            <th>License</th>
+            <th>Training procedure</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th class="text-left">Model name</th>
+            <th>Version</th>
+            <th>Authors</th>
+            <th>Contributed by</th>
+            <th>Type</th>
+            <th>Cite as</th>
+            <th>License</th>
+            <th>Training procedure</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00130.001_RNAcompete_RBM28">
+                DeepBind/Homo_sapiens/RBP/D00130.001_RNAcompete_RBM28
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00136.002_RNAcompete_RBM5">
+                DeepBind/Homo_sapiens/RBP/D00136.002_RNAcompete_RBM5
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00209.001_RNAcompete_HNRNPCL1">
+                DeepBind/Homo_sapiens/RBP/D00209.001_RNAcompete_HNRNPCL1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00115.001_RNAcompete_IGF2BP2">
+                DeepBind/Homo_sapiens/RBP/D00115.001_RNAcompete_IGF2BP2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00131.001_RNAcompete_RBM3">
+                DeepBind/Homo_sapiens/RBP/D00131.001_RNAcompete_RBM3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00224.001_RNAcompete_PCBP1">
+                DeepBind/Homo_sapiens/RBP/D00224.001_RNAcompete_PCBP1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00163.001_RNAcompete_YBX1">
+                DeepBind/Homo_sapiens/RBP/D00163.001_RNAcompete_YBX1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00087.001_RNAcompete_BRUNOL4">
+                DeepBind/Homo_sapiens/RBP/D00087.001_RNAcompete_BRUNOL4
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00201.001_RNAcompete_CNOT4">
+                DeepBind/Homo_sapiens/RBP/D00201.001_RNAcompete_CNOT4
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00157.001_RNAcompete_TIA1">
+                DeepBind/Homo_sapiens/RBP/D00157.001_RNAcompete_TIA1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00138.001_RNAcompete_RBMS3">
+                DeepBind/Homo_sapiens/RBP/D00138.001_RNAcompete_RBMS3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00118.002_RNAcompete_LIN28A">
+                DeepBind/Homo_sapiens/RBP/D00118.002_RNAcompete_LIN28A
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00215.001_RNAcompete_SFPQ">
+                DeepBind/Homo_sapiens/RBP/D00215.001_RNAcompete_SFPQ
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00103.001_RNAcompete_FXR2">
+                DeepBind/Homo_sapiens/RBP/D00103.001_RNAcompete_FXR2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00102.003_RNAcompete_SRSF10">
+                DeepBind/Homo_sapiens/RBP/D00102.003_RNAcompete_SRSF10
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00145.001_RNAcompete_SART3">
+                DeepBind/Homo_sapiens/RBP/D00145.001_RNAcompete_SART3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00222.001_RNAcompete_RBM24">
+                DeepBind/Homo_sapiens/RBP/D00222.001_RNAcompete_RBM24
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00085.001_RNAcompete_ANKHD1">
+                DeepBind/Homo_sapiens/RBP/D00085.001_RNAcompete_ANKHD1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00153.001_RNAcompete_SRSF2">
+                DeepBind/Homo_sapiens/RBP/D00153.001_RNAcompete_SRSF2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00206.001_RNAcompete_FXR1">
+                DeepBind/Homo_sapiens/RBP/D00206.001_RNAcompete_FXR1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00125.001_RNAcompete_PABPC4">
+                DeepBind/Homo_sapiens/RBP/D00125.001_RNAcompete_PABPC4
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00148.002_RNAcompete_SRSF9">
+                DeepBind/Homo_sapiens/RBP/D00148.002_RNAcompete_SRSF9
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00211.001_RNAcompete_KHDRBS1">
+                DeepBind/Homo_sapiens/RBP/D00211.001_RNAcompete_KHDRBS1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00102.002_RNAcompete_SRSF10">
+                DeepBind/Homo_sapiens/RBP/D00102.002_RNAcompete_SRSF10
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00165.001_RNAcompete_ZC3H10">
+                DeepBind/Homo_sapiens/RBP/D00165.001_RNAcompete_ZC3H10
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00169.005_RNAcompete_SRSF1">
+                DeepBind/Homo_sapiens/RBP/D00169.005_RNAcompete_SRSF1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00169.003_RNAcompete_SRSF1">
+                DeepBind/Homo_sapiens/RBP/D00169.003_RNAcompete_SRSF1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00101.001_RNAcompete_FUS">
+                DeepBind/Homo_sapiens/RBP/D00101.001_RNAcompete_FUS
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00202.001_RNAcompete_PABPN1">
+                DeepBind/Homo_sapiens/RBP/D00202.001_RNAcompete_PABPN1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00208.001_RNAcompete_BRUNOL5">
+                DeepBind/Homo_sapiens/RBP/D00208.001_RNAcompete_BRUNOL5
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR">
+                DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00144.001_RNAcompete_SAMD4A">
+                DeepBind/Homo_sapiens/RBP/D00144.001_RNAcompete_SAMD4A
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00135.001_RNAcompete_RBM46">
+                DeepBind/Homo_sapiens/RBP/D00135.001_RNAcompete_RBM46
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00167.001_RNAcompete_ZCRB1">
+                DeepBind/Homo_sapiens/RBP/D00167.001_RNAcompete_ZCRB1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00214.001_RNAcompete_IGF2BP3">
+                DeepBind/Homo_sapiens/RBP/D00214.001_RNAcompete_IGF2BP3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00120.001_RNAcompete_MBNL1">
+                DeepBind/Homo_sapiens/RBP/D00120.001_RNAcompete_MBNL1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00164.001_RNAcompete_YBX2">
+                DeepBind/Homo_sapiens/RBP/D00164.001_RNAcompete_YBX2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00195.001_RNAcompete_ENOX1">
+                DeepBind/Homo_sapiens/RBP/D00195.001_RNAcompete_ENOX1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00197.001_RNAcompete_RBM42">
+                DeepBind/Homo_sapiens/RBP/D00197.001_RNAcompete_RBM42
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00116.001_RNAcompete_KHDRBS3">
+                DeepBind/Homo_sapiens/RBP/D00116.001_RNAcompete_KHDRBS3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00114.003_RNAcompete_HuR">
+                DeepBind/Homo_sapiens/RBP/D00114.003_RNAcompete_HuR
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00137.001_RNAcompete_RBM8A">
+                DeepBind/Homo_sapiens/RBP/D00137.001_RNAcompete_RBM8A
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00099.001_RNAcompete_FMR1">
+                DeepBind/Homo_sapiens/RBP/D00099.001_RNAcompete_FMR1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00163.002_RNAcompete_YBX1">
+                DeepBind/Homo_sapiens/RBP/D00163.002_RNAcompete_YBX1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00118.001_RNAcompete_LIN28A">
+                DeepBind/Homo_sapiens/RBP/D00118.001_RNAcompete_LIN28A
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00207.001_RNAcompete_ZNF638">
+                DeepBind/Homo_sapiens/RBP/D00207.001_RNAcompete_ZNF638
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00169.002_RNAcompete_SRSF1">
+                DeepBind/Homo_sapiens/RBP/D00169.002_RNAcompete_SRSF1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00119.001_RNAcompete_MATR3">
+                DeepBind/Homo_sapiens/RBP/D00119.001_RNAcompete_MATR3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00274.001_RNAcompete_PTBP1">
+                DeepBind/Homo_sapiens/RBP/D00274.001_RNAcompete_PTBP1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00156.001_RNAcompete_TARDBP">
+                DeepBind/Homo_sapiens/RBP/D00156.001_RNAcompete_TARDBP
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00213.001_RNAcompete_PABPC5">
+                DeepBind/Homo_sapiens/RBP/D00213.001_RNAcompete_PABPC5
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00159.001_RNAcompete_U2AF2">
+                DeepBind/Homo_sapiens/RBP/D00159.001_RNAcompete_U2AF2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00114.001_RNAcompete_HuR">
+                DeepBind/Homo_sapiens/RBP/D00114.001_RNAcompete_HuR
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00169.004_RNAcompete_SRSF1">
+                DeepBind/Homo_sapiens/RBP/D00169.004_RNAcompete_SRSF1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00196.001_RNAcompete_ESRP2">
+                DeepBind/Homo_sapiens/RBP/D00196.001_RNAcompete_ESRP2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00133.001_RNAcompete_RBM4">
+                DeepBind/Homo_sapiens/RBP/D00133.001_RNAcompete_RBM4
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00210.001_RNAcompete_RBFOX1">
+                DeepBind/Homo_sapiens/RBP/D00210.001_RNAcompete_RBFOX1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00105.001_RNAcompete_HNRNPA1">
+                DeepBind/Homo_sapiens/RBP/D00105.001_RNAcompete_HNRNPA1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00212.001_RNAcompete_RBM6">
+                DeepBind/Homo_sapiens/RBP/D00212.001_RNAcompete_RBM6
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00136.001_RNAcompete_RBM5">
+                DeepBind/Homo_sapiens/RBP/D00136.001_RNAcompete_RBM5
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00095.001_RNAcompete_CPEB2">
+                DeepBind/Homo_sapiens/RBP/D00095.001_RNAcompete_CPEB2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00084.001_RNAcompete_A1CF">
+                DeepBind/Homo_sapiens/RBP/D00084.001_RNAcompete_A1CF
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00127.001_RNAcompete_PPRC1">
+                DeepBind/Homo_sapiens/RBP/D00127.001_RNAcompete_PPRC1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00123.002_RNAcompete_MSI1">
+                DeepBind/Homo_sapiens/RBP/D00123.002_RNAcompete_MSI1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00166.001_RNAcompete_ZC3H14">
+                DeepBind/Homo_sapiens/RBP/D00166.001_RNAcompete_ZC3H14
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00256.001_RNAcompete_RBM45">
+                DeepBind/Homo_sapiens/RBP/D00256.001_RNAcompete_RBM45
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00107.001_RNAcompete_HNRNPA2B1">
+                DeepBind/Homo_sapiens/RBP/D00107.001_RNAcompete_HNRNPA2B1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00198.001_RNAcompete_RBMS1">
+                DeepBind/Homo_sapiens/RBP/D00198.001_RNAcompete_RBMS1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00114.002_RNAcompete_HuR">
+                DeepBind/Homo_sapiens/RBP/D00114.002_RNAcompete_HuR
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00138.002_RNAcompete_RBMS3">
+                DeepBind/Homo_sapiens/RBP/D00138.002_RNAcompete_RBMS3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00108.001_RNAcompete_HNRNPC">
+                DeepBind/Homo_sapiens/RBP/D00108.001_RNAcompete_HNRNPC
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00151.001_RNAcompete_SNRNP70">
+                DeepBind/Homo_sapiens/RBP/D00151.001_RNAcompete_SNRNP70
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00216.001_RNAcompete_HNRPLL">
+                DeepBind/Homo_sapiens/RBP/D00216.001_RNAcompete_HNRPLL
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00200.001_RNAcompete_PABPC1">
+                DeepBind/Homo_sapiens/RBP/D00200.001_RNAcompete_PABPC1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00102.004_RNAcompete_SRSF10">
+                DeepBind/Homo_sapiens/RBP/D00102.004_RNAcompete_SRSF10
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00104.001_RNAcompete_G3BP2">
+                DeepBind/Homo_sapiens/RBP/D00104.001_RNAcompete_G3BP2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00148.001_RNAcompete_SRSF9">
+                DeepBind/Homo_sapiens/RBP/D00148.001_RNAcompete_SRSF9
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00110.002_RNAcompete_HNRNPL">
+                DeepBind/Homo_sapiens/RBP/D00110.002_RNAcompete_HNRNPL
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00157.002_RNAcompete_TIA1">
+                DeepBind/Homo_sapiens/RBP/D00157.002_RNAcompete_TIA1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00274.002_RNAcompete_PTBP1">
+                DeepBind/Homo_sapiens/RBP/D00274.002_RNAcompete_PTBP1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00155.001_RNAcompete_STAR-PAP">
+                DeepBind/Homo_sapiens/RBP/D00155.001_RNAcompete_STAR-PAP
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00133.002_RNAcompete_RBM4">
+                DeepBind/Homo_sapiens/RBP/D00133.002_RNAcompete_RBM4
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00110.001_RNAcompete_HNRNPL">
+                DeepBind/Homo_sapiens/RBP/D00110.001_RNAcompete_HNRNPL
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00199.001_RNAcompete_PABPC3">
+                DeepBind/Homo_sapiens/RBP/D00199.001_RNAcompete_PABPC3
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00225.001_RNAcompete_BRUNOL6">
+                DeepBind/Homo_sapiens/RBP/D00225.001_RNAcompete_BRUNOL6
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00126.001_RNAcompete_PCBP2">
+                DeepBind/Homo_sapiens/RBP/D00126.001_RNAcompete_PCBP2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00134.001_RNAcompete_RBM41">
+                DeepBind/Homo_sapiens/RBP/D00134.001_RNAcompete_RBM41
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00114.004_RNAcompete_HuR">
+                DeepBind/Homo_sapiens/RBP/D00114.004_RNAcompete_HuR
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00154.001_RNAcompete_SRSF7">
+                DeepBind/Homo_sapiens/RBP/D00154.001_RNAcompete_SRSF7
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00129.001_RNAcompete_QKI">
+                DeepBind/Homo_sapiens/RBP/D00129.001_RNAcompete_QKI
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00169.006_RNAcompete_SRSF1">
+                DeepBind/Homo_sapiens/RBP/D00169.006_RNAcompete_SRSF1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00203.001_RNAcompete_CPEB4">
+                DeepBind/Homo_sapiens/RBP/D00203.001_RNAcompete_CPEB4
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00123.001_RNAcompete_MSI1">
+                DeepBind/Homo_sapiens/RBP/D00123.001_RNAcompete_MSI1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00106.001_RNAcompete_HNRNPA1L2">
+                DeepBind/Homo_sapiens/RBP/D00106.001_RNAcompete_HNRNPA1L2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00169.001_RNAcompete_SRSF1">
+                DeepBind/Homo_sapiens/RBP/D00169.001_RNAcompete_SRSF1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00204.001_RNAcompete_RALY">
+                DeepBind/Homo_sapiens/RBP/D00204.001_RNAcompete_RALY
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00109.001_RNAcompete_HNRNPK">
+                DeepBind/Homo_sapiens/RBP/D00109.001_RNAcompete_HNRNPK
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00152.001_RNAcompete_SNRPA">
+                DeepBind/Homo_sapiens/RBP/D00152.001_RNAcompete_SNRPA
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00205.001_RNAcompete_HNRNPH2">
+                DeepBind/Homo_sapiens/RBP/D00205.001_RNAcompete_HNRNPH2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00223.001_RNAcompete_KHDRBS2">
+                DeepBind/Homo_sapiens/RBP/D00223.001_RNAcompete_KHDRBS2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00102.001_RNAcompete_SRSF10">
+                DeepBind/Homo_sapiens/RBP/D00102.001_RNAcompete_SRSF10
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepBind/Homo_sapiens/RBP/D00096.001_RNAcompete_DAZAP1">
+                DeepBind/Homo_sapiens/RBP/D00096.001_RNAcompete_DAZAP1
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
+  
+     
+      
+	
+  Babak Alipanahi
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
+  Johnny Israeli
+  
+    <a href="https://github.com/jisraeli" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+      
+    
+    
+  
+
+            </td>
+            <td>keras</td>
+            <td>
+                
+  
+    
+      
+  
+    <a href="https://www.nature.com/articles/nbt.3300">https://www.nature.com/articles/nbt.3300</a>
+  
+
+    
+  
+
+            </td>
+            <td>
+                
+  
+    BSD 3-Clause
+  
+
+            </td>
+            <td>
+                
+  
+
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+        </section>
+        <!--/Section: model-list content-->                        
+    </div>
+    
+</div>
+
+    </section>
+    
+    <footer class="page-footer center-on-small-only unique-color">
+    <!--Footer links-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--First column-->
+            <div class="col-lg-3 col-md-6 ml-auto">
+                <h5 class="title mb-3"><strong>About KIPOI project</strong></h5>
+                <p>Kipoi is an API and a repository of ready-to-use trained models for regulatory genomics.</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Second column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+              <h5 class="title mb-3"><strong>Useful links</strong></h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/kipoi/kipoi">API repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/models">Model repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/website">Website repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!--/.Second column-->
+            <hr class="w-100 clearfix d-lg-none">
+            <!--Third column-->
+            <div class="col-lg-4 col-md-12 ml-auto text-center">
+                <ul>
+                    <li>
+                        <h5>Like the project?</h5>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://twitter.com/KipoiZoo" class="btn btn-primary waves-effect waves-light" rel="nofollow">Tweet us!</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Third column-->
+        </div>
+    </div>
+    <!--/.Footer links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="containter-fluid">
+            © 2018 The Kipoi team, website developed by 
+            <a href="https://github.com/zupan" class="Nejc Zupan github">
+                Nejc Zupan
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <!--/.Copyright-->
+</footer>
+
+    <!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/static/js/mdb.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/dataTables.material.min.js"></script>
+
+<!-- Highlight -->
+<script type="text/javascript" src="/static/js/highlight.pack.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115025493-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115025493-1');
+</script>
+    
+    
+    <script language="JavaScript">
+        $(document).ready(function() {
+            $('#model-list-table').DataTable({
+                "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+                "pageLength": 50,
+                "dom": 'rtip'
+            });
+            $('.dt-table').css('width', '100%');
+
+            oTable = $('#model-list-table').DataTable();
+            $('#search-bar').keyup(function(){
+                oTable.search($(this).val()).draw() ;
+            })
+            $('.dataTables_info').addClass('col-md-5 text-right mt-2');
+            $('.dataTables_paginate').addClass('col-md-7 mt-4');
+        });
+    </script>
+
+</body>
+
+</html>
