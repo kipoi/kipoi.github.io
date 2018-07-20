@@ -145,6 +145,9 @@
                                     <!-- Trained on -->
                                     <p>Trained on: 
   
+    ClinVar (release 2018-04-29) variants (labelled &#39;Pathogenic&#39; or &#39;Benign&#39;) near the splice sites.
+
+  
 </p>
 
                                     <!-- Model type -->
@@ -155,6 +158,8 @@
   <div>
     
       <strong>pkl_file</strong>: model_files/model.pkl<br>
+    
+      <strong>predict_method</strong>: predict_proba<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >sklearn</span></a>
@@ -175,7 +180,7 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-sm-12">
                             <!-- Model description -->
-                            <p class="lead">Kipoi ensemble model without conservation. The used models are - MaxEntScan/3prime, MaxEntScan/5primet, labranchor, HAL + conservation.
+                            <p class="lead">This model is similar to KipoiSplice/4, but is additionally base on 4 conservational features  - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
 </p>    
                         </div>
 
@@ -483,7 +488,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
     <p><strong>Name</strong>: None</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Pathogenicity score (1=pathogenic, 0=benign)</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Pathogenicity score. 0th index represents the probability of being benign and 1st index represents the probability for being pathogenic.</p>
 
 
             </div>
@@ -545,7 +550,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
       <p>
 	<strong>vcf_file</strong> :
-	Path to the input vcf file. The file has to be annotated with VeP prior to execution if CADD and phred scores!!
+	Path to the input vcf file. The file has to be annotated with VEP. Specifically, it has to contain the following 4 scores - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
+
       </p>
     
       <p>

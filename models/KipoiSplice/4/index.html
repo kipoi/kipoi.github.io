@@ -145,6 +145,9 @@
                                     <!-- Trained on -->
                                     <p>Trained on: 
   
+    ClinVar (release 2018-04-29) variants (labelled &#39;Pathogenic&#39; or &#39;Benign&#39;) near the splice sites.
+
+  
 </p>
 
                                     <!-- Model type -->
@@ -155,6 +158,8 @@
   <div>
     
       <strong>pkl_file</strong>: model_files/model.pkl<br>
+    
+      <strong>predict_method</strong>: predict_proba<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >sklearn</span></a>
@@ -255,14 +260,14 @@ source activate kipoi-KipoiSplice__4</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/KipoiSplice/4
 kipoi predict KipoiSplice/4 \
-  --dataloader_args=&#39;{&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;contains_conservation&#39;: True, &#39;num_workers&#39;: 1}&#39; \
+  --dataloader_args=&#39;{&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;num_workers&#39;: 1}&#39; \
   -o &#39;/tmp/KipoiSplice|4.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/KipoiSplice|4.example_pred.tsv&#39;
 </code></pre> -->
 	<pre><code class="bash">cd ~/.kipoi/models/KipoiSplice/4
 kipoi predict KipoiSplice/4 \
-  --dataloader_args=&#39;{&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;contains_conservation&#39;: True, &#39;num_workers&#39;: 1}&#39; \
+  --dataloader_args=&#39;{&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;num_workers&#39;: 1}&#39; \
   -o &#39;/tmp/KipoiSplice|4.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/KipoiSplice|4.example_pred.tsv&#39;
@@ -320,7 +325,7 @@ model = kipoi.get_model(&#39;KipoiSplice/4&#39;)</code></pre>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;contains_conservation&#39;: True, &#39;num_workers&#39;: 1}
+dl_kwargs = {&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;num_workers&#39;: 1}
 import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/KipoiSplice/4&#39;))
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
@@ -330,7 +335,7 @@ it = dl.batch_iter(batch_size=4)
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
 	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;contains_conservation&#39;: True, &#39;num_workers&#39;: 1}
+dl_kwargs = {&#39;vcf_file&#39;: &#39;example_files/vep.vcf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;num_workers&#39;: 1}
 import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/KipoiSplice/4&#39;))
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
@@ -410,7 +415,7 @@ model &lt;- kipoi$get_model(&#39;KipoiSplice/4&#39;)</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code># Get the dataloader
 setwd(&#39;~/.kipoi/models/KipoiSplice/4&#39;)
-dl &lt;- model$default_dataloader(vcf_file=&#39;example_files/vep.vcf&#39;, fasta_file=&#39;example_files/hg19.chr22.fa&#39;, gtf_file=&#39;example_files/hg19.chr22.gtf&#39;, contains_conservation=True, num_workers=1)
+dl &lt;- model$default_dataloader(vcf_file=&#39;example_files/vep.vcf&#39;, fasta_file=&#39;example_files/hg19.chr22.fa&#39;, gtf_file=&#39;example_files/hg19.chr22.gtf&#39;, num_workers=1)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -418,7 +423,7 @@ batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
 	<pre><code class="R"># Get the dataloader
 setwd(&#39;~/.kipoi/models/KipoiSplice/4&#39;)
-dl &lt;- model$default_dataloader(vcf_file=&#39;example_files/vep.vcf&#39;, fasta_file=&#39;example_files/hg19.chr22.fa&#39;, gtf_file=&#39;example_files/hg19.chr22.gtf&#39;, contains_conservation=True, num_workers=1)
+dl &lt;- model$default_dataloader(vcf_file=&#39;example_files/vep.vcf&#39;, fasta_file=&#39;example_files/hg19.chr22.fa&#39;, gtf_file=&#39;example_files/hg19.chr22.gtf&#39;, num_workers=1)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -482,8 +487,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
   
     <p><strong>Name</strong>: None</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Pathogenicity score (1=pathogenic, 0=benign)</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (2,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Pathogenicity score. 0th index represents the probability of being benign and 1st index represents the probability for being pathogenic.</p>
 
 
             </div>
@@ -503,7 +508,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 <div class="col-lg-5">
                     <p><strong>Relative path:</strong> .</p>
                     <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> Predictions of 4 splicing models for all splice-sites in the GTF.</p>
+                    <p><strong>Doc:</strong> This model first predicts the effect of variants using 4 splicing models (MaxEntScan/3prime, MaxEntScan/5prime, HAL and labranchor) and then integrates those predictions using logistic regression.
+The model has been trained to distinguish between pathogenic and benign variants in ClinVar.
+</p>
                     <p><strong>Authors:</strong> 
   
     
@@ -556,12 +563,6 @@ model$predict_on_batch(batch$inputs)</code></pre>
       <p>
 	<strong>gtf_file</strong> :
 	path to the GTF file required by the models (Ensemble)
-      </p>
-    
-      <p>
-	<strong>contains_conservation</strong> (optional):
-	include the conservation scores in the inputs NOTE: This requires the `vcf_file` to be annotated using VEP
-
       </p>
     
       <p>
