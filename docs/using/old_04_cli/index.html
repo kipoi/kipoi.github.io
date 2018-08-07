@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Private and public model sources - Kipoi Documentation</title>
+  <title>Old 04 cli - Kipoi Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Private and public model sources";
-    var mkdocs_page_input_path = "using/03_Model_sources.md";
-    var mkdocs_page_url = "/docs/using/03_Model_sources/";
+    var mkdocs_page_name = "Old 04 cli";
+    var mkdocs_page_input_path = "using/old_04_cli.md";
+    var mkdocs_page_url = "/docs/using/old_04_cli/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
@@ -76,23 +76,9 @@
                     
     <a class="" href="../02_Postprocessing/">Postprocessing</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Private and public model sources</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#kipoiconfigyaml">~/.kipoi/config.yaml</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#all-possible-model-source-types">All possible model source types</a></li>
-        
-            <li><a class="toctree-l4" href="#about-model-definition">About model definition</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../03_Model_sources/">Private and public model sources</a>
                 </li>
                 <li class="">
                     
@@ -221,15 +207,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Using &raquo;</li>
-        
-      
     
-    <li>Private and public model sources</li>
+    <li>Old 04 cli</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/using/03_Model_sources.md"
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/using/old_04_cli.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -239,64 +221,113 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="kipoiconfigyaml"><code>~/.kipoi/config.yaml</code></h2>
-<p><code>kipoi</code> package has a config file located at <code>~/.kipoi/config.yaml</code>. By default, it will look like this (without comments):</p>
-<pre><code class="yaml">model_sources:
-  kipoi: # source name 
-    type: git-lfs  # git repository with large file storage (lfs)
-    remote_url: git@github.com:kipoi/models.git  # git remote
-    local_path: /home/avsec/.kipoi/models/ # local storage path
-
-  # special model source storing models accessed via github permalinks
-  github-permalink:
-    type: github-permalink
-    local_path: /home/avsec/.kipoi/github-permalink/
-</code></pre>
-
-<p><code>model_sources</code> defines all the places where kipoi will search for models and pull them to a local directory.
-By default, it contains the model-zoo from <code>github.com/kipoi/models</code>. It is not a normal git repository,
-since bigger files are stored with <a href="https://git-lfs.github.com/">git large file storage (git-lfs)</a>.
-This repository will be stored locally under <code>local_path</code>. Advantage of using <code>git-lfs</code> is that only the files tracked by <code>git</code> will be downloaded first. Larger files stored in <code>git-lfs</code> will be downloaded individually for each model upon request (say when a user invokes a <code>kipoi predict</code> command).</p>
-<h3 id="all-possible-model-source-types">All possible model source types</h3>
-<p>In addition to the default <code>kipoi</code> source, you can modify <code>~/.kipoi/config.yaml</code> and add additional (private or public) model sources. Available model source types are:</p>
+                <p>This docs shows how our API should ideally look like.</p>
+<h2 id="cli-definition">CLI definition</h2>
+<p>Main arguments</p>
 <ul>
-<li><code>git-lfs</code> - As for <code>kipoi</code> model source. Model weights will get downloaded upon request (say when running <code>kipoi predict</code>).</li>
-<li><code>git</code> - Normal git repository, all the files will be downloaded on checkout.</li>
-<li><code>local</code> - Local directory.</li>
+<li><code>&lt;model_dir&gt;</code>: can be a git repository, local file path, remote file path or a short model string.</li>
 </ul>
-<p>Example:</p>
-<pre><code class="yaml">model_sources:
-  kipoi:
-    type: git-lfs
-    remote_url: git@github.com:kipoi/models.git
-    local_path: /home/avsec/.kipoi/models/
+<h3 id="pre-process">Pre-process</h3>
+<pre><code>usage: kipoi preproc [-h] [--source {kipoi,dir}]
+                        [--extractor_args EXTRACTOR_ARGS]
+                        [--batch_size BATCH_SIZE] [-i] [-o OUTPUT]
+                        model
 
-  my_git_models:
-    type: git
-    remote_url: git@github.com:asd/other_models.git
-    local_path: ~/.kipoi/other_models/
+Run the extractor and save the output to an hdf5 file.
 
-  my_local_models:
-    type: local
-    local_path: /data/mymodels/
+positional arguments:
+  model                 Model name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --source {kipoi,dir}  Model source to use. Specified in ~/.kipoi/config.yaml
+                        under model_sources
+  --extractor_args EXTRACTOR_ARGS
+                        Extractor arguments either as a json string:'{&quot;arg1&quot;:
+                        1} or as a file path to a json file
+  --batch_size BATCH_SIZE
+                        Batch size to use in prediction
+  -i, --install-req     Install required packages from requirements.txt
+  -o OUTPUT, --output OUTPUT
+                        Output hdf5 file
 </code></pre>
 
-<h3 id="about-model-definition">About model definition</h3>
-<p>A particular model is defined by its source (key under <code>model_sources</code>, say <code>kipoi</code>) and the relative path of the desired model directory from the model source root (say <code>rbp_eclip/UPF1</code>).</p>
-<p>A directory is considered a model if it contains a <code>model.yaml</code> file.</p>
+<h3 id="predict">Predict</h3>
+<pre><code>usage: kipoi predict [-h] [--source {kipoi,dir}]
+                        [--extractor_args EXTRACTOR_ARGS] [-f {tsv,bed,hdf5}]
+                        [--batch_size BATCH_SIZE] [-n NUM_WORKERS] [-i] [-k]
+                        [-o OUTPUT]
+                        model
+
+Run the model prediction.
+
+positional arguments:
+  model                 Model name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --source {kipoi,dir}  Model source to use. Specified in ~/.kipoi/config.yaml
+                        under model_sources
+  --extractor_args EXTRACTOR_ARGS
+                        Extractor arguments either as a json string:'{&quot;arg1&quot;:
+                        1} or as a file path to a json file
+  -f {tsv,bed,hdf5}, --file_format {tsv,bed,hdf5}
+                        File format.
+  --batch_size BATCH_SIZE
+                        Batch size to use in prediction
+  -n NUM_WORKERS, --num_workers NUM_WORKERS
+                        Number of parallel workers for loading the dataset
+  -i, --install-req     Install required packages from requirements.txt
+  -k, --keep_inputs     Keep the inputs in the output file. Only compatible
+                        with hdf5 file format
+  -o OUTPUT, --output OUTPUT
+                        Output hdf5 file
+</code></pre>
+
+<h3 id="test-the-model">Test the model</h3>
+<p>Runs a set of unit-tests for the model</p>
+<pre><code>usage: kipoi test [-h] [--source {kipoi,dir}] [--batch_size BATCH_SIZE]
+                     [-i]
+                     model
+
+script to test model zoo submissions
+
+positional arguments:
+  model                 Model name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --source {kipoi,dir}  Model source to use. Specified in ~/.kipoi/config.yaml
+                        under model_sources
+  --batch_size BATCH_SIZE
+                        Batch size to use in prediction
+  -i, --install-req     Install required packages from requirements.txt
+</code></pre>
+
+<h3 id="score-variants">Score variants</h3>
+<p><strong>Not implemented</strong></p>
+<pre><code>model_zoo score_variants &lt;model&gt; &lt;preprocessor inputs...&gt; &lt;vcf file&gt; -o &lt;output&gt;
+</code></pre>
+
+<h3 id="pull-the-model">Pull the model</h3>
+<p>Downloads the directory associated with the model</p>
+<pre><code>$ kipoi pull -h
+usage: kipoi pull [-h] [--source {kipoi}] model
+
+Downloads the directory associated with the model.
+
+positional arguments:
+  model                 Model name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --source {kipoi}      Model source to use. Specified in
+                        ~/.kipoi/config.yaml under model_sources
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../04_Installing_on_OSX/" class="btn btn-neutral float-right" title="Installing on OSX">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../02_Postprocessing/" class="btn btn-neutral" title="Postprocessing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -322,10 +353,6 @@ This repository will be stored locally under <code>local_path</code>. Advantage 
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../02_Postprocessing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../04_Installing_on_OSX/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
