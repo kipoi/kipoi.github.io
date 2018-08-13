@@ -78,6 +78,8 @@
         
             <li><a class="toctree-l3" href="#documentation">Documentation</a></li>
         
+            <li><a class="toctree-l3" href="#citing-kipoi">Citing Kipoi</a></li>
+        
         </ul>
     
 
@@ -253,6 +255,7 @@
 <li><a href="http://kipoi.org">kipoi.org</a> - Main website</li>
 <li><a href="http://kipoi.org/docs">kipoi.org/docs</a> - Documentation</li>
 <li><a href="https://github.com/kipoi/models">github.com/kipoi/models</a> - Model zoo for genomics maintained by the Kipoi team</li>
+<li><a href="https://doi.org/10.1101/375345">bioarxiv preprint</a> - Kipoi: accelerating the community exchange and reuse of predictive models for genomics</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <h3 id="1-install-minicondaanaconda">1. Install miniconda/anaconda</h3>
@@ -365,7 +368,7 @@ usage: kipoi &lt;command&gt; [-h] ...
     preproc          Run the dataloader and save the results to an hdf5 array
     env              Tools for managing Kipoi conda environments
 
-    # - contribuing models:
+    # - contributing models:
     init             Initialize a new Kipoi model
     test             Runs a set of unit-tests for the model
     test-source      Runs a set of unit-tests for many/all models in a source
@@ -393,6 +396,19 @@ usage: kipoi &lt;command&gt; [-h] ...
 
 <h2 id="documentation">Documentation</h2>
 <p>Documentation can be found here: <a href="http://kipoi.org/docs">kipoi.org/docs</a></p>
+<h2 id="citing-kipoi">Citing Kipoi</h2>
+<p>If you use Kipoi for your research, please cite the publication of the model you are using (see model's <code>cite_as</code> entry) and our Bioarxiv preprint: https://doi.org/10.1101/375345.</p>
+<pre><code class="bibtex">@article {kipoi,
+    author = {Avsec, Ziga and Kreuzhuber, Roman and Israeli, Johnny and Xu, Nancy and Cheng, Jun and Shrikumar, Avanti and Banerjee, Abhimanyu and Kim, Daniel S and Urban, Lara and Kundaje, Anshul and Stegle, Oliver and Gagneur, Julien},
+    title = {Kipoi: accelerating the community exchange and reuse of predictive models for genomics},
+    year = {2018},
+    doi = {10.1101/375345},
+    publisher = {Cold Spring Harbor Laboratory},
+    URL = {https://www.biorxiv.org/content/early/2018/07/24/375345},
+    eprint = {https://www.biorxiv.org/content/early/2018/07/24/375345.full.pdf},
+    journal = {bioRxiv}
+}
+</code></pre>
               
             </div>
           </div>
@@ -443,5 +459,5 @@ usage: kipoi &lt;command&gt; [-h] ...
 
 <!--
 MkDocs version : 1.0
-Build Date UTC : 2018-08-07 09:10:01
+Build Date UTC : 2018-08-13 15:43:19
 -->
