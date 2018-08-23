@@ -245,6 +245,21 @@
               
                 <h2 id="contributing-models-getting-started">Contributing models - Getting started</h2>
 <p>Kipoi stores models (descriptions, parameter files, dataloader code, ...) as folders in the <a href="https://github.com/kipoi/models">kipoi/models</a> github repository. Files residing in folders with a suffix of <code>_files</code> are tracked via Git Large File Storage (LFS). New models are added by simply submitting a pull-request to <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a>.</p>
+<p>As a reminder - Kipoi model have to have the following folder structure in which all the relevant files have their assigned places:</p>
+<pre><code>├── dataloader.py     # implements the dataloader
+├── dataloader.yaml   # describes the dataloader
+├── dataloader_files/      #/ files required by the dataloader
+│   ├── x_transfomer.pkl
+│   └── y_transfomer.pkl
+├── model.yaml        # describes the model
+├── model_files/           #/ files required by the model
+│   ├── model.json
+│   └── weights.h5
+└── example_files/         #/ small example files
+    ├── features.csv
+    └── targets.csv
+</code></pre>
+
 <h3 id="required-steps">Required steps</h3>
 <p>Here is a list of steps required to contribute a model to <a href="https://github.com/kipoi/models">kipoi/models</a>:</p>
 <h4 id="1-install-kipoi">1. Install Kipoi</h4>
@@ -333,6 +348,11 @@
 <p>Rest of this document will go more into the details about steps writing the model and testing the model.</p>
 <h3 id="how-to-write-the-model">How to write the model</h3>
 <p>Best place to start figuring out which files you need to contribute is to look at some of the existing models. Explore the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repository and see if there are any models similar to yours (in terms of the dependencies, framework, input-output data modalities). See <a href="../../tutorials/contributing_models">tutorials/contributing_models</a> for a step-by-step procedure for contributing models.</p>
+<p>In terms of what to include in your model: The information in these pages here are the minimum requirement. The more
+information you can share with other users the better! If you have converted the model from using a script, please add that.
+If you have additional test and validation scripts that you wrote while verifying the Kipoi model, etc. , please add them.
+You will make future users happy.</p>
+<p>Hint: If you want to take a look at a specific model that is already in the zoo, but instead of the content of the model files there is just a hash entry, then use <code>kipoi pull &lt;model_name&gt;</code> to download the model data.</p>
 <h4 id="option-1-copy-existing-model">Option #1: Copy existing model</h4>
 <p>Once you have found the closest match, simply copy the directory and start editing/replacing the files. Edit the files in this order:</p>
 <ul>

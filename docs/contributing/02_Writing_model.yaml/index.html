@@ -524,6 +524,7 @@ args:
 <p>One of the core elements of ensuring functionality of a model is to define software dependencies correctly and strictly. Dependencies can be defined for conda and for pip using the <code>conda</code> and <code>pip</code> sections respectively.</p>
 <p>Both can either be defined as a list of packages or as a text file (ending in <code>.txt</code>) which lists the dependencies.</p>
 <p>Conda as well as pip dependencies can and should be defined with exact versions of the required packages, as defining a package version using e.g.: <code>package&gt;=1.0</code> is very likely to break at some point in future.</p>
+<p>If your model is a python-based model and you have not tested whether your model works in python 2 and python 3, then make sure that you also add the correct python version as a dependency e.g.: <code>python=2.7</code>.</p>
 <h3 id="conda">conda</h3>
 <p>Conda dependencies can be defined as lists or if the dependencies are defined in a text file then the path of the text must be given (ending in <code>.txt</code>).</p>
 <p>If conda packages need to be loaded from a channel then the nomenclature <code>channel_name::package_name</code> can be used.</p>
