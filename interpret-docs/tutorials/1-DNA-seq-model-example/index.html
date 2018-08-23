@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>DNA-seq model - Kipoi-interpret</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DNA-seq model";
+    var mkdocs_page_input_path = "tutorials/1-DNA-seq-model-example.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi-interpret</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">DNA-seq model</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#setup">Setup</a></li>
+    
+
+    <li class="toctree-l3"><a href="#gradient-input">Gradient * input</a></li>
+    
+
+    <li class="toctree-l3"><a href="#gradient">Gradient</a></li>
+    
+
+    <li class="toctree-l3"><a href="#in-silico-mutagenesis">In-silico mutagenesis</a></li>
+    
+
+    <li class="toctree-l3"><a href="#deeplift">DeepLift</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/imp/base/available_methods/">available_methods</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/imp/base/feature_importance/">feature_importance</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Importance scores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/imp/gradient/Gradient/">Gradient</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/imp/gradient/GradientXInput/">GradientXInput</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/imp/gradient/Saliency/">Saliency</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/imp/ism/Mutation/">Mutation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/imp/referencebased/DeepLift/">DeepLift</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi-interpret</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>DNA-seq model</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi-interpret/edit/master/docs/tutorials/1-DNA-seq-model-example.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi-interpret/blob/master/notebooks/1-DNA-seq-model-example.ipynb">notebooks/1-DNA-seq-model-example.ipynb</a></p>
+<p>Here is a short demonstration of Kipoi-interpret.</p>
+<pre><code class="python">import kipoi
+import kipoi_interpret
+from kipoi_veff.utils.plot import seqlogo_heatmap
+from concise.preprocessing.sequence import encodeDNA
+</code></pre>
+
+<pre><code class="python"># list all available methods
+kipoi_interpret.importance_scores.available_methods()
+</code></pre>
+
+<pre><code>{'deeplift': kipoi_interpret.importance_scores.referencebased.DeepLift,
+ 'grad': kipoi_interpret.importance_scores.gradient.Gradient,
+ 'grad*input': kipoi_interpret.importance_scores.gradient.GradientXInput,
+ 'intgrad': kipoi_interpret.importance_scores.referencebased.IntegratedGradients,
+ 'mutation': kipoi_interpret.importance_scores.ism.Mutation,
+ 'saliency': kipoi_interpret.importance_scores.gradient.Saliency}
+</code></pre>
+<pre><code class="python"># Gradient-based methods
+from kipoi_interpret.importance_scores.gradient import Gradient, GradientXInput
+# In-silico mutagenesis-based methods
+from kipoi_interpret.importance_scores.ism import Mutation
+# DeepLift
+from kipoi_interpret.importance_scores.referencebased import DeepLift
+</code></pre>
+
+<h3 id="setup">Setup</h3>
+<p>Model:</p>
+<pre><code class="python">model = kipoi.get_model(&quot;DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1&quot;)
+</code></pre>
+
+<pre><code>2018-07-20 01:41:36,856 [INFO] git-lfs pull -I DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1/**
+2018-07-20 01:41:36,923 [INFO] git-lfs pull -I DeepBind/template/**
+2018-07-20 01:41:36,981 [INFO] model DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1 loaded
+2018-07-20 01:41:37,014 [INFO] git-lfs pull -I DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1/./**
+2018-07-20 01:41:37,068 [INFO] git-lfs pull -I DeepBind/template/**
+2018-07-20 01:41:37,129 [INFO] dataloader DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1/. loaded
+2018-07-20 01:41:37,140 [INFO] successfully loaded the dataloader from /home/avsec/.kipoi/models/DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1/dataloader.py::SeqDataset
+2018-07-20 01:41:37,206 [INFO] successfully loaded model architecture from &lt;_io.TextIOWrapper name='model_files/model.json' mode='r' encoding='UTF-8'&gt;
+2018-07-20 01:41:37,265 [INFO] successfully loaded model weights from model_files/model.h5
+2018-07-20 01:41:37,267 [INFO] dataloader.output_schema is compatible with model.schema
+</code></pre>
+<p>Sequence of interest:</p>
+<pre><code class="python">seq = &quot;ATGGGCCAGCACACAGACCAGCACGTTGCCCAGGAGCTGTGGGAGGAAGATAAGAGGTATGAACATGATTAGCAAAAGGGCCTAGCTTGGACTCAGAATAA&quot;
+seqa = encodeDNA([seq]) # one-hot-encode the sequence
+</code></pre>
+
+<h2 id="gradient-input">Gradient * input</h2>
+<pre><code class="python">grxinp = GradientXInput(model)
+val = grxinp.score(seqa)[0]
+</code></pre>
+
+<pre><code class="python">fig = plt.figure(figsize=(15,2.5))
+seqlogo_heatmap(val, val.T, ax=plt.subplot())
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3ef9bbadd8&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_10_1.png" /></p>
+<h2 id="gradient">Gradient</h2>
+<pre><code class="python">gr = Gradient(model)
+val = gr.score(seqa)[0]
+</code></pre>
+
+<pre><code class="python">fig = plt.figure(figsize=(15,2.5))
+seqlogo_heatmap(val, val.T, ax=plt.subplot())
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3ef9220668&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_13_1.png" /></p>
+<h2 id="in-silico-mutagenesis">In-silico mutagenesis</h2>
+<pre><code class="python"># TODO - update the Mutate function. It should return the following:
+# prediction_value:
+#   - array
+def to_array(isval):
+    &quot;&quot;&quot;Temporary convert the output to a numpy array
+    &quot;&quot;&quot;
+    def to_vec(x):
+        if x is None:
+            return 0
+        else:
+            if isinstance(x, list):
+                return x[0]
+            else:
+                return x
+    return np.array([[to_vec(y) for y in x] for x in isval])
+</code></pre>
+
+<pre><code class="python">ism = Mutation(model, &quot;seq&quot;)
+val = to_array(ism.score(seqa)[0])
+</code></pre>
+
+<pre><code class="python">fig = plt.figure(figsize=(15,2.5))
+seqlogo_heatmap(np.abs(val), val.T, ax=plt.subplot(), show_letter_scale=False)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3ef82f8160&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_17_1.png" /></p>
+<h2 id="deeplift">DeepLift</h2>
+<pre><code class="python"># Not a sequential model
+# dl = DeepLift(model, 'maximum_593', 0)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../api/imp/base/available_methods/" class="btn btn-neutral float-right" title="available_methods">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi-interpret/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../api/imp/base/available_methods/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
