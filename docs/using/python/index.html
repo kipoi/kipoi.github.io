@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>01 Getting started - Kipoi documentation</title>
+  <title>Python - Kipoi documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "01 Getting started";
-    var mkdocs_page_input_path = "using/01_Getting_started.md";
+    var mkdocs_page_name = "Python";
+    var mkdocs_page_input_path = "using/python.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,9 +57,35 @@
 		
     <span class="caption-text">Using</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../python/">Python</a>
+    <a class="current" href="./">Python</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#python-api">Python API</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#list-all-models">List all models</a></li>
+        
+            <li><a class="toctree-l4" href="#get-the-model">Get the model</a></li>
+        
+            <li><a class="toctree-l4" href="#access-information-about-the-model">Access information about the model</a></li>
+        
+            <li><a class="toctree-l4" href="#test-the-model">Test the model</a></li>
+        
+            <li><a class="toctree-l4" href="#get-predictions-for-the-raw-files">Get predictions for the raw files</a></li>
+        
+            <li><a class="toctree-l4" href="#setup-the-dataloader">Setup the dataloader</a></li>
+        
+            <li><a class="toctree-l4" href="#predict-for-a-single-batch">Predict for a single batch</a></li>
+        
+            <li><a class="toctree-l4" href="#re-train-the-model">Re-train the model</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -206,11 +232,15 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Using &raquo;</li>
+        
+      
     
-    <li>01 Getting started</li>
+    <li>Python</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/using/01_Getting_started.md"
+        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/using/python.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -220,28 +250,16 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="using-kipoi-getting-started">Using Kipoi - Getting started</h2>
-<h3 id="steps">Steps</h3>
-<h4 id="1-install-and-setup-kipoi">1. Install and setup Kipoi</h4>
-<p>First install Kipoi and select a model you want to work with using the <a href="http://kipoi.org/docs/">instructions</a>.</p>
-<h4 id="2-use-the-model">2. Use the model</h4>
-<p>You can use the model from:</p>
-<ul>
-<li>Python</li>
-<li>Command-line interface</li>
-<li>R (via the <a href="https://github.com/rstudio/reticulate">reticulate</a> package)</li>
-</ul>
-<hr />
-<h3 id="python-quick-start">Python - quick start</h3>
+                <h2 id="python-api">Python API</h2>
 <p>See the ipython notebook <a href="../../tutorials/python-api/">tutorials/python-api</a> for additional information and a working example of the API. Here is a list of most useful python commands.</p>
 <pre><code class="python">import kipoi
 </code></pre>
 
-<h4 id="list-all-models">List all models</h4>
+<h3 id="list-all-models">List all models</h3>
 <pre><code class="python">kipoi.list_models()
 </code></pre>
 
-<h4 id="get-the-model">Get the model</h4>
+<h3 id="get-the-model">Get the model</h3>
 <p>Before getting started with models take a short look what a Kipoi model actually is. Kipoi model have to have the following folder structure in which all the relevant files have their assigned places:</p>
 <pre><code>├── dataloader.py     # implements the dataloader
 ├── dataloader.yaml   # describes the dataloader
@@ -277,7 +295,7 @@ If instead you provide <code>get_model</code> a path to a model <em>group</em> (
 <pre><code class="python">model = kipoi.get_model(&quot;https://github.com/kipoi/models/tree/7d3ea7800184de414aac16811deba6c8eefef2b6/pwm_HOCOMOCO/human/CTCF&quot;, source='github-permalink')
 </code></pre>
 
-<h4 id="access-information-about-the-model">Access information about the model</h4>
+<h3 id="access-information-about-the-model">Access information about the model</h3>
 <p>In the following commands a few properties of the model will be shown:</p>
 <pre><code class="python">model.info # Information about the author:
 
@@ -286,12 +304,12 @@ model.default_dataloader # Access the default dataloader
 model.model # Access the underlying Keras model
 </code></pre>
 
-<h4 id="test-the-model">Test the model</h4>
+<h3 id="test-the-model">Test the model</h3>
 <p>Every Kipoi model comes with a small test dataset, which is used to assert its functionality in the nightly tests. This model test function can be accessed by:</p>
 <pre><code class="python">pred = model.pipeline.predict_example()
 </code></pre>
 
-<h4 id="get-predictions-for-the-raw-files">Get predictions for the raw files</h4>
+<h3 id="get-predictions-for-the-raw-files">Get predictions for the raw files</h3>
 <p>For any generation of the model output the dataloader has to be executed first. A dataloader will require input arguments in which the input files are defined, for example input fasta files or bed files, based on which the model input is generated. One way to display the keyword arguments a dataloader accepts is the following:</p>
 <pre><code class="python">model.default_dataloader.print_args()
 </code></pre>
@@ -313,14 +331,14 @@ model.pipeline.predict({'intervals_file': 'example_files/intervals.bed',
                     'target_file': 'example_files/targets.tsv'})
 </code></pre>
 
-<h4 id="setup-the-dataloader">Setup the dataloader</h4>
+<h3 id="setup-the-dataloader">Setup the dataloader</h3>
 <p>If you don't want to use the <code>model.pipeline.predict</code> function, but you would rather execute the dataloader yourself then you can do the following:</p>
 <pre><code class="python">dl = model.default_dataloader(dataloader_arg1=&quot;...&quot;, targets_file=&quot;...&quot;)
 </code></pre>
 
 <p>This generates a dataloader object <code>dl</code>.</p>
 <p>Note: <code>kipoi.get_model("&lt;mymodel&gt;").default_dataloader</code> is the same as <code>kipoi.get_dataloader_factory("&lt;mymodel&gt;")</code></p>
-<h4 id="predict-for-a-single-batch">Predict for a single batch</h4>
+<h3 id="predict-for-a-single-batch">Predict for a single batch</h3>
 <p>Data can be requested from the dataloader through its iterator functionality, which can then be used to perform model predictions. </p>
 <pre><code class="python"># Get the batch iterator
 it = dl.batch_iter(batch_size=32)
@@ -335,71 +353,25 @@ single_batch = next(it)
 predictions = model.predict_on_batch(single_batch['inputs'])
 </code></pre>
 
-<h4 id="re-train-the-model">Re-train the model</h4>
+<h3 id="re-train-the-model">Re-train the model</h3>
 <pre><code class="python">it_train = dl.batch_train_iter(batch_size=32)  # will yield tuples (inputs, targets) indefinitely
 
 # Since we are using a Keras model, run:
 model.model.fit_generator(it_train, steps_per_epoch=len(dl)//32, epochs=10)
 </code></pre>
-
-<hr />
-<h3 id="command-line-interface-quick-start">Command-line interface - quick start</h3>
-<h4 id="show-help">Show help</h4>
-<p>For the command line interface the help command should explain most functionality</p>
-<pre><code class="bash">kipoi -h
-</code></pre>
-
-<h4 id="list-all-models_1">List all models</h4>
-<pre><code class="bash">kipoi ls
-</code></pre>
-
-<h4 id="get-information-on-how-the-required-dataloader-keyword-arguments">Get information on how the required dataloader keyword arguments</h4>
-<pre><code class="bash">kipoi info -i --source kipoi rbp_eclip/UPF1
-</code></pre>
-
-<h4 id="run-model-prediction">Run model prediction</h4>
-<pre><code class="bash">cd ~/.kipoi/models/rbp_eclip/UPF1/example_files
-
-kipoi predict rbp_eclip/UPF1 \
-  --dataloader_args='{'intervals_file': 'intervals.bed', 'fasta_file': 'hg38_chr22.fa', 'gtf_file': 'gencode.v24.annotation_chr22.gtf'}' \
-  -o '/tmp/rbp_eclip__UPF1.example_pred.tsv'
-
-# check the results
-head '/tmp/rbp_eclip__UPF1.example_pred.tsv'
-</code></pre>
-
-<h4 id="test-a-model">Test a model</h4>
-<p>Test whether a model is defined correctly and whether is execution using the example files is successful.</p>
-<pre><code class="bash">kipoi test ~/.kipoi/models/rbp_eclip/UPF1/example_files
-</code></pre>
-
-<h4 id="install-all-model-dependencies">Install all model dependencies</h4>
-<pre><code class="bash">kipoi env install rbp_eclip/UPF1
-</code></pre>
-
-<h4 id="create-a-new-conda-environment-for-the-model">Create a new conda environment for the model</h4>
-<pre><code class="bash">kipoi env create rbp_eclip/UPF1
-source activate kipoi-rbp_eclip__UPF
-</code></pre>
-
-<h4 id="list-all-kipoi-environments">List all Kipoi environments</h4>
-<pre><code class="bash">kipoi env list
-</code></pre>
-
-<p>Use <code>source activate &lt;env&gt;</code> or <code>conda activate &lt;env&gt;</code> to activate the environment.</p>
-<h4 id="score-variants">Score variants</h4>
-<pre><code class="bash">kipoi postproc score_variant rbp_eclip/UPF1 \
-    --batch_size=16 \
-    -v input.vcf \
-    -o output.vcf
-</code></pre>
-
-<h3 id="r-quick-start">R - quick start</h3>
-<p>See <a href="../../tutorials/R-api/">tutorials/R-api</a>.</p>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cli/" class="btn btn-neutral float-right" title="CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -425,6 +397,10 @@ source activate kipoi-rbp_eclip__UPF
           <a href="http://github.com/kipoi/kipoi-kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cli/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,35 +8,24 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>dataloader.yaml - Kipoi Documentation</title>
+  <title>dataloader.yaml - Kipoi documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "dataloader.yaml";
     var mkdocs_page_input_path = "contributing/03_Writing_dataloader.yaml.md";
-    var mkdocs_page_url = "/docs/contributing/03_Writing_dataloader.yaml/";
+    var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-115025493-1', 'kipoi.org');
-      ga('send', 'pageview');
-  </script>
   
 </head>
 
@@ -47,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -70,11 +59,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+    <a class="" href="../../using/python/">Python</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../using/02_Postprocessing/">Postprocessing</a>
+    <a class="" href="../../using/cli/">CLI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/R/">R</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/plugins/">Plugins</a>
                 </li>
                 <li class="">
                     
@@ -83,16 +80,6 @@
                 <li class="">
                     
     <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Postprocessing details</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
-                </li>
-    </ul>
                 </li>
     </ul>
 	    </li>
@@ -176,10 +163,6 @@
                     
     <a class="" href="../../tutorials/composing_models/">Composing models</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
-                </li>
     </ul>
 	    </li>
           
@@ -187,6 +170,14 @@
 		
     <span class="caption-text">Api</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/list_/">list</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/install_/">install</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../../api/model/">Model</a>
@@ -201,11 +192,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/metadata/">Metadata</a>
+    <a class="" href="../../api/sources/">sources</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/sources/">Sources</a>
+    <a class="" href="../../api/metadata/">metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/readers/">readers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/writers/">writers</a>
                 </li>
     </ul>
 	    </li>
@@ -220,7 +219,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Kipoi Documentation</a>
+        <a href="../..">Kipoi documentation</a>
       </nav>
 
       
@@ -239,7 +238,7 @@
     <li>dataloader.yaml</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/contributing/03_Writing_dataloader.yaml.md"
+        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/contributing/03_Writing_dataloader.yaml.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -470,7 +469,7 @@ output_schema:
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="http://github.com/kipoi/kipoi-kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../04_Writing_dataloader.py/" style="color: #fcfcfc;">&laquo; Previous</a></span>

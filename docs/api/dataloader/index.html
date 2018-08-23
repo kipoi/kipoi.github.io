@@ -8,35 +8,24 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Dataloader - Kipoi Documentation</title>
+  <title>Dataloader - Kipoi documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Dataloader";
     var mkdocs_page_input_path = "api/dataloader.md";
-    var mkdocs_page_url = "/docs/api/dataloader/";
+    var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-115025493-1', 'kipoi.org');
-      ga('send', 'pageview');
-  </script>
   
 </head>
 
@@ -47,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Kipoi Documentation</a>
+        <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -70,11 +59,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../using/01_Getting_started/">Getting started</a>
+    <a class="" href="../../using/python/">Python</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../using/02_Postprocessing/">Postprocessing</a>
+    <a class="" href="../../using/cli/">CLI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/R/">R</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using/plugins/">Plugins</a>
                 </li>
                 <li class="">
                     
@@ -83,16 +80,6 @@
                 <li class="">
                     
     <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Postprocessing details</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../postprocessing/variant_effect_prediction/">Variant effect prediction</a>
-                </li>
-    </ul>
                 </li>
     </ul>
 	    </li>
@@ -152,10 +139,6 @@
                     
     <a class="" href="../../tutorials/composing_models/">Composing models</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/variant_effect_prediction/">Variant effect prediction</a>
-                </li>
     </ul>
 	    </li>
           
@@ -165,6 +148,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../list_/">list</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../install_/">install</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../model/">Model</a>
                 </li>
                 <li class=" current">
@@ -172,32 +163,6 @@
     <a class="current" href="./">Dataloader</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#dataloader">Dataloader</a></li>
-    
-
-    <li class="toctree-l3"><a href="#available-dataloaders">Available dataloaders</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#dataset">Dataset</a></li>
-        
-            <li><a class="toctree-l4" href="#batchdataset">BatchDataset</a></li>
-        
-            <li><a class="toctree-l4" href="#sampleiterator">SampleIterator</a></li>
-        
-            <li><a class="toctree-l4" href="#batchiterator">BatchIterator</a></li>
-        
-            <li><a class="toctree-l4" href="#get_dataloader_factory">get_dataloader_factory</a></li>
-        
-            <li><a class="toctree-l4" href="#preloadeddataset">PreloadedDataset</a></li>
-        
-            <li><a class="toctree-l4" href="#samplegenerator">SampleGenerator</a></li>
-        
-            <li><a class="toctree-l4" href="#batchgenerator">BatchGenerator</a></li>
-        
-        </ul>
-    
-
     </ul>
                 </li>
                 <li class="">
@@ -206,11 +171,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../metadata/">Metadata</a>
+    <a class="" href="../sources/">sources</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../sources/">Sources</a>
+    <a class="" href="../metadata/">metadata</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../readers/">readers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../writers/">writers</a>
                 </li>
     </ul>
 	    </li>
@@ -225,7 +198,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Kipoi Documentation</a>
+        <a href="../..">Kipoi documentation</a>
       </nav>
 
       
@@ -244,7 +217,7 @@
     <li>Dataloader</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="http://github.com/kipoi/kipoi/edit/master/docs/templates/api/dataloader.md"
+        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/api/dataloader.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -254,65 +227,101 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="dataloader">Dataloader</h2>
-<!-- - [ ] What args does dataloader have -->
+                <h1 id="kipoi.get_dataloader_descr">get_dataloader_descr</h1>
 
-<!-- - [ ] How do the fields relate to the yaml file -->
-
-<h2 id="available-dataloaders">Available dataloaders</h2>
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L158">[source]</a></span></p>
-<h3 id="dataset">Dataset</h3>
-<pre><code class="python">kipoi.data.Dataset()
+<pre><code class="python">get_dataloader_descr(dataloader, source='kipoi')
 </code></pre>
 
-<p>An abstract class representing a Dataset.</p>
-<p>All other datasets should subclass it. All subclasses should override
-<code>__len__</code>, that provides the size of the dataset, and <code>__getitem__</code>,
-supporting integer indexing in range from 0 to len(self) exclusive.</p>
-<hr />
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L235">[source]</a></span></p>
-<h3 id="batchdataset">BatchDataset</h3>
-<pre><code class="python">kipoi.data.BatchDataset()
-</code></pre>
+<p>Get dataloder description</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>datalaoder</strong>: dataloader's relative path/name in the source. 2nd column in the <code>kipoi.list_dataloader()</code>pd.DataFrame`.</li>
+<li><strong>source</strong>: Model source. 1st column in the <code>kipoi.list_models()</code> <code>pd.DataFrame</code>.</li>
+</ul>
+<h1 id="kipoi.get_dataloader_factory">get_dataloader_factory</h1>
 
-<p>An abstract class representing a BatchDataset.</p>
-<hr />
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L280">[source]</a></span></p>
-<h3 id="sampleiterator">SampleIterator</h3>
-<pre><code class="python">kipoi.data.SampleIterator()
-</code></pre>
-
-<hr />
-<p><span style="float:right;"><a href="https://github.com/kipoi/kipoi/blob/master/kipoi/data.py#L302">[source]</a></span></p>
-<h3 id="batchiterator">BatchIterator</h3>
-<pre><code class="python">kipoi.data.BatchIterator()
-</code></pre>
-
-<hr />
-<h3 id="get_dataloader_factory">get_dataloader_factory</h3>
 <pre><code class="python">get_dataloader_factory(dataloader, source='kipoi')
 </code></pre>
 
-<hr />
-<h3 id="preloadeddataset">PreloadedDataset</h3>
-<pre><code class="python">PreloadedDataset(self)
-</code></pre>
-
-<p>Generated by supplying a function returning the full dataset.</p>
-<p>The full dataset is a nested (list/dict) python structure of numpy arrays
-with the same first axis dimension.</p>
-<hr />
-<h3 id="samplegenerator">SampleGenerator</h3>
-<pre><code class="python">SampleGenerator(self)
-</code></pre>
-
-<p>Transform a generator of samples into SampleIterator</p>
-<hr />
-<h3 id="batchgenerator">BatchGenerator</h3>
-<pre><code class="python">BatchGenerator(self)
-</code></pre>
-
-<p>Transform a generator of batches into BatchIterator</p>
+<p>Loads the dataloader</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>dataloader (str)</strong>: dataloader name</li>
+<li><strong>source (str)</strong>: source name</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>Instance of class inheriting from <code>kipoi.data.BaseDataLoader</code> (like <code>kipoi.data.Dataset</code>)
+       decorated with additional attributes.</li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul>
+<li><strong>batch_iter(batch_size, num_workers, **kwargs)</strong><ul>
+<li>Arguments<ul>
+<li><strong>batch_size</strong>: batch size</li>
+<li><strong>num_workers</strong>: Number of workers to use in parallel.</li>
+<li><strong>**kwargs</strong>: Other kwargs specific to each dataloader</li>
+</ul>
+</li>
+<li>Yields<ul>
+<li><code>dict</code> with <code>"inputs"</code>, <code>"targets"</code> and <code>"metadata"</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>batch_train_iter(cycle=True, **kwargs)</strong><ul>
+<li>Arguments<ul>
+<li><strong>cycle</strong>: if True, cycle indefinitely</li>
+<li><strong>**kwargs</strong>: Kwargs passed to <code>batch_iter()</code> like <code>batch_size</code></li>
+</ul>
+</li>
+<li>Yields<ul>
+<li>tuple of ("inputs", "targets") from the usual dict returned by <code>batch_iter()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>batch_predict_iter(**kwargs)</strong><ul>
+<li>Arguments<ul>
+<li><strong>**kwargs</strong>: Kwargs passed to <code>batch_iter()</code> like <code>batch_size</code></li>
+</ul>
+</li>
+<li>Yields<ul>
+<li>"inputs" field from the usual dict returned by <code>batch_iter()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>load_all(**kwargs)</strong> - load the whole dataset into memory<ul>
+<li>Arguments<ul>
+<li><strong>**kwargs</strong>: Kwargs passed to <code>batch_iter()</code> like <code>batch_size</code></li>
+</ul>
+</li>
+<li>Returns<ul>
+<li><code>dict</code> with <code>"inputs"</code>, <code>"targets"</code> and <code>"metadata"</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>init_example()</strong> - instantiate the dataloader with example kwargs</li>
+<li><strong>print_args()</strong> - print information about the required arguments</li>
+</ul>
+<p><strong>Appended attributes</strong></p>
+<ul>
+<li><strong>type</strong> (str): dataloader type (class name)</li>
+<li><strong>defined_as</strong> (str): path and dataloader name</li>
+<li><strong>args</strong> (list of kipoi.specs.DataLoaderArgument): datalaoder argument description</li>
+<li><strong>info</strong> (kipoi.specs.Info): general information about the dataloader</li>
+<li><strong>schema</strong> (kipoi.specs.DataloaderSchema): information about the input/output
+        data modalities</li>
+<li><strong>dependencies</strong> (kipoi.specs.Dependencies): class specifying the dependencies.
+      (implements <code>install</code> method for running the installation)</li>
+<li><strong>name</strong> (str): model name</li>
+<li><strong>source</strong> (str): model source</li>
+<li><strong>source_dir</strong> (str): local path to model source storage</li>
+<li><strong>postprocessing</strong> (dict): dictionary of loaded plugin specifications</li>
+<li><strong>example_kwargs</strong> (dict): kwargs for running the provided example</li>
+</ul>
               
             </div>
           </div>
@@ -348,7 +357,7 @@ with the same first axis dimension.</p>
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="http://github.com/kipoi/kipoi-kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../model/" style="color: #fcfcfc;">&laquo; Previous</a></span>

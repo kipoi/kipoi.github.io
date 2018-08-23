@@ -1,117 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>http://kipoi.org/docs/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/using/01_Getting_started/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/using/02_Postprocessing/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/using/03_Model_sources/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/using/04_Installing_on_OSX/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/postprocessing/variant_effect_prediction/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/contributing/01_Getting_started/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/contributing/02_Writing_model.yaml/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/contributing/04_Writing_dataloader.py/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/contributing/03_Writing_dataloader.yaml/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/contributing/05_Writing_model.py/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/contributing/06_dumping_models_programatically/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/tutorials/contributing_models/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/tutorials/python-api/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/tutorials/R-api/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/tutorials/tf_binding_models/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/tutorials/composing_models/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/tutorials/variant_effect_prediction/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/api/model/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/api/dataloader/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/api/pipeline/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/api/metadata/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://kipoi.org/docs/api/sources/</loc>
+     <loc>None</loc>
+     <lastmod>2018-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>None</loc>
+     <lastmod>2018-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>None</loc>
+     <lastmod>2018-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>None</loc>
+     <lastmod>2018-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>None</loc>
      <lastmod>2018-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>

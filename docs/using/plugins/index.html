@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Installing on OSX - Kipoi documentation</title>
+  <title>Plugins - Kipoi documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Installing on OSX";
-    var mkdocs_page_input_path = "using/04_Installing_on_OSX.md";
+    var mkdocs_page_name = "Plugins";
+    var mkdocs_page_input_path = "using/plugins.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -69,29 +69,31 @@
                     
     <a class="" href="../R/">R</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../03_Model_sources/">Private and public model sources</a>
-                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Installing on OSX</a>
+    <a class="current" href="./">Plugins</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#using-kipoi-installing-on-osx">Using Kipoi - Installing on OSX</a></li>
+    <li class="toctree-l3"><a href="#plugins">Plugins</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#steps">Steps</a></li>
+            <li><a class="toctree-l4" href="#kipoi-veff">Kipoi-veff</a></li>
+        
+            <li><a class="toctree-l4" href="#kipoi-interpret">Kipoi-interpret</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../03_Model_sources/">Private and public model sources</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../04_Installing_on_OSX/">Installing on OSX</a>
                 </li>
     </ul>
 	    </li>
@@ -223,10 +225,10 @@
         
       
     
-    <li>Installing on OSX</li>
+    <li>Plugins</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/using/04_Installing_on_OSX.md"
+        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/using/plugins.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -236,17 +238,27 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="using-kipoi-installing-on-osx">Using Kipoi - Installing on OSX</h2>
-<p>Depending on the versino of OSX you are using there is python pre-installed or not. On OSX Sierra it is not, but on OSX High Sierra it is.
-For Kipoi to work fully you will need a version of python (2.7, 3.5 or 3.6) installed, preferably you will also have an installation of conda.
-We have seen problems when conda environments were re-used so we strongly recommend that you create a new environment e.g. <code>kipoi</code> where you
-install Kipoi.</p>
-<h3 id="steps">Steps</h3>
-<h4 id="make-sure-you-have-python-installed">Make sure you have python installed:</h4>
-<p>You can try by just execting <code>python</code> in your Terminal, if nothing is found you will want to install python (not <code>pythonw</code>).
-There are some good explanations on how <a href="http://docs.python-guide.org/en/latest/starting/install/osx/">python 2 can be installed on OSX Sierra</a>
-and if you are using High Sierra and you prefer python 3 you can <a href="http://docs.python-guide.org/en/latest/starting/install3/osx/">follow this</a>.</p>
-<p>After completing the steps and installing <a href="https://conda.io/">conda or miniconda</a> please procede as described in <a href="./01_Getting_started">getting started</a>.</p>
+                <h2 id="plugins">Plugins</h2>
+<p>To enable additional functionality beyond just running model predictions, there are two additional plugins available:</p>
+<ul>
+<li>kipoi-veff: variant effect prediction <a href="https://github.com/kipoi/kipoi-veff">github</a>, <a href="https://kipoi.org/docs/veff">docs</a></li>
+<li>kipoi-interpret: model interpretation.<a href="https://github.com/kipoi/kipoi-interpret">github</a>, <a href="https://kipoi.org/docs/interpret">docs</a></li>
+</ul>
+<h3 id="kipoi-veff"><a href="https://github.com/kipoi/kipoi-veff">Kipoi-veff</a></h3>
+<p>Kipoi-veff is a plugin specific to genomics. Models trained to predict various molecular phenotypes from DNA sequence can be used to assess the impact of genetic mutations or variants. The veff plugin allows you to take the VCF file — canonical file format for storing genetic variants — and obtain changes in model predictions due to the genetic variants/mutations changing the DNA sequence.</p>
+<p><img alt="veff" src="https://cdn-images-1.medium.com/max/1200/1*cm8Cq5uWnCXC_GNhUrQNKg.png" /></p>
+<h3 id="kipoi-interpret"><a href="https://github.com/kipoi/kipoi-veff">Kipoi-interpret</a></h3>
+<p>Kipoi-interpret is a general (genomics agnostic) plugin and allows to compute the feature importance scores like saliency maps or DeepLift for Kipoi models.</p>
+<pre><code class="python">import kipoi
+from kipoi_interpret.importance_scores.gradient import GradientXInput
+
+model = kipoi.get_model(&quot;DeepBind/Homo_sapiens/TF/D00765.001_ChIP-seq_GATA1&quot;)
+
+val = GradientXInput(model).score(seq_array)[0]
+seqlogo_heatmap(val, val.T)
+</code></pre>
+
+<p><img alt="interpret" src="https://cdn-images-1.medium.com/max/800/0*VWI94BzEZXRWc1Oe" /></p>
               
             </div>
           </div>
@@ -254,10 +266,10 @@ and if you are using High Sierra and you prefer python 3 you can <a href="http:/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../contributing/01_Getting_started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../03_Model_sources/" class="btn btn-neutral float-right" title="Private and public model sources">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../03_Model_sources/" class="btn btn-neutral" title="Private and public model sources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../R/" class="btn btn-neutral" title="R"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -285,10 +297,10 @@ and if you are using High Sierra and you prefer python 3 you can <a href="http:/
           <a href="http://github.com/kipoi/kipoi-kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../03_Model_sources/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../R/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../contributing/01_Getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../03_Model_sources/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

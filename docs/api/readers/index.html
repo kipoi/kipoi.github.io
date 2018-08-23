@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Installing on OSX - Kipoi documentation</title>
+  <title>readers - Kipoi documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Installing on OSX";
-    var mkdocs_page_input_path = "using/04_Installing_on_OSX.md";
+    var mkdocs_page_name = "readers";
+    var mkdocs_page_input_path = "api/readers.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,39 +59,27 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../python/">Python</a>
+    <a class="" href="../../using/python/">Python</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../cli/">CLI</a>
+    <a class="" href="../../using/cli/">CLI</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../R/">R</a>
+    <a class="" href="../../using/R/">R</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../plugins/">Plugins</a>
+    <a class="" href="../../using/plugins/">Plugins</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../03_Model_sources/">Private and public model sources</a>
+    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Installing on OSX</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#using-kipoi-installing-on-osx">Using Kipoi - Installing on OSX</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#steps">Steps</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
                 </li>
     </ul>
 	    </li>
@@ -160,39 +148,42 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../api/list_/">list</a>
+    <a class="" href="../list_/">list</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/install_/">install</a>
+    <a class="" href="../install_/">install</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/model/">Model</a>
+    <a class="" href="../model/">Model</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/dataloader/">Dataloader</a>
+    <a class="" href="../dataloader/">Dataloader</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/pipeline/">Pipeline</a>
+    <a class="" href="../pipeline/">Pipeline</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/sources/">sources</a>
+    <a class="" href="../sources/">sources</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/metadata/">metadata</a>
+    <a class="" href="../metadata/">metadata</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">readers</a>
+    <ul class="subnav">
+            
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
+    <a class="" href="../writers/">writers</a>
                 </li>
     </ul>
 	    </li>
@@ -219,14 +210,14 @@
     
       
         
-          <li>Using &raquo;</li>
+          <li>Api &raquo;</li>
         
       
     
-    <li>Installing on OSX</li>
+    <li>readers</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/using/04_Installing_on_OSX.md"
+        <a href="http://github.com/kipoi/kipoi-kipoi/edit/master/docs/api/readers.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -236,17 +227,74 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="using-kipoi-installing-on-osx">Using Kipoi - Installing on OSX</h2>
-<p>Depending on the versino of OSX you are using there is python pre-installed or not. On OSX Sierra it is not, but on OSX High Sierra it is.
-For Kipoi to work fully you will need a version of python (2.7, 3.5 or 3.6) installed, preferably you will also have an installation of conda.
-We have seen problems when conda environments were re-used so we strongly recommend that you create a new environment e.g. <code>kipoi</code> where you
-install Kipoi.</p>
-<h3 id="steps">Steps</h3>
-<h4 id="make-sure-you-have-python-installed">Make sure you have python installed:</h4>
-<p>You can try by just execting <code>python</code> in your Terminal, if nothing is found you will want to install python (not <code>pythonw</code>).
-There are some good explanations on how <a href="http://docs.python-guide.org/en/latest/starting/install/osx/">python 2 can be installed on OSX Sierra</a>
-and if you are using High Sierra and you prefer python 3 you can <a href="http://docs.python-guide.org/en/latest/starting/install3/osx/">follow this</a>.</p>
-<p>After completing the steps and installing <a href="https://conda.io/">conda or miniconda</a> please procede as described in <a href="./01_Getting_started">getting started</a>.</p>
+                <h1 id="kipoi.readers">kipoi.readers</h1>
+
+<p>Readers useful for creating new dataloaders</p>
+<ul>
+<li>HDF5Reader</li>
+</ul>
+<h2 id="kipoi.readers.HDF5Reader">HDF5Reader</h2>
+
+<pre><code class="python">HDF5Reader(self, file_path)
+</code></pre>
+
+<p>Read the HDF5 file. Convenience wrapper around h5py.File</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: File path to an HDF5 file</li>
+</ul>
+<h3 id="kipoi.readers.HDF5Reader.ls">ls</h3>
+
+<pre><code class="python">HDF5Reader.ls(self)
+</code></pre>
+
+<p>Recursively list the arrays</p>
+<h3 id="kipoi.readers.HDF5Reader.load_all">load_all</h3>
+
+<pre><code class="python">HDF5Reader.load_all(self, unflatten=True)
+</code></pre>
+
+<p>Load the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>unflatten</strong>: if True, nest/unflatten the keys.
+      e.g. an entry <code>f['/foo/bar']</code> would need to be accessed</li>
+<li><strong>using two nested <code>get</code> call</strong>: <code>f['foo']['bar']</code></li>
+</ul>
+<h3 id="kipoi.readers.HDF5Reader.batch_iter">batch_iter</h3>
+
+<pre><code class="python">HDF5Reader.batch_iter(self, batch_size=16, **kwargs)
+</code></pre>
+
+<p>Create a batch iterator over the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>batch_size</strong>: batch size</li>
+<li><strong>**kwargs</strong>: ignored argument. Used for consistency with other dataloaders</li>
+</ul>
+<h3 id="kipoi.readers.HDF5Reader.open">open</h3>
+
+<pre><code class="python">HDF5Reader.open(self)
+</code></pre>
+
+<p>Open the file</p>
+<h3 id="kipoi.readers.HDF5Reader.close">close</h3>
+
+<pre><code class="python">HDF5Reader.close(self)
+</code></pre>
+
+<p>Close the file</p>
+<h3 id="kipoi.readers.HDF5Reader.load">load</h3>
+
+<pre><code class="python">HDF5Reader.load(file_path, unflatten=True)
+</code></pre>
+
+<p>Load the data all at once (classmethod).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: HDF5 file path</li>
+<li><strong>unflatten</strong>: see <code>load_all</code></li>
+</ul>
               
             </div>
           </div>
@@ -254,10 +302,10 @@ and if you are using High Sierra and you prefer python 3 you can <a href="http:/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../contributing/01_Getting_started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../writers/" class="btn btn-neutral float-right" title="writers">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../03_Model_sources/" class="btn btn-neutral" title="Private and public model sources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../metadata/" class="btn btn-neutral" title="metadata"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -285,10 +333,10 @@ and if you are using High Sierra and you prefer python 3 you can <a href="http:/
           <a href="http://github.com/kipoi/kipoi-kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../03_Model_sources/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../metadata/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../contributing/01_Getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../writers/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
