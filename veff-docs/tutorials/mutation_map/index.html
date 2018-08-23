@@ -722,7 +722,7 @@ model_task
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b0856e433c8&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_22_1.png" /></p>
+<p><img alt="png" src="/veff-docs/img/ipynb/mutation_map_files/mutation_map_22_1.png" /></p>
 <p>As we can see we can't see much. Everything is a bit squished, but the variant is already annotated with the ID that was given in the VCF file: 16376.</p>
 <p>By default the full input sequence length is displayed, which is 1000bp for the DeepSEA model. In order to zoom in let's find the variant position and then zoom down to a 80bp window surrounding the variant:</p>
 <pre><code class="python">var_pos = top5_df[&quot;variant_pos&quot;].iloc[sel_line]
@@ -737,14 +737,14 @@ var_pos
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b0857c1b198&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_26_1.png" /></p>
+<p><img alt="png" src="/veff-docs/img/ipynb/mutation_map_files/mutation_map_26_1.png" /></p>
 <p>Now since we are looking at CTCF track one might suspect that the variant lies in a CTCF binding motif, but it is somewhat not 100% clear. Let's see whether a motif on the reverse strand is actually affected:</p>
 <pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task, limit_region_genomic=(var_pos -40, var_pos+40), rc_plot=True)
 </code></pre>
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b085741f400&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_28_1.png" /></p>
+<p><img alt="png" src="/veff-docs/img/ipynb/mutation_map_files/mutation_map_28_1.png" /></p>
 <h2 id="add-additional-annotation-dbsnp">Add additional annotation (dbSNP)</h2>
 <p>Now that we know how to zoom and reverse-complement mutation maps let's also try and highlight further variants in the region. For that I have prepared a subset of variants of the dbSNP b151 GRCh37 <code>All_20180423.vcf.gz</code> in the proximity of the selected variant. We can use this VCF to highlight dbSNP variants in the region.</p>
 <p>Let's first get the variant information into the right format:</p>
@@ -769,7 +769,7 @@ for rec in vcf_obj:
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b08574d6e10&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_32_1.png" /></p>
+<p><img alt="png" src="/veff-docs/img/ipynb/mutation_map_files/mutation_map_32_1.png" /></p>
 <p>Arguably it's not the most beautiful plot as labels start overlapping, so let's remove them and let's also exclude out seed variant, in order to highlight the difference we might actually also want to change the colour of the variant boxes to red:</p>
 <pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task, limit_region_genomic=(var_pos -40, var_pos+40),
                 rc_plot=True, annotation_variants = variants, show_var_id=False,
@@ -778,7 +778,7 @@ for rec in vcf_obj:
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b086f892f28&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_34_1.png" /></p>
+<p><img alt="png" src="/veff-docs/img/ipynb/mutation_map_files/mutation_map_34_1.png" /></p>
 <h1 id="the-cli">The CLI</h1>
 <p>Mutation maps can be calculated using the command line interface analogously to the way presented above for the python API. Let's therefore collect all the input and output file names:</p>
 <pre><code class="python">import json
@@ -816,7 +816,7 @@ region_start, region_end = var_pos -40, var_pos+40
 Image(filename=plot_file)
 </code></pre>
 
-<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_43_0.png" /></p>
+<p><img alt="png" src="/veff-docs/img/ipynb/mutation_map_files/mutation_map_43_0.png" /></p>
               
             </div>
           </div>
