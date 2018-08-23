@@ -194,7 +194,7 @@
 <p>Variant effect prediction offers a simple way predict effects of SNVs using any model that uses DNA sequence as an input. Many different scoring methods can be chosen but the principle relies on in-silico mutagenesis (see below). The default input is a VCF and the default output again is a VCF annotated with predictions of variant effects.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>This sketch highlights the overall functionality of variant effect prediction. More details are given in the chapters below.</p>
-<p><img alt='variant effect prediction sketch' src='../../img/overview/vep.png'></p>
+<p><img alt='variant effect prediction sketch' src='../img/overview/vep.png'></p>
 <p>Dataloader output and a VCF are overlapped and the input DNA sequence is mutated as defined in the VCF. The reference and the alternative set of model inputs is predicted using the model and the differences are evaluated using a scoring function. The results are then stored in an annotated VCF.</p>
 <h2 id="in-silico-mutagenesis">In-silico mutagenesis</h2>
 <p>The principle relies on generating model predictions twice, once with DNA sequence that contains the reference and once with the alternative allele of a variant. Those predictions can then be compared in different ways to generate an effect prediction.</p>
@@ -259,7 +259,7 @@
 
 <p>Here the <code>associated_metadata</code> flag in the input field <code>seq</code> is set to <code>ranges</code>, which means that for every sample in the <code>model_input['inputs']['seq']</code> one entry in <code>model_input['metadata']['ranges']</code> is expected with its type either being <code>GenomicRanges</code> or a dictionary of numpy arrays with the keys <code>chr</code>, <code>start</code>, <code>end</code>, <code>id</code>. The information in the metadata object gives variant effect prediction the possibilty to find the relative position of a variant within a given input sequence. Hence the <code>associated_metadata</code> is mandatory for every  entry in <code>seq_input</code> in the model.yaml file. Please note that the coordinates in the metadata are expected to be 0-based, hence comply with .bed file format!</p>
 <p>The following sketch gives an overview how the different tags play together and how they are used with variant effect prediction.</p>
-<p><img alt='variant effect prediction sketch with dataloader details' src='../../img/overview/variant_effect_prediction_intro.png'></p>
+<p><img alt='variant effect prediction sketch with dataloader details' src='../img/overview/variant_effect_prediction_intro.png'></p>
 <h2 id="use-cases">Use-cases</h2>
 <p>This section describes a set of functions which cover most of the common queries for variant effect. All of the functions described below require that the model.yaml and dataloader.yaml files are set up in the way defined above.</p>
 <p>In literature in-silico mutagenesis-based variant effect predcition is performed in a variant centric way: Starting from a VCF for every variant a sequence centered on said variant is generated. That sequence is then mutated by modifying the central base and setting it to what is defined as reference or alternative allele, generating two sets of sequences. For both the set with the reference allele in the center and the alternative allele in the center the model prediction is run and model outputs are compared.</p>
@@ -276,15 +276,15 @@
 </code></pre>
 
 <p>This section indicates that the dataloader function has an argument <code>intervals_file</code> which accepts a bed file path as input which may be used.</p>
-<p><img alt='variant effect prediction sketch' src='../../img/overview/vep_centered.png'></p>
+<p><img alt='variant effect prediction sketch' src='../img/overview/vep_centered.png'></p>
 <h3 id="restricted-variant-centered-effect-prediction">Restricted-variant centered effect prediction</h3>
 <p>Requirements for the dataloader and dataloader.yaml here are identical to the variant centered effect prediction. The only difference is that this function is designed for models that can't predict on arbitrary regions of the genome, but only in certain regions of the genome. If those regions can be defined in a bed file (further on called 'restriction-bed' file) then this approach can be used. Variant effect prediction will then intersect the VCF with the restriction-bed and generate another bed file that is then passed on to the dataloader.</p>
 <p>Regions in the restriction-bed file may be larger than the input sequence lenght, in that case the generated seuqence will be centered on the variant position as much as possible - restricted by what is defined in the restrictions-bed file.
-<img alt='variant effect prediction sketch' src='../../img/overview/vep_restr_bed.png'></p>
+<img alt='variant effect prediction sketch' src='../img/overview/vep_restr_bed.png'></p>
 <h3 id="overlap-based-effect-prediction">Overlap-based effect prediction</h3>
 <p>If the dataloader does not support bed input files then variant effect predictions can be run by the overlap of a VCF with the regions defined in the metdata output of the dataloader.</p>
 <p>If multiple variants overlap with a region then the effect will be predicted inpendently for those variants. If multiple (e.g.: two) model input samples overlap with one variant then the output will contain as many predictions as there were independent overlaps of metadata ranges and variants (e.g.: two).
-<img alt='variant effect prediction sketch' src='../../img/overview/vep.png'></p>
+<img alt='variant effect prediction sketch' src='../img/overview/vep.png'></p>
 <h2 id="scoring-functions">Scoring functions</h2>
 <p>After mutating the model input DNA sequences predictions are created using the models and those predictions then have to compared by scoring methods. Not all scoring methods are compatible with all models depending on the output data range of the model (see below). The compatibility of a scoring function with a given model can be indicated by setting <code>scoring_functions</code> in model.yaml:</p>
 <pre><code class="yaml">postprocessing:
@@ -338,7 +338,7 @@
 <p>If variant effect prediction is run programmatically in python then the results are returned as a dictionary of pandas DataFrames.</p>
 <h2 id="more-complex-models">More complex models</h2>
 <p>More complex models may have more than only one DNA sequence input, it may even be that models have DNA sequence inputs taken from different regions of the genome within one sample in a batch. See this sketch for an illustration of the scenario:</p>
-<p><img alt='variant effect prediction sketch' src='../../img/overview/variant_effect_prediction_intro_complex.png'></p>
+<p><img alt='variant effect prediction sketch' src='../img/overview/variant_effect_prediction_intro_complex.png'></p>
 <p>The dataloader has three sequence outputs which are linked to two metadata ranges. for both ranges objects the beginning of the ranges is displayed. In order to overlap the metadata ranges with variants the input batch is processed one sample at a time. The samples in a batch are displayed in green rectangular boxes: For every sample all the ranges are assembled and overlapped with variants in the VCF. Then the effect is predicted for every single variant in the VCF that overlaps at least one of the region defined in that sample. This means that for the first sample in the batch two variants are investigated: rs1 and rs2. rs1 can only affect seq1a and seq1b, hence those two sequences are mutated, seq2 is not. rs2 overlaps with both ranges in the first sample and hence two sequences are mutated with rs2 to predict its effect. This means that the first sample will be evaluated twice using variants rs1 and rs2, and the second sample only once using rs3.</p>
               
             </div>
