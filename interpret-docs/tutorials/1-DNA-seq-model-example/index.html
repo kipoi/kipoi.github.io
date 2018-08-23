@@ -222,7 +222,7 @@ seqlogo_heatmap(val, val.T, ax=plt.subplot())
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3ef9bbadd8&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_10_1.png" /></p>
+<p><img alt="png" src="/interpret-docs/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_10_1.png" /></p>
 <h2 id="gradient">Gradient</h2>
 <pre><code class="python">gr = Gradient(model)
 val = gr.score(seqa)[0]
@@ -234,7 +234,7 @@ seqlogo_heatmap(val, val.T, ax=plt.subplot())
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3ef9220668&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_13_1.png" /></p>
+<p><img alt="png" src="/interpret-docs/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_13_1.png" /></p>
 <h2 id="in-silico-mutagenesis">In-silico mutagenesis</h2>
 <pre><code class="python"># TODO - update the Mutate function. It should return the following:
 # prediction_value:
@@ -263,7 +263,7 @@ seqlogo_heatmap(np.abs(val), val.T, ax=plt.subplot(), show_letter_scale=False)
 
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3ef82f8160&gt;
 </code></pre>
-<p><img alt="png" src="/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_17_1.png" /></p>
+<p><img alt="png" src="/interpret-docs/img/ipynb/1-DNA-seq-model-example_files/1-DNA-seq-model-example_17_1.png" /></p>
 <h2 id="deeplift">DeepLift</h2>
 <pre><code class="python"># Not a sequential model
 # dl = DeepLift(model, 'maximum_593', 0)
