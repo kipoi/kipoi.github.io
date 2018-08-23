@@ -332,7 +332,7 @@
 </ol>
 <p>Rest of this document will go more into the details about steps writing the model and testing the model.</p>
 <h3 id="how-to-write-the-model">How to write the model</h3>
-<p>Best place to start figuring out which files you need to contribute is to look at some of the existing models. Explore the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repository and see if there are any models similar to yours (in terms of the dependencies, framework, input-output data modalities). See <a href="../tutorials/contributing_models">tutorials/contributing_models</a> for a step-by-step procedure for contributing models.</p>
+<p>Best place to start figuring out which files you need to contribute is to look at some of the existing models. Explore the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repository and see if there are any models similar to yours (in terms of the dependencies, framework, input-output data modalities). See <a href="../../tutorials/contributing_models">tutorials/contributing_models</a> for a step-by-step procedure for contributing models.</p>
 <h4 id="option-1-copy-existing-model">Option #1: Copy existing model</h4>
 <p>Once you have found the closest match, simply copy the directory and start editing/replacing the files. Edit the files in this order:</p>
 <ul>
@@ -400,7 +400,7 @@ INFO [kipoi.cli.main] Done!
 Created the following folder into the current working directory: my_new_model
 </code></pre>
 
-<p>The created folder contains a model and a dataloader for predicting the Iris species. You will now have to <a href="./02_Writing_model.yaml">edit the model.yaml</a> and to <a href="./04_Writing_dataloader.yaml">edit the dataloader.yaml</a> files according to your model. Also you will have to copy you rmodel files into the model_files directory. You can check whether you have succeeded and your model is setup correctly with the commands below.</p>
+<p>The created folder contains a model and a dataloader for predicting the Iris species. You will now have to <a href="../02_Writing_model.yaml/">edit the model.yaml</a> and to <a href="../03_Writing_dataloader.yaml/">edit the dataloader.yaml</a> files according to your model. Also you will have to copy you rmodel files into the model_files directory. You can check whether you have succeeded and your model is setup correctly with the commands below.</p>
 <h3 id="how-to-test-the-model">How to test the model</h3>
 <p>Be aware that the test functions will only check whether the definition side of things (model.yaml, dataloader.yaml, syntax errors, etc.) is setup correctly, you will have to validate yourself whether the outputs created by using the predict function produce the desired model output!</p>
 <h4 id="step-1-run-kipoi-test-kipoimodelsmy_new_model">Step 1: Run <code>kipoi test ~/.kipoi/models/my_new_model</code></h4>

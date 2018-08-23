@@ -80,6 +80,8 @@
         
             <li><a class="toctree-l3" href="#citing-kipoi">Citing Kipoi</a></li>
         
+            <li><a class="toctree-l3" href="#development">Development</a></li>
+        
         </ul>
     
 
@@ -277,84 +279,37 @@ git-lfs install
 <pre><code class="bash">pip install kipoi
 </code></pre>
 
-<h4 id="development">Development</h4>
-<p>If you wish to develop <code>kipoi</code>, run instead:</p>
-<pre><code class="bash">conda install pytorch-cpu
-pip install -e '.[develop]'
-</code></pre>
-
-<p>This will install some additional packages like <code>pytest</code>. You can test the package by running <code>py.test</code>. </p>
-<p>If you wish to run tests in parallel, run <code>py.test -n 6</code>.</p>
 <h2 id="quick-start">Quick start</h2>
-<p><img src="docs/theme_dir/img/kipoi-workflow.png" height=400></p>
-<h3 id="python">Python</h3>
-<p>List available models</p>
+<p>The following diagram gives a short overview over Kipoi's workflow:
+<img src="http://kipoi.org/docs/img/kipoi-workflow.png" height=400></p>
+<p>If you want to check which models are available in Kipoi you can use the <a href="http://kipoi.org/groups/">website</a>, where you can also see example commands for how to use the models on the CLI, python and R.
+Alternatively you can run <code>kipoi ls</code> in the command line or in python:</p>
 <pre><code class="python">import kipoi
 
 kipoi.list_models()
 </code></pre>
 
-<p>Hint: For an overview over the available models also check the <a href="http://kipoi.org/groups/">model overview</a> on our website, where you can see example commands for how to use the models on the CLI, python and R.</p>
-<p>Load the model from model source or local directory</p>
-<pre><code class="python"># Load the model from the default Kipoi's model zoo
-model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
-
-# Load the model from a local directory
-model = kipoi.get_model(&quot;~/mymodels/rbp&quot;, source=&quot;dir&quot;)
-# Note: Custom model sources are defined in ~/.kipoi/config.yaml
-
-# Load the model via github permalink for a particular commit:
-model = kipoi.get_model(&quot;https://github.com/kipoi/models/tree/7d3ea7800184de414aac16811deba6c8eefef2b6/pwm_HOCOMOCO/human/CTCF&quot;, source='github-permalink')
+<p>Once a model has been selected (here: <code>rbp_eclip/UPF1</code>), the model environments have to be installed. To do so use one of the <code>kipoi env</code> commands.
+For example to install an environment for model <code>rbp_eclip/UPF1</code>:</p>
+<pre><code class="bash">kipoi env create rbp_eclip/UPF1
 </code></pre>
 
-<p>Main model attributes and methods</p>
-<pre><code class="python"># See the information about the author:
-model.info
-
-# Access the default dataloader
-model.default_dataloader
-
-# Access the Keras model
-model.model
-
-# Predict on batch - implemented by all the models regardless of the framework
-# (i.e. works with sklearn, Keras, tensorflow, ...)
-model.predict_on_batch(x)
-
-# Get predictions for the raw files
-# Kipoi runs: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; predictions 
-model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;inputs.csv&quot;})
+<hr />
+<p><strong> Aside: models versus model groups</strong>: </p>
+<blockquote>
+<p>A Kipoi <code>model</code> is a path to a directory containing a <code>model.yaml</code> file.  This file specifies the underlying model, data loader, and other model attributes.<br />
+If instead you provide a path to a model <em>group</em> (e.g  "rbp_eclip" or "lsgkm-SVM/Tfbs/Ap2alpha/"), rather than one model (e.g "rbp_eclip/UPF1" or "lsgkm-SVM/Tfbs/Ap2alpha/Helas3/Sydh_Std"), or any other directory without a <code>model.yaml</code> file, a <code>ValueError</code> will be thrown.</p>
+</blockquote>
+<hr />
+<p>If you are working on a machine that has GPUs, you will want to add the <code>--gpu</code> flag to the command. And if you want to make use of the <code>kipoi-veff</code> plug-in then add <code>--vep</code>. For more options please run <code>kipoi env create --help</code>.</p>
+<p>The command will tell you how the execution environment for the model is called, e.g.:</p>
+<p><code>INFO [kipoi.cli.env] Environment name: kipoi-rbp_eclip__UPF1</code></p>
+<p>Before using a model in any way, make sure that you have activated its environment, e.g.: prior to executing <code>kipoi</code> or <code>python</code> or <code>R</code> in the attempt to use Kipoi with the model. To activate the model environment run for example:</p>
+<pre><code class="bash">source activate kipoi-rbp_eclip__UPF1
 </code></pre>
 
-<p>Load the dataloader</p>
-<pre><code class="python">Dl = kipoi.get_dataloader_factory(&quot;rbp_eclip/UPF1&quot;) # returns a class that needs to be instantiated
-dl = Dl(dataloader_arg1=&quot;inputs.csv&quot;)  # Create/instantiate an object
-</code></pre>
-
-<p>Dataloader attributes and methods</p>
-<pre><code class="python"># batch_iter - common to all dataloaders
-# Returns an iterator generating batches of model-ready numpy.arrays
-it = dl.batch_iter(batch_size=32)
-out = next(it)  # {&quot;inputs&quot;: np.array, (optional) &quot;targets&quot;: np.arrays.., &quot;metadata&quot;: np.arrays...}
-
-# To get predictions, run
-model.predict_on_batch(out['inputs'])
-
-# load the whole dataset into memory
-dl.load_all()
-</code></pre>
-
-<p>Re-train the model</p>
-<pre><code class="python"># re-train example for Keras
-dl = Dl(dataloader_arg1=&quot;inputs.csv&quot;, targets_file=&quot;mytargets.csv&quot;)
-it_train = dl.batch_train_iter(batch_size=32)  
-# batch_train_iter is a convenience wrapper of batch_iter
-# yielding (inputs, targets) tuples indefinitely
-model.model.fit_generator(it_train, steps_per_epoch=len(dl)//32, epochs=10)
-</code></pre>
-
-<p>For more information see: <a href="notebooks/python-api.ipynb">notebooks/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
 <h3 id="command-line">Command-line</h3>
+<p>Once the model environment is activated Kipoi's API can be accessed from the commandline using:</p>
 <pre><code>$ kipoi
 usage: kipoi &lt;command&gt; [-h] ...
 
@@ -379,18 +334,40 @@ usage: kipoi &lt;command&gt; [-h] ...
 </code></pre>
 
 <p>Explore the CLI usage by running <code>kipoi &lt;command&gt; -h</code>. Also, see <a href="http://kipoi.org/docs/using/01_Getting_started/#command-line-interface-quick-start">docs/using/getting started cli</a> for more information.</p>
+<h3 id="python">Python</h3>
+<p>Once the model environment is activated (<code>source activate kipoi-rbp_eclip__UPF1</code>) Kipoi's python API can be used to:</p>
+<p>The following commands give a short overview. For details please take a look at the python API documentation.
+Load the model from model the source:</p>
+<pre><code class="python">import kipoi
+model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;) # load the model
+</code></pre>
+
+<p>To get model predictions using the dataloader we can run:</p>
+<pre><code class="python">model.pipeline.predict(dict(fasta_file=&quot;hg19.fa&quot;,
+                            intervals_file=&quot;intervals.bed&quot;,
+                            gtf_file=&quot;gencode.v24.annotation_chr22.gtf&quot;))
+# runs: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; predictions 
+</code></pre>
+
+<p>To predict the values of a model input <code>x</code>, which for example was generated by dataloader, we can use:</p>
+<pre><code class="python">model.predict_on_batch(x) # implemented by all the models regardless of the framework
+</code></pre>
+
+<p>Here <code>x</code> has to be a <code>numpy.ndarray</code> or a list or a dict of a <code>numpy.ndarray</code>, depending on the model requirements, for details please see the documentation of the API or of <code>datalaoder.yaml</code> and <code>model.yaml</code>.</p>
+<p>For more information see: <a href="notebooks/python-api.ipynb">notebooks/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
 <h3 id="configure-kipoi-in-kipoiconfigyaml">Configure Kipoi in <code>.kipoi/config.yaml</code></h3>
 <p>You can add your own (private) model sources. See <a href="http://kipoi.org/docs/using/03_Model_sources/">docs/using/03_Model_sources/</a>.</p>
 <h3 id="contributing-models">Contributing models</h3>
 <p>See <a href="http://kipoi.org/docs/contributing/01_Getting_started/">docs/contributing getting started</a> and <a href="http://kipoi.org/docs/tutorials/contributing_models/">docs/tutorials/contributing/models</a> for more information.</p>
 <h2 id="plugins">Plugins</h2>
+<p>Kipoi supports plug-ins which are published as additional python packages. Two plug-ins that are available are:</p>
 <h3 id="kipoi_veff"><a href="https://github.com/kipoi/kipoi-veff">kipoi_veff</a></h3>
-<p>Variant effect prediction plugin compatible with (DNA) sequence based models. It allows to annotate the vcf file using model predictions for the reference and alternative alleles, and writes the results to a new VCF file. For more information see <a href="https://github.com/kipoi/kipoi/blob/master/notebooks/variant_effect_prediction_simple.ipynb">tutorials/variant_effect_prediction_simple/</a> or <a href="http://kipoi.org/docs/tutorials/variant_effect_prediction/">tutorials/variant_effect_prediction/</a>.</p>
+<p>Variant effect prediction plugin compatible with (DNA) sequence based models. It allows to annotate a vcf file using model predictions for the reference and alternative alleles. The output is written to a new VCF file. For more information see <a href="https://github.com/kipoi/kipoi/blob/master/notebooks/variant_effect_prediction_simple.ipynb">tutorials/variant_effect_prediction_simple/</a> or <a href="http://kipoi.org/docs/tutorials/variant_effect_prediction/">tutorials/variant_effect_prediction/</a>.</p>
 <pre><code class="bash">pip install kipoi_veff
 </code></pre>
 
 <h3 id="kipoi_interpret"><a href="https://github.com/kipoi/kipoi-interpret">kipoi_interpret</a></h3>
-<p>Model interepretation plugin for Kipoi. Allows to use feature importance scores like in-silico mutagenesis (ISM), saliency maps or DeepLift with a wide range of Kipoi models. <a href="https://github.com/kipoi/kipoi-interpret/blob/master/notebooks/1-DNA-seq-model-example.ipynb">example notebook</a></p>
+<p>Model interpretation plugin for Kipoi. Allows to use feature importance scores like in-silico mutagenesis (ISM), saliency maps or DeepLift with a wide range of Kipoi models. <a href="https://github.com/kipoi/kipoi-interpret/blob/master/notebooks/1-DNA-seq-model-example.ipynb">example notebook</a></p>
 <pre><code class="bash">pip install kipoi_interpret
 </code></pre>
 
@@ -409,6 +386,16 @@ usage: kipoi &lt;command&gt; [-h] ...
     journal = {bioRxiv}
 }
 </code></pre>
+
+<h2 id="development">Development</h2>
+<p>If you want to help with the development of Kipoi, you are more than welcome to join in! </p>
+<p>For the local setup for development, you should install <code>kipoi</code> using:</p>
+<pre><code class="bash">conda install pytorch-cpu
+pip install -e '.[develop]'
+</code></pre>
+
+<p>This will install some additional packages like <code>pytest</code>. You can test the package by running <code>py.test</code>. </p>
+<p>If you wish to run tests in parallel, run <code>py.test -n 6</code>.</p>
               
             </div>
           </div>
@@ -459,5 +446,5 @@ usage: kipoi &lt;command&gt; [-h] ...
 
 <!--
 MkDocs version : 1.0.2
-Build Date UTC : 2018-08-23 10:19:54
+Build Date UTC : 2018-08-23 13:30:19
 -->
