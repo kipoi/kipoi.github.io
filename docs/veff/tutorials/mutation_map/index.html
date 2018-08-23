@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Mutation map - Kipoi-veff</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mutation map";
+    var mkdocs_page_input_path = "tutorials/mutation_map.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi-veff</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../overview/">Overview</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/">Functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../variant_effect_pred/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../mutation_map/">Mutation maps</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction_simple/">Simple</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction/">Advanced</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Mutation map</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#generate-a-mutation-map">Generate a mutation map</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#variant-selection">Variant selection</a></li>
+        
+            <li><a class="toctree-l4" href="#calculating-the-mutation-map">Calculating the mutation map</a></li>
+        
+            <li><a class="toctree-l4" href="#add-additional-annotation-dbsnp">Add additional annotation (dbSNP)</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#the-cli">The CLI</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/score_variants/">score_variants</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/predict_snvs/">predict_snvs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/scores/">Available scores</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/MutationMap/">MutationMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/MutationMapPlotter/">MutationMapPlotter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/KipoiVCFParser/">KipoiVCFParser</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi-veff</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Mutation map</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi-veff/edit/master/docs/tutorials/mutation_map.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi-veff/blob/master/notebooks/mutation_map.ipynb">notebooks/mutation_map.ipynb</a></p>
+<h1 id="generate-a-mutation-map">Generate a mutation map</h1>
+<p>This inotebook shall give an simple introduction in how to produce mutation maps for all models that are enabled for variant effect prediction. Let's use the <code>DeepSEA/variantEffects</code> model.</p>
+<h2 id="variant-selection">Variant selection</h2>
+<p>In this example we will first run the variant effect prediction code that is described in detail in the <a href="variant_effect_prediction_simple.ipynb"><code>variant_effect_prediction_simple.ipynb</code></a>. We will use these effect scores to select variants with the strongest effects to then visualise one of those variants in a mutation map.</p>
+<pre><code class="python"># First let's select and setup the model:
+import kipoi
+model_name = &quot;DeepSEA/variantEffects&quot;
+#kipoi.pipeline.install_model_requirements(model_name)
+# The input vcf path
+vcf_path = &quot;example_data/clinvar_donor_acceptor_chr22.vcf&quot;
+# The output vcf path, based on the input file name    
+out_vcf_fpath = vcf_path[:-4] + &quot;%s.vcf&quot;%model_name.replace(&quot;/&quot;, &quot;_&quot;)
+# The datalaoder keyword arguments
+dataloader_arguments = {&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;}
+# Now actually run the effect prediction using the logit difference:
+import kipoi_veff.snv_predict as sp
+sp.score_variants(model = model_name,
+                  dl_args = dataloader_arguments,
+                  scores = [&quot;logit&quot;],
+                  input_vcf = vcf_path,
+                  output_vcf = out_vcf_fpath)
+</code></pre>
+
+<pre><code>100%|██████████| 14/14 [00:34&lt;00:00,  2.43s/it]
+</code></pre>
+<p>Just like in the <a href="variant_effect_prediction_simple.ipynb"><code>variant_effect_prediction_simple.ipynb</code></a> we will now load the results from the generated VCF into a dataframe for easy data access:</p>
+<pre><code class="python">from kipoi_veff.parsers import KipoiVCFParser
+vcf_reader = KipoiVCFParser(&quot;example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf&quot;)
+import pandas as pd
+entries = [el for el in vcf_reader]
+entries_df = pd.DataFrame(entries)
+entries_df.index = entries_df[&quot;variant_id&quot;]
+</code></pre>
+
+<p>Now we can select a subset of variants that score with the strongest score across the most model output tasks:</p>
+<pre><code class="python"># select the 5 variants with the most universal strongest predicted effect in chr22
+logit_cols = entries_df.columns.str.contains(&quot;LOGIT&quot;)
+top5_vars = entries_df.loc[:,logit_cols].abs().idxmax().value_counts().head()
+top5_vars
+</code></pre>
+
+<pre><code>12342    305
+16376    194
+8374     127
+22158     65
+9970      54
+dtype: int64
+</code></pre>
+<p>Now make a subset dataframe:</p>
+<pre><code class="python">top5_df = entries_df.loc[entries_df[&quot;variant_id&quot;].isin(top5_vars.index)]
+top5_df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variant_id</th>
+      <th>variant_chr</th>
+      <th>variant_pos</th>
+      <th>variant_ref</th>
+      <th>variant_alt</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_8988T_DNase_None_0</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_AoSMC_DNase_None_1</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Chorion_DNase_None_2</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_CLL_DNase_None_3</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Fibrobl_DNase_None_4</th>
+      <th>...</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H2AZ_None_910</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K27ac_None_911</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K27me3_None_912</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K36me3_None_913</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K4me1_None_914</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K4me2_None_915</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K4me3_None_916</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K79me2_None_917</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K9me3_None_918</th>
+      <th>KV_DeepSEA/variantEffects_rID_unnamed_0_0</th>
+    </tr>
+    <tr>
+      <th>variant_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16376</th>
+      <td>16376</td>
+      <td>chr22</td>
+      <td>29108009</td>
+      <td>G</td>
+      <td>C</td>
+      <td>-2.560048</td>
+      <td>-2.604959</td>
+      <td>-1.476766</td>
+      <td>-1.966083</td>
+      <td>-1.286860</td>
+      <td>...</td>
+      <td>0.068821</td>
+      <td>0.474027</td>
+      <td>0.227797</td>
+      <td>0.258411</td>
+      <td>0.544803</td>
+      <td>0.144552</td>
+      <td>0.175402</td>
+      <td>0.575531</td>
+      <td>0.055439</td>
+      <td>chr22:29108009:G:['C']</td>
+    </tr>
+    <tr>
+      <th>22158</th>
+      <td>22158</td>
+      <td>chr22</td>
+      <td>29121356</td>
+      <td>C</td>
+      <td>G</td>
+      <td>0.148644</td>
+      <td>2.256156</td>
+      <td>0.885380</td>
+      <td>-0.016387</td>
+      <td>0.423442</td>
+      <td>...</td>
+      <td>0.033477</td>
+      <td>0.043208</td>
+      <td>-0.120319</td>
+      <td>-0.324504</td>
+      <td>0.189594</td>
+      <td>0.147367</td>
+      <td>-0.087590</td>
+      <td>-0.388921</td>
+      <td>-0.023764</td>
+      <td>chr22:29121356:C:['G']</td>
+    </tr>
+    <tr>
+      <th>9970</th>
+      <td>9970</td>
+      <td>chr22</td>
+      <td>36701970</td>
+      <td>G</td>
+      <td>A</td>
+      <td>0.504692</td>
+      <td>1.658696</td>
+      <td>1.032887</td>
+      <td>-0.148108</td>
+      <td>0.914291</td>
+      <td>...</td>
+      <td>0.321597</td>
+      <td>0.299887</td>
+      <td>0.003522</td>
+      <td>-0.060838</td>
+      <td>0.473003</td>
+      <td>0.342598</td>
+      <td>0.247115</td>
+      <td>-0.056063</td>
+      <td>-0.063615</td>
+      <td>chr22:36701970:G:['A']</td>
+    </tr>
+    <tr>
+      <th>8374</th>
+      <td>8374</td>
+      <td>chr22</td>
+      <td>40750331</td>
+      <td>A</td>
+      <td>G</td>
+      <td>0.571587</td>
+      <td>0.248589</td>
+      <td>0.201321</td>
+      <td>1.890934</td>
+      <td>0.111852</td>
+      <td>...</td>
+      <td>0.421956</td>
+      <td>-0.020715</td>
+      <td>-0.156171</td>
+      <td>-0.151327</td>
+      <td>0.022475</td>
+      <td>0.192291</td>
+      <td>0.189058</td>
+      <td>-0.144645</td>
+      <td>-0.187582</td>
+      <td>chr22:40750331:A:['G']</td>
+    </tr>
+    <tr>
+      <th>12342</th>
+      <td>12342</td>
+      <td>chr22</td>
+      <td>50964903</td>
+      <td>C</td>
+      <td>G</td>
+      <td>-1.935331</td>
+      <td>-2.190516</td>
+      <td>-1.468465</td>
+      <td>-1.936842</td>
+      <td>-1.670801</td>
+      <td>...</td>
+      <td>0.236538</td>
+      <td>0.432350</td>
+      <td>0.886636</td>
+      <td>0.113601</td>
+      <td>0.007765</td>
+      <td>-0.198594</td>
+      <td>-0.245576</td>
+      <td>0.767322</td>
+      <td>-0.188115</td>
+      <td>chr22:50964903:C:['G']</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 925 columns</p>
+</div>
+
+<p>Based on that selection let's now generate an input VCF file that can then be used for mutation map calculation:</p>
+<pre><code class="python">query_vcf = &quot;example_data/clinvar_donor_acceptor_chr22_5vars.vcf&quot;
+variant_order = []
+# now subset the VCF:
+with open(query_vcf, &quot;w&quot;) as ofh:
+    with open(vcf_path, &quot;r&quot;) as ifh:
+        for l in ifh:
+            els = l.split(&quot; &quot;)
+            if l.startswith(&quot;#&quot;):
+                ofh.write(l)
+            elif els[2] in top5_vars.index.tolist():
+                variant_order.append(els[2])
+                ofh.write(l)
+</code></pre>
+
+<pre><code class="python">! cat $query_vcf
+</code></pre>
+
+<pre><code>##fileformat=VCFv4.0
+##FILTER=&lt;ID=PASS,Description="All filters passed"&gt;
+##contig=&lt;ID=chr1,length=249250621&gt;
+##contig=&lt;ID=chr2,length=243199373&gt;
+##contig=&lt;ID=chr3,length=198022430&gt;
+##contig=&lt;ID=chr4,length=191154276&gt;
+##contig=&lt;ID=chr5,length=180915260&gt;
+##contig=&lt;ID=chr6,length=171115067&gt;
+##contig=&lt;ID=chr7,length=159138663&gt;
+##contig=&lt;ID=chr8,length=146364022&gt;
+##contig=&lt;ID=chr9,length=141213431&gt;
+##contig=&lt;ID=chr10,length=135534747&gt;
+##contig=&lt;ID=chr11,length=135006516&gt;
+##contig=&lt;ID=chr12,length=133851895&gt;
+##contig=&lt;ID=chr13,length=115169878&gt;
+##contig=&lt;ID=chr14,length=107349540&gt;
+##contig=&lt;ID=chr15,length=102531392&gt;
+##contig=&lt;ID=chr16,length=90354753&gt;
+##contig=&lt;ID=chr17,length=81195210&gt;
+##contig=&lt;ID=chr18,length=78077248&gt;
+##contig=&lt;ID=chr19,length=59128983&gt;
+##contig=&lt;ID=chr20,length=63025520&gt;
+##contig=&lt;ID=chr21,length=48129895&gt;
+##contig=&lt;ID=chr22,length=51304566&gt;
+##contig=&lt;ID=chrX,length=155270560&gt;
+##contig=&lt;ID=chrY,length=59373566&gt;
+##contig=&lt;ID=chrMT,length=16569&gt;
+#CHROM  POS ID  REF ALT QUAL    FILTER  INFO
+chr22   40750331    8374    A   G   .   .   .
+chr22   36701970    9970    G   A   .   .   .
+chr22   50964903    12342   C   G   .   .   .
+chr22   29108009    16376   G   C   .   .   .
+chr22   29121356    22158   C   G   .   .   .
+</code></pre>
+<p>Now we also want the dataframe to have the same order as the VCF:</p>
+<pre><code class="python">top5_df = top5_df.loc[variant_order, :]
+top5_df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variant_id</th>
+      <th>variant_chr</th>
+      <th>variant_pos</th>
+      <th>variant_ref</th>
+      <th>variant_alt</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_8988T_DNase_None_0</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_AoSMC_DNase_None_1</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Chorion_DNase_None_2</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_CLL_DNase_None_3</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Fibrobl_DNase_None_4</th>
+      <th>...</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H2AZ_None_910</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K27ac_None_911</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K27me3_None_912</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K36me3_None_913</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K4me1_None_914</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K4me2_None_915</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K4me3_None_916</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K79me2_None_917</th>
+      <th>KV_DeepSEA/variantEffects_LOGIT_Osteoblasts_H3K9me3_None_918</th>
+      <th>KV_DeepSEA/variantEffects_rID_unnamed_0_0</th>
+    </tr>
+    <tr>
+      <th>variant_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8374</th>
+      <td>8374</td>
+      <td>chr22</td>
+      <td>40750331</td>
+      <td>A</td>
+      <td>G</td>
+      <td>0.571587</td>
+      <td>0.248589</td>
+      <td>0.201321</td>
+      <td>1.890934</td>
+      <td>0.111852</td>
+      <td>...</td>
+      <td>0.421956</td>
+      <td>-0.020715</td>
+      <td>-0.156171</td>
+      <td>-0.151327</td>
+      <td>0.022475</td>
+      <td>0.192291</td>
+      <td>0.189058</td>
+      <td>-0.144645</td>
+      <td>-0.187582</td>
+      <td>chr22:40750331:A:['G']</td>
+    </tr>
+    <tr>
+      <th>9970</th>
+      <td>9970</td>
+      <td>chr22</td>
+      <td>36701970</td>
+      <td>G</td>
+      <td>A</td>
+      <td>0.504692</td>
+      <td>1.658696</td>
+      <td>1.032887</td>
+      <td>-0.148108</td>
+      <td>0.914291</td>
+      <td>...</td>
+      <td>0.321597</td>
+      <td>0.299887</td>
+      <td>0.003522</td>
+      <td>-0.060838</td>
+      <td>0.473003</td>
+      <td>0.342598</td>
+      <td>0.247115</td>
+      <td>-0.056063</td>
+      <td>-0.063615</td>
+      <td>chr22:36701970:G:['A']</td>
+    </tr>
+    <tr>
+      <th>12342</th>
+      <td>12342</td>
+      <td>chr22</td>
+      <td>50964903</td>
+      <td>C</td>
+      <td>G</td>
+      <td>-1.935331</td>
+      <td>-2.190516</td>
+      <td>-1.468465</td>
+      <td>-1.936842</td>
+      <td>-1.670801</td>
+      <td>...</td>
+      <td>0.236538</td>
+      <td>0.432350</td>
+      <td>0.886636</td>
+      <td>0.113601</td>
+      <td>0.007765</td>
+      <td>-0.198594</td>
+      <td>-0.245576</td>
+      <td>0.767322</td>
+      <td>-0.188115</td>
+      <td>chr22:50964903:C:['G']</td>
+    </tr>
+    <tr>
+      <th>16376</th>
+      <td>16376</td>
+      <td>chr22</td>
+      <td>29108009</td>
+      <td>G</td>
+      <td>C</td>
+      <td>-2.560048</td>
+      <td>-2.604959</td>
+      <td>-1.476766</td>
+      <td>-1.966083</td>
+      <td>-1.286860</td>
+      <td>...</td>
+      <td>0.068821</td>
+      <td>0.474027</td>
+      <td>0.227797</td>
+      <td>0.258411</td>
+      <td>0.544803</td>
+      <td>0.144552</td>
+      <td>0.175402</td>
+      <td>0.575531</td>
+      <td>0.055439</td>
+      <td>chr22:29108009:G:['C']</td>
+    </tr>
+    <tr>
+      <th>22158</th>
+      <td>22158</td>
+      <td>chr22</td>
+      <td>29121356</td>
+      <td>C</td>
+      <td>G</td>
+      <td>0.148644</td>
+      <td>2.256156</td>
+      <td>0.885380</td>
+      <td>-0.016387</td>
+      <td>0.423442</td>
+      <td>...</td>
+      <td>0.033477</td>
+      <td>0.043208</td>
+      <td>-0.120319</td>
+      <td>-0.324504</td>
+      <td>0.189594</td>
+      <td>0.147367</td>
+      <td>-0.087590</td>
+      <td>-0.388921</td>
+      <td>-0.023764</td>
+      <td>chr22:29121356:C:['G']</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 925 columns</p>
+</div>
+
+<h2 id="calculating-the-mutation-map">Calculating the mutation map</h2>
+<p>Now we are set to generate a mutation map based on a VCF containing variants of interest:</p>
+<pre><code class="python">import kipoi
+model_name = &quot;DeepSEA/variantEffects&quot;
+#kipoi.pipeline.install_model_requirements(model_name)
+</code></pre>
+
+<pre><code class="python">from kipoi_veff import MutationMap
+</code></pre>
+
+<p>Set up the mutation map object with the necessary information such as the model and dataloader objects as well as the dataloader arguments to actually perform the calculation</p>
+<pre><code class="python">model = kipoi.get_model(model_name)
+dataloader = model.default_dataloader
+dataloader_arguments = {&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;}
+mm = MutationMap(model, dataloader, dataloader_args = dataloader_arguments)
+</code></pre>
+
+<p>Mutation maps can be generated based on a VCF file (<code>mm.query_vcf</code>), based on a bed file (<code>mm.query_bed</code>) or in the python API also based on a region (<code>mm.query_region</code>) that is passed by arguments. Here we will be using the <code>mm.query_vcf</code> method:</p>
+<pre><code class="python">mmp = mm.query_vcf(query_vcf, scores = [&quot;logit&quot;])
+</code></pre>
+
+<p>The object returned by <code>mm.query_*</code> methods are <code>MutationMapPlotter</code> objects that can either be stored in a hdf5 file or be used for plotting using their <code>plot_mutmap</code> method.</p>
+<p>The data in the <code>MutationMapPlotter</code> is stored hierarchically by:</p>
+<ul>
+<li>Line of the query input (file), which is an integer number. For bed files the index is for regions of length of the model input that overlapped the regions defined in the region definition bed file.</li>
+<li>The name of the model (DNA sequence) input with regard to which the effect predictions were calculated.</li>
+<li>The scoring function defined by the <code>score</code> argument</li>
+<li>The model output task for which the effect prediction was calculated</li>
+</ul>
+<p>Therefore also for plotting one must select the dataset that should be plotted. Here we will select the fourth variant in the VCF (id: 16376) and the model task which had the strongest absolute predicted effect in our initial variant selection.</p>
+<pre><code class="python"># Fourth variant in the VCF
+sel_line = 3
+# Select the model output being affected the most by this variant:
+model_task = top5_df.loc[:,logit_cols].iloc[sel_line].abs().idxmax().split(&quot;_LOGIT_&quot;)[1]
+model_task
+</code></pre>
+
+<pre><code>'SK-N-SH_RA_CTCF_None_385'
+</code></pre>
+<pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b0856e433c8&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_22_1.png" /></p>
+<p>As we can see we can't see much. Everything is a bit squished, but the variant is already annotated with the ID that was given in the VCF file: 16376.</p>
+<p>By default the full input sequence length is displayed, which is 1000bp for the DeepSEA model. In order to zoom in let's find the variant position and then zoom down to a 80bp window surrounding the variant:</p>
+<pre><code class="python">var_pos = top5_df[&quot;variant_pos&quot;].iloc[sel_line]
+var_pos
+</code></pre>
+
+<pre><code>29108009
+</code></pre>
+<p>In order to zoom in one can use the <code>limit_region_genomic</code> argument which accepts a tuple of two values - start and end of the genomic region (0-based) which should be selected for plotting.</p>
+<pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task, limit_region_genomic=(var_pos -40, var_pos+40))
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b0857c1b198&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_26_1.png" /></p>
+<p>Now since we are looking at CTCF track one might suspect that the variant lies in a CTCF binding motif, but it is somewhat not 100% clear. Let's see whether a motif on the reverse strand is actually affected:</p>
+<pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task, limit_region_genomic=(var_pos -40, var_pos+40), rc_plot=True)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b085741f400&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_28_1.png" /></p>
+<h2 id="add-additional-annotation-dbsnp">Add additional annotation (dbSNP)</h2>
+<p>Now that we know how to zoom and reverse-complement mutation maps let's also try and highlight further variants in the region. For that I have prepared a subset of variants of the dbSNP b151 GRCh37 <code>All_20180423.vcf.gz</code> in the proximity of the selected variant. We can use this VCF to highlight dbSNP variants in the region.</p>
+<p>Let's first get the variant information into the right format:</p>
+<pre><code class="python">import cyvcf2
+vcf_obj = cyvcf2.VCF(&quot;example_data/dbsnp_chr22_29108009.vcf&quot;)
+variants = {&quot;chr&quot;:[], &quot;pos&quot;:[], &quot;id&quot;:[], &quot;ref&quot;:[], &quot;alt&quot;:[]}
+for rec in vcf_obj:
+    # skip indels
+    if rec.is_indel:
+        continue
+    variants[&quot;chr&quot;].append(rec.CHROM)
+    variants[&quot;pos&quot;].append(rec.POS)
+    variants[&quot;id&quot;].append(rec.ID)
+    variants[&quot;ref&quot;].append(rec.REF)
+    variants[&quot;alt&quot;].append(rec.ALT[0])
+</code></pre>
+
+<p>Now we can plug this dictionary into the plotting method and take a look at our annotated plot.</p>
+<pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task, limit_region_genomic=(var_pos -40, var_pos+40),
+                rc_plot=True, annotation_variants = variants)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b08574d6e10&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_32_1.png" /></p>
+<p>Arguably it's not the most beautiful plot as labels start overlapping, so let's remove them and let's also exclude out seed variant, in order to highlight the difference we might actually also want to change the colour of the variant boxes to red:</p>
+<pre><code class="python">mmp.plot_mutmap(sel_line, &quot;seq&quot;, &quot;logit&quot;, model_task, limit_region_genomic=(var_pos -40, var_pos+40),
+                rc_plot=True, annotation_variants = variants, show_var_id=False,
+                ignore_stored_var_annotation=True,var_box_color=&quot;red&quot;, )
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b086f892f28&gt;
+</code></pre>
+<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_34_1.png" /></p>
+<h1 id="the-cli">The CLI</h1>
+<p>Mutation maps can be calculated using the command line interface analogously to the way presented above for the python API. Let's therefore collect all the input and output file names:</p>
+<pre><code class="python">import json
+model_name = &quot;DeepSEA/variantEffects&quot;
+dataloader_arguments_str = &quot;'%s'&quot;%json.dumps({&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;})
+query_vcf = &quot;example_data/clinvar_donor_acceptor_chr22_5vars.vcf&quot;
+output_file = &quot;example_data/clinvar_donor_acceptor_chr22_5vars_mutmap.hdf5&quot;
+</code></pre>
+
+<p>Now we are ready to calculate the mutation map data:</p>
+<pre><code class="python">! kipoi veff create_mutation_map $model_name --dataloader_args $dataloader_arguments_str \
+   --scores logit --output $output_file --regions_file $query_vcf
+</code></pre>
+
+<p>The output of that was a hdf5 file that can either be loaded by the python API or by the CLI command <code>plot_mutation_map</code> as presented here:</p>
+<pre><code class="python">plot_file = &quot;example_data/clinvar_donor_acceptor_chr22_5vars_mmPlot.png&quot;
+region_start, region_end = var_pos -40, var_pos+40
+</code></pre>
+
+<pre><code class="python">! kipoi veff plot_mutation_map --input_file $output_file \
+   --output $plot_file --input_entry 3 --model_seq_input seq \
+    --scoring_key logit --model_output &quot;SK-N-SH_RA_CTCF_None_385&quot; \
+    --limit_region_genomic $region_start $region_end \
+    --rc_plot
+</code></pre>
+
+<pre><code>[33mWARNING[0m [44m[kipoi.__main__][0m `kipoi postproc` has been deprecated. Please use kipoi &lt;plugin&gt; ...: 
+    # - plugin commands:
+    veff             Variant effect prediction
+    interpret        Model interpretation using feature importance scores like ISM, grad*input or DeepLIFT.
+[0m
+</code></pre>
+<p>And this is the result:</p>
+<pre><code class="python">from IPython.display import Image
+Image(filename=plot_file)
+</code></pre>
+
+<p><img alt="png" src="/img/ipynb/mutation_map_files/mutation_map_43_0.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../api/score_variants/" class="btn btn-neutral float-right" title="score_variants">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../variant_effect_prediction/" class="btn btn-neutral" title="Advanced"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi-veff/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../variant_effect_prediction/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../api/score_variants/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
