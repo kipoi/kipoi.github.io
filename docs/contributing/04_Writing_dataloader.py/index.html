@@ -366,7 +366,7 @@
 </tbody>
 </table>
 <h3 id="dataset-example">Dataset example</h3>
-<p>Here is an example dataloader that gets as input a <a href="http://genetics.bwh.harvard.edu/pph/FASTA.html">fasta</a> file and a <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">bed</a> file and returns a one-hot encoded sequence (under 'inputs') along with the used genomic interval (under 'metadata/ranges'). Note that we additionally defined the <code>build</code> method. This is useful when writing dataloaders that will support dataloading in parallel: the <code>build</code> method gets executed on each worker individually. Hence, it's recommended to initialize file handles in the <code>build</code> method instead of the <code>__init__</code> method.</p>
+<p>Here is an example dataloader that gets as input a <a href="http://genetics.bwh.harvard.edu/pph/FASTA.html">fasta</a> file and a <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">bed</a> file and returns a one-hot encoded sequence (under 'inputs') along with the used genomic interval (under 'metadata/ranges').</p>
 <pre><code class="python">from __future__ import absolute_import, division, print_function
 import numpy as np
 from pybedtools import BedTool
@@ -406,7 +406,7 @@ class SeqDataset(Dataset):
         }
 </code></pre>
 
-<p>Note that we have initialized the <code>fasta_extractor</code> on the first call of <code>__getitem__</code>. The reason for this is that when we use parallel dataloading, each process will get a copy of the <code>SeqDataset(...)</code> object. Upon the first call of <code>__getitem__</code> the extractor and hence the underlying file-handle will be setup for each worker independently.</p>
+<p>Since <code>FastaExtractor</code> is not multi-processing safe, we have initialized it on the first call of <code>__getitem__</code> instead of <code>__init__</code>. The reason for this is that when we use parallel dataloading, each process will get a copy of the <code>SeqDataset(...)</code> object. Upon the first call of <code>__getitem__</code> the <code>fasta_extractor</code> and hence the underlying file-handle will be setup for each worker independently.</p>
 <h3 id="further-examples">Further examples</h3>
 <p>To see examples of other dataloaders, run <code>kipoi init</code> from the command-line and choose each time a different dataloader_type.</p>
 <pre><code>$ kipoi init
