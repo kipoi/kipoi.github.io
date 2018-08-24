@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Advanced - Kipoi-veff</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Advanced";
+    var mkdocs_page_input_path = "tutorials/variant_effect_prediction.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi-veff</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../overview/">Overview</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/">Functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../variant_effect_pred/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../mutation_map/">Mutation maps</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction_simple/">Simple</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Advanced</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#variant-effect-prediction">Variant effect prediction</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#variant-centered-effect-prediction">Variant centered effect prediction</a></li>
+        
+            <li><a class="toctree-l4" href="#overlap-based-prediction">Overlap based prediction</a></li>
+        
+            <li><a class="toctree-l4" href="#command-line-based-effect-prediction">Command-line based effect prediction</a></li>
+        
+            <li><a class="toctree-l4" href="#batch-prediction">Batch prediction</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mutation_map/">Mutation map</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/score_variants/">score_variants</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/predict_snvs/">predict_snvs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/scores/">Available scores</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/MutationMap/">MutationMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/MutationMapPlotter/">MutationMapPlotter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/KipoiVCFParser/">KipoiVCFParser</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi-veff</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Advanced</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi-veff/edit/master/docs/tutorials/variant_effect_prediction.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi-veff/blob/master/notebooks/variant_effect_prediction.ipynb">notebooks/variant_effect_prediction.ipynb</a></p>
+<h1 id="variant-effect-prediction">Variant effect prediction</h1>
+<p>Variant effect prediction offers a simple way to predict effects of SNVs using any model that uses DNA sequence as an input. Many different scoring methods can be chosen, but the principle relies on in-silico mutagenesis. The default input is a VCF and the default output again is a VCF annotated with predictions of variant effects. </p>
+<p>For details please take a look at the documentation in Postprocessing/Variant effect prediction. This iPython notebook goes through the basic programmatic steps that are needed to preform variant effect prediction. First a variant-centered approach will be taken and secondly overlap-based variant effect prediction will be presented. For details in how this is done programmatically, please refer to the documentation.</p>
+<h2 id="variant-centered-effect-prediction">Variant centered effect prediction</h2>
+<p>Models that accept input <code>.bed</code> files can make use of variant-centered effect prediction. This procedure starts out from the query VCF and generates genomic regions of the length of the model input, centered on the individual variant in the VCF.The model dataloader is then used to produce the model input samples for those regions, which are then mutated according to the alleles in the VCF:</p>
+<p><img alt="img" src="http://kipoi.org/docs/img/notebooks/simple_var_region_generation.png" /></p>
+<p>First an instance of <code>SnvCenteredRg</code> generates a temporary bed file with regions matching the input sequence length defined in the model.yaml input schema. Then the model dataloader is used to preduce the model input in batches. These chunks of data are then modified by the effect prediction algorithm, the model batch prediction function is triggered for all mutated sequence sets and finally the scoring method is applied.</p>
+<p>The selected scoring methods compare model predicitons for sequences carrying the reference or alternative allele. Those scoring methods can be <code>Diff</code> for simple subtraction of prediction, <code>Logit</code> for substraction of logit-transformed model predictions, or <code>DeepSEA_effect</code> which is a combination of <code>Diff</code> and <code>Logit</code>, which was published in the Troyanskaya et al. (2015) publication.</p>
+<p>This ipython notebook assumes that it is executed in an environment in which all dependencies for the  following models are installed: <code>DeepSEA/vaariantEffects</code>, <code>HAL</code>, <code>labranchor</code>, <code>MaxEntScan</code>, and <code>rbp</code> are installed, as well as the <code>--vep</code> flag has to be used during installing the dependencies. Now let's start out by loading the DeepSEA model and dataloader factory:</p>
+<pre><code class="python">import kipoi
+model_name = &quot;DeepSEA/variantEffects&quot;
+# get the model
+model = kipoi.get_model(model_name)
+# get the dataloader factory
+Dataloader = kipoi.get_dataloader_factory(model_name)
+</code></pre>
+
+<p>Next we will have to define the variants we want to look at, let's look at a sample VCF in chromosome 22:</p>
+<pre><code class="python">!head -n 40 example_data/clinvar_donor_acceptor_chr22.vcf
+</code></pre>
+
+<pre><code>##fileformat=VCFv4.0
+##FILTER=&lt;ID=PASS,Description="All filters passed"&gt;
+##contig=&lt;ID=chr1,length=249250621&gt;
+##contig=&lt;ID=chr2,length=243199373&gt;
+##contig=&lt;ID=chr3,length=198022430&gt;
+##contig=&lt;ID=chr4,length=191154276&gt;
+##contig=&lt;ID=chr5,length=180915260&gt;
+##contig=&lt;ID=chr6,length=171115067&gt;
+##contig=&lt;ID=chr7,length=159138663&gt;
+##contig=&lt;ID=chr8,length=146364022&gt;
+##contig=&lt;ID=chr9,length=141213431&gt;
+##contig=&lt;ID=chr10,length=135534747&gt;
+##contig=&lt;ID=chr11,length=135006516&gt;
+##contig=&lt;ID=chr12,length=133851895&gt;
+##contig=&lt;ID=chr13,length=115169878&gt;
+##contig=&lt;ID=chr14,length=107349540&gt;
+##contig=&lt;ID=chr15,length=102531392&gt;
+##contig=&lt;ID=chr16,length=90354753&gt;
+##contig=&lt;ID=chr17,length=81195210&gt;
+##contig=&lt;ID=chr18,length=78077248&gt;
+##contig=&lt;ID=chr19,length=59128983&gt;
+##contig=&lt;ID=chr20,length=63025520&gt;
+##contig=&lt;ID=chr21,length=48129895&gt;
+##contig=&lt;ID=chr22,length=51304566&gt;
+##contig=&lt;ID=chrX,length=155270560&gt;
+##contig=&lt;ID=chrY,length=59373566&gt;
+##contig=&lt;ID=chrMT,length=16569&gt;
+#CHROM  POS ID  REF ALT QUAL    FILTER  INFO
+chr22   41320486    4   G   T   .   .   .
+chr22   31009031    9   T   G   .   .   .
+chr22   43024150    15  C   G   .   .   .
+chr22   43027392    16  A   G   .   .   .
+chr22   37469571    122 C   T   .   .   .
+chr22   37465112    123 C   G   .   .   .
+chr22   37494466    124 G   T   .   .   .
+chr22   18561373    177 G   T   .   .   .
+chr22   51065593    241 C   T   .   .   .
+chr22   51064006    242 C   T   .   .   .
+chr22   51065269    243 G   A   .   .   .
+chr22   30032866    260 G   T   .   .   .
+</code></pre>
+<p>Now we will define path variable for vcf input and output paths and instantiate a VcfWriter, which will write out the annotated VCF:</p>
+<pre><code class="python">import kipoi_veff
+from kipoi_veff import VcfWriter
+# The input vcf path
+vcf_path = &quot;example_data/clinvar_donor_acceptor_chr22.vcf&quot;
+# The output vcf path, based on the input file name    
+out_vcf_fpath = vcf_path[:-4] + &quot;%s.vcf&quot;%model_name.replace(&quot;/&quot;, &quot;_&quot;)
+# The writer object that will output the annotated VCF
+writer = VcfWriter(model, vcf_path, out_vcf_fpath)
+</code></pre>
+
+<p>Then we need to instantiate an object that can generate variant-centered regions (<code>SnvCenteredRg</code> objects). This class needs information on the model input sequence length which is extracted automatically within <code>ModelInfoExtractor</code> objects:</p>
+<pre><code class="python"># Information extraction from dataloader and model
+model_info = kipoi_veff.ModelInfoExtractor(model, Dataloader)
+# vcf_to_region will generate a variant-centered regions when presented a VCF record.
+vcf_to_region = kipoi_veff.SnvCenteredRg(model_info)
+</code></pre>
+
+<p>Now we can define the required dataloader arguments, omitting the <code>intervals_file</code> as this will be replaced by the automatically generated bed file:</p>
+<pre><code class="python">dataloader_arguments = {&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;}
+</code></pre>
+
+<p>This is the moment to run the variant effect prediction:</p>
+<pre><code class="python">import kipoi_veff.snv_predict as sp
+from kipoi_veff.scores import Diff, DeepSEA_effect
+sp.predict_snvs(model,
+                Dataloader,
+                vcf_path,
+                batch_size = 32,
+                dataloader_args=dataloader_arguments,
+                vcf_to_region=vcf_to_region,
+                evaluation_function_kwargs={'diff_types': {'diff': Diff(&quot;mean&quot;), 'deepsea_effect': DeepSEA_effect(&quot;mean&quot;)}},
+                sync_pred_writer=writer)
+</code></pre>
+
+<pre><code>100%|██████████| 14/14 [00:34&lt;00:00,  2.46s/it]
+</code></pre>
+<p>In the example above we have used the variant scoring method <code>Diff</code> and <code>DeepSEA_effect</code> from <code>kipoi_veff</code> plug-in. As mentioned above variant scoring methods calculate the difference between predictions for reference and alternative, but there is another dimension to this: Models that have the <code>use_rc: true</code> flag set in their model.yaml file (DeepSEA/variantEffects does) will not only be queried with the reference and alternative carrying input sequences, but also with the reverse complement of the the sequences. In order to know of to combine predictions for forward and reverse sequences there is a initialisation flag (here set to: <code>"mean"</code>) for the variant scoring methods. <code>"mean"</code> in this case means that after calculating the effect (e.g.: Difference) the average over the difference between the prediction for the forward and for the reverse sequence should be returned. Setting <code>"mean"</code> complies with what was used in the Troyanskaya et al. publication.</p>
+<p>Now let's look at the output:</p>
+<pre><code class="python"># Let's print out the first 40 lines of the annotated VCF (up to 80 characters per line maximum)
+with open(&quot;example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf&quot;) as ifh:
+    for i,l in enumerate(ifh):
+        long_line = &quot;&quot;
+        if len(l)&gt;80:
+            long_line = &quot;...&quot;
+        print(l[:80].rstrip() +long_line)
+        if i &gt;=40:
+            break
+</code></pre>
+
+<pre><code>##fileformat=VCFv4.0
+##INFO=&lt;ID=KV:kipoi:DeepSEA/variantEffects:DIFF,Number=.,Type=String,Description...
+##INFO=&lt;ID=KV:kipoi:DeepSEA/variantEffects:DEEPSEA_EFFECT,Number=.,Type=String,D...
+##INFO=&lt;ID=KV:kipoi:DeepSEA/variantEffects:rID,Number=.,Type=String,Description=...
+##FILTER=&lt;ID=PASS,Description="All filters passed"&gt;
+##contig=&lt;ID=chr1,length=249250621&gt;
+##contig=&lt;ID=chr2,length=243199373&gt;
+##contig=&lt;ID=chr3,length=198022430&gt;
+##contig=&lt;ID=chr4,length=191154276&gt;
+##contig=&lt;ID=chr5,length=180915260&gt;
+##contig=&lt;ID=chr6,length=171115067&gt;
+##contig=&lt;ID=chr7,length=159138663&gt;
+##contig=&lt;ID=chr8,length=146364022&gt;
+##contig=&lt;ID=chr9,length=141213431&gt;
+##contig=&lt;ID=chr10,length=135534747&gt;
+##contig=&lt;ID=chr11,length=135006516&gt;
+##contig=&lt;ID=chr12,length=133851895&gt;
+##contig=&lt;ID=chr13,length=115169878&gt;
+##contig=&lt;ID=chr14,length=107349540&gt;
+##contig=&lt;ID=chr15,length=102531392&gt;
+##contig=&lt;ID=chr16,length=90354753&gt;
+##contig=&lt;ID=chr17,length=81195210&gt;
+##contig=&lt;ID=chr18,length=78077248&gt;
+##contig=&lt;ID=chr19,length=59128983&gt;
+##contig=&lt;ID=chr20,length=63025520&gt;
+##contig=&lt;ID=chr21,length=48129895&gt;
+##contig=&lt;ID=chr22,length=51304566&gt;
+##contig=&lt;ID=chrX,length=155270560&gt;
+##contig=&lt;ID=chrY,length=59373566&gt;
+##contig=&lt;ID=chrMT,length=16569&gt;
+#CHROM  POS ID  REF ALT QUAL    FILTER  INFO
+chr22   41320486    4   G   T   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=-0.00285008|-0.000...
+chr22   31009031    9   T   G   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=-0.02733281|-0.008...
+chr22   43024150    15  C   G   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=0.01077350|0.0007...
+chr22   43027392    16  A   G   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=-0.12174654|-0.24...
+chr22   37469571    122 C   T   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=-0.00654625|0.00...
+chr22   37465112    123 C   G   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=0.00574893|0.003...
+chr22   37494466    124 G   T   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=0.01308702|0.001...
+chr22   18561373    177 G   T   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=-0.00669485|0.00...
+chr22   51065593    241 C   T   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=0.00409312|0.001...
+chr22   51064006    242 C   T   .   .   KV:kipoi:DeepSEA/variantEffects:DIFF=0.00095593|0.000...
+</code></pre>
+<p>This shows that variants have been annotated with variant effect scores. For every different scoring method a different INFO tag was created and the score of every model output is concantenated with the <code>|</code> separator symbol. A legend is given in the header section of the VCF. The name tag indicates with model was used, wich version of it and it displays the scoring function label (<code>DIFF</code>) which is derived from the scoring function label defined in the <code>evaluation_function_kwargs</code> dictionary (<code>'diff'</code>).</p>
+<p>The most comprehensive representation of effect preditions is in the annotated VCF. Kipoi offers a VCF parser class that enables simple parsing of annotated VCFs:</p>
+<pre><code class="python">from kipoi_veff.parsers import KipoiVCFParser
+vcf_reader = KipoiVCFParser(&quot;example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf&quot;)
+
+#We can have a look at the different labels which were created in the VCF
+print(list(vcf_reader.kipoi_parsed_colnames.values()))
+</code></pre>
+
+<pre><code>[('kipoi', 'DeepSEA/variantEffects', 'DIFF'), ('kipoi', 'DeepSEA/variantEffects', 'DEEPSEA_EFFECT'), ('kipoi', 'DeepSEA/variantEffects', 'rID')]
+</code></pre>
+<p>We can see that two scores have been saved - <code>'DEEPSEA_EFFECT'</code> and <code>'DIFF'</code>. Additionally there is <code>'rID'</code> which is the region ID - that is the ID given by the dataloader for a genomic region which was overlapped with the variant to get the prediction that is listed in the effect score columns mentioned before. Let's take a look at the VCF entries:</p>
+<pre><code class="python">import pandas as pd
+entries = [el for el in vcf_reader]
+print(pd.DataFrame(entries).head().iloc[:,:7])
+</code></pre>
+
+<pre><code>  variant_id variant_chr  variant_pos variant_ref variant_alt  \
+0          4       chr22     41320486           G           T   
+1          9       chr22     31009031           T           G   
+2         15       chr22     43024150           C           G   
+3         16       chr22     43027392           A           G   
+4        122       chr22     37469571           C           T
+
+   KV_DeepSEA/variantEffects_DIFF_8988T_DNase_None_0  \
+0                                          -0.002850   
+1                                          -0.027333   
+2                                           0.010774   
+3                                          -0.121747   
+4                                          -0.006546
+
+   KV_DeepSEA/variantEffects_DIFF_AoSMC_DNase_None_1  
+0                                          -0.000094  
+1                                          -0.008740  
+2                                           0.000702  
+3                                          -0.247321  
+4                                           0.000784
+</code></pre>
+<p>Another way to access effect predicitons programmatically is to keep all the results in memory and receive them as a dictionary of pandas dataframes:</p>
+<pre><code class="python">effects = sp.predict_snvs(model,
+            Dataloader,
+            vcf_path,
+            batch_size = 32,
+            dataloader_args=dataloader_arguments,
+            vcf_to_region=vcf_to_region,
+            evaluation_function_kwargs={'diff_types': {'diff': Diff(&quot;mean&quot;), 'deepsea_effect': DeepSEA_effect(&quot;mean&quot;)}},
+            return_predictions=True)
+</code></pre>
+
+<pre><code>100%|██████████| 14/14 [00:33&lt;00:00,  2.41s/it]
+</code></pre>
+<p>For every key in the <code>evaluation_function_kwargs</code> dictionary there is a key in <code>effects</code> and (the equivalent of an additional INFO tag in the VCF). Now let's take a look at the results:</p>
+<pre><code class="python">for k in effects:
+    print(k)
+    print(effects[k].head().iloc[:,:4])
+    print(&quot;-&quot;*80)
+</code></pre>
+
+<pre><code>diff
+                        8988T_DNase_None  AoSMC_DNase_None  \
+chr22:41320486:G:['T']         -0.002850         -0.000094   
+chr22:31009031:T:['G']         -0.027333         -0.008740   
+chr22:43024150:C:['G']          0.010773          0.000702   
+chr22:43027392:A:['G']         -0.121747         -0.247321   
+chr22:37469571:C:['T']         -0.006546          0.000784
+
+                        Chorion_DNase_None  CLL_DNase_None  
+chr22:41320486:G:['T']           -0.001533       -0.000353  
+chr22:31009031:T:['G']           -0.003499       -0.008143  
+chr22:43024150:C:['G']            0.004689       -0.000609  
+chr22:43027392:A:['G']           -0.167689       -0.010695  
+chr22:37469571:C:['T']           -0.000383       -0.000924  
+--------------------------------------------------------------------------------
+deepsea_effect
+                        8988T_DNase_None  AoSMC_DNase_None  \
+chr22:41320486:G:['T']          0.000377      9.663903e-07   
+chr22:31009031:T:['G']          0.004129      3.683221e-03   
+chr22:43024150:C:['G']          0.001582      1.824510e-04   
+chr22:43027392:A:['G']          0.068382      2.689577e-01   
+chr22:37469571:C:['T']          0.001174      4.173280e-04
+
+                        Chorion_DNase_None  CLL_DNase_None  
+chr22:41320486:G:['T']            0.000162        0.000040  
+chr22:31009031:T:['G']            0.000201        0.002139  
+chr22:43024150:C:['G']            0.000322        0.000033  
+chr22:43027392:A:['G']            0.133855        0.000773  
+chr22:37469571:C:['T']            0.000008        0.000079  
+--------------------------------------------------------------------------------
+</code></pre>
+<p>We see that for <code>diff</code> and <code>deepsea_effect</code> there is a dataframe with variant identifiers as rows and model output labels as columns. The DeepSEA model predicts 919 tasks simultaneously hence there are 919 columns in the dataframe.</p>
+<h2 id="overlap-based-prediction">Overlap based prediction</h2>
+<p>Models that cannot predict on every region of the genome might not accept a <code>.bed</code> file as dataloader input. An example of such a model is a splicing model. Those models only work in certain regions of the genome. Here variant effect prediction can be executed based on overlaps between the regions generated by the dataloader and the variants defined in the VCF:</p>
+<p><img alt="img" src="/veff-docs/img/notebooks/simple_var_overlap.png" />
+The procedure is similar to the variant centered effect prediction explained above, but in this case no temporary bed file is generated and the effect prediction is based on all the regions generated by the dataloader which overlap any variant in the VCF. If a region is overlapped by two variants the effect of the two variants is predicted independently.</p>
+<p>Here the VCF has to be tabixed so that a regional lookup can be performed efficiently, this can be done by using the <code>ensure_tabixed</code> function, the rest remains the same as before:</p>
+<pre><code class="python">import kipoi
+from kipoi_veff import VcfWriter
+from kipoi_veff import ensure_tabixed_vcf
+# Use a splicing model
+model_name = &quot;HAL&quot;
+# get the model
+model = kipoi.get_model(model_name)
+# get the dataloader factory
+Dataloader = kipoi.get_dataloader_factory(model_name)
+# The input vcf path
+vcf_path = &quot;example_data/clinvar_donor_acceptor_chr22.vcf&quot;
+
+# Make sure that the vcf is bgzipped and tabixed, if not then generate the compressed vcf in the same place
+vcf_path_tbx = ensure_tabixed_vcf(vcf_path)
+
+# The output vcf path, based on the input file name    
+out_vcf_fpath = vcf_path[:-4] + &quot;%s.vcf&quot;%model_name.replace(&quot;/&quot;, &quot;_&quot;)
+# The writer object that will output the annotated VCF
+writer = VcfWriter(model, vcf_path, out_vcf_fpath)
+</code></pre>
+
+<p>This time we don't need an object that generates regions, hence we can directly define the dataloader arguments and run the prediction:</p>
+<pre><code class="python">from kipoi_veff import predict_snvs
+from kipoi_veff.scores import Diff
+dataloader_arguments = {&quot;gtf_file&quot;:&quot;example_data/Homo_sapiens.GRCh37.75.filtered_chr22.gtf&quot;,
+                               &quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;}
+
+effects = predict_snvs(model,
+                        Dataloader,
+                        vcf_path_tbx,
+                        batch_size = 32,
+                        dataloader_args=dataloader_arguments,
+                        evaluation_function_kwargs={'diff_types': {'diff': Diff(&quot;mean&quot;)}},
+                        sync_pred_writer=writer,
+                        return_predictions=True)
+</code></pre>
+
+<pre><code>100%|██████████| 709/709 [00:04&lt;00:00, 150.84it/s]
+</code></pre>
+<p>Let's have a look at the VCF:</p>
+<pre><code class="python"># A slightly convoluted way of printing out the first 40 lines and up to 80 characters per line maximum
+with open(&quot;example_data/clinvar_donor_acceptor_chr22HAL.vcf&quot;) as ifh:
+    for i,l in enumerate(ifh):
+        long_line = &quot;&quot;
+        if len(l)&gt;80:
+            long_line = &quot;...&quot;
+        print(l[:80].rstrip() +long_line)
+        if i &gt;=40:
+            break
+</code></pre>
+
+<pre><code>##fileformat=VCFv4.0
+##INFO=&lt;ID=KV:kipoi:HAL:DIFF,Number=.,Type=String,Description="DIFF SNV effect p...
+##INFO=&lt;ID=KV:kipoi:HAL:rID,Number=.,Type=String,Description="Range or region id...
+##FILTER=&lt;ID=PASS,Description="All filters passed"&gt;
+##contig=&lt;ID=chr1,length=249250621&gt;
+##contig=&lt;ID=chr2,length=243199373&gt;
+##contig=&lt;ID=chr3,length=198022430&gt;
+##contig=&lt;ID=chr4,length=191154276&gt;
+##contig=&lt;ID=chr5,length=180915260&gt;
+##contig=&lt;ID=chr6,length=171115067&gt;
+##contig=&lt;ID=chr7,length=159138663&gt;
+##contig=&lt;ID=chr8,length=146364022&gt;
+##contig=&lt;ID=chr9,length=141213431&gt;
+##contig=&lt;ID=chr10,length=135534747&gt;
+##contig=&lt;ID=chr11,length=135006516&gt;
+##contig=&lt;ID=chr12,length=133851895&gt;
+##contig=&lt;ID=chr13,length=115169878&gt;
+##contig=&lt;ID=chr14,length=107349540&gt;
+##contig=&lt;ID=chr15,length=102531392&gt;
+##contig=&lt;ID=chr16,length=90354753&gt;
+##contig=&lt;ID=chr17,length=81195210&gt;
+##contig=&lt;ID=chr18,length=78077248&gt;
+##contig=&lt;ID=chr19,length=59128983&gt;
+##contig=&lt;ID=chr20,length=63025520&gt;
+##contig=&lt;ID=chr21,length=48129895&gt;
+##contig=&lt;ID=chr22,length=51304566&gt;
+##contig=&lt;ID=chrX,length=155270560&gt;
+##contig=&lt;ID=chrY,length=59373566&gt;
+##contig=&lt;ID=chrMT,length=16569&gt;
+#CHROM  POS ID  REF ALT QUAL    FILTER  INFO
+chr22   17684454    4461    G   A   .   .   KV:kipoi:HAL:DIFF=0.10586491;KV:kipoi:HAL:rID=290
+chr22   17669232    7178    T   C   .   .   KV:kipoi:HAL:DIFF=0.00000000;KV:kipoi:HAL:rID=293
+chr22   17669232    7178    T   C   .   .   KV:kipoi:HAL:DIFF=0.00000000;KV:kipoi:HAL:rID=299
+chr22   17684454    4461    G   A   .   .   KV:kipoi:HAL:DIFF=0.10586491;KV:kipoi:HAL:rID=304
+chr22   17669232    7178    T   C   .   .   KV:kipoi:HAL:DIFF=0.00000000;KV:kipoi:HAL:rID=307
+chr22   17684454    4461    G   A   .   .   KV:kipoi:HAL:DIFF=0.10586491;KV:kipoi:HAL:rID=313
+chr22   17669232    7178    T   C   .   .   KV:kipoi:HAL:DIFF=0.00000000;KV:kipoi:HAL:rID=316
+chr22   17684454    4461    G   A   .   .   KV:kipoi:HAL:DIFF=0.10586491;KV:kipoi:HAL:rID=322
+chr22   17669232    7178    T   C   .   .   KV:kipoi:HAL:DIFF=0.00000000;KV:kipoi:HAL:rID=325
+chr22   17669232    7178    T   C   .   .   KV:kipoi:HAL:DIFF=0.00000000;KV:kipoi:HAL:rID=328
+chr22   18561370    7302    C   T   .   .   KV:kipoi:HAL:DIFF=-1.33794269;KV:kipoi:HAL:rID=824
+</code></pre>
+<p>And the prediction output this time is less helpful because it's the ids that the dataloader created which are displayed as index. In general it is advisable to use the output VCF for more detailed information on which variant was overlapped with which region fo produce a prediction.</p>
+<pre><code class="python">for k in effects:
+    print(k)
+    print(effects[k].head())
+    print(&quot;-&quot;*80)
+</code></pre>
+
+<pre><code>diff
+            0
+290  0.105865
+293  0.000000
+299  0.000000
+304  0.105865
+307  0.000000
+--------------------------------------------------------------------------------
+</code></pre>
+<h2 id="command-line-based-effect-prediction">Command-line based effect prediction</h2>
+<p>The above command can also conveniently be executed using the command line:</p>
+<pre><code class="python">import json
+import os
+model_name = &quot;DeepSEA/variantEffects&quot;
+dl_args = json.dumps({&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;})
+out_vcf_fpath = vcf_path[:-4] + &quot;%s.vcf&quot;%model_name.replace(&quot;/&quot;, &quot;_&quot;)
+scorings = &quot;diff deepsea_effect&quot;
+command = (&quot;kipoi veff score_variants {model} &quot;
+           &quot;--dataloader_args='{dl_args}' &quot;
+           &quot;-i {input_vcf} &quot;
+           &quot;-o {output_vcf} &quot;
+           &quot;-s {scorings}&quot;).format(model=model_name,
+                                          dl_args=dl_args,
+                                          input_vcf=vcf_path,
+                                          output_vcf=out_vcf_fpath,
+                                          scorings=scorings)
+# Print out the command:
+print(command)
+</code></pre>
+
+<pre><code>kipoi veff score_variants DeepSEA/variantEffects --dataloader_args='{"fasta_file": "example_data/hg19_chr22.fa"}' -i example_data/clinvar_donor_acceptor_chr22.vcf -o example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf -s diff deepsea_effect
+</code></pre>
+<pre><code class="python">! $command
+</code></pre>
+
+<pre><code>[32mINFO[0m [44m[kipoi.sources][0m Update /nfs/research1/stegle/users/rkreuzhu/.kipoi/models/[0m
+Already up-to-date.
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/variantEffects/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/template/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/template/model_files/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/template/example_files/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m model DeepSEA/variantEffects loaded[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/variantEffects/./**[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/template/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/template/model_files/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m git-lfs pull -I DeepSEA/template/example_files/**[0m
+[32mINFO[0m [44m[kipoi.sources][0m dataloader DeepSEA/variantEffects/. loaded[0m
+[32mINFO[0m [44m[kipoi.data][0m successfully loaded the dataloader from /nfs/research1/stegle/users/rkreuzhu/.kipoi/models/DeepSEA/variantEffects/dataloader.py::SeqDataset[0m
+[32mINFO[0m [44m[kipoi.pipeline][0m dataloader.output_schema is compatible with model.schema[0m
+100%|███████████████████████████████████████████| 14/14 [00:35&lt;00:00,  2.53s/it]
+</code></pre>
+<h2 id="batch-prediction">Batch prediction</h2>
+<p>Since the syntax basically doesn't change for different kinds of models a simple for-loop can be written to do what we just did on many models:</p>
+<pre><code class="python">import kipoi
+# Run effect predicton
+models_df = kipoi.list_models()
+models_substr = [&quot;HAL&quot;, &quot;MaxEntScan&quot;, &quot;labranchor&quot;, &quot;rbp&quot;]
+models_df_subsets = {ms: models_df.loc[models_df[&quot;model&quot;].str.contains(ms)] for ms in models_substr}
+</code></pre>
+
+<pre><code>/nfs/research1/stegle/users/rkreuzhu/opt/model-zoo/kipoi/config.py:110: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass 'sort=False'.
+
+To retain the current behavior and silence the warning, pass 'sort=True'.
+
+  return pd.concat(pd_list)[pd_list[0].columns]
+</code></pre>
+<pre><code class="python"># Run variant effect prediction using a basic Diff
+
+import kipoi
+from kipoi_veff import ensure_tabixed_vcf
+import kipoi_veff.snv_predict as sp
+from kipoi_veff import VcfWriter
+from kipoi_veff.scores import Diff
+
+
+
+splicing_dl_args = {&quot;gtf_file&quot;:&quot;example_data/Homo_sapiens.GRCh37.75.filtered_chr22.gtf&quot;,
+                               &quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;}
+dataloader_args_dict = {&quot;HAL&quot;: splicing_dl_args,
+                        &quot;labranchor&quot;: splicing_dl_args,
+                        &quot;MaxEntScan&quot;:splicing_dl_args,
+                        &quot;rbp&quot;: {&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;,
+                               &quot;gtf_file&quot;:&quot;example_data/Homo_sapiens.GRCh37.75_chr22.gtf&quot;}
+                       }
+
+for ms in models_substr:
+    model_name = models_df_subsets[ms][&quot;model&quot;].iloc[0]
+    #kipoi.pipeline.install_model_requirements(model_name)
+    model = kipoi.get_model(model_name)
+    vcf_path = &quot;example_data/clinvar_donor_acceptor_chr22.vcf&quot;
+    vcf_path_tbx = ensure_tabixed_vcf(vcf_path)
+
+    out_vcf_fpath = vcf_path[:-4] + &quot;%s.vcf&quot;%model_name.replace(&quot;/&quot;, &quot;_&quot;)
+
+    writer = VcfWriter(model, vcf_path, out_vcf_fpath)
+
+    print(model_name)
+
+    Dataloader = kipoi.get_dataloader_factory(model_name)
+    dataloader_arguments = dataloader_args_dict[ms]
+    model_info = kipoi_veff.ModelInfoExtractor(model, Dataloader)
+    vcf_to_region = None
+    if ms == &quot;rbp&quot;:
+        vcf_to_region = kipoi_veff.SnvCenteredRg(model_info)
+    sp.predict_snvs(model,
+                    Dataloader,
+                    vcf_path_tbx,
+                    batch_size = 32,
+                    dataloader_args=dataloader_arguments,
+                    vcf_to_region=vcf_to_region,
+                    evaluation_function_kwargs={'diff_types': {'diff': Diff(&quot;mean&quot;)}},
+                    sync_pred_writer=writer)
+    writer.close()
+</code></pre>
+
+<pre><code>HAL
+
+
+100%|██████████| 709/709 [00:04&lt;00:00, 167.58it/s]
+
+
+MaxEntScan/3prime
+
+
+100%|██████████| 709/709 [00:02&lt;00:00, 329.18it/s]
+Using TensorFlow backend.
+
+
+WARNING:tensorflow:From /nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1238: calling reduce_sum (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+WARNING:tensorflow:From /nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1340: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+
+
+/nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/models.py:287: UserWarning: Error in loading the saved optimizer state. As a result, your model is starting with a freshly initialized optimizer.
+  warnings.warn('Error in loading the saved optimizer '
+
+
+labranchor
+
+
+100%|██████████| 709/709 [00:05&lt;00:00, 122.95it/s]
+2018-07-25 11:37:28,705 [INFO] successfully loaded the dataloader from /nfs/research1/stegle/users/rkreuzhu/.kipoi/models/rbp_eclip/AARS/dataloader.py::SeqDistDataset
+
+
+WARNING:tensorflow:From /nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1255: calling reduce_prod (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+
+
+2018-07-25 11:37:28,851 [WARNING] From /nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1255: calling reduce_prod (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+/nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/models.py:287: UserWarning: Error in loading the saved optimizer state. As a result, your model is starting with a freshly initialized optimizer.
+  warnings.warn('Error in loading the saved optimizer '
+2018-07-25 11:37:30,996 [INFO] successfully loaded the model from model_files/model.h5
+2018-07-25 11:37:30,999 [INFO] dataloader.output_schema is compatible with model.schema
+2018-07-25 11:37:31,157 [INFO] git-lfs pull -I rbp_eclip/AARS/**
+
+
+rbp_eclip/AARS
+
+
+2018-07-25 11:37:32,071 [INFO] git-lfs pull -I rbp_eclip/template/**
+2018-07-25 11:37:33,219 [INFO] dataloader rbp_eclip/AARS loaded
+2018-07-25 11:37:33,252 [INFO] successfully loaded the dataloader from /nfs/research1/stegle/users/rkreuzhu/.kipoi/models/rbp_eclip/AARS/dataloader.py::SeqDistDataset
+2018-07-25 11:37:34,411 [INFO] Extracted GTF attributes: ['gene_id', 'gene_name', 'gene_source', 'gene_biotype', 'transcript_id', 'transcript_name', 'transcript_source', 'exon_number', 'exon_id', 'tag', 'protein_id', 'ccds_id']
+/nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/sklearn/base.py:311: UserWarning: Trying to unpickle estimator MinMaxScaler from version 0.18.1 when using version 0.19.1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/sklearn/base.py:311: UserWarning: Trying to unpickle estimator Imputer from version 0.18.1 when using version 0.19.1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+  0%|          | 0/14 [00:00&lt;?, ?it/s]INFO:2018-07-25 11:37:34,812:genomelake] Running landmark extractors..
+2018-07-25 11:37:34,812 [INFO] Running landmark extractors..
+/nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/concise/utils/position.py:55: FutureWarning: from_items is deprecated. Please use DataFrame.from_dict(dict(items), ...) instead. DataFrame.from_dict(OrderedDict(items)) may be used to preserve the key order.
+  ("strand", gtf.strand)])
+/nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/concise/utils/position.py:62: FutureWarning: from_items is deprecated. Please use DataFrame.from_dict(dict(items), ...) instead. DataFrame.from_dict(OrderedDict(items)) may be used to preserve the key order.
+  ("strand", gtf.strand)])
+INFO:2018-07-25 11:37:34,975:genomelake] Done!
+2018-07-25 11:37:34,975 [INFO] Done!
+100%|██████████| 14/14 [00:03&lt;00:00,  4.05it/s]
+</code></pre>
+<p>let's validate that things have worked:</p>
+<pre><code class="python">! wc -l example_data/clinvar_donor_acceptor_chr22*.vcf
+</code></pre>
+
+<pre><code>    450 example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf
+   2035 example_data/clinvar_donor_acceptor_chr22HAL.vcf
+    794 example_data/clinvar_donor_acceptor_chr22labranchor.vcf
+   1176 example_data/clinvar_donor_acceptor_chr22MaxEntScan_3prime.vcf
+    449 example_data/clinvar_donor_acceptor_chr22rbp_eclip_AARS.vcf
+    447 example_data/clinvar_donor_acceptor_chr22.vcf
+   5351 total
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mutation_map/" class="btn btn-neutral float-right" title="Mutation map">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../variant_effect_prediction_simple/" class="btn btn-neutral" title="Simple"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi-veff/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../variant_effect_prediction_simple/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mutation_map/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

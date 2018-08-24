@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Simple - Kipoi-veff</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Simple";
+    var mkdocs_page_input_path = "tutorials/variant_effect_prediction_simple.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi-veff</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../overview/">Overview</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using/">Functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../variant_effect_pred/">Variant effect prediction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../mutation_map/">Mutation maps</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Simple</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#variant-effect-prediction-simple">Variant effect prediction - simple</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variant_effect_prediction/">Advanced</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mutation_map/">Mutation map</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/score_variants/">score_variants</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/predict_snvs/">predict_snvs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/scores/">Available scores</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/MutationMap/">MutationMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/MutationMapPlotter/">MutationMapPlotter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/KipoiVCFParser/">KipoiVCFParser</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi-veff</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Simple</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi-veff/edit/master/docs/tutorials/variant_effect_prediction_simple.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi-veff/blob/master/notebooks/variant_effect_prediction_simple.ipynb">notebooks/variant_effect_prediction_simple.ipynb</a></p>
+<h1 id="variant-effect-prediction-simple">Variant effect prediction - simple</h1>
+<p>NOTE: This notebook is a companion notebook to <code>variant_effect_prediction.ipynb</code> and shows a simpler way to run variant effect predictions in python. If you want to know more details about variant effect prediction, the details of how to customise things and how to run it on the command line and in batch please refer to the <code>variant_effect_prediction.ipynb</code>.</p>
+<p>Variant effect prediction offers a simple way to predict effects of SNVs using any model that uses DNA sequence as an input. Many different scoring methods can be chosen, but the principle relies on in-silico mutagenesis. The default input is a VCF and the default output again is a VCF annotated with predictions of variant effects. </p>
+<p>First we set up the model and make sure the requirements are installed in the current environment.</p>
+<pre><code class="python">import kipoi
+model_name = &quot;DeepSEA/variantEffects&quot;
+</code></pre>
+
+<p>Then we need to know where the query VCF is located and where we want to store the results.</p>
+<pre><code class="python"># The input vcf path
+vcf_path = &quot;example_data/clinvar_donor_acceptor_chr22.vcf&quot;
+# The output vcf path, based on the input file name    
+out_vcf_fpath = vcf_path[:-4] + &quot;%s.vcf&quot;%model_name.replace(&quot;/&quot;, &quot;_&quot;)
+</code></pre>
+
+<p>Finally the dataloader arguments are set that are required to run the dataloader. Here we omit the <code>intervals_file</code> argument of the dataloader, because that has been tagged as bed file input in the <code>dataloader.yaml</code> file, which means that <code>score_variants</code> will automatically populate that argument with a temporary bed file that is generated from the VCF in order to query every variant contained in the input VCF. ("Variant-centered approach")</p>
+<pre><code class="python"># The datalaoder keyword arguments
+dataloader_arguments = {&quot;fasta_file&quot;: &quot;example_data/hg19_chr22.fa&quot;}
+</code></pre>
+
+<pre><code class="python">!ls example_data/
+</code></pre>
+
+<pre><code>chr22.101bp.2000_intervals.JUND.HepG2.tsv
+clinvar_donor_acceptor_annotated_chr22.csv
+clinvar_donor_acceptor_annotated_w_rbp_chr22.csv
+clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf
+clinvar_donor_acceptor_chr22.vcf
+clinvar_donor_acceptor_chr22.vcf.gz
+clinvar_donor_acceptor_chr22.vcf.gz.tbi
+dbsnp_chr22_29108009.vcf
+hg19_chr22.fa
+hg19_chr22.fa.fai
+Homo_sapiens.GRCh37.75_chr22.gtf
+Homo_sapiens.GRCh37.75.filtered_chr22.gtf
+</code></pre>
+<pre><code class="python">import kipoi_veff.snv_predict as sp
+sp.score_variants(model = model_name,
+                  dl_args = dataloader_arguments,
+                  input_vcf = vcf_path,
+                  output_vcf = out_vcf_fpath)
+</code></pre>
+
+<pre><code> 29%|██▊       | 4/14 [00:11&lt;00:28,  2.83s/it]
+</code></pre>
+<p>Now we can have a look at the generated output:</p>
+<pre><code class="python"># Let's print out the first 40 lines of the annotated VCF (up to 80 characters per line maximum)
+with open(&quot;example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.vcf&quot;) as ifh:
+    for i,l in enumerate(ifh):
+        long_line = &quot;&quot;
+        if len(l)&gt;80:
+            long_line = &quot;...&quot;
+        print(l[:80].rstrip() +long_line)
+        if i &gt;=40:
+            break
+</code></pre>
+
+<p>Here we have shown a simpler function <code>score_variants</code> that covers most use-cases for variant effect prediction. For a more fine-grain control please use <code>predict_snvs</code> and take a look at the <code>variant_effect_prediction.ipynb</code> notebook. </p>
+<p>An important thing to remember when using <code>score_variants</code> or the command-line interface is that for all dataloaders that support bed-file inputs, the bed file generation will be used and only model that do not have the <code>postprocessing &gt; variant_effects &gt; bed_input</code> field set in <code>dataloader.yaml</code> will be executed in overlap-based mode. For details on how variant region overlap works please take a look at the variant effect prediction documentation. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../variant_effect_prediction/" class="btn btn-neutral float-right" title="Advanced">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../mutation_map/" class="btn btn-neutral" title="Mutation maps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="http://github.com/kipoi/kipoi-veff/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../mutation_map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../variant_effect_prediction/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
