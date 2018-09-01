@@ -335,12 +335,12 @@
     var myPieChart = new Chart(ctxP, {
       type: 'doughnut',
       data: {
-        labels: ['keras', 'custom', 'pytorch', 'tensorflow', 'sklearn'],
+        labels: ['keras', 'custom', 'pytorch', 'sklearn', 'tensorflow'],
         datasets: [
           {
             data: [11, 4, 2, 1, 1],
-            backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f', '#e78ac3'],
-	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f', '#e78ac3'],
+            backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#e78ac3', '#ffd92f'],
+	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#e78ac3', '#ffd92f'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
 	       hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]*/
           }
@@ -355,7 +355,7 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'GPL-v3', 'BSD 3-Clause', 'Apache License v2', 'CC-BY 3.0'],
+     *     labels: ['MIT', 'BSD 3-Clause', 'CC-BY 3.0', 'GPL-v3', 'Apache License v2'],
      *     datasets: [
      *       {
      *         data: [15, 1, 1, 1, 1],
