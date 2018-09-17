@@ -68,6 +68,9 @@
         <ul class="navbar-nav ml-auto text-center d-sm-none d-md-flex">
       
           <li class="nav-item">
+            <a id="components-related-4" class="text-nowrap nav-link waves-effect waves-light" href="https://www.biorxiv.org/content/early/2018/07/24/375345.full.pdf">White paper<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
             <a id="components-related-4" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item">
@@ -335,12 +338,12 @@
     var myPieChart = new Chart(ctxP, {
       type: 'doughnut',
       data: {
-        labels: ['keras', 'custom', 'pytorch', 'tensorflow', 'sklearn'],
+        labels: ['keras', 'custom', 'pytorch', 'sklearn', 'tensorflow'],
         datasets: [
           {
             data: [11, 4, 2, 1, 1],
-            backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f', '#e78ac3'],
-	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#ffd92f', '#e78ac3'],
+            backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#e78ac3', '#ffd92f'],
+	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#e78ac3', '#ffd92f'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
 	       hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]*/
           }
@@ -355,7 +358,7 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'GPL-v3', 'CC-BY 3.0', 'Apache License v2', 'BSD 3-Clause'],
+     *     labels: ['MIT', 'CC-BY 3.0', 'Apache License v2', 'BSD 3-Clause', 'GPL-v3'],
      *     datasets: [
      *       {
      *         data: [15, 1, 1, 1, 1],
@@ -373,7 +376,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['RNA splicing', 'DNA accessibility', 'DNA binding', 'Histone modification', 'DNA methylation', 'RNA binding', 'RNA expression'],
+        labels: ['RNA splicing', 'DNA accessibility', 'Histone modification', 'DNA binding', 'DNA methylation', 'RNA binding', 'RNA expression'],
         datasets: [{
           label: null,
           data: [5, 4, 3, 3, 2, 2, 1],
