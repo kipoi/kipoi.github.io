@@ -232,6 +232,8 @@ with open(&quot;example_data/clinvar_donor_acceptor_chr22DeepSEA_variantEffects.
 
 <p>Here we have shown a simpler function <code>score_variants</code> that covers most use-cases for variant effect prediction. For a more fine-grain control please use <code>predict_snvs</code> and take a look at the <code>variant_effect_prediction.ipynb</code> notebook. </p>
 <p>An important thing to remember when using <code>score_variants</code> or the command-line interface is that for all dataloaders that support bed-file inputs, the bed file generation will be used and only model that do not have the <code>postprocessing &gt; variant_effects &gt; bed_input</code> field set in <code>dataloader.yaml</code> will be executed in overlap-based mode. For details on how variant region overlap works please take a look at the variant effect prediction documentation. </p>
+<pre><code class="python">
+</code></pre>
               
             </div>
           </div>
