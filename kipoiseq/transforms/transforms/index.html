@@ -71,6 +71,18 @@
     <a class="current" href="./">Class-based</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#compose">Compose</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dummyaxis">DummyAxis</a></li>
+    
+
+    <li class="toctree-l3"><a href="#swapaxes">SwapAxes</a></li>
+    
+
+    <li class="toctree-l3"><a href="#onehot">OneHot</a></li>
+    
+
     </ul>
                 </li>
     </ul>
@@ -120,10 +132,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="kipoiseq.transforms.transforms">kipoiseq.transforms.transforms</h1>
-
-<h2 id="kipoiseq.transforms.transforms.Compose">Compose</h2>
-
+                <h2 id="compose">Compose</h2>
 <pre><code class="python">Compose(self, transforms)
 </code></pre>
 
@@ -141,21 +150,18 @@
     &gt;&gt;&gt; ])</p>
 </li>
 </ul>
-<h2 id="kipoiseq.transforms.transforms.DummyAxis">DummyAxis</h2>
-
+<h2 id="dummyaxis">DummyAxis</h2>
 <pre><code class="python">DummyAxis(self, axis=None)
 </code></pre>
 
 <p>np.expand_dims wrapper - Insert a dummy axis (calls np.expand_dims)</p>
-<h2 id="kipoiseq.transforms.transforms.SwapAxes">SwapAxes</h2>
-
+<h2 id="swapaxes">SwapAxes</h2>
 <pre><code class="python">SwapAxes(self, axis1=None, axis2=None)
 </code></pre>
 
 <p>np.swapaxes wrapper</p>
 <p>If any if the axis is None, do nothing.</p>
-<h2 id="kipoiseq.transforms.transforms.OneHot">OneHot</h2>
-
+<h2 id="onehot">OneHot</h2>
 <pre><code class="python">OneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25)
 </code></pre>
 

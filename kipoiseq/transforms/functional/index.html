@@ -67,6 +67,24 @@
     <a class="current" href="./">Functional</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#one_hot2string">one_hot2string</a></li>
+    
+
+    <li class="toctree-l3"><a href="#tokenize">tokenize</a></li>
+    
+
+    <li class="toctree-l3"><a href="#token2one_hot">token2one_hot</a></li>
+    
+
+    <li class="toctree-l3"><a href="#one_hot_dna">one_hot_dna</a></li>
+    
+
+    <li class="toctree-l3"><a href="#fixed_len">fixed_len</a></li>
+    
+
+    <li class="toctree-l3"><a href="#resize_interval">resize_interval</a></li>
+    
+
     </ul>
                 </li>
                 <li class="">
@@ -120,16 +138,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="kipoiseq.transforms.functional">kipoiseq.transforms.functional</h1>
-
-<h2 id="kipoiseq.transforms.functional.one_hot2string">one_hot2string</h2>
-
+                <h2 id="one_hot2string">one_hot2string</h2>
 <pre><code class="python">one_hot2string(arr, alphabet=['A', 'C', 'G', 'T'])
 </code></pre>
 
 <p>Convert a one-hot encoded array back to string</p>
-<h2 id="kipoiseq.transforms.functional.tokenize">tokenize</h2>
-
+<h2 id="tokenize">tokenize</h2>
 <pre><code class="python">tokenize(seq, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet=['N'])
 </code></pre>
 
@@ -142,20 +156,17 @@
 </ul>
 <p><strong>Returns</strong></p>
 <p>List of length <code>len(seq)</code> with integers from <code>-1</code> to <code>len(alphabet) - 1</code></p>
-<h2 id="kipoiseq.transforms.functional.token2one_hot">token2one_hot</h2>
-
+<h2 id="token2one_hot">token2one_hot</h2>
 <pre><code class="python">token2one_hot(tokens, alphabet_size=4, neutral_value=0.25)
 </code></pre>
 
 <p>Note: everything out of the alphabet is transformed into <code>np.zeros(alphabet_size)</code></p>
-<h2 id="kipoiseq.transforms.functional.one_hot_dna">one_hot_dna</h2>
-
+<h2 id="one_hot_dna">one_hot_dna</h2>
 <pre><code class="python">one_hot_dna(seq)
 </code></pre>
 
 <p>One-hot encode DNA sequence</p>
-<h2 id="kipoiseq.transforms.functional.fixed_len">fixed_len</h2>
-
+<h2 id="fixed_len">fixed_len</h2>
 <pre><code class="python">fixed_len(seq, length, anchor='center', value='N')
 </code></pre>
 
@@ -197,8 +208,7 @@ Aplicable also for lists of characters</p>
     'CTTT'
 </code></pre>
 
-<h2 id="kipoiseq.transforms.functional.resize_interval">resize_interval</h2>
-
+<h2 id="resize_interval">resize_interval</h2>
 <pre><code class="python">resize_interval(interval, width, anchor='center')
 </code></pre>
 
