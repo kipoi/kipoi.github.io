@@ -158,22 +158,20 @@
 <li><strong>label_dtype</strong>: None, datatype of the task labels taken from the intervals_file. Allowed - string', 'int', 'float', 'bool'</li>
 <li><strong>auto_resize_len</strong>: None, required sequence length.</li>
 <li><strong>use_strand</strong>: reverse-complement fasta sequence if bed file defines negative strand</li>
-<li>
-<p><strong>force_upper</strong>: Force uppercase output of sequences
-<strong>Output schema</strong></p>
-</li>
-<li>
-<p><strong><em>inputs</em></strong>: </p>
+<li><strong>force_upper</strong>: Force uppercase output of sequences</li>
+</ul>
+<p><strong>Output schema</strong></p>
 <ul>
+<li><strong>inputs</strong>: <ul>
 <li><strong>shape=()</strong>, DNA sequence as string</li>
 </ul>
 </li>
-<li><strong><em>targets</em></strong>: <ul>
+<li><strong>targets</strong>: <ul>
 <li><strong>shape=(None,)</strong>, (optional) values following the bed-entry - chr  start  end  target1   target2 ....</li>
 </ul>
 </li>
-<li><strong><em>metadata</em></strong>: <ul>
-<li><strong><em>ranges</em></strong>: <ul>
+<li><strong>metadata</strong>: <ul>
+<li><strong>ranges</strong>: <ul>
 <li>Genomic ranges: chr, start, end, name, strand</li>
 </ul>
 </li>
@@ -199,16 +197,16 @@
 </ul>
 <p><strong>Output schema</strong></p>
 <ul>
-<li><strong><em>inputs</em></strong>: <ul>
+<li><strong>inputs</strong>: <ul>
 <li><strong>shape=(None, 4)</strong>, One-hot encoded DNA sequence</li>
 </ul>
 </li>
-<li><strong><em>targets</em></strong>: <ul>
+<li><strong>targets</strong>: <ul>
 <li><strong>shape=(None,)</strong>, (optional) values following the bed-entry - chr  start  end  target1   target2 ....</li>
 </ul>
 </li>
-<li><strong><em>metadata</em></strong>: <ul>
-<li><strong><em>ranges</em></strong>: <ul>
+<li><strong>metadata</strong>: <ul>
+<li><strong>ranges</strong>: <ul>
 <li>Genomic ranges: chr, start, end, name, strand</li>
 </ul>
 </li>
