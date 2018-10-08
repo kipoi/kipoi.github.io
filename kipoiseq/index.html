@@ -137,7 +137,7 @@
     <img alt='Coverage status' src=https://coveralls.io/repos/github/kipoi/kipoiseq/badge.svg?branch=master style="max-height:20px;width:auto;">
 </a></p>
 <p>Standard set of data-loaders for training and making predictions for DNA sequence-based models.</p>
-<p>All dataloaders in <code>kipoiseq.datasets</code> decorated with <code>@kipoi_dataloader</code> are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
+<p>All dataloaders in <code>kipoiseq.datasets</code> decorated with <code>@kipoi_dataloader</code> (SeqDataset and SeqStringDataset) are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
 <pre><code class="yaml">...
 default_dataloader:
   defined_as: kipoiseq.datasets.SeqDataset
@@ -235,5 +235,5 @@ it = dl.batch_train_iter(32, num_workers=8)
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-10-08 12:11:51
+Build Date UTC : 2018-10-08 12:13:17
 -->
