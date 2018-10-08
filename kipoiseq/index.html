@@ -55,6 +55,16 @@
             
     <li class="toctree-l2"><a href="#kipoiseq">kipoiseq</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#usage">Usage</a></li>
+        
+            <li><a class="toctree-l3" href="#how-to-write-your-own-dataloaders">How to write your own dataloaders</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -127,6 +137,54 @@
     <img alt='Coverage status' src=https://coveralls.io/repos/github/kipoi/kipoiseq/badge.svg?branch=master style="max-height:20px;width:auto;">
 </a></p>
 <p>Standard set of data-loaders for training and making predictions for DNA sequence-based models.</p>
+<p>All dataloaders in <code>kipoiseq.datasets</code> decorated with <code>@kipoi_dataloader</code> are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
+<pre><code class="yaml">...
+default_dataloader:
+  defined_as: kipoiseq.datasets.SeqDataset
+  default_args:
+    auto_resize_len: 1000 # always resize to 1kb
+
+dependencies:
+  pip:
+    - kipoiseq
+...
+</code></pre>
+
+<h2 id="installation">Installation</h2>
+<pre><code class="bash">pip install kipoiseq
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<pre><code class="python">from kipoiseq.datasets import SeqDataset
+
+dl = SeqDataset.init_example()  # use the provided example files
+# your own files
+dl = SeqDataset(&quot;intervals.bed&quot;, &quot;genome.fa&quot;)
+
+len(dl)  # length of the dataset
+
+dl[0]  # get one instance. # returns a dictionary: 
+# dict(inputs=&lt;one-hot-encoded-array&gt;, 
+#      targets=&lt;additional columns in the bed file&gt;, 
+#      metadata=dict(ranges=GenomicRanges(chr=, start, end)...
+
+all = dl.load_all()  # load the whole dataset
+
+# load batches of data
+it = dl.batch_iter(32, num_workers=8)  # load batches of data in parallel using 8 workers
+# returns a dictionary with all three keys: inputs, targets, metadata
+
+it = dl.batch_train_iter(32, num_workers=8)
+# returns a tuple: (inputs, targets), can be used directly with keras' `model.fit_generator`
+</code></pre>
+
+<h2 id="how-to-write-your-own-dataloaders">How to write your own dataloaders</h2>
+<ul>
+<li>Read the pytorch <a href="https://pytorch.org/tutorials/beginner/data_loading_tutorial.html">Data Loading and Processing Tutorial</a> to become more familiar with transforms and datasets</li>
+<li>Read the code for <code>SeqDataset</code> in <a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/datasets/sequence.py">kipoiseq/datasets/sequence.py</a></li>
+<li>you can skip the <code>@kipoi_dataloader</code> and the long yaml doc-string</li>
+<li>Explore the available transforms (<a href="http://kipoi.org/kipoiseq/transforms/functional/">functional</a>, <a href="http://kipoi.org/kipoiseq/transforms/transforms/">class-based</a>) or extractors (<a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/extractors.py">kipoiseq</a>, <a href="https://github.com/kundajelab/genomelake/blob/master/genomelake/extractors.py">genomelake</a>)</li>
+</ul>
               
             </div>
           </div>
@@ -177,5 +235,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-10-08 11:22:06
+Build Date UTC : 2018-10-08 12:00:42
 -->
