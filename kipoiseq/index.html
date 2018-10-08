@@ -142,7 +142,7 @@
 default_dataloader:
   defined_as: kipoiseq.datasets.SeqDataset
   default_args:
-    auto_resize_len: 1000 # always resize to 1kb
+    auto_resize_len: 1000 # override default args in SeqDataset
 
 dependencies:
   pip:
@@ -238,5 +238,5 @@ it = dl.batch_train_iter(32, num_workers=8)
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-10-08 12:16:18
+Build Date UTC : 2018-10-08 12:37:44
 -->
