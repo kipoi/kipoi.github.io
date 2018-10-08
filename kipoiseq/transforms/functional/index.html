@@ -157,12 +157,12 @@
 <p><strong>Returns</strong></p>
 <p>List of length <code>len(seq)</code> with integers from <code>-1</code> to <code>len(alphabet) - 1</code></p>
 <h2 id="token2one_hot">token2one_hot</h2>
-<pre><code class="python">token2one_hot(tokens, alphabet_size=4, neutral_value=0.25)
+<pre><code class="python">token2one_hot(tokens, alphabet_size=4, neutral_value=0.25, dtype=None)
 </code></pre>
 
 <p>Note: everything out of the alphabet is transformed into <code>np.zeros(alphabet_size)</code></p>
 <h2 id="one_hot_dna">one_hot_dna</h2>
-<pre><code class="python">one_hot_dna(seq)
+<pre><code class="python">one_hot_dna(seq, dtype=None)
 </code></pre>
 
 <p>One-hot encode DNA sequence</p>
