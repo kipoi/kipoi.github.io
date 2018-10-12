@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <!-- Model title -->
-                            <h1 class="h1-responsive"><a href="/models/MMSplice">MMSplice</a>/acceptor</h1>
+                            <h1 class="h1-responsive"><a href="/models/MMSplice">MMSplice</a>/<a href="/models/MMSplice/modules">modules</a>/intron_3prime</h1>
                         </div>
                         <!-- Model details -->
                         <div class="col-lg-5">
@@ -156,7 +156,7 @@
                                     <!-- Trained on -->
                                     <p>Trained on: 
   
-    GENCODE annotation 24, classify annotated acceptor site and random sequence.
+    MPRA (Rosenberg 2015) intronic random sequence.
 
   
 </p>
@@ -168,7 +168,7 @@
                                             <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>weights</strong>: model_files/Acceptor.h5<br>
+      <strong>weights</strong>: model_files/Intron3.h5<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
@@ -189,7 +189,7 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-sm-12">
                             <!-- Model description -->
-                            <p class="lead">Acceptor module of MMSplice model</p>    
+                            <p class="lead">Intron 3&#39; module of MMSplice model</p>    
                         </div>
 
                         <div class="col-lg-5 col-md-12 col-sm-12">
@@ -219,10 +219,10 @@
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env create MMSplice/acceptor
-source activate kipoi-MMSplice__acceptor</code></pre> -->
-	<pre><code class="bash">kipoi env create MMSplice/acceptor
-source activate kipoi-MMSplice__acceptor</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env create MMSplice/modules/intron_3prime
+source activate kipoi-MMSplice__modules__intron_3prime</code></pre> -->
+	<pre><code class="bash">kipoi env create MMSplice/modules/intron_3prime
+source activate kipoi-MMSplice__modules__intron_3prime</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -236,8 +236,8 @@ source activate kipoi-MMSplice__acceptor</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env install MMSplice/acceptor</code></pre> -->
-	<pre><code class="bash">kipoi env install MMSplice/acceptor</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env install MMSplice/modules/intron_3prime</code></pre> -->
+	<pre><code class="bash">kipoi env install MMSplice/modules/intron_3prime</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -251,8 +251,8 @@ source activate kipoi-MMSplice__acceptor</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi test MMSplice/acceptor --source=kipoi</code></pre> -->
-	<pre><code class="bash">kipoi test MMSplice/acceptor --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi test MMSplice/modules/intron_3prime --source=kipoi</code></pre> -->
+	<pre><code class="bash">kipoi test MMSplice/modules/intron_3prime --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -266,19 +266,19 @@ source activate kipoi-MMSplice__acceptor</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/MMSplice/acceptor
-kipoi predict MMSplice/acceptor \
+	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/MMSplice/modules/intron_3prime
+kipoi predict MMSplice/modules/intron_3prime \
   --dataloader_args=&#39;{&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 200}&#39; \
-  -o &#39;/tmp/MMSplice|acceptor.example_pred.tsv&#39;
+  -o &#39;/tmp/MMSplice|modules|intron_3prime.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/MMSplice|acceptor.example_pred.tsv&#39;
+head &#39;/tmp/MMSplice|modules|intron_3prime.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/MMSplice/acceptor
-kipoi predict MMSplice/acceptor \
+	<pre><code class="bash">cd ~/.kipoi/models/MMSplice/modules/intron_3prime
+kipoi predict MMSplice/modules/intron_3prime \
   --dataloader_args=&#39;{&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 200}&#39; \
-  -o &#39;/tmp/MMSplice|acceptor.example_pred.tsv&#39;
+  -o &#39;/tmp/MMSplice|modules|intron_3prime.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/MMSplice|acceptor.example_pred.tsv&#39;
+head &#39;/tmp/MMSplice|modules|intron_3prime.example_pred.tsv&#39;
 </code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
@@ -301,9 +301,9 @@ head &#39;/tmp/MMSplice|acceptor.example_pred.tsv&#39;
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>import kipoi
-model = kipoi.get_model(&#39;MMSplice/acceptor&#39;)</code></pre> -->
+model = kipoi.get_model(&#39;MMSplice/modules/intron_3prime&#39;)</code></pre> -->
 	<pre><code class="python">import kipoi
-model = kipoi.get_model(&#39;MMSplice/acceptor&#39;)</code></pre>
+model = kipoi.get_model(&#39;MMSplice/modules/intron_3prime&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -334,7 +334,7 @@ model = kipoi.get_model(&#39;MMSplice/acceptor&#39;)</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
 dl_kwargs = {&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 200}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/acceptor&#39;))
+import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/modules/intron_3prime&#39;))
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -344,7 +344,7 @@ batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
 	<pre><code class="python"># setup the example dataloader kwargs
 dl_kwargs = {&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 200}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/acceptor&#39;))
+import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/modules/intron_3prime&#39;))
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -389,10 +389,10 @@ model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;MMSplice/acceptor&#39;)</code></pre> -->
+model &lt;- kipoi$get_model(&#39;MMSplice/modules/intron_3prime&#39;)</code></pre> -->
 	<pre><code class="R">library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;MMSplice/acceptor&#39;)</code></pre>
+model &lt;- kipoi$get_model(&#39;MMSplice/modules/intron_3prime&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -422,7 +422,7 @@ model &lt;- kipoi$get_model(&#39;MMSplice/acceptor&#39;)</code></pre>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/MMSplice/acceptor&#39;)
+setwd(&#39;~/.kipoi/models/MMSplice/modules/intron_3prime&#39;)
 dl &lt;- model$default_dataloader(gtf_file=&#39;example_files/test.gtf&#39;, fasta_file=&#39;example_files/hg19.nochr.chr17.fa&#39;, exon_cut_l=0, exon_cut_r=0, acceptor_intron_cut=6, donor_intron_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13, maxExonLength=200)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
@@ -430,7 +430,7 @@ it &lt;- dl$batch_iter(batch_size=4)
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
 	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/MMSplice/acceptor&#39;)
+setwd(&#39;~/.kipoi/models/MMSplice/modules/intron_3prime&#39;)
 dl &lt;- model$default_dataloader(gtf_file=&#39;example_files/test.gtf&#39;, fasta_file=&#39;example_files/hg19.nochr.chr17.fa&#39;, exon_cut_l=0, exon_cut_r=0, acceptor_intron_cut=6, donor_intron_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13, maxExonLength=200)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
@@ -480,10 +480,10 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 
   <p>Dictionary of numpy arrays</p>
   
-    <p><strong>Name</strong>: ss</p>
+    <p><strong>Name</strong>: input_5</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (53, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: One-hot encoded acceptor sequence</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (94, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: One-hot encoded intron sequence</p>
 
 
             </div>
@@ -496,7 +496,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
     <p><strong>Name</strong>: None</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicted score for acceptor sequence</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicted score for 3&#39; intronic sequence</p>
 
 
             </div>
@@ -516,7 +516,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 <div class="col-lg-5">
                     <p><strong>Relative path:</strong> .</p>
                     <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> Acceptor module of MMSplice model</p>
+                    <p><strong>Doc:</strong> Intron 3&#39; module of MMSplice model</p>
                     <p><strong>Authors:</strong> 
   
     
@@ -828,8 +828,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
       
       var disqus_config = function () {
-        this.page.url = "http://localhost/models/MMSplice/acceptor/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/models/MMSplice/acceptor/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://localhost/models/MMSplice/modules/intron_3prime/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/models/MMSplice/modules/intron_3prime/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       
       (function() { // DON'T EDIT BELOW THIS LINE

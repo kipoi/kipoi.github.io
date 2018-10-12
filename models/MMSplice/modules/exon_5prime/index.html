@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <!-- Model title -->
-                            <h1 class="h1-responsive"><a href="/models/MMSplice">MMSplice</a>/exon_5prime</h1>
+                            <h1 class="h1-responsive"><a href="/models/MMSplice">MMSplice</a>/<a href="/models/MMSplice/modules">modules</a>/exon_5prime</h1>
                         </div>
                         <!-- Model details -->
                         <div class="col-lg-5">
@@ -219,10 +219,10 @@
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env create MMSplice/exon_5prime
-source activate kipoi-MMSplice__exon_5prime</code></pre> -->
-	<pre><code class="bash">kipoi env create MMSplice/exon_5prime
-source activate kipoi-MMSplice__exon_5prime</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env create MMSplice/modules/exon_5prime
+source activate kipoi-MMSplice__modules__exon_5prime</code></pre> -->
+	<pre><code class="bash">kipoi env create MMSplice/modules/exon_5prime
+source activate kipoi-MMSplice__modules__exon_5prime</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -236,8 +236,8 @@ source activate kipoi-MMSplice__exon_5prime</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env install MMSplice/exon_5prime</code></pre> -->
-	<pre><code class="bash">kipoi env install MMSplice/exon_5prime</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env install MMSplice/modules/exon_5prime</code></pre> -->
+	<pre><code class="bash">kipoi env install MMSplice/modules/exon_5prime</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -251,8 +251,8 @@ source activate kipoi-MMSplice__exon_5prime</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi test MMSplice/exon_5prime --source=kipoi</code></pre> -->
-	<pre><code class="bash">kipoi test MMSplice/exon_5prime --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi test MMSplice/modules/exon_5prime --source=kipoi</code></pre> -->
+	<pre><code class="bash">kipoi test MMSplice/modules/exon_5prime --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -266,19 +266,19 @@ source activate kipoi-MMSplice__exon_5prime</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/MMSplice/exon_5prime
-kipoi predict MMSplice/exon_5prime \
+	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/MMSplice/modules/exon_5prime
+kipoi predict MMSplice/modules/exon_5prime \
   --dataloader_args=&#39;{&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 300}&#39; \
-  -o &#39;/tmp/MMSplice|exon_5prime.example_pred.tsv&#39;
+  -o &#39;/tmp/MMSplice|modules|exon_5prime.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/MMSplice|exon_5prime.example_pred.tsv&#39;
+head &#39;/tmp/MMSplice|modules|exon_5prime.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/MMSplice/exon_5prime
-kipoi predict MMSplice/exon_5prime \
+	<pre><code class="bash">cd ~/.kipoi/models/MMSplice/modules/exon_5prime
+kipoi predict MMSplice/modules/exon_5prime \
   --dataloader_args=&#39;{&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 300}&#39; \
-  -o &#39;/tmp/MMSplice|exon_5prime.example_pred.tsv&#39;
+  -o &#39;/tmp/MMSplice|modules|exon_5prime.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/MMSplice|exon_5prime.example_pred.tsv&#39;
+head &#39;/tmp/MMSplice|modules|exon_5prime.example_pred.tsv&#39;
 </code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
@@ -301,9 +301,9 @@ head &#39;/tmp/MMSplice|exon_5prime.example_pred.tsv&#39;
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>import kipoi
-model = kipoi.get_model(&#39;MMSplice/exon_5prime&#39;)</code></pre> -->
+model = kipoi.get_model(&#39;MMSplice/modules/exon_5prime&#39;)</code></pre> -->
 	<pre><code class="python">import kipoi
-model = kipoi.get_model(&#39;MMSplice/exon_5prime&#39;)</code></pre>
+model = kipoi.get_model(&#39;MMSplice/modules/exon_5prime&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -334,7 +334,7 @@ model = kipoi.get_model(&#39;MMSplice/exon_5prime&#39;)</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
 dl_kwargs = {&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 300}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/exon_5prime&#39;))
+import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/modules/exon_5prime&#39;))
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -344,7 +344,7 @@ batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
 	<pre><code class="python"># setup the example dataloader kwargs
 dl_kwargs = {&#39;gtf_file&#39;: &#39;example_files/test.gtf&#39;, &#39;fasta_file&#39;: &#39;example_files/hg19.nochr.chr17.fa&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13, &#39;maxExonLength&#39;: 300}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/exon_5prime&#39;))
+import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/MMSplice/modules/exon_5prime&#39;))
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -389,10 +389,10 @@ model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;MMSplice/exon_5prime&#39;)</code></pre> -->
+model &lt;- kipoi$get_model(&#39;MMSplice/modules/exon_5prime&#39;)</code></pre> -->
 	<pre><code class="R">library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;MMSplice/exon_5prime&#39;)</code></pre>
+model &lt;- kipoi$get_model(&#39;MMSplice/modules/exon_5prime&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -422,7 +422,7 @@ model &lt;- kipoi$get_model(&#39;MMSplice/exon_5prime&#39;)</code></pre>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/MMSplice/exon_5prime&#39;)
+setwd(&#39;~/.kipoi/models/MMSplice/modules/exon_5prime&#39;)
 dl &lt;- model$default_dataloader(gtf_file=&#39;example_files/test.gtf&#39;, fasta_file=&#39;example_files/hg19.nochr.chr17.fa&#39;, exon_cut_l=0, exon_cut_r=0, acceptor_intron_cut=6, donor_intron_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13, maxExonLength=300)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
@@ -430,7 +430,7 @@ it &lt;- dl$batch_iter(batch_size=4)
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
 	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/MMSplice/exon_5prime&#39;)
+setwd(&#39;~/.kipoi/models/MMSplice/modules/exon_5prime&#39;)
 dl &lt;- model$default_dataloader(gtf_file=&#39;example_files/test.gtf&#39;, fasta_file=&#39;example_files/hg19.nochr.chr17.fa&#39;, exon_cut_l=0, exon_cut_r=0, acceptor_intron_cut=6, donor_intron_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13, maxExonLength=300)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
@@ -828,8 +828,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
       
       var disqus_config = function () {
-        this.page.url = "http://localhost/models/MMSplice/exon_5prime/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/models/MMSplice/exon_5prime/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://localhost/models/MMSplice/modules/exon_5prime/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/models/MMSplice/modules/exon_5prime/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       
       (function() { // DON'T EDIT BELOW THIS LINE
