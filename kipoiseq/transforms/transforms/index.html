@@ -83,6 +83,9 @@
     <li class="toctree-l3"><a href="#onehot">OneHot</a></li>
     
 
+    <li class="toctree-l3"><a href="#splitsplicingseq">SplitSplicingSeq</a></li>
+    
+
     </ul>
                 </li>
     </ul>
@@ -166,6 +169,23 @@
 </code></pre>
 
 <p>One-hot encode the sequence</p>
+<h2 id="splitsplicingseq">SplitSplicingSeq</h2>
+<pre><code class="python">SplitSplicingSeq(self, exon_cut_l=0, exon_cut_r=0, intron5prime_cut=6, intron3prime_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13)
+</code></pre>
+
+<p>Spilt returned splice sequence (exon with flanking intron) to required format.
+It splits into ['intron5prime', 'acceptor', 'exon', 'donor', 'intron3prime'].
+'intron5prime' is the intron 5' of the exon, while 'intron3prime' is from the 3'.
+Args:
+    exon_cut_l: when extract exon feature, how many base pair to cut out at the begining of an exon
+    exon_cut_r: when extract exon feature, how many base pair to cut out at the end of an exon
+       (cut out the part that is considered as acceptor site or donor site)
+    intron5prime_cut: how many bp to cut out at the end of acceptor intron that consider as acceptor site
+    intron3prime_cut: how many bp to cut out at the end of donor intron that consider as donor site
+    acceptor_intron_len: what length in acceptor intron to consider for acceptor site model
+    acceptor_exon_len: what length in acceptor exon to consider for acceptor site model
+    donor_intron_len: what length in donor intron to consider for donor site model
+    donor_exon_len: what length in donor exon to consider for donor site model</p>
               
             </div>
           </div>
