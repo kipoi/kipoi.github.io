@@ -234,16 +234,13 @@
 <p>Custom models enable using any other framework or non-deep learning predictive model to be integrated within Kipoi. In general it is highly advisable not to use custom models if there is an implementation for the model that should be integrated, in other words: If your model is a pytorch model, please use the pytorch model type in Kipoi rather than defining your own custom model type.</p>
 <p>Also, custom models should never deviate from using only numpy arrays, lists thereof, or dictionaries thereof as input for the <code>predict_on_batch</code> function. This is essential to maintain a homogeneous and clear interface between dataloaders and models in the Kipoi zoo!</p>
 <p>The use of a custom model requires definition of a Kipoi-compliant model object, which can then be referred to by the model.yaml file. The model class has to be a subclass of <code>BaseModel</code> defined in <code>kipoi.model</code>, which in other words means that <code>def predict_on_batch(self, x)</code> has to be implemented. So for example if <code>batch</code> is  what the dataloader returns for a batch then <code>predict_on_batch(batch['inputs'])</code> has to run the model prediction on the given input.</p>
-<p>A very simple version of such a model definition that can be stored in for example <code>model_files/model.py</code> may be:</p>
+<p>A very simple version of such a model definition that can be stored in for example <code>model.py</code> may be:</p>
 <pre><code class="python">from kipoi.model import BaseModel
 
-def load_my_model():
-    # Loading code here
-    return model
-
 class MyModel(BaseModel):
-    def __init__(self):
-        self.model = load_my_model()
+    def __init__(self, file_path):
+        ...
+        self.model = load_model_parameters(file_path)
 
     # Execute model prediction for input data
     def predict_on_batch(self, x):
@@ -251,10 +248,11 @@ class MyModel(BaseModel):
 </code></pre>
 
 <p>This can then be integrated in the model.yaml in the following way:</p>
-<pre><code class="yaml">type: custom
+<pre><code class="yaml">defined_as: model.MyModel
 args:
-  file: model_files/model.py
-  object: MyModel
+  file_path: # get model parameters from an url
+    url: https://zenodo.org/path/to/my/architecture/file
+    md5: ....
 ...
 </code></pre>
               

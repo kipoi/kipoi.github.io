@@ -249,11 +249,19 @@
             <div class="section">
               
                 <h1 id="dataloaderyaml">dataloader.yaml</h1>
-<p>The dataloader.yaml file describes how a dataloader for a certain model can be created and how it has to be set up. A model without functional dataloader is as bad as a model that doesn't work, so the correct setup of the dataloader.yaml is essential for the use of a model in the zoo. Make sure you have read <a href="../04_Writing_dataloader.py/">Writing dataloader.py</a>.</p>
-<p>To help understand the synthax of YAML please take a look at: <a href="http://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics">YAML Synthax Basics</a></p>
+<aside class="warning">
+Before writing a dataloader yourself please check whether the same functionality can be achieved using a ready-made 
+dataloader in [kipoiseq](https://github.com/kipoi/kipoiseq).
+</aside>
+
+<p>The dataloader.yaml file describes how a dataloader for a certain model can be created and how it has to be set up. 
+A model without functional dataloader is as bad as a model that doesn't work, so the correct setup of the 
+dataloader.yaml is essential for the use of a model in the zoo. Make sure you have read 
+<a href="../04_Writing_dataloader.py/">Writing dataloader.py</a>.</p>
+<p>To help understand the synthax of YAML please take a look at: 
+<a href="http://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics">YAML Syntax Basics</a></p>
 <p>Here is an example <code>dataloader.yaml</code>:</p>
-<pre><code class="yaml">type: Dataset
-defined_as: dataloader.py::MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
+<pre><code class="yaml">defined_as: dataloader.MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
 args:
     features_file:
         # descr: &gt; allows multi-line fields
@@ -261,20 +269,23 @@ args:
           Csv file of the Iris Plants Database from
           http://archive.ics.uci.edu/ml/datasets/Iris features.
         type: str
-        example: example_files/features.csv  # example files
+        example: 
+            url: https://zenodo.org/path/to/example_files/features.csv  # example file
+            md5: 7a6s5d76as5d76a5sd7
     targets_file:
         doc: &gt;
           Csv file of the Iris Plants Database targets.
           Not required for making the prediction.
         type: str
-        example: example_files/targets.csv
+        example:
+            url: https://zenodo.org/path/to/example_files/targets.csv  # example file
+            md5: 76sd8f7687sd6fs68a67
         optional: True  # if not present, the `targets` field will not be present in the dataloader output
 info:
     authors: 
         - name: Your Name
           github: your_github_account
           email: your_email@host.org
-    version: 0.1
     doc: Model predicting the Iris species
 dependencies:
     conda:
@@ -308,28 +319,56 @@ output_schema:
 <li><code>BatchGenerator</code></li>
 </ul>
 <h2 id="defined_as">defined_as</h2>
-<p><code>defined_as</code> indicates where the dataloader class can be found. It is a string value of <code>path/to/file.py::class_name</code> with a the relative path from where the dataloader.yaml lies. E.g.: <code>model_files/dataloader.py::MyDataLoader</code>.</p>
-<p>This class will then be instantiated by Kipoi with keyword arguments that have to be mentioned explicitely in <code>args</code> (see below).</p>
+<p><code>defined_as</code> indicates where the dataloader class can be found. It is a string value of <code>file.ClassName</code> where file 
+refers to file <code>file.py</code> in the same directory as <code>dataloader.yaml</code> which contains the data-loader class <code>ClassName</code>.
+ E.g.: <code>dataloader.MyDataLoader</code>.</p>
+<p>This class will then be instantiated by Kipoi with keyword arguments that have to be mentioned explicitly in 
+<code>args</code> (see below).</p>
 <h2 id="args">args</h2>
-<p>A dataloader will always require arguments, they might for example be a path to the reference genome fasta file, a bed file that defines which regions should be investigated, etc. Dataloader arguments are given defined as a yaml dictionary with argument names as keys, e.g.:</p>
+<p>A dataloader will always require arguments, they might for example be a path to the reference genome fasta file, a 
+bed file that defines which regions should be investigated, etc. Dataloader arguments are given defined as a yaml 
+dictionary with argument names as keys, e.g.:</p>
 <pre><code class="yaml">args:
    reference_fasta:
-       example: example_files/chr22.fa
+       example:
+           url: https://zenodo.org/path/to/example_files/chr22.fa
+           md5: 765sadf876a
    argument_2:
-       example: example_files/example_input.txt
+       example:
+           url: https://zenodo.org/path/to/example_files/example_input.txt
+           md5: 786as8d7aasd
 </code></pre>
 
 <p>An argument has the following fields:</p>
 <ul>
 <li><code>doc</code>: A free text field describing the argument</li>
-<li><code>example</code>: A value that can be used to demonstrate the functionality of the dataloader and of the entire model. Those example files are very useful for users and for automatic testing procedures. For example the command line call <code>kipoi test</code> uses the exmaple values given for dataloader arguments to assess that a model can be used and is functional. It is therefore important to submit all necessary example files with the model.</li>
+<li><code>example</code>: A value that can be used to demonstrate the functionality of the dataloader and of the entire model. 
+Those example files are very useful for users and for automatic testing procedures. For example the command line 
+call <code>kipoi test</code> uses the exmaple values given for dataloader arguments to assess that a model can be used and 
+is functional. It is therefore important to submit the URLs of all necessary example files with the model.</li>
 <li><code>type</code>: Optional: datatype of the argument (<code>str</code>, <code>bool</code>, <code>int</code>, <code>float</code>)</li>
+<li><code>default</code>: This field is used to define external zenodo or figshare links that are automatically downloaded and 
+assigned. See example below.</li>
 <li><code>optional</code>: Optional: Boolean flag (<code>true</code> / <code>false</code>) for an argument if it is optional.</li>
 </ul>
+<p>If your dataloader requires an external data file at runtime which are not example/test files, you can specify these using the <code>default</code> attribute. <code>default</code> will override the default arguments of the dataloader init method (e.g. <code>dataloader.MyDataloader.__init__</code>). Example:</p>
+<pre><code class="yaml">defined_as: dataloader.MyDataset
+args:
+   ...
+   override_me:
+       default: 10
+   essential_other_file:
+       default:  # download and replace with the path on the local filesystem
+           url: https://zenodo.org/path/to/my/essential/other/file.xyz
+           md5: 765sadf876a
+...
+</code></pre>
+
 <h2 id="info">info</h2>
 <p>The <code>info</code> field of a dataloader.yaml file contains general information about the model.</p>
 <ul>
-<li><code>authors</code>: a list of authors with the field: <code>name</code>, and the optional fields: <code>github</code> and <code>email</code>. Where the <code>github</code> name is the github user id of the respective author</li>
+<li><code>authors</code>: a list of authors with the field: <code>name</code>, and the optional fields: <code>github</code> and <code>email</code>. Where the 
+<code>github</code> name is the github user id of the respective author</li>
 <li><code>doc</code>: Free text documentation of the dataloader. A short description of what it does.</li>
 <li><code>version</code>: Version of the dataloader</li>
 <li><code>license</code>: String indicating the license, if not defined it defaults to <code>MIT</code></li>
@@ -350,9 +389,15 @@ output_schema:
 </code></pre>
 
 <h2 id="output_schema">output_schema</h2>
-<p><code>output_schema</code> defines what the dataloader outputs are, what they consist in, what the dimensions are and some additional meta data.</p>
-<p><code>output_schema</code> contains three categories <code>inputs</code>, <code>targets</code> and <code>metadata</code>. <code>inputs</code> and <code>targets</code> each specify the shapes of data generated for the model input and model. Offering the <code>targets</code> option enables the opportunity to possibly train models with the same dataloader.</p>
-<p>In general model inputs and outputs can either be a numpy array, a list of numpy arrays or a dictionary (or <code>OrderedDict</code>) of numpy arrays. Whatever format is defined in the schema is expected to be produced by the dataloader and is expected to be accepted as input by the model. The three different kinds are represented by the single entries, lists or dictionaries in the yaml definition:</p>
+<p><code>output_schema</code> defines what the dataloader outputs are, what they consist in, what the dimensions are and some 
+additional meta data.</p>
+<p><code>output_schema</code> contains three categories <code>inputs</code>, <code>targets</code> and <code>metadata</code>. <code>inputs</code> and <code>targets</code> each specify the 
+shapes of data generated for the model input and model. Offering the <code>targets</code> option enables the opportunity to 
+possibly train models with the same dataloader.</p>
+<p>In general model inputs and outputs can either be a numpy array, a list of numpy arrays or a dictionary (or 
+<code>OrderedDict</code>) of numpy arrays. Whatever format is defined in the schema is expected to be produced by the dataloader 
+and is expected to be accepted as input by the model. The three different kinds are represented by the single entries, 
+lists or dictionaries in the yaml definition:</p>
 <ul>
 <li>A single numpy array as input or target:</li>
 </ul>

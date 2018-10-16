@@ -97,13 +97,11 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#required-steps">Required steps</a></li>
+            <li><a class="toctree-l4" href="#pre-defined-datalaoders">Pre-defined datalaoders</a></li>
         
-            <li><a class="toctree-l4" href="#how-to-write-the-model">How to write the model</a></li>
+            <li><a class="toctree-l4" href="#non-default-dataloaders">Non-default dataloaders</a></li>
         
-            <li><a class="toctree-l4" href="#how-to-test-the-model">How to test the model</a></li>
-        
-            <li><a class="toctree-l4" href="#removing-or-updating-models">Removing or updating models</a></li>
+            <li><a class="toctree-l4" href="#required-steps-for-contribution">Required steps for contribution</a></li>
         
         </ul>
     
@@ -243,29 +241,58 @@
             <div class="section">
               
                 <h2 id="contributing-models-getting-started">Contributing models - Getting started</h2>
-<p>Kipoi stores models (descriptions, parameter files, dataloader code, ...) as folders in the <a href="https://github.com/kipoi/models">kipoi/models</a> github repository. Files residing in folders with a suffix of <code>_files</code> are tracked via Git Large File Storage (LFS). New models are added by simply submitting a pull-request to <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a>.</p>
-<p>As a reminder - Kipoi model have to have the following folder structure in which all the relevant files have their assigned places:</p>
-<pre><code>├── dataloader.py     # implements the dataloader
-├── dataloader.yaml   # describes the dataloader
-├── dataloader_files/      #/ files required by the dataloader
-│   ├── x_transfomer.pkl
-│   └── y_transfomer.pkl
-├── model.yaml        # describes the model
-├── model_files/           #/ files required by the model
-│   ├── model.json
-│   └── weights.h5
-└── example_files/         #/ small example files
-    ├── features.csv
-    └── targets.csv
+<p>Kipoi stores models (descriptions, parameter files, dataloader code, ...) as folders in the 
+<a href="https://github.com/kipoi/models">kipoi/models</a> github repository. The minimum requirement for a model is that a 
+<a href="../02_Writing_model.yaml/"><code>model.yaml</code></a> file is available in the model folder, which defines the type of the model, 
+file paths / URLs, the dataloader, description, software dependencies, etc.</p>
+<p>All files necessary for a model to be executed have to be published on <a href="https://zenodo.org/">zenodo</a> or 
+<a href="https://figshare.com/">figshare</a> to insure functionality and versioning of models.</p>
+<p>One key element for a model to be contributed to Kipoi is its dataloader. The main aim of a dataloader is to generate 
+batches of data with which a model can be run. Its inputs should be files in the most common formats of the respective 
+field, such as .bed and .fasta files for genomic sequences and regions. </p>
+<h4 id="pre-defined-datalaoders">Pre-defined datalaoders</h4>
+<p>To simplify the process of contributing models to Kipoi we have created <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a>, 
+a repository that offers pre-defined dataloaders for common applications.</p>
+<p>If you can use one of the dataloaders in kipoiseq for you model then the Kipoi model will consist solely in a folder
+and one <code>model.yaml</code> file inside it:</p>
+<pre><code>MyModel
+└── model.yaml         # describes the model
 </code></pre>
 
-<h3 id="required-steps">Required steps</h3>
+<h4 id="non-default-dataloaders">Non-default dataloaders</h4>
+<p>If the model you want to contribute requires different input from what is available out of the box in 
+<a href="https://github.com/kipoi/kipoiseq">kipoiseq</a>, you are encouraged to use the tested tools available in 
+<a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> to write your own <a href="../04_Writing_dataloader.py/">dataloader</a> and its 
+companion <a href="../03_Writing_dataloader.yaml/">yaml-file</a>. If you do so you should keep the standard Kipoi way of
+defining models with all the files and their assigned places:</p>
+<pre><code>MyModel
+├── dataloader.py     # implements the dataloader
+├── dataloader.yaml   # describes the dataloader
+└── model.yaml         # describes the model
+</code></pre>
+
+<h3 id="required-steps-for-contribution">Required steps for contribution</h3>
+<h4 id="using-pre-defined-datalaoders">Using pre-defined datalaoders</h4>
+<p>If the dataloaders offered in <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> are what your model needs then submitting 
+a new model can even be done online using github or locally as explained 
+<a href="#setting-up-kipoi-for-model-contribution">here</a>.</p>
+<h6 id="contribute-model-online">Contribute model online</h6>
+<p>You can contribute a model online on github by clicking <code>Create new file</code> in the 
+<a href="https://github.com/kipoi/models">models repository</a>. The filename would then be <code>MyModel/model.yaml</code>. The 
+name of folder (here: <code>MyModel</code>) which contains the <a href="../02_Writing_model.yaml/"><code>model.yaml</code></a> 
+file. You can then select <code>Create a new branch for this commit and start a pull request</code> to attempt adding your model
+to Kipoi. If you want to test your model locally you have to make sure that kipoi and git are installed locally. 
+You can test your models as described <a href="#how-to-test-the-model">here</a>.</p>
+<h4 id="defining-your-own-dataloader">Defining your own dataloader</h4>
+<p>If the pre-defined dataloaders don't cover your use-case you will have to define your own. You therefore have to set up 
+kipoi as described <a href="#setting-up-kipoi-for-model-contribution">here</a>.</p>
+<h4 id="setting-up-kipoi-for-model-contribution">Setting up Kipoi for model contribution</h4>
 <p>Here is a list of steps required to contribute a model to <a href="https://github.com/kipoi/models">kipoi/models</a>:</p>
-<h4 id="1-install-kipoi">1. Install Kipoi</h4>
+<h5 id="1-install-kipoi">1. Install Kipoi</h5>
 <ol>
-<li>Install git-lfs<ul>
-<li><code>conda install -c conda-forge git-lfs &amp;&amp; git lfs install</code></li>
-<li>For alternative installation options  see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>.</li>
+<li>Install git<ul>
+<li>There are many ways to do so and on many systems git is already installed. If not you can follow 
+<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">this</a> guide.</li>
 </ul>
 </li>
 <li>Install kipoi<ul>
@@ -274,11 +301,13 @@
 </li>
 <li>Run <code>kipoi ls</code> (this will checkout the <code>kipoi/models</code> repo to <code>~/.kipoi/models</code>)</li>
 </ol>
-<h4 id="2-add-the-model">2. Add the model</h4>
+<h5 id="2-add-the-model">2. Add the model</h5>
 <ol>
 <li><code>cd ~/.kipoi/models</code></li>
-<li><a href="#how-to-write-the-model">Write the model</a>: Create a new folder <code>&lt;my new model&gt;</code> containing all the required files. The required files can be created by doing one of the following three options:<ul>
-<li>Option 1: Copy the existing model: <code>cp -R &lt;existing model&gt; &lt;my new model&gt;</code>, edit/replace/add the copied files until they fit your new model.</li>
+<li><a href="#how-to-write-the-model">Write the model</a>: Create a new folder <code>&lt;my new model&gt;</code> containing all the required files. 
+ The required files can be created by doing one of the following three options:<ul>
+<li>Option 1: Copy the existing model: <code>cp -R &lt;existing model&gt; &lt;my new model&gt;</code>, edit/replace/add the copied files 
+until they fit your new model.</li>
 <li>Option 2: Run <code>kipoi init</code>, answer the questions, edit/replace the created files until they fit your new model.</li>
 <li>Option 3: <code>mkdir &lt;my new model&gt;</code> &amp; write all the files from scratch</li>
 </ul>
@@ -289,8 +318,8 @@
 </ul>
 </li>
 </ol>
-<h4 id="3-submit-the-pull-request">3. Submit the pull-request</h4>
-<h5 id="option-1-fork-the-repository">Option 1: Fork the repository</h5>
+<h5 id="3-submit-the-pull-request">3. Submit the pull-request</h5>
+<h6 id="option-1-fork-the-repository">Option 1: Fork the repository</h6>
 <ol>
 <li>Make sure you have all the recent changes locally<ul>
 <li><code>cd ~/.kipoi/models</code></li>
@@ -316,8 +345,9 @@
 </ul>
 </li>
 </ol>
-<h5 id="option-2-create-a-new-branch-on-kipoimodels">Option 2: Create a new branch on kipoi/models</h5>
-<p>If you wish to contribute models more frequently, please <a href="https://github.com/kipoi/models/issues/55">join the team</a>. You will be added to the Kipoi organization. This will allow you to push to branches of the <code>kipoi/models</code> github repo directly.</p>
+<h6 id="option-2-create-a-new-branch-on-kipoimodels">Option 2: Create a new branch on kipoi/models</h6>
+<p>If you wish to contribute models more frequently, please <a href="https://github.com/kipoi/models/issues/55">join the team</a>. 
+You will be added to the Kipoi organization. This will allow you to push to branches of the <code>kipoi/models</code> github repo directly.</p>
 <ol>
 <li>Make sure you have all the recent changes locally<ul>
 <li><code>cd ~/.kipoi/models</code></li>
@@ -345,24 +375,22 @@
 </li>
 </ol>
 <p>Rest of this document will go more into the details about steps writing the model and testing the model.</p>
-<h3 id="how-to-write-the-model">How to write the model</h3>
+<h4 id="how-to-write-the-model">How to write the model</h4>
 <p>Best place to start figuring out which files you need to contribute is to look at some of the existing models. Explore the <a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a> repository and see if there are any models similar to yours (in terms of the dependencies, framework, input-output data modalities). See <a href="../../tutorials/contributing_models">tutorials/contributing_models</a> for a step-by-step procedure for contributing models.</p>
 <p>In terms of what to include in your model: The information in these pages here are the minimum requirement. The more
 information you can share with other users the better! If you have converted the model from using a script, please add that.
 If you have additional test and validation scripts that you wrote while verifying the Kipoi model, etc. , please add them.
 You will make future users happy.</p>
 <p>Hint: If you want to take a look at a specific model that is already in the zoo, but instead of the content of the model files there is just a hash entry, then use <code>kipoi pull &lt;model_name&gt;</code> to download the model data.</p>
-<h4 id="option-1-copy-existing-model">Option #1: Copy existing model</h4>
+<h5 id="option-1-copy-existing-model">Option #1: Copy existing model</h5>
 <p>Once you have found the closest match, simply copy the directory and start editing/replacing the files. Edit the files in this order:</p>
 <ul>
 <li>model.yaml</li>
-<li>dataloader.yaml</li>
-<li>dataloader.py</li>
-<li>overwrite files in <code>model_files/</code></li>
-<li><code>example_files/</code></li>
+<li>dataloader.yaml (If you wrote your own dataloader)</li>
+<li>dataloader.py (If you wrote your own dataloader)</li>
 <li>LICENSE</li>
 </ul>
-<h4 id="option-2-use-kipoi-init">Option #2: Use <code>kipoi init</code></h4>
+<h5 id="option-2-use-kipoi-init">Option #2: Use <code>kipoi init</code></h5>
 <p>Alternatively, you can use <code>kipoi init</code> instead of copying the existing model:</p>
 <pre><code class="bash">cd ~/.kipoi/models &amp;&amp; kipoi init
 </code></pre>
@@ -419,10 +447,15 @@ INFO [kipoi.cli.main] Done!
 Created the following folder into the current working directory: my_new_model
 </code></pre>
 
-<p>The created folder contains a model and a dataloader for predicting the Iris species. You will now have to <a href="../02_Writing_model.yaml/">edit the model.yaml</a> and to <a href="../03_Writing_dataloader.yaml/">edit the dataloader.yaml</a> files according to your model. Also you will have to copy you rmodel files into the model_files directory. You can check whether you have succeeded and your model is setup correctly with the commands below.</p>
-<h3 id="how-to-test-the-model">How to test the model</h3>
-<p>Be aware that the test functions will only check whether the definition side of things (model.yaml, dataloader.yaml, syntax errors, etc.) is setup correctly, you will have to validate yourself whether the outputs created by using the predict function produce the desired model output!</p>
-<h4 id="step-1-run-kipoi-test-kipoimodelsmy_new_model">Step 1: Run <code>kipoi test ~/.kipoi/models/my_new_model</code></h4>
+<p>The created folder contains a model and a dataloader for predicting the Iris species. 
+You will now have to <a href="../02_Writing_model.yaml/">edit the model.yaml</a> and to 
+<a href="../03_Writing_dataloader.yaml/">edit the dataloader.yaml</a> files according to your model.
+ You can check whether you have succeeded and your model is setup correctly with the commands below.</p>
+<h4 id="how-to-test-the-model">How to test the model</h4>
+<p>Be aware that the test functions will only check whether the definition side of things 
+(model.yaml, dataloader.yaml, syntax errors, etc.) is setup correctly, you will have to validate yourself whether 
+the outputs created by using the predict function produce the desired model output!</p>
+<h5 id="step-1-run-kipoi-test-kipoimodelsmy_new_model">Step 1: Run <code>kipoi test ~/.kipoi/models/my_new_model</code></h5>
 <!-- To make sure this work as you expect, test your model by running: -->
 
 <!-- ```bash -->
@@ -432,7 +465,7 @@ Created the following folder into the current working directory: my_new_model
 <!-- ``` -->
 
 <p>This checks the yaml files and runs <code>kipoi predict</code> for the example files (specified in <code>dataloader.yaml &gt; args &gt; my_arg &gt; example</code>). Once this command returns no errors or warnings proceed to the next step.</p>
-<h4 id="step-2-run-kipoi-test-source-kipoi-all-k-my_new_model">Step 2: Run <code>kipoi test-source kipoi --all -k my_new_model</code></h4>
+<h5 id="step-2-run-kipoi-test-source-kipoi-all-k-my_new_model">Step 2: Run <code>kipoi test-source kipoi --all -k my_new_model</code></h5>
 <!-- To also test that the conda environment for the model can be installed correctly, run: -->
 
 <!-- ```bash -->
@@ -442,7 +475,7 @@ Created the following folder into the current working directory: my_new_model
 <!-- ``` -->
 
 <p>This will run <code>kipoi test</code> in a new conda environment with dependencies specified in <code>model.yaml</code> and <code>dataloader.yaml</code>.</p>
-<h3 id="removing-or-updating-models">Removing or updating models</h3>
+<h4 id="removing-or-updating-models">Removing or updating models</h4>
 <p>To remove, rename or update an existing model, send a pull-request (as when contributing models, see <a href="#3-submit-the-pull-request">3. Submit the pull-request</a>).</p>
               
             </div>

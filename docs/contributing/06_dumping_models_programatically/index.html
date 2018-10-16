@@ -250,31 +250,24 @@
             <div class="section">
               
                 <h2 id="contributing-multiple-very-similar-models">Contributing multiple very similar models</h2>
-<p>Consider an example where multiple models were trained, each for a different cell-lines (case for CpGenie). Here is the final folder structure of the contributed model <em>group</em> (simplifed from the <a href="https://github.com/kipoi/models/tree/master/CpGenie">CpGenie</a> model)</p>
+<p>Consider an example where multiple models were trained, each for a different cell-lines (case for CpGenie). Here is 
+the final folder structure of the contributed model <em>group</em> (simplifed from the 
+<a href="https://github.com/kipoi/models/tree/master/CpGenie">CpGenie</a> model)</p>
 <pre><code>cell_line_1
 ├── dataloader.py -&gt; ../template/dataloader.py
 ├── dataloader.yaml -&gt; ../template/dataloader.yaml
-├── example_files -&gt; ../template/example_files
-├── model_files
-│   └── model.h5
-└── model.yaml -&gt; ../template/model.yaml
+└── model.yaml # could be generated from ../template/model.yaml jinja template
 
 cell_line_2
 ├── dataloader.py -&gt; ../template/dataloader.py
 ├── dataloader.yaml -&gt; ../template/dataloader.yaml
-├── example_files -&gt; ../template/example_files
-├── model_files
-│   └── model.h5
-└── model.yaml -&gt; ../template/model.yaml
+└── model.yaml # could be generated from ../template/model.yaml jinja template
 
 template
 ├── dataloader.py
 ├── dataloader.yaml
-├── example_files
-│   ├── hg38_chr22.fa
-│   ├── hg38_chr22.fa.fai
-│   └── intervals.bed
 └── model.yaml
+
 Makefile
 test_subset.txt
 </code></pre>
@@ -282,7 +275,10 @@ test_subset.txt
 <h2 id="template-folder"><code>template/</code> folder</h2>
 <p>The <code>template/</code> folder should contain all the common files or templates. This directory is ignored when listing models.</p>
 <h3 id="softlinks">Softlinks</h3>
-<p>One option to prevent code duplication is to use soft-links. In the simplest case (as shown above), all files except model weights can be shared accross models. When selectively downloading files from git-lfs, Kipoi also considers soft-links and downloads the original files (e.g. when running <code>kipoi predict my_model/cell_line_1 ...</code>, the git-lfs files in <code>my_model/template</code> will also get downloaded).</p>
+<p>One option to prevent code duplication is to use soft-links. In the simplest case (as shown above), all files 
+except model weights can be shared accross models. When selectively downloading files from git-lfs, Kipoi also 
+considers soft-links and downloads the original files (e.g. when running <code>kipoi predict my_model/cell_line_1 ...</code>, 
+the git-lfs files in <code>my_model/template</code> will also get downloaded).</p>
 <p><strong>Note</strong> Make sure you are using <strong>relative</strong> soft-links (as shown above). </p>
 <pre><code class="python"># example code-snippet to dump of multiple Keras models
 # and to softlink the remaining files
@@ -320,7 +316,7 @@ for cell_line in all_cell_lines:
 <h3 id="jinja-templating">Jinja templating</h3>
 <p>Another option is to use template engines. Template engines are heavily used in web-development to dynamically generate html files. One of the most popular template engines is <a href="http://jinja.pocoo.org/">jinja</a>. Template engines offer more flexibility over softlinks. With softlinks you can only re-use the whole file, while with templating you can choose which pieces of the file are shared and which ones are specific to each model.</p>
 <pre><code class="yaml"># template_model.yaml
-type: keras
+defined_as: kipoi.model.KerasModel 
 args:
     weights: model_files/model.h5
 ...
@@ -387,8 +383,10 @@ class SpecificModel(TemplateModel):
 </code></pre>
 
 <h2 id="test_subsettxt-testing-only-some-models"><code>test_subset.txt</code> - Testing only some models</h2>
-<p>Since many models are essentially the same, the automatic tests should only test one or few models. To specify which models to test,
-write the <code>test_subset.txt</code> file in the same directory level as the <code>template/</code> folder and list the models you want to test.</p>
+<p>Since many models are essentially the same, the automatic tests should only test one or few models. To specify which 
+models to test,
+write the <code>test_subset.txt</code> file in the same directory level as the <code>template/</code> folder and list the models you want to 
+test.</p>
 <p>Examples:</p>
 <p><code>CpGenie/test_subset.txt</code>: </p>
 <pre><code>GM19239_ENCSR000DGH
@@ -401,7 +399,9 @@ merged
 </code></pre>
 
 <h2 id="reproducible-script">Reproducible script</h2>
-<p>Regardless of which approch you choose to take, consider writing a single script/Makefile in the model-group root (at the same directory level as <code>template/</code>). The script/Makefile should generate or softlink all the files given the template folder, making it easier to update the files later.</p>
+<p>Regardless of which approch you choose to take, consider writing a single script/Makefile in the model-group root (at 
+the same directory level as <code>template/</code>). The script/Makefile should generate or softlink all the files given the 
+template folder, making it easier to update the files later.</p>
 <!-- - `generate.bash` -->
 
 <!-- - `make all` -->

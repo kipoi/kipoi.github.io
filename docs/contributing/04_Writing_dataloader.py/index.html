@@ -109,6 +109,8 @@
         
             <li><a class="toctree-l4" href="#dataset-example">Dataset example</a></li>
         
+            <li><a class="toctree-l4" href="#required-static-files">Required static files</a></li>
+        
             <li><a class="toctree-l4" href="#further-examples">Further examples</a></li>
         
         </ul>
@@ -241,6 +243,11 @@
             <div class="section">
               
                 <h2 id="dataloader">Dataloader</h2>
+<aside class="warning">
+Before writing a dataloader yourself please check whether the same functionality can be achieved using a ready-made 
+dataloader in [kipoiseq](https://github.com/kipoi/kipoiseq).
+</aside>
+
 <p>The main aim of a dataloader is to generate batches of data with which a model can be run. It therefore has to return a dictionary with three keys:</p>
 <ul>
 <li><code>inputs</code></li>
@@ -407,6 +414,35 @@ class SeqDataset(Dataset):
 </code></pre>
 
 <p>Since <code>FastaExtractor</code> is not multi-processing safe, we have initialized it on the first call of <code>__getitem__</code> instead of <code>__init__</code>. The reason for this is that when we use parallel dataloading, each process will get a copy of the <code>SeqDataset(...)</code> object. Upon the first call of <code>__getitem__</code> the <code>fasta_extractor</code> and hence the underlying file-handle will be setup for each worker independently.</p>
+<h3 id="required-static-files">Required static files</h3>
+<p>If your dataloader requires an external data file as for example in 
+<a href="../../tutorials/contributing_models">tutorials/contributing_models</a>, then the Kipoi way of automatically downloading 
+and using that file is by adding an argument to the dataloader implementation:</p>
+<pre><code class="python">from __future__ import absolute_import, division, print_function
+from kipoi.data import Dataset
+
+class SeqDataset(Dataset):
+    &quot;&quot;&quot;
+    Args:
+        intervals_file: bed3 file containing intervals
+        fasta_file: file path; Genome sequence
+    &quot;&quot;&quot;
+
+    def __init__(self, intervals_file, fasta_file, essential_other_file):
+        fh = open(essential_other_file, &quot;r&quot;)
+        ...
+</code></pre>
+
+<p>Kipoi can automaticall download the required file from a zenodo or figshare url as if the url was defined as a default
+ in the <code>dataloader.yaml</code> as follows:</p>
+<pre><code class="yaml">args:
+   ...
+   essential_other_file:
+       default:
+           url: https://zenodo.org/path/to/my/essential/other/file.xyz
+           md5: 765sadf876a
+</code></pre>
+
 <h3 id="further-examples">Further examples</h3>
 <p>To see examples of other dataloaders, run <code>kipoi init</code> from the command-line and choose each time a different dataloader_type.</p>
 <pre><code>$ kipoi init

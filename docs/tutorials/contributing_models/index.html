@@ -132,7 +132,7 @@
         
             <li><a class="toctree-l4" href="#contributing-a-simple-iris-classifier">Contributing a simple Iris-classifier</a></li>
         
-            <li><a class="toctree-l4" href="#accessing-the-model-through-kipoi">Accessing the model through kipoi</a></li>
+            <li><a class="toctree-l4" href="#accessing-local-models-through-kipoi">Accessing local models through kipoi</a></li>
         
             <li><a class="toctree-l4" href="#recap">Recap</a></li>
         
@@ -259,7 +259,10 @@
 </ul>
 <p>See <a href="http://kipoi.org/docs/contributing/02_Writing_model.yaml/">http://kipoi.org/docs/contributing/02_Writing_model.yaml/</a> and <a href="http://kipoi.org/docs/contributing/05_Writing_model.py/">http://kipoi.org/docs/contributing/05_Writing_model.py/</a> for more info.</p>
 <h3 id="dataloader">Dataloader</h3>
-<p>Dataloader takes raw file paths or other parameters as argument and outputs modelling-ready numpy arrays. The dataloading can be done through a generator---batch-by-batch, sample-by-sample---or by just returning the whole dataset. The goal is to work really with raw files (say fasta, bed, vcf, etc in bioinformatics), as this allows to make model predictions on new datasets without going through the burden of running custom pre-processing scripts. The model contributor needs to implement one of the following:</p>
+<p>Dataloader takes raw file paths or other parameters as argument and outputs modelling-ready numpy arrays. </p>
+<p>Before writing your own dataloader take a look at our <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> repository to see whether your use-case is covered by the available dataloaders.</p>
+<h4 id="writing-your-own-dataloader">Writing your own dataloader</h4>
+<p>Technically, dataloading can be done through a generator---batch-by-batch, sample-by-sample---or by just returning the whole dataset. The goal is to work really with raw files (say fasta, bed, vcf, etc in bioinformatics), as this allows to make model predictions on new datasets without going through the burden of running custom pre-processing scripts. The model contributor needs to implement one of the following:</p>
 <ul>
 <li>PreloadedDataset</li>
 <li>Dataset</li>
@@ -272,33 +275,28 @@
 <p>See <a href="http://kipoi.org/docs/contributing/04_Writing_dataloader.py/">http://kipoi.org/docs/contributing/04_Writing_dataloader.py/</a> for more info.</p>
 <h3 id="folder-layout">Folder layout</h3>
 <p>Here is an example folder structure of a Kipoi model:</p>
-<pre><code>├── dataloader.py     # implements the dataloader
-├── dataloader.yaml   # describes the dataloader
-├── dataloader_files/      #/ files required by the dataloader
-│   ├── x_transfomer.pkl
-│   └── y_transfomer.pkl
-├── model.yaml        # describes the model
-├── model_files/           #/ files required by the model
-│   ├── model.json
-│   └── weights.h5
-└── example_files/         #/ small example files
-    ├── features.csv
-    └── targets.csv
+<pre><code>MyModel
+├── dataloader.py     # implements the dataloader (only necessary if you wrote your own dataloader)
+├── dataloader.yaml   # describes the dataloader (only necessary if you wrote your own dataloader)
+└── model.yaml         # describes the model
 </code></pre>
 
-<p>Two most important files are <code>model.yaml</code> and <code>dataloader.yaml</code>. They provide a complete description about the model, the dataloader and the files they depend on.</p>
+<p>The <code>model.yaml</code> and <code>dataloader.yaml</code> files a complete description about the model, the dataloader and the files they depend on.</p>
 <h2 id="contributing-a-simple-iris-classifier">Contributing a simple Iris-classifier</h2>
 <p>Details about the individual files will be revealed throught the tutorial below. A simple Keras model will be trained to predict the Iris plant class from the well-known <a href="archive.ics.uci.edu/ml/datasets/Iris">Iris</a> dataset.</p>
 <h3 id="outline">Outline</h3>
 <ol>
 <li>Train the model</li>
-<li>Generate <code>dataloader_files/</code></li>
-<li>Generate <code>model_files/</code></li>
-<li>Generate <code>example_files/</code></li>
+<li>Generate the model directory</li>
+<li>Store all data files required for the model and the dataloader in a temporary folder</li>
 <li>Write <code>model.yaml</code></li>
 <li>Write <code>dataloader.yaml</code></li>
 <li>Write <code>dataloader.py</code></li>
 <li>Test with the model with <code>$ kipoi test .</code></li>
+<li>Publish data files on zenodo</li>
+<li>Update <code>model.yaml</code> and <code>dataloader.yaml</code> to contain the links</li>
+<li>Test again</li>
+<li>Commit, push and generate a pull request</li>
 </ol>
 <h3 id="1-train-the-model">1. Train the model</h3>
 <h4 id="load-and-pre-process-the-data">Load and pre-process the data</h4>
@@ -326,9 +324,9 @@ y = y_transformer.transform(iris[&quot;target&quot;])
 <pre><code class="python">x[:3]
 </code></pre>
 
-<pre><code>array([[-0.9007,  1.0321, -1.3413, -1.313 ],
-       [-1.143 , -0.125 , -1.3413, -1.313 ],
-       [-1.3854,  0.3378, -1.3981, -1.313 ]])
+<pre><code>array([[-0.90068117,  1.03205722, -1.3412724 , -1.31297673],
+       [-1.14301691, -0.1249576 , -1.3412724 , -1.31297673],
+       [-1.38535265,  0.33784833, -1.39813811, -1.31297673]])
 </code></pre>
 <pre><code class="python">y[:3]
 </code></pre>
@@ -353,243 +351,99 @@ model.fit(x, y, verbose=0)
 <pre><code>Using TensorFlow backend.
 
 
+WARNING:tensorflow:From /nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:2857: calling reduce_sum (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+WARNING:tensorflow:From /nfs/research1/stegle/users/rkreuzhu/conda-envs/kipoi_interpret/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1340: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
 
 
 
-&lt;keras.callbacks.History at 0x7ff456b9b9b0&gt;
+
+
+&lt;keras.callbacks.History at 0x2ab58e8ba860&gt;
 </code></pre>
-<h3 id="2-generate-dataloader_files">2. Generate <code>dataloader_files/</code></h3>
-<p>Now that we have everything we need, let's start writing the files to model's directory (here <code>model_template/</code>). </p>
-<p>In reality, you would need to </p>
+<h3 id="2-set-the-model-directory-up">2. Set the model directory up:</h3>
+<p>In reality, you would also need to </p>
 <ol>
 <li>Fork the <a href="https://github.com/kipoi/models">kipoi/models repository</a></li>
 <li>Clone your repository fork, ignoring all the git-lfs files<ul>
-<li><code>$ git lfs clone git@github.com:&lt;your_username&gt;/models.git '-I /'</code></li>
+<li><code>$ git clone git@github.com:&lt;your_username&gt;/models.git</code></li>
 </ul>
 </li>
-<li>Create a new folder <code>&lt;mynewmodel&gt;</code> containing all the model files in the repostiory root<ul>
-<li>put all the non-code files (serialized models, test data) into a <code>*files/</code> directory, where <code>*</code> can be anything. These will namely be tracked by <code>git-lfs</code> instead of <code>git</code>.</li>
-<li>Examples: <code>model_files/</code>, <code>dataloader_files/</code></li>
-</ul>
-</li>
-<li>Test your repository locally:<ul>
-<li><code>$ kipoi test &lt;mynewmodel_folder&gt;</code></li>
-</ul>
-</li>
-<li>Commit, push to your forked remote and submit a pull request to <a href="https://github.com/kipoi/models">github.com/kipoi/models</a></li>
+<li>Create a new folder <code>&lt;mynewmodel&gt;</code></li>
 </ol>
-<p>Dataloader can use some trained transformer (here the <code>LabelBinarizer</code> and <code>StandardScaler</code> transformers form sklearn). These should be written to <code>dataloader_files/</code>.</p>
-<pre><code class="python">cd ../examples/sklearn_iris/
+<h3 id="3-store-the-files-in-a-temporary-directory">3. Store the files in a temporary directory</h3>
+<p>All the data of the model will have to be published on zenodo or figshare before the pull request is performed. While setting the Kipoi model up, it is handy the keep the models in a temporary directory in the model folder, which we will delete prior to the pull request.</p>
+<pre><code class="python"># create the model directory
+!mkdir contribution_sample_model
+# create the temporary directory where we will keep the files that should later be published in zenodo or figshare
+!mkdir contribution_sample_model/tmp
 </code></pre>
 
-<pre><code>/data/nasif12/home_if12/avsec/workspace/kipoi/kipoi/examples/sklearn_iris
-</code></pre>
-<pre><code class="python">os.makedirs(&quot;dataloader_files&quot;, exist_ok=True)
-</code></pre>
-
-<pre><code class="python">ls
+<p>Now we can change the current working directory to the model directory:</p>
+<pre><code class="python">import os
+os.chdir(&quot;contribution_sample_model&quot;)
 </code></pre>
 
-<pre><code>[0m[38;5;27mdataloader_files[0m/  dataloader.pyc   [38;5;27mexample_files[0m/  model.yaml
-dataloader.py      dataloader.yaml  [38;5;27mmodel_files[0m/    [38;5;27m__pycache__[0m/
-</code></pre>
+<h4 id="3a-static-files-for-dataloader">3a. Static files for dataloader</h4>
+<p>Since in our case here we require to write a new dataloader. The dataloader can use some trained transformer instances (here the <code>LabelBinarizer</code> and <code>StandardScaler</code> transformers form sklearn). These should be uploaded with the model files and then referenced correctly in the <code>dataloader.yaml</code> file. We will store the required files in the temporary folder:</p>
 <pre><code class="python">import pickle
 </code></pre>
 
-<pre><code class="python">with open(&quot;dataloader_files/y_transformer.pkl&quot;, &quot;wb&quot;) as f:
+<pre><code class="python">with open(&quot;tmp/y_transformer.pkl&quot;, &quot;wb&quot;) as f:
     pickle.dump(y_transformer, f, protocol=2)
 
-with open(&quot;dataloader_files/x_transformer.pkl&quot;, &quot;wb&quot;) as f:
+with open(&quot;tmp/x_transformer.pkl&quot;, &quot;wb&quot;) as f:
     pickle.dump(x_transformer, f, protocol=2)
 </code></pre>
 
-<pre><code class="python">ls dataloader_files
+<pre><code class="python">! ls tmp
 </code></pre>
 
 <pre><code>x_transformer.pkl  y_transformer.pkl
 </code></pre>
-<h3 id="3-generate-model_files">3. Generate <code>model_files/</code></h3>
-<p>The serialized model weights and architecture go to <code>model_files/</code>.</p>
-<pre><code class="python">os.makedirs(&quot;model_files&quot;, exist_ok=True)
-</code></pre>
-
+<h4 id="3b-model-definition-weights">3b. Model definition / weights</h4>
+<p>Now that we have the static files that are required by the dataloader, we also need to store the model architecture and weights:</p>
 <pre><code class="python"># Architecture
-with open(&quot;model_files/model.json&quot;, &quot;w&quot;) as f:
+with open(&quot;tmp/model.json&quot;, &quot;w&quot;) as f:
     f.write(model.to_json())
+
+# Weights
+model.save_weights(&quot;tmp/weights.h5&quot;)
 </code></pre>
 
-<pre><code class="python"># Weights
-model.save_weights(&quot;model_files/weights.h5&quot;)
-</code></pre>
-
+<p>Alternatively if we would be using a scikit-learn model we would save the pickle file:</p>
 <pre><code class="python"># Alternatively, for the scikit-learn model we would save the pickle file
 from sklearn.linear_model import LogisticRegression
 from sklearn.multiclass import OneVsRestClassifier
 lr = OneVsRestClassifier(LogisticRegression())
 lr.fit(x, y)
 
-with open(&quot;model_files/sklearn_model.pkl&quot;, &quot;wb&quot;) as f:
+with open(&quot;tmp/sklearn_model.pkl&quot;, &quot;wb&quot;) as f:
     pickle.dump(lr, f, protocol=2)
+
+
 </code></pre>
 
-<h3 id="4-generate-example_files">4. Generate <code>example_files/</code></h3>
-<p><code>example_files/</code> should contain a small subset of the raw files the dataloader will read.</p>
-<h4 id="numpy-arrays-pddataframe">Numpy arrays -&gt; pd.DataFrame</h4>
-<pre><code class="python">iris.keys()
+<h4 id="3c-example-files-for-the-dataloader">3c. Example files for the dataloader</h4>
+<p>Every Kipoi dataloader has to provide a set of example files so that Kipoi can perform its automated tests and users can have an idea what the dataloader files have to look like. Again we will store the files in the temporary folder:</p>
+<pre><code class="python"># select first 20 rows of the iris dataset
+X = pd.DataFrame(iris[&quot;data&quot;][:20], columns=iris[&quot;feature_names&quot;])
+y = pd.DataFrame({&quot;class&quot;: iris[&quot;target&quot;][:20]})
+# store the model input features and targets as csv files with column names:
+X.to_csv(&quot;tmp/example_features.csv&quot;, index=False)
+y.to_csv(&quot;tmp/example_targets.csv&quot;, index=False)
 </code></pre>
 
-<pre><code>dict_keys(['target_names', 'feature_names', 'data', 'DESCR', 'target'])
-</code></pre>
-<pre><code class="python">X = pd.DataFrame(iris[&quot;data&quot;][:20], columns=iris[&quot;feature_names&quot;])
-</code></pre>
-
-<pre><code class="python">X.head()
-</code></pre>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal length (cm)</th>
-      <th>sepal width (cm)</th>
-      <th>petal length (cm)</th>
-      <th>petal width (cm)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<pre><code class="python">y = pd.DataFrame({&quot;class&quot;: iris[&quot;target&quot;][:20]})
-</code></pre>
-
-<pre><code class="python">y.head()
-</code></pre>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<h4 id="save-example-files">Save example files</h4>
-<pre><code class="python">os.makedirs(&quot;example_files&quot;, exist_ok=True)
-</code></pre>
-
-<pre><code class="python">X.to_csv(&quot;example_files/features.csv&quot;, index=False)
-</code></pre>
-
-<pre><code class="python">y.to_csv(&quot;example_files/targets.csv&quot;, index=False)
-</code></pre>
-
-<pre><code class="python">!head -n 2 example_files/targets.csv
-</code></pre>
-
-<pre><code>class
-0
-</code></pre>
-<pre><code class="python">!head -n 2 example_files/features.csv
-</code></pre>
-
-<pre><code>sepal length (cm),sepal width (cm),petal length (cm),petal width (cm)
-5.1,3.5,1.4,0.2
-</code></pre>
-<h3 id="5-write-modelyaml">5. Write <code>model.yaml</code></h3>
-<p>The <code>model.yaml</code> for this model should look like this:</p>
-<pre><code class="yaml">type: keras  # use `kipoi.model.KerasModel`
+<h3 id="4-write-the-modelyaml">4 Write the model.yaml</h3>
+<p>Now it is time to write the model.yaml in the model directory. Since we are in the testing stage we will be using local file paths in the <code>args</code> field - those will be replaced by zenodo links once everything is ready for publication.</p>
+<pre><code class="python">model_yaml = &quot;&quot;&quot;
+defined_as: kipoi.model.KerasModel  # use `kipoi.model.KerasModel`
 args:  # arguments of `kipoi.model.KerasModel`
-    arch: model_files/model.json
-    weights: model_files/weights.h5
+    arch: tmp/model.json
+    weights: tmp/weights.h5
 default_dataloader: . # path to the dataloader directory. Here it's defined in the same directory
 info: # General information about the model
     authors: 
@@ -597,7 +451,6 @@ info: # General information about the model
           github: your_github_username
           email: your_email@host.org
     doc: Model predicting the Iris species
-    version: 0.1  # optional 
     cite_as: https://doi.org:/... # preferably a doi url to the paper
     trained_on: Iris species dataset (http://archive.ics.uci.edu/ml/datasets/Iris) # short dataset description
     license: MIT # Software License - defaults to MIT
@@ -617,12 +470,19 @@ schema:  # Model schema
     targets:
         shape: (3,)
         doc: &quot;One-hot encoded array of classes: setosa, versicolor, virginica.&quot;
+&quot;&quot;&quot;
+with open(&quot;model.yaml&quot;, &quot;w&quot;) as ofh:
+    ofh.write(model_yaml)
 </code></pre>
 
-<p>All file paths are relative relative to <code>model.yaml</code>.</p>
-<h3 id="6-write-dataloaderyaml">6. Write <code>dataloader.yaml</code></h3>
-<pre><code class="yaml">type: Dataset
-defined_as: dataloader.py::MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
+<h3 id="5-and-6-write-the-dataloaderyaml-and-dataloaderpy">5 and 6 Write the dataloader.yaml and dataloader.py</h3>
+<p><em><strong>PLEASE REMEMBER:</strong></em>
+Before writing a dataloader yourself please check whether the same functionality can be achieved using a ready-made 
+dataloader in <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> and use those as explained in the Kipoi docs.</p>
+<p>Now it is time to write the <code>dataloader.yaml</code>. Since we defined the <code>default_dataloader</code> field in <code>model.yaml</code> as <code>.</code> Kipoi will expect that our <code>dataloader.yaml</code> file lies in the same directory. Since we are in the testing stage we will be using local file paths in the <code>args</code> field - those will be replaced by zenodo links once everything is ready for publication.</p>
+<pre><code class="python">dataloader_yaml = &quot;&quot;&quot;
+type: Dataset
+defined_as: dataloader.MyDataset
 args:
     features_file:
         # descr: &gt; allows multi-line fields
@@ -630,14 +490,22 @@ args:
           Csv file of the Iris Plants Database from
           http://archive.ics.uci.edu/ml/datasets/Iris features.
         type: str
-        example: example_files/features.csv  # example files
+        example: tmp/example_features.csv  # example files
+    x_transformer:
+        default: tmp/x_transformer.pkl
+        #default:
+        #      url: https://github.com/kipoi/kipoi/raw/57734d716b8dedaffe460855e7cfe8f37ec2d48d/example/models/sklearn_iris/dataloader_files/x_transformer.pkl
+        #      md5: bc1bf3c61c418b2d07506a7d0521a893
+    y_transformer:
+        default: tmp/y_transformer.pkl
     targets_file:
         doc: &gt;
           Csv file of the Iris Plants Database targets.
           Not required for making the prediction.
         type: str
-        example: example_files/targets.csv
+        example: tmp/example_targets.csv
         optional: True  # if not present, the `targets` field will not be present in the dataloader output
+
 info:
     authors: 
         - name: Your Name
@@ -655,20 +523,20 @@ output_schema:
     inputs:
         features:
             shape: (4,)
-            doc: Features in cm: sepal length, sepal width, petal length, petal width.
+            doc: &quot;Features in cm: sepal length, sepal width, petal length, petal width.&quot;
     targets:
         shape: (3, )
-        doc: One-hot encoded array of classes: setosa, versicolor, virginica.
+        doc: &quot;One-hot encoded array of classes: setosa, versicolor, virginica.&quot;
     metadata:  # field providing additional information to the samples (not directly required by the model)
         example_row_number:
-            shape: int
             doc: Just an example metadata column
+&quot;&quot;&quot;
+with open(&quot;dataloader.yaml&quot;, &quot;w&quot;) as ofh:
+    ofh.write(dataloader_yaml)
 </code></pre>
 
-<h3 id="7-write-dataloaderpy">7. Write <code>dataloader.py</code></h3>
-<p>Finally, let's implement MyDataset. We need to implement two methods: <code>__len__</code> and <code>__getitem__</code>. </p>
-<p><code>__getitem__</code> will return one item of the dataset. In our case, this is a dictionary with <code>output_schema</code> described in <code>dataloader.yaml</code>.</p>
-<p>For more information about writing such dataloaders, see the <a href="http://pytorch.org/tutorials/beginner/data_loading_tutorial.html">Data Loading and Processing Tutorial from pytorch</a>.</p>
+<p>Since we have referred to the dataloader as <code>dataloader.MyDataset</code> we expect a <code>dataloader.py</code> file in the same directory as <code>dataloader.yaml</code> which has to contain the dataloader class, which is here <code>MyDataset</code>.</p>
+<p>Notice that external static files are arguments to the <code>__init__</code> function! Their path was defined in the <code>dataloader.yaml</code>.</p>
 <pre><code class="python">import pickle
 from kipoi.data import Dataset
 import pandas as pd
@@ -680,12 +548,12 @@ def read_pickle(f):
 
 class MyDataset(Dataset):
 
-    def __init__(self, features_file, targets_file=None):
+    def __init__(self, features_file, targets_file=None, x_transformer=None, y_transformer=None):
         self.features_file = features_file
         self.targets_file = targets_file
 
-        self.y_transformer = read_pickle(&quot;dataloader_files/y_transformer.pkl&quot;)
-        self.x_transformer = read_pickle(&quot;dataloader_files/x_transformer.pkl&quot;)
+        self.y_transformer = read_pickle(y_transformer)
+        self.x_transformer = read_pickle(x_transformer)
 
         self.features = pd.read_csv(features_file)
         if targets_file is not None:
@@ -712,94 +580,153 @@ class MyDataset(Dataset):
         }
 </code></pre>
 
-<h4 id="example-usage-of-the-dataset">Example usage of the dataset</h4>
-<pre><code class="python">ds = MyDataset(&quot;example_files/features.csv&quot;, &quot;example_files/targets.csv&quot;)
+<p>In order to elucidate what the Dataloader class does I will make a few function calls that are usually performed by the Kipoi API in order to generate model input:</p>
+<pre><code class="python"># instantiate the dataloader
+ds = MyDataset(&quot;tmp/example_features.csv&quot;, &quot;tmp/example_targets.csv&quot;, &quot;tmp/x_transformer.pkl&quot;, 
+               &quot;tmp/y_transformer.pkl&quot;)
 </code></pre>
 
 <pre><code class="python"># call __getitem__
 ds[5]
 </code></pre>
 
-<pre><code>{'inputs': {'features': array([-0.5372,  1.9577, -1.1707, -1.05  ])},
- 'metadata': {'example_row_number': 5},
- 'targets': array([1, 0, 0])}
+<pre><code>{'inputs': {'features': array([-0.53717756,  1.95766909, -1.17067529, -1.05003079])},
+ 'targets': array([1, 0, 0]),
+ 'metadata': {'example_row_number': 5}}
 </code></pre>
-<p>Since MyDatset inherits from <code>kipoi.data.Dataset</code>, it has some additional nice feature. See <a href="python-sdk.ipynb">python-sdk.ipynb</a> for more information.</p>
-<pre><code class="python"># batch-iterator
-it = ds.batch_iter(batch_size=3, shuffle=False, num_workers=2)
+<pre><code class="python">it = ds.batch_iter(batch_size=3, shuffle=False, num_workers=2)
 next(it)
 </code></pre>
 
-<pre><code>{'inputs': {'features': array([[-0.9007,  1.0321, -1.3413, -1.313 ],
-         [-1.143 , -0.125 , -1.3413, -1.313 ],
-         [-1.3854,  0.3378, -1.3981, -1.313 ]])},
- 'metadata': {'example_row_number': array([0, 1, 2])},
+<pre><code>{'inputs': {'features': array([[-0.90068117,  1.03205722, -1.3412724 , -1.31297673],
+         [-1.14301691, -0.1249576 , -1.3412724 , -1.31297673],
+         [-1.38535265,  0.33784833, -1.39813811, -1.31297673]])},
  'targets': array([[1, 0, 0],
         [1, 0, 0],
-        [1, 0, 0]])}
+        [1, 0, 0]]),
+ 'metadata': {'example_row_number': array([0, 1, 2])}}
 </code></pre>
-<pre><code class="python"># ds.load_all()  # load the whole dataset into memory
+<p>I will now store the code from above in a file so that we can test it:</p>
+<pre><code class="python">dataloader_py = &quot;&quot;&quot;
+import pickle
+from kipoi.data import Dataset
+import pandas as pd
+import numpy as np
+
+def read_pickle(f):
+    with open(f, &quot;rb&quot;) as f:
+        return pickle.load(f)
+
+class MyDataset(Dataset):
+
+    def __init__(self, features_file, targets_file=None, x_transformer=None, y_transformer=None):
+        self.features_file = features_file
+        self.targets_file = targets_file
+
+        self.y_transformer = read_pickle(y_transformer)
+        self.x_transformer = read_pickle(x_transformer)
+
+        self.features = pd.read_csv(features_file)
+        if targets_file is not None:
+            self.targets = pd.read_csv(targets_file)
+            assert len(self.targets) == len(self.features)
+
+    def __len__(self):
+        return len(self.features)
+
+    def __getitem__(self, idx):
+        x_features = np.ravel(self.x_transformer.transform(self.features.iloc[idx].values[np.newaxis]))
+        if self.targets_file is None:
+            y_class = {}
+        else:
+            y_class = np.ravel(self.y_transformer.transform(self.targets.iloc[idx].values[np.newaxis]))
+        return {
+            &quot;inputs&quot;: {
+                &quot;features&quot;: x_features
+            },
+            &quot;targets&quot;: y_class,
+            &quot;metadata&quot;: {
+                &quot;example_row_number&quot;: idx
+            }
+        }
+&quot;&quot;&quot;
+with open(&quot;dataloader.py&quot;, &quot;w&quot;) as ofh:
+    ofh.write(dataloader_py)
 </code></pre>
 
-<h3 id="8-test-with-the-model-with-kipoi-test">8. Test with the model with <code>$ kipoi test .</code></h3>
-<p>Before we contribute the model to the repository, let's run the test:</p>
+<h3 id="7-test-the-model">7 Test the model</h3>
+<p>Now it is time to test the model.</p>
 <pre><code class="python">!kipoi test .
 </code></pre>
 
-<pre><code>[32mINFO[0m [44m[kipoi.data][0m successfully loaded the dataloader from dataloader.py::MyDataset[0m
+<pre><code>[33mWARNING[0m [44m[kipoi.specs][0m doc empty for one of the dataloader `args` fields[0m
+[33mWARNING[0m [44m[kipoi.specs][0m doc empty for one of the dataloader `args` fields[0m
+[32mINFO[0m [44m[kipoi.data][0m successfully loaded the dataloader from /nfs/research1/stegle/users/rkreuzhu/opt/model-zoo/notebooks/contribution_sample_model/dataloader.MyDataset[0m
 Using TensorFlow backend.
-2017-11-29 17:26:21.755321: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
-2017-11-29 17:26:21.755368: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-11-29 17:26:21.755385: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
-2017-11-29 17:26:21.755399: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-11-29 17:26:21.755414: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
-[32mINFO[0m [44m[kipoi.model][0m successfully loaded model architecture from &lt;_io.TextIOWrapper name='model_files/model.json' mode='r' encoding='UTF-8'&gt;[0m
-[32mINFO[0m [44m[kipoi.model][0m successfully loaded model weights from model_files/weights.h5[0m
+2018-10-11 17:41:58.586759: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+[32mINFO[0m [44m[kipoi.model][0m successfully loaded model architecture from &lt;_io.TextIOWrapper name='tmp/model.json' mode='r' encoding='UTF-8'&gt;[0m
+[32mINFO[0m [44m[kipoi.model][0m successfully loaded model weights from tmp/weights.h5[0m
 [32mINFO[0m [44m[kipoi.pipeline][0m dataloader.output_schema is compatible with model.schema[0m
 [32mINFO[0m [44m[kipoi.pipeline][0m Initialized data generator. Running batches...[0m
-/opt/modules/i12g/anaconda/3-4.1.1/lib/python3.5/site-packages/sklearn/base.py:315: UserWarning: Trying to unpickle estimator LabelBinarizer from version 0.19.1 when using version 0.18.1. This might lead to breaking code or invalid results. Use at your own risk.
-  UserWarning)
-/opt/modules/i12g/anaconda/3-4.1.1/lib/python3.5/site-packages/sklearn/base.py:315: UserWarning: Trying to unpickle estimator StandardScaler from version 0.19.1 when using version 0.18.1. This might lead to breaking code or invalid results. Use at your own risk.
-  UserWarning)
 [32mINFO[0m [44m[kipoi.pipeline][0m Returned data schema correct[0m
-100%|█████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 89.45it/s]
+100%|█████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 28.88it/s]
 [32mINFO[0m [44m[kipoi.pipeline][0m predict_example done![0m
-[32mINFO[0m [44m[kipoi.pipeline][0m Successfully ran test_predict[0m
-[0m
+[32mINFO[0m [44m[kipoi.cli.main][0m Successfully ran test_predict[0m
 </code></pre>
-<p>This command did the following:</p>
-<ul>
-<li>validated if <code>output_schema</code> defined in <code>dataloader.yaml</code> matches the shapes of the returned arrays</li>
-<li>validated that model and dataloader are compatible in <code>inputs</code> and <code>targets</code></li>
-<li>executed the model pipeline for the example </li>
-</ul>
-<h2 id="accessing-the-model-through-kipoi">Accessing the model through kipoi</h2>
+<h3 id="8-publish-data-on-zenodo-or-figshare">8. Publish data on zenodo or figshare</h3>
+<p>Now that the model works It is time to upload the data files onto zenodo or figshare. To do so follow the instructions on the website. It might be necessary to remove file suffixes in order to be able to load the respective files.</p>
+<h3 id="9-update-modelyaml-and-dataloaderyaml">9 Update <code>model.yaml</code> and <code>dataloader.yaml</code></h3>
+<p>Now the local file paths in <code>model.yaml</code> and <code>dataloader.yaml</code> have to be replaced by the zenodo / figshare URLs in the following way.</p>
+<p>The entry:</p>
+<pre><code class="yaml">args:
+    ...
+    x_transformer:
+        default: tmp/x_transformer.pkl
+</code></pre>
+
+<p>would be replaced by:</p>
+<pre><code class="yaml">args:
+    ...
+    x_transformer:
+        default: 
+            url: https://zenodo.org/path/to/example_files/x_transformer.pkl
+            md5: 76a5sd76asd57
+</code></pre>
+
+<p>So every local path has to be replaced by the <code>url</code> and <code>md5</code> combination. Where <code>md5</code> is the md5 sum of the file. If you cannot find the the md5 sum on the zenodo / figshare website you can for example run <code>curl https://zenodo.org/.../x_transformer.pkl | md5sum</code> to calculate the md5 sum.</p>
+<p>Now after replacing all the files, test the setup again by running <code>kipoi test .</code> and then delete the <code>tmp</code> folder. Now the only file(s) remaining in the folder should be <code>model.yaml</code> (and in this case also: <code>dataloader.py</code>  <code>dataloader.yaml</code>). </p>
+<h3 id="9-test-again">9 Test again</h3>
+<p>Now that you have deleted the temporary files, rerun the test to make sure everything works fine.</p>
+<h3 id="10-commit-and-push">10 Commit and push</h3>
+<p>Now commit the <code>model.yaml</code> and if needed (like in this example) also the <code>dataloader.py</code> and <code>datalaoder.yaml</code> files by running: <code>git add model.yaml</code>.</p>
+<p>Now you can push back to your fork (<code>git push</code>) and submit a pull request with <code>kipoi/models</code> to request adding your model to the Kipoi models.</p>
+<h2 id="accessing-local-models-through-kipoi">Accessing local models through kipoi</h2>
+<p>In Kipoi it is not necessary to publish your model. You can leverage the full functionality of Kipoi also for local models. All you have to do is specify <code>--source dir</code> when using the CLI or setting <code>source="dir"</code> in the python API. The model name is then the local path to the model folder.</p>
 <pre><code class="python">import kipoi
 </code></pre>
 
-<pre><code class="python">reload(kipoi)
-</code></pre>
-
-<pre><code>&lt;module 'kipoi' from '/data/nasif12/home_if12/avsec/projects-work/kipoi/kipoi/__init__.py'&gt;
-</code></pre>
 <pre><code class="python">m = kipoi.get_model(&quot;.&quot;, source=&quot;dir&quot;)  # See also python-sdk.ipynb
 </code></pre>
 
-<pre><code>Using TensorFlow backend.
-</code></pre>
-<pre><code class="python">m.pipeline.predict({&quot;features_file&quot;: &quot;example_files/features.csv&quot;, &quot;targets_file&quot;: &quot;example_files/targets.csv&quot; })[:5]
+<pre><code class="python">m.pipeline.predict({&quot;features_file&quot;: &quot;tmp/example_features.csv&quot;, &quot;targets_file&quot;: &quot;tmp/example_targets.csv&quot; })[:5]
 </code></pre>
 
-<pre><code>array([[ 1.5356, -0.8118, -0.2712],
-       [ 0.4649, -0.22  , -1.1491],
-       [ 0.6735, -0.1923, -0.8083],
-       [ 0.3958,  0.0178, -0.9159],
-       [ 1.6362, -0.79  , -0.0849]], dtype=float32)
+<pre><code>0it [00:00, ?it/s][A
+1it [00:00, 19.03it/s][A
+
+
+
+
+array([[ 3.2324865 , -0.29753828,  0.62135816],
+       [ 2.8549244 ,  0.4957999 ,  0.6873083 ],
+       [ 3.2744825 ,  0.40906954,  0.99161   ],
+       [ 3.1413555 ,  0.58123374,  1.0272367 ],
+       [ 3.416262  , -0.34901416,  0.76257455]], dtype=float32)
 </code></pre>
 <pre><code class="python">m.info
 </code></pre>
 
-<pre><code>Info(authors=[Author(name='Your Name', github='your_github_username', email=None)], doc='Model predicting the Iris species', name=None, version='0.1', tags=[])
+<pre><code>ModelInfo(authors=[Author(name='Your Name', github='your_github_username', email='your_email@host.org')], doc='Model predicting the Iris species', name=None, version='0.1', license='MIT', tags=[], contributors=[], cite_as='https://doi.org:/...', trained_on='Iris species dataset (http://archive.ics.uci.edu/ml/datasets/Iris)', training_procedure=None)
 </code></pre>
 <pre><code class="python">m.default_dataloader
 </code></pre>
@@ -809,12 +736,12 @@ Using TensorFlow backend.
 <pre><code class="python">m.model
 </code></pre>
 
-<pre><code>&lt;keras.engine.training.Model at 0x7f0dbe68f8d0&gt;
+<pre><code>&lt;keras.engine.training.Model at 0x2ab5a3eff668&gt;
 </code></pre>
 <pre><code class="python">m.predict_on_batch
 </code></pre>
 
-<pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x7f0dc19cf400&gt;&gt;
+<pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x2ab5a2d75160&gt;&gt;
 </code></pre>
 <h2 id="recap">Recap</h2>
 <p>Congrats! You made it through the tutorial! Feel free to use this model for your model template. Alternatively, you can use <code>kipoi init</code> to setup a model directory. Make sure you have read the <a href="http://kipoi.org/docs/contributing/01_Getting_started/">getting started guide</a> for contributing models.</p>
