@@ -410,6 +410,17 @@ args:
 sequential_model = torch.nn.Sequential(...)
 </code></pre>
 
+<p>If you have trouble with the imports or if you would like to
+import a module from a parent directory you can explicitly specify the python file path:</p>
+<pre><code class="python">defined_as: kipoi.model.PyTorchModel
+args:
+    module_file: ./my_sequential.py
+    module_obj: sequential_model
+    weights: 
+        url: https://zenodo.org/path/to/my/model/weights.pth
+        md5: 1234567890abc
+</code></pre>
+
 <p>If <code>cuda</code> is available on the system then the model will automatically be switched to cuda mode, so the 
 user does not have to take care of that. </p>
 <h3 id="kipoimodelsklearnmodel-models"><code>kipoi.model.SklearnModel</code> models</h3>
