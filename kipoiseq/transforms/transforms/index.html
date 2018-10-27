@@ -55,7 +55,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../datasets/">Datsets</a>
+    <a class="" href="../../dataloaders/">Dataloaders</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -80,7 +80,13 @@
     <li class="toctree-l3"><a href="#swapaxes">SwapAxes</a></li>
     
 
+    <li class="toctree-l3"><a href="#resizeinterval">ResizeInterval</a></li>
+    
+
     <li class="toctree-l3"><a href="#onehot">OneHot</a></li>
+    
+
+    <li class="toctree-l3"><a href="#reorderedonehot">ReorderedOneHot</a></li>
     
 
     <li class="toctree-l3"><a href="#splitsplicingseq">SplitSplicingSeq</a></li>
@@ -164,28 +170,69 @@
 
 <p>np.swapaxes wrapper</p>
 <p>If any if the axis is None, do nothing.</p>
+<h2 id="resizeinterval">ResizeInterval</h2>
+<pre><code class="python">ResizeInterval(self, width, anchor='center')
+</code></pre>
+
+<p>Resize the interval</p>
 <h2 id="onehot">OneHot</h2>
 <pre><code class="python">OneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None)
 </code></pre>
 
 <p>One-hot encode the sequence</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>alphabet</strong>: alphabet to use for the one-hot encoding. This defines the order of the one-hot encoding.</li>
+<li><strong>Can either be a list or a string</strong>: 'ACGT' or ['A, 'C', 'G', 'T']</li>
+<li><strong>neutral_alphabet</strong>: which element to use</li>
+<li><strong>neutral_value</strong>: value of the neutral element</li>
+<li><strong>dtype</strong>: defines the numpy dtype of the returned array.</li>
+<li><strong>alphabet_axis</strong>: axis along which the alphabet runs (e.g. A,C,G,T for DNA)</li>
+<li><strong>dummy_axis</strong>: defines in which dimension a dummy axis should be added. None if no dummy axis is required.</li>
+</ul>
+<h2 id="reorderedonehot">ReorderedOneHot</h2>
+<pre><code class="python">ReorderedOneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None, alphabet_axis=1, dummy_axis=None)
+</code></pre>
+
+<p>Flexible one-hot encoding class that can account for
+many different one-hot encoding formats.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>alphabet</strong>: alphabet to use for the one-hot encoding. This defines the order of the one-hot encoding.</li>
+<li><strong>Can either be a list or a string</strong>: 'ACGT' or ['A, 'C', 'G', 'T']</li>
+<li><strong>neutral_alphabet</strong>: (single string character) neutral element representing</li>
+<li><strong>neutral_value</strong>: value of the neutral element</li>
+<li><strong>dtype</strong>: defines the numpy dtype of the returned array.</li>
+<li><strong>alphabet_axis</strong>: axis along which the alphabet runs (e.g. A,C,G,T for DNA)</li>
+<li>
+<p><strong>dummy_axis</strong>: defines in which dimension a dummy axis should be added. None if no dummy axis is required.</p>
+</li>
+<li>
+<p><strong>Examples (<code>None</code> = sequence axis)</strong>:</p>
+</li>
+<li><strong>- <code>(None, 4)</code></strong>: default</li>
+<li><strong>- <code>(4, None)</code></strong>: <code>alphabet_axis=0</code></li>
+<li><strong>- <code>(4, 1, None)</code></strong>: <code>alphabet_axis=0, dummy_axis=1</code></li>
+</ul>
 <h2 id="splitsplicingseq">SplitSplicingSeq</h2>
 <pre><code class="python">SplitSplicingSeq(self, exon_cut_l=0, exon_cut_r=0, intron5prime_cut=6, intron3prime_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13)
 </code></pre>
 
-<p>Spilt returned splice sequence (exon with flanking intron) to required format.
+<p>Split returned splice sequence (exon with flanking intron) to required format.
 It splits into ['intron5prime', 'acceptor', 'exon', 'donor', 'intron3prime'].
-'intron5prime' is the intron 5' of the exon, while 'intron3prime' is from the 3'.
-Args:
-    exon_cut_l: when extract exon feature, how many base pair to cut out at the begining of an exon
-    exon_cut_r: when extract exon feature, how many base pair to cut out at the end of an exon
-       (cut out the part that is considered as acceptor site or donor site)
-    intron5prime_cut: how many bp to cut out at the end of acceptor intron that consider as acceptor site
-    intron3prime_cut: how many bp to cut out at the end of donor intron that consider as donor site
-    acceptor_intron_len: what length in acceptor intron to consider for acceptor site model
-    acceptor_exon_len: what length in acceptor exon to consider for acceptor site model
-    donor_intron_len: what length in donor intron to consider for donor site model
-    donor_exon_len: what length in donor exon to consider for donor site model</p>
+'intron5prime' is the intron 5' of the exon, while 'intron3prime' is from the 3'.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>exon_cut_l</strong>: when extract exon feature, how many base pair to cut out at the begining of an exon</li>
+<li><strong>exon_cut_r</strong>: when extract exon feature, how many base pair to cut out at the end of an exon
+   (cut out the part that is considered as acceptor site or donor site)</li>
+<li><strong>intron5prime_cut</strong>: how many bp to cut out at the end of acceptor intron that consider as acceptor site</li>
+<li><strong>intron3prime_cut</strong>: how many bp to cut out at the end of donor intron that consider as donor site</li>
+<li><strong>acceptor_intron_len</strong>: what length in acceptor intron to consider for acceptor site model</li>
+<li><strong>acceptor_exon_len</strong>: what length in acceptor exon to consider for acceptor site model</li>
+<li><strong>donor_intron_len</strong>: what length in donor intron to consider for donor site model</li>
+<li><strong>donor_exon_len</strong>: what length in donor exon to consider for donor site model</li>
+</ul>
               
             </div>
           </div>

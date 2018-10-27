@@ -71,7 +71,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="datasets/">Datsets</a>
+    <a class="" href="dataloaders/">Dataloaders</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -137,12 +137,12 @@
     <img alt='Coverage status' src=https://coveralls.io/repos/github/kipoi/kipoiseq/badge.svg?branch=master style="max-height:20px;width:auto;">
 </a></p>
 <p>Standard set of data-loaders for training and making predictions for DNA sequence-based models.</p>
-<p>All dataloaders in <code>kipoiseq.datasets</code> decorated with <code>@kipoi_dataloader</code> (SeqDataset and SeqStringDataset) are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
+<p>All dataloaders in <code>kipoiseq.dataloaders</code> decorated with <code>@kipoi_dataloader</code> (IntervalSeqDl and IntervalSeqStringDl) are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
 <pre><code class="yaml">...
 default_dataloader:
-  defined_as: kipoiseq.datasets.SeqDataset
+  defined_as: kipoiseq.dataloaders.IntervalSeqDl
   default_args:
-    auto_resize_len: 1000 # override default args in SeqDataset
+    auto_resize_len: 1000 # override default args in IntervalSeqDl
 
 dependencies:
   pip:
@@ -155,11 +155,11 @@ dependencies:
 </code></pre>
 
 <h2 id="getting-started">Getting started</h2>
-<pre><code class="python">from kipoiseq.datasets import SeqDataset
+<pre><code class="python">from kipoiseq.dataloaders import IntervalSeqDl
 
-dl = SeqDataset.init_example()  # use the provided example files
+dl = IntervalSeqDl.init_example()  # use the provided example files
 # your own files
-dl = SeqDataset(&quot;intervals.bed&quot;, &quot;genome.fa&quot;)
+dl = IntervalSeqDl(&quot;intervals.bed&quot;, &quot;genome.fa&quot;)
 
 len(dl)  # length of the dataset
 
@@ -183,8 +183,8 @@ it = dl.batch_train_iter(32, num_workers=8)
 - See <a href="https://kipoi.org/kipoiseq/">docs</a></p>
 <h2 id="how-to-write-your-own-data-loaders">How to write your own data-loaders</h2>
 <ul>
-<li>Read the pytorch <a href="https://pytorch.org/tutorials/beginner/data_loading_tutorial.html">Data Loading and Processing Tutorial</a> to become more familiar with transforms and datasets</li>
-<li>Read the code for <code>SeqDataset</code> in <a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/datasets/sequence.py">kipoiseq/datasets/sequence.py</a></li>
+<li>Read the pytorch <a href="https://pytorch.org/tutorials/beginner/data_loading_tutorial.html">Data Loading and Processing Tutorial</a> to become more familiar with transforms and dataloaders</li>
+<li>Read the code for <code>IntervalSeqDl</code> in <a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/dataloaders/sequence.py">kipoiseq/dataloaders/sequence.py</a></li>
 <li>you can skip the <code>@kipoi_dataloader</code> and the long yaml doc-string. These are only required if you want to use dataloaders in Kipoi's model.yaml files.</li>
 <li>Explore the available transforms (<a href="http://kipoi.org/kipoiseq/transforms/functional/">functional</a>, <a href="http://kipoi.org/kipoiseq/transforms/transforms/">class-based</a>) or extractors (<a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/extractors.py">kipoiseq</a>, <a href="https://github.com/kundajelab/genomelake/blob/master/genomelake/extractors.py">genomelake</a>)</li>
 </ul>
@@ -195,7 +195,7 @@ it = dl.batch_train_iter(32, num_workers=8)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="datasets/" class="btn btn-neutral float-right" title="Datsets">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="dataloaders/" class="btn btn-neutral float-right" title="Dataloaders">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -225,7 +225,7 @@ it = dl.batch_train_iter(32, num_workers=8)
       
       
       
-        <span style="margin-left: 15px"><a href="datasets/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="dataloaders/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -238,5 +238,5 @@ it = dl.batch_train_iter(32, num_workers=8)
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-10-27 11:52:16
+Build Date UTC : 2018-10-27 15:35:33
 -->
