@@ -61,10 +61,10 @@
     <li class="toctree-l2"><a href="#beddataset">BedDataset</a></li>
     
 
-    <li class="toctree-l2"><a href="#intervalseqstringdl">IntervalSeqStringDl</a></li>
+    <li class="toctree-l2"><a href="#stringseqintervaldl">StringSeqIntervalDl</a></li>
     
 
-    <li class="toctree-l2"><a href="#intervalseqdl">IntervalSeqDl</a></li>
+    <li class="toctree-l2"><a href="#seqintervaldl">SeqIntervalDl</a></li>
     
 
     <li class="toctree-l2"><a href="#mmsplicedl">MMSpliceDl</a></li>
@@ -149,8 +149,8 @@
 <li><strong>excl_chromosomes</strong>: list of chromosome names to omit from the dataset.</li>
 <li><strong>ignore_targets</strong>: if True, target variables are ignored</li>
 </ul>
-<h2 id="intervalseqstringdl">IntervalSeqStringDl</h2>
-<pre><code class="python">IntervalSeqStringDl(self, intervals_file, fasta_file, num_chr_fasta=False, label_dtype=None, auto_resize_len=None, force_upper=True, ignore_targets=False)
+<h2 id="stringseqintervaldl">StringSeqIntervalDl</h2>
+<pre><code class="python">StringSeqIntervalDl(self, intervals_file, fasta_file, num_chr_fasta=False, label_dtype=None, auto_resize_len=None, force_upper=True, ignore_targets=False)
 </code></pre>
 
 <p>Dataloader for a combination of fasta and tab-delimited input files such as bed files. The dataloader extracts regions from the fasta file as defined in the tab-delimited <code>intervals_file</code>. Returned sequences are of the type np.array([str]).</p>
@@ -182,8 +182,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="intervalseqdl">IntervalSeqDl</h2>
-<pre><code class="python">IntervalSeqDl(self, intervals_file, fasta_file, num_chr_fasta=False, label_dtype=None, auto_resize_len=None, alphabet_axis=1, dummy_axis=None, alphabet='ACGT', ignore_targets=False, dtype=None)
+<h2 id="seqintervaldl">SeqIntervalDl</h2>
+<pre><code class="python">SeqIntervalDl(self, intervals_file, fasta_file, num_chr_fasta=False, label_dtype=None, auto_resize_len=None, alphabet_axis=1, dummy_axis=None, alphabet='ACGT', ignore_targets=False, dtype=None)
 </code></pre>
 
 <p>Dataloader for a combination of fasta and tab-delimited input files such as bed files. The dataloader extracts regions from the fasta file as defined in the tab-delimited <code>intervals_file</code> and converts them into one-hot encoded format. Returned sequences are of the type np.array with the shape inferred from the arguments: <code>alphabet_axis</code> and <code>dummy_axis</code>.</p>

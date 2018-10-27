@@ -137,12 +137,12 @@
     <img alt='Coverage status' src=https://coveralls.io/repos/github/kipoi/kipoiseq/badge.svg?branch=master style="max-height:20px;width:auto;">
 </a></p>
 <p>Standard set of data-loaders for training and making predictions for DNA sequence-based models.</p>
-<p>All dataloaders in <code>kipoiseq.dataloaders</code> decorated with <code>@kipoi_dataloader</code> (IntervalSeqDl and IntervalSeqStringDl) are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
+<p>All dataloaders in <code>kipoiseq.dataloaders</code> decorated with <code>@kipoi_dataloader</code> (SeqIntervalDl and StringSeqIntervalDl) are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
 <pre><code class="yaml">...
 default_dataloader:
-  defined_as: kipoiseq.dataloaders.IntervalSeqDl
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
-    auto_resize_len: 1000 # override default args in IntervalSeqDl
+    auto_resize_len: 1000 # override default args in SeqIntervalDl
 
 dependencies:
   pip:
@@ -155,11 +155,11 @@ dependencies:
 </code></pre>
 
 <h2 id="getting-started">Getting started</h2>
-<pre><code class="python">from kipoiseq.dataloaders import IntervalSeqDl
+<pre><code class="python">from kipoiseq.dataloaders import SeqIntervalDl
 
-dl = IntervalSeqDl.init_example()  # use the provided example files
+dl = SeqIntervalDl.init_example()  # use the provided example files
 # your own files
-dl = IntervalSeqDl(&quot;intervals.bed&quot;, &quot;genome.fa&quot;)
+dl = SeqIntervalDl(&quot;intervals.bed&quot;, &quot;genome.fa&quot;)
 
 len(dl)  # length of the dataset
 
@@ -184,7 +184,7 @@ it = dl.batch_train_iter(32, num_workers=8)
 <h2 id="how-to-write-your-own-data-loaders">How to write your own data-loaders</h2>
 <ul>
 <li>Read the pytorch <a href="https://pytorch.org/tutorials/beginner/data_loading_tutorial.html">Data Loading and Processing Tutorial</a> to become more familiar with transforms and dataloaders</li>
-<li>Read the code for <code>IntervalSeqDl</code> in <a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/dataloaders/sequence.py">kipoiseq/dataloaders/sequence.py</a></li>
+<li>Read the code for <code>SeqIntervalDl</code> in <a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/dataloaders/sequence.py">kipoiseq/dataloaders/sequence.py</a></li>
 <li>you can skip the <code>@kipoi_dataloader</code> and the long yaml doc-string. These are only required if you want to use dataloaders in Kipoi's model.yaml files.</li>
 <li>Explore the available transforms (<a href="http://kipoi.org/kipoiseq/transforms/functional/">functional</a>, <a href="http://kipoi.org/kipoiseq/transforms/transforms/">class-based</a>) or extractors (<a href="https://github.com/kipoi/kipoiseq/blob/master/kipoiseq/extractors.py">kipoiseq</a>, <a href="https://github.com/kundajelab/genomelake/blob/master/genomelake/extractors.py">genomelake</a>)</li>
 </ul>
@@ -238,5 +238,5 @@ it = dl.batch_train_iter(32, num_workers=8)
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-10-27 16:01:16
+Build Date UTC : 2018-10-27 21:08:13
 -->
