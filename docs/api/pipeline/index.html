@@ -284,6 +284,21 @@
 <ul>
 <li><code>dict</code>: model batch prediction</li>
 </ul>
+<h2 id="kipoi.pipeline.Pipeline.predict_to_file">predict_to_file</h2>
+
+<pre><code class="python">Pipeline.predict_to_file(self, output_file, dataloader_kwargs, batch_size=32, keep_inputs=False, **kwargs)
+</code></pre>
+
+<p>Make predictions and write them iteratively to a file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>output_file</strong>: output file path. File format is inferred from the file path ending. Available file formats are:
+         'bed', 'h5', 'hdf5', 'tsv'</li>
+<li><strong>dataloader_kwargs</strong>: Keyword arguments passed to the dataloader</li>
+<li><strong>batch_size</strong>: Batch size used for the dataloader</li>
+<li><strong>keep_inputs</strong>: if True, inputs and targets will also be written to the output file.</li>
+<li><strong>**kwargs</strong>: Further arguments passed to batch_iter</li>
+</ul>
 <h2 id="kipoi.pipeline.Pipeline.input_grad">input_grad</h2>
 
 <pre><code class="python">Pipeline.input_grad(self, dataloader_kwargs, batch_size=32, filter_idx=None, avg_func=None, layer=None, final_layer=True, selected_fwd_node=None, pre_nonlinearity=False, **kwargs)
