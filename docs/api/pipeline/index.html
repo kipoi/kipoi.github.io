@@ -244,14 +244,14 @@
 </ul>
 <h2 id="kipoi.pipeline.Pipeline.predict_example">predict_example</h2>
 
-<pre><code class="python">Pipeline.predict_example(self, batch_size=32, test_equal=False)
+<pre><code class="python">Pipeline.predict_example(self, batch_size=32, output_file=None)
 </code></pre>
 
 <p>Run model prediction for the example file</p>
 <p><strong>Arguments</strong></p>
 <ul>
 <li><strong>batch_size</strong>: batch_size</li>
-<li><strong>test_equal</strong>: currently not implemented</li>
+<li><strong>output_file</strong>: if not None, inputs and predictions are stored to <code>output_file</code> path</li>
 <li><strong>**kwargs</strong>: Further arguments passed to batch_iter</li>
 </ul>
 <h2 id="kipoi.pipeline.Pipeline.predict">predict</h2>
