@@ -171,7 +171,7 @@
               
                 <h1 id="kipoi_veff.score_variants">score_variants</h1>
 
-<pre><code class="python">score_variants(model, dl_args, input_vcf, output_vcf, scores=['logit_ref', 'logit_alt', 'ref', 'alt', 'logit', 'diff'], score_kwargs=None, num_workers=0, batch_size=32, source='kipoi', seq_length=None, std_var_id=False, restriction_bed=None, return_predictions=False, model_outputs=None)
+<pre><code class="python">score_variants(model, dl_args, input_vcf, output_vcf=None, output_writers=None, scores=['logit_ref', 'logit_alt', 'ref', 'alt', 'logit', 'diff'], score_kwargs=None, num_workers=0, batch_size=32, source='kipoi', seq_length=None, std_var_id=False, restriction_bed=None, return_predictions=False, model_outputs=None)
 </code></pre>
 
 <p>Score variants: annotate the vcf file using model predictions for the reference and alternative alleles</p>
@@ -189,6 +189,7 @@ the core <code>kipoi</code> documentation on how to write a <code>dataloader.yam
 <li><strong>dl_args</strong>: dataloader arguments as a dictionary</li>
 <li><strong>input_vcf</strong>: input vcf file path</li>
 <li><strong>output_vcf</strong>: output vcf file path</li>
+<li><strong>output_writers</strong>: output writers a list of used output writers</li>
 <li><strong>scores</strong>: list of score names to compute. See <code>kipoi_veff.scores</code></li>
 <li><strong>score_kwargs</strong>: optional, list of kwargs that corresponds to the entries in score.</li>
 <li><strong>num_workers</strong>: number of paralell workers to use for dataloading</li>
