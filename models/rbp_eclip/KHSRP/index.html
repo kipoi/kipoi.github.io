@@ -195,7 +195,7 @@
                                             <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>weights</strong>: model_files/model.h5<br>
+      <strong>weights</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1466102/files/KHSRP.h5?download=1&#39;, md5=&#39;56300624ceff84d544d0154930078756&#39;)<br>
     
       <strong>custom_objects</strong>: custom_keras_objects.py<br>
     
@@ -246,6 +246,11 @@
                                             
                                         
                                     </p>
+
+				    <!-- Model url  -->
+				    <p>
+				      <a href="https://github.com/kipoi/models/tree/master/rbp_eclip">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				    </p> 
                                 </div>
                             </div>
                         </div>
@@ -284,10 +289,10 @@
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env create rbp_eclip/KHSRP
-source activate kipoi-rbp_eclip__KHSRP</code></pre> -->
-	<pre><code class="bash">kipoi env create rbp_eclip/KHSRP
-source activate kipoi-rbp_eclip__KHSRP</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env create rbp_eclip
+source activate kipoi-rbp_eclip</code></pre> -->
+	<pre><code class="bash">kipoi env create rbp_eclip
+source activate kipoi-rbp_eclip</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -301,8 +306,8 @@ source activate kipoi-rbp_eclip__KHSRP</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env install rbp_eclip/KHSRP</code></pre> -->
-	<pre><code class="bash">kipoi env install rbp_eclip/KHSRP</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env install rbp_eclip</code></pre> -->
+	<pre><code class="bash">kipoi env install rbp_eclip</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -331,16 +336,16 @@ source activate kipoi-rbp_eclip__KHSRP</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/rbp_eclip/KHSRP
+	<!-- <pre class="language-markup"><code>kipoi get-example rbp_eclip/KHSRP -o example
 kipoi predict rbp_eclip/KHSRP \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/gencode.v24.annotation_chr22.gtf&#39;, &#39;filter_protein_coding&#39;: True, &#39;target_file&#39;: &#39;example_files/targets.tsv&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;target_file&#34;: &#34;example/target_file&#34;, &#34;filter_protein_coding&#34;: true}&#39; \
   -o &#39;/tmp/rbp_eclip|KHSRP.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/rbp_eclip|KHSRP.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/rbp_eclip/KHSRP
+	<pre><code class="bash">kipoi get-example rbp_eclip/KHSRP -o example
 kipoi predict rbp_eclip/KHSRP \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/gencode.v24.annotation_chr22.gtf&#39;, &#39;filter_protein_coding&#39;: True, &#39;target_file&#39;: &#39;example_files/targets.tsv&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;target_file&#34;: &#34;example/target_file&#34;, &#34;filter_protein_coding&#34;: true}&#39; \
   -o &#39;/tmp/rbp_eclip|KHSRP.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/rbp_eclip|KHSRP.example_pred.tsv&#39;
@@ -397,9 +402,8 @@ model = kipoi.get_model(&#39;rbp_eclip/KHSRP&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/gencode.v24.annotation_chr22.gtf&#39;, &#39;filter_protein_coding&#39;: True, &#39;target_file&#39;: &#39;example_files/targets.tsv&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/rbp_eclip/KHSRP&#39;))
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -407,9 +411,8 @@ it = dl.batch_iter(batch_size=4)
 # predict for a batch
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/gencode.v24.annotation_chr22.gtf&#39;, &#39;filter_protein_coding&#39;: True, &#39;target_file&#39;: &#39;example_files/targets.tsv&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/rbp_eclip/KHSRP&#39;))
+	<pre><code class="python"># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -486,17 +489,19 @@ model &lt;- kipoi$get_model(&#39;rbp_eclip/KHSRP&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/rbp_eclip/KHSRP&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;, gtf_file=&#39;example_files/gencode.v24.annotation_chr22.gtf&#39;, filter_protein_coding=True, target_file=&#39;example_files/targets.tsv&#39;)
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/rbp_eclip/KHSRP&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;, gtf_file=&#39;example_files/gencode.v24.annotation_chr22.gtf&#39;, filter_protein_coding=True, target_file=&#39;example_files/targets.tsv&#39;)
+	<pre><code class="R"># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -618,12 +623,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5">
-                    <p><strong>Relative path:</strong> .</p>
-                    <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> RBP binding model taking as input 101nt long sequence as well as 8 distances to nearest genomic landmarks -  tss, poly-A, exon-intron boundary, intron-exon boundary, start codon, stop codon, gene start, gene end
-</p>
-                    <p><strong>Authors:</strong> 
+              <div class="col-lg-5">
+		<!-- TODO - ifelse  -->
+		
+  		  <p><strong>Defined as:</strong> .</p>
+		
+                  <p><strong>Doc:</strong> RBP binding model taking as input 101nt long sequence as well as 8 distances to nearest genomic landmarks -  tss, poly-A, exon-intron boundary, intron-exon boundary, start codon, stop codon, gene start, gene end </p>
+                  <p><strong>Authors:</strong> 
   
     
       
@@ -639,14 +645,14 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
   
 </p>
-                    <p><strong>Type:</strong> Dataset</p>
-                    <p><strong>License:</strong> MIT</p>
+                  <p><strong>Type:</strong> None</p>
+                  <p><strong>License:</strong> MIT</p>
 
                 </div>
                 <hr class="w-100 clearfix d-lg-none">
                 <div class="col-lg-7">
-                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                    
+                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                  
   <div>
     
       <p>
@@ -665,13 +671,18 @@ model$predict_on_batch(batch$inputs)</code></pre>
       </p>
     
       <p>
+	<strong>target_file</strong> (optional):
+	path to the targets (txt) file
+      </p>
+    
+      <p>
 	<strong>filter_protein_coding</strong> (optional):
 	Considering genomic landmarks only for protein coding genes when computing the distances to the nearest genomic landmark.
       </p>
     
       <p>
-	<strong>target_file</strong> (optional):
-	path to the targets (txt) file
+	<strong>position_transformer_file</strong> :
+	Provided file for each dataloader obtained from https://sandbox.zenodo.org/record/248594/files/KHSRP.dataloader.pkl?download=1
       </p>
     
       <p>
@@ -684,7 +695,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
                         </div>
                     </div>

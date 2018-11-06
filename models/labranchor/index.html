@@ -130,7 +130,7 @@
 					 </p> -->
                                     <p>Version: 0.1</p>
                                     <!-- License -->
-                                    <p>License: MIT</p>
+                                    <p>License: CC BY-NC 4.0</p>
                                     <p>Contributed by: 
   
     
@@ -174,7 +174,7 @@
                                             <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>weights</strong>: model_files/labranchor.h5<br>
+      <strong>weights</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1466095/files/labranchor.h5?download=1&#39;, md5=&#39;1a93565c200740419fdd2c828eb467f7&#39;)<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
@@ -191,15 +191,6 @@
   <div>
     
       
-	<strong>seq_input</strong>:
-	
-	  
-	    bidirectional_1_input
-	  
-	
-      
-    
-      
 	<strong>scoring_functions</strong>:
 	
 	  
@@ -210,12 +201,26 @@
 	
       
     
+      
+	<strong>seq_input</strong>:
+	
+	  
+	    bidirectional_1_input
+	  
+	
+      
+    
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >variant_effects</span></a>
 						
                                             
                                         
                                     </p>
+
+				    <!-- Model url  -->
+				    <p>
+				      <a href="https://github.com/kipoi/models/tree/master/labranchor">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				    </p> 
                                 </div>
                             </div>
                         </div>
@@ -223,7 +228,7 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-sm-12">
                             <!-- Model description -->
-                            <p class="lead">LaBranchoR (LSTM Branchpoint Retriever) uses a LSTM network built with keras to predict the position of RNA splicing branchpoints relative to a three prime splice site. Precisely evaluating LaBranchoR was challenging due to pervasive noise in the experimental data, but as we show in our paper, we estimate that LaBranchoR correcty predicts a branchpoint for over 90% of 3\&#39;ss. Github link https://github.com/jpaggi/labranchor.
+                            <p class="lead">LaBranchoR (LSTM Branchpoint Retriever) uses a LSTM network built with keras to predict the position of RNA splicing branchpoints relative to a three prime splice site. Precisely evaluating LaBranchoR was challenging due to pervasive noise in the experimental data, but as we show in our paper, we estimate that LaBranchoR correcty predicts a branchpoint for over 90% of 3\&#39;&#39;ss. Github link https://github.com/jpaggi/labranchor.
 </p>    
                         </div>
 
@@ -301,16 +306,16 @@ source activate kipoi-labranchor</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/labranchor
+	<!-- <pre class="language-markup"><code>kipoi get-example labranchor -o example
 kipoi predict labranchor \
-  --dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;length&#39;: 70}&#39; \
+  --dataloader_args=&#39;{&#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;length&#34;: 70}&#39; \
   -o &#39;/tmp/labranchor.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/labranchor.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/labranchor
+	<pre><code class="bash">kipoi get-example labranchor -o example
 kipoi predict labranchor \
-  --dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;length&#39;: 70}&#39; \
+  --dataloader_args=&#39;{&#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;length&#34;: 70}&#39; \
   -o &#39;/tmp/labranchor.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/labranchor.example_pred.tsv&#39;
@@ -367,9 +372,8 @@ model = kipoi.get_model(&#39;labranchor&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;length&#39;: 70}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/labranchor&#39;))
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -377,9 +381,8 @@ it = dl.batch_iter(batch_size=4)
 # predict for a batch
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;fasta_file&#39;: &#39;example_files/hg19.chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example_files/hg19.chr22.gtf&#39;, &#39;length&#39;: 70}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/labranchor&#39;))
+	<pre><code class="python"># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -456,17 +459,19 @@ model &lt;- kipoi$get_model(&#39;labranchor&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/labranchor&#39;)
-dl &lt;- model$default_dataloader(fasta_file=&#39;example_files/hg19.chr22.fa&#39;, gtf_file=&#39;example_files/hg19.chr22.gtf&#39;, length=70)
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/labranchor&#39;)
-dl &lt;- model$default_dataloader(fasta_file=&#39;example_files/hg19.chr22.fa&#39;, gtf_file=&#39;example_files/hg19.chr22.gtf&#39;, length=70)
+	<pre><code class="R"># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -548,11 +553,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5">
-                    <p><strong>Relative path:</strong> .</p>
-                    <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network</p>
-                    <p><strong>Authors:</strong> 
+              <div class="col-lg-5">
+		<!-- TODO - ifelse  -->
+		
+  		  <p><strong>Defined as:</strong> .</p>
+		
+                  <p><strong>Doc:</strong> LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network</p>
+                  <p><strong>Authors:</strong> 
   
     
       
@@ -568,14 +575,14 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
   
 </p>
-                    <p><strong>Type:</strong> Dataset</p>
-                    <p><strong>License:</strong> MIT</p>
+                  <p><strong>Type:</strong> Dataset</p>
+                  <p><strong>License:</strong> MIT</p>
 
                 </div>
                 <hr class="w-100 clearfix d-lg-none">
                 <div class="col-lg-7">
-                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                    
+                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                  
   <div>
     
       <p>
@@ -598,7 +605,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
                         </div>
                     </div>

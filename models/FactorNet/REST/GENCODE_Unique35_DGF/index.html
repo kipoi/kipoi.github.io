@@ -174,11 +174,11 @@
                                             <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>arch</strong>: model_files/model.json<br>
-    
-      <strong>weights</strong>: model_files/best_model.hdf5<br>
+      <strong>arch</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1466084/files/REST-GENCODE_Unique35_DGF-model?download=1&#39;, md5=&#39;09863776856efa68f2619e8ec081ec84&#39;)<br>
     
       <strong>image_dim_ordering</strong>: tf<br>
+    
+      <strong>weights</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1466084/files/REST-GENCODE_Unique35_DGF-best_model.hdf5?download=1&#39;, md5=&#39;f1c107faf5a8fc04f7182d5c5968bb84&#39;)<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
@@ -192,6 +192,11 @@
                                             None
                                         
                                     </p>
+
+				    <!-- Model url  -->
+				    <p>
+				      <a href="https://github.com/kipoi/models/tree/master/FactorNet/REST/GENCODE_Unique35_DGF">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				    </p> 
                                 </div>
                             </div>
                         </div>
@@ -280,16 +285,16 @@ source activate kipoi-FactorNet__REST__GENCODE_Unique35_DGF</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/FactorNet/REST/GENCODE_Unique35_DGF
+	<!-- <pre class="language-markup"><code>kipoi get-example FactorNet/REST/GENCODE_Unique35_DGF -o example
 kipoi predict FactorNet/REST/GENCODE_Unique35_DGF \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;, &#39;cell_line&#39;: &#39;PC-3&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;dnase_file&#34;: &#34;example/dnase_file&#34;, &#34;cell_line&#34;: &#34;PC-3&#34;, &#34;mappability_file&#34;: &#34;example/mappability_file&#34;}&#39; \
   -o &#39;/tmp/FactorNet|REST|GENCODE_Unique35_DGF.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/FactorNet|REST|GENCODE_Unique35_DGF.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/FactorNet/REST/GENCODE_Unique35_DGF
+	<pre><code class="bash">kipoi get-example FactorNet/REST/GENCODE_Unique35_DGF -o example
 kipoi predict FactorNet/REST/GENCODE_Unique35_DGF \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;, &#39;cell_line&#39;: &#39;PC-3&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;dnase_file&#34;: &#34;example/dnase_file&#34;, &#34;cell_line&#34;: &#34;PC-3&#34;, &#34;mappability_file&#34;: &#34;example/mappability_file&#34;}&#39; \
   -o &#39;/tmp/FactorNet|REST|GENCODE_Unique35_DGF.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/FactorNet|REST|GENCODE_Unique35_DGF.example_pred.tsv&#39;
@@ -346,9 +351,8 @@ model = kipoi.get_model(&#39;FactorNet/REST/GENCODE_Unique35_DGF&#39;)</code></p
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;, &#39;cell_line&#39;: &#39;PC-3&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/FactorNet/REST/GENCODE_Unique35_DGF&#39;))
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -356,9 +360,8 @@ it = dl.batch_iter(batch_size=4)
 # predict for a batch
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;, &#39;dnase_file&#39;: &#39;example_files/dnase_synth.chr22.bw&#39;, &#39;cell_line&#39;: &#39;PC-3&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/FactorNet/REST/GENCODE_Unique35_DGF&#39;))
+	<pre><code class="python"># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -435,17 +438,19 @@ model &lt;- kipoi$get_model(&#39;FactorNet/REST/GENCODE_Unique35_DGF&#39;)</code
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/FactorNet/REST/GENCODE_Unique35_DGF&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;, dnase_file=&#39;example_files/dnase_synth.chr22.bw&#39;, cell_line=&#39;PC-3&#39;)
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/FactorNet/REST/GENCODE_Unique35_DGF&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;, dnase_file=&#39;example_files/dnase_synth.chr22.bw&#39;, cell_line=&#39;PC-3&#39;)
+	<pre><code class="R"># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -537,11 +542,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5">
-                    <p><strong>Relative path:</strong> .</p>
-                    <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> Dataloader for the FactorNet model.</p>
-                    <p><strong>Authors:</strong> 
+              <div class="col-lg-5">
+		<!-- TODO - ifelse  -->
+		
+  		  <p><strong>Defined as:</strong> .</p>
+		
+                  <p><strong>Doc:</strong> Dataloader for the FactorNet model.</p>
+                  <p><strong>Authors:</strong> 
   
     
       
@@ -557,14 +564,14 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
   
 </p>
-                    <p><strong>Type:</strong> Dataset</p>
-                    <p><strong>License:</strong> MIT</p>
+                  <p><strong>Type:</strong> Dataset</p>
+                  <p><strong>License:</strong> MIT</p>
 
                 </div>
                 <hr class="w-100 clearfix d-lg-none">
                 <div class="col-lg-7">
-                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                    
+                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                  
   <div>
     
       <p>
@@ -607,7 +614,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
                         </div>
                     </div>

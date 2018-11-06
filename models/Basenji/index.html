@@ -166,7 +166,7 @@
 					 </p> -->
                                     <p>Version: 0.1</p>
                                     <!-- License -->
-                                    <p>License: MIT</p>
+                                    <p>License: Apache License v2</p>
                                     <p>Contributed by: 
   
     
@@ -214,9 +214,9 @@
     
       <strong>target_nodes</strong>: preds<br>
     
-      <strong>checkpoint_path</strong>: model_files/model.tf<br>
+      <strong>checkpoint_path</strong>: OrderedDict([(&#39;meta&#39;, RemoteFile(url=&#39;https://zenodo.org/record/1466066/files/model.tf.meta?download=1&#39;, md5=&#39;a679c3371ece1ac532067bdd61964025&#39;)), (&#39;index&#39;, RemoteFile(url=&#39;https://zenodo.org/record/1466066/files/model.tf.index?download=1&#39;, md5=&#39;b9561a2f203a8a1589cc65183dc0898b&#39;)), (&#39;data&#39;, RemoteFile(url=&#39;https://zenodo.org/record/1466066/files/model.tf.data-00000-of-00001?download=1&#39;, md5=&#39;155c2047761dbce5a18f00ba9d3fb821&#39;))])<br>
     
-      <strong>const_feed_dict_pkl</strong>: model_files/const_feed_dict.pkl<br>
+      <strong>const_feed_dict_pkl</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1466066/files/const_feed_dict.pkl?download=1&#39;, md5=&#39;3a76c37eb9ad255680ba774b110de1be&#39;)<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >tensorflow</span></a>
@@ -254,6 +254,11 @@
                                             
                                         
                                     </p>
+
+				    <!-- Model url  -->
+				    <p>
+				      <a href="https://github.com/kipoi/models/tree/master/Basenji">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				    </p> 
                                 </div>
                             </div>
                         </div>
@@ -341,16 +346,16 @@ source activate kipoi-Basenji</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/Basenji
+	<!-- <pre class="language-markup"><code>kipoi get-example Basenji -o example
 kipoi predict Basenji \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
   -o &#39;/tmp/Basenji.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/Basenji.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/Basenji
+	<pre><code class="bash">kipoi get-example Basenji -o example
 kipoi predict Basenji \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
   -o &#39;/tmp/Basenji.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/Basenji.example_pred.tsv&#39;
@@ -407,9 +412,8 @@ model = kipoi.get_model(&#39;Basenji&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/Basenji&#39;))
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -417,9 +421,8 @@ it = dl.batch_iter(batch_size=2)
 # predict for a batch
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.bed&#39;, &#39;fasta_file&#39;: &#39;example_files/hg38_chr22.fa&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/Basenji&#39;))
+	<pre><code class="python"># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -496,17 +499,19 @@ model &lt;- kipoi$get_model(&#39;Basenji&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/Basenji&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;)
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=2)
 # predict for a batch
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/Basenji&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.bed&#39;, fasta_file=&#39;example_files/hg38_chr22.fa&#39;)
+	<pre><code class="R"># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=2)
 # predict for a batch
@@ -590,11 +595,14 @@ model$predict_on_batch(batch$inputs)</code></pre>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5">
-                    <p><strong>Relative path:</strong> .</p>
-                    <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> Dataloader for the Basenji model. Note - batch-size needs to be always 2!</p>
-                    <p><strong>Authors:</strong> 
+              <div class="col-lg-5">
+		<!-- TODO - ifelse  -->
+		
+  		  <p><strong>Defined as:</strong> kipoiseq.dataloaders.SeqIntervalDl</p>
+		
+                  <p><strong>Doc:</strong> Dataloader for a combination of fasta and tab-delimited input files such as bed files. The dataloader extracts regions from the fasta file as defined in the tab-delimited `intervals_file` and converts them into one-hot encoded format. Returned sequences are of the type np.array with the shape inferred from the arguments: `alphabet_axis` and `dummy_axis`.
+</p>
+                  <p><strong>Authors:</strong> 
   
     
       
@@ -607,32 +615,45 @@ model$predict_on_batch(batch$inputs)</code></pre>
   
 
     
+    , 
+  
+    
+      
+  Roman Kreuzhuber
+  
+    <a href="https://github.com/krrome" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+    
     
   
 </p>
-                    <p><strong>Type:</strong> Dataset</p>
-                    <p><strong>License:</strong> MIT</p>
+                  <p><strong>Type:</strong> Dataset</p>
+                  <p><strong>License:</strong> MIT</p>
 
                 </div>
                 <hr class="w-100 clearfix d-lg-none">
                 <div class="col-lg-7">
-                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                    
+                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                  
   <div>
     
       <p>
 	<strong>intervals_file</strong> :
-	bed3 file with `chrom start end id score strand`
+	bed3+&lt;columns&gt; file path containing intervals + (optionally) labels
       </p>
     
       <p>
 	<strong>fasta_file</strong> :
-	Reference genome sequence
+	Reference genome FASTA file path.
       </p>
     
       <p>
-	<strong>use_linecache</strong> (optional):
-	if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+	<strong>num_chr_fasta</strong> (optional):
+	True, the the dataloader will make sure that the chromosomes don&#39;t start with chr.
       </p>
     
   </div>
@@ -640,7 +661,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
                         </div>
                     </div>
@@ -674,7 +695,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>tensorflow&gt;=1.4.1</li>
+      <li>tensorflow&gt;=1.4.1<br></li>
+    
+      <li>kipoiseq</li>
     
 </u>
 
@@ -696,15 +719,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>bioconda::genomelake<br></li>
-    
       <li>bioconda::pybedtools<br></li>
     
-      <li>python=3.5<br></li>
+      <li>bioconda::pyfaidx<br></li>
     
       <li>numpy<br></li>
     
-      <li>cython</li>
+      <li>pandas</li>
     
 </u>
 
@@ -714,6 +735,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     <strong>pip</strong>:<br>
                     
   <ul class="dependencies">
+    
+      <li>kipoiseq</li>
     
 </u>
 

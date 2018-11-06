@@ -165,9 +165,9 @@
                                             <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>weights</strong>: model_files/model.weights.h5<br>
+      <strong>weights</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1452399/files/model.weights.h5?download=1&#39;, md5=&#39;2a0ae0a29337eb8106d65e1baeda85d1&#39;)<br>
     
-      <strong>arch</strong>: model_files/model.arch.json<br>
+      <strong>arch</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1452399/files/model.arch?download=1&#39;, md5=&#39;6903bcab337a6753ad010f43f208df42&#39;)<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
@@ -181,6 +181,11 @@
                                             None
                                         
                                     </p>
+
+				    <!-- Model url  -->
+				    <p>
+				      <a href="https://github.com/kipoi/models/tree/master/Divergent421">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				    </p> 
                                 </div>
                             </div>
                         </div>
@@ -267,16 +272,16 @@ source activate kipoi-Divergent421</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/Divergent421
+	<!-- <pre class="language-markup"><code>kipoi get-example Divergent421 -o example
 kipoi predict Divergent421 \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv&#39;, &#39;fasta_file&#39;: &#39;example_files/chr21.fa&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
   -o &#39;/tmp/Divergent421.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/Divergent421.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/Divergent421
+	<pre><code class="bash">kipoi get-example Divergent421 -o example
 kipoi predict Divergent421 \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv&#39;, &#39;fasta_file&#39;: &#39;example_files/chr21.fa&#39;}&#39; \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
   -o &#39;/tmp/Divergent421.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/Divergent421.example_pred.tsv&#39;
@@ -333,9 +338,8 @@ model = kipoi.get_model(&#39;Divergent421&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv&#39;, &#39;fasta_file&#39;: &#39;example_files/chr21.fa&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/Divergent421&#39;))
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -343,9 +347,8 @@ it = dl.batch_iter(batch_size=4)
 # predict for a batch
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv&#39;, &#39;fasta_file&#39;: &#39;example_files/chr21.fa&#39;}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/Divergent421&#39;))
+	<pre><code class="python"># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -422,17 +425,19 @@ model &lt;- kipoi$get_model(&#39;Divergent421&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/Divergent421&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv&#39;, fasta_file=&#39;example_files/chr21.fa&#39;)
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/Divergent421&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv&#39;, fasta_file=&#39;example_files/chr21.fa&#39;)
+	<pre><code class="R"># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -479,9 +484,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h4 class="card-title mt-2 mb-3">Inputs</h4>
                 
-  <p>Dictionary of numpy arrays</p>
+  <p>Single numpy array</p>
   
-    <p><strong>Name</strong>: data/genome_data_dir</p>
+    <p><strong>Name</strong>: None</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1000, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: 1000 base pair sequence of one-hot encoding ACGT</p>
@@ -514,28 +519,14 @@ model$predict_on_batch(batch$inputs)</code></pre>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5">
-                    <p><strong>Relative path:</strong> .</p>
-                    <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> test</p>
-                    <p><strong>Authors:</strong> 
-  
-    
-      
-  Nancy Xu
-  
-    <a href="https://github.com/xnancy" class="github">
-      <i class="fa fa-github" aria-hidden="true"></i>
-    </a>
-  
-  
-    <a href="mailto:xnancy@stanford.edu">
-      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-    </a>
-  
-
-    
-    , 
+              <div class="col-lg-5">
+		<!-- TODO - ifelse  -->
+		
+  		  <p><strong>Defined as:</strong> kipoiseq.dataloaders.SeqIntervalDl</p>
+		
+                  <p><strong>Doc:</strong> Dataloader for a combination of fasta and tab-delimited input files such as bed files. The dataloader extracts regions from the fasta file as defined in the tab-delimited `intervals_file` and converts them into one-hot encoded format. Returned sequences are of the type np.array with the shape inferred from the arguments: `alphabet_axis` and `dummy_axis`.
+</p>
+                  <p><strong>Authors:</strong> 
   
     
       
@@ -548,32 +539,55 @@ model$predict_on_batch(batch$inputs)</code></pre>
   
 
     
+    , 
+  
+    
+      
+  Roman Kreuzhuber
+  
+    <a href="https://github.com/krrome" class="github">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  
+  
+
+    
     
   
 </p>
-                    <p><strong>Type:</strong> Dataset</p>
-                    <p><strong>License:</strong> MIT</p>
+                  <p><strong>Type:</strong> Dataset</p>
+                  <p><strong>License:</strong> MIT</p>
 
                 </div>
                 <hr class="w-100 clearfix d-lg-none">
                 <div class="col-lg-7">
-                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                    
+                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                  
   <div>
     
       <p>
 	<strong>intervals_file</strong> :
-	tsv file containing dna interval indices (chr, start, end) and binary 0/1 label for accessibility of 430 cell  types.
+	bed3+&lt;columns&gt; file path containing intervals + (optionally) labels
       </p>
     
       <p>
-	<strong>fasta_file</strong> (optional):
-	chr21 fasta file for dna intervals
+	<strong>fasta_file</strong> :
+	Reference genome FASTA file path.
       </p>
     
       <p>
 	<strong>num_chr_fasta</strong> (optional):
-	True, the tsv-loader will make sure that the chromosomes don&#39;t start with chr.
+	True, the the dataloader will make sure that the chromosomes don&#39;t start with chr.
+      </p>
+    
+      <p>
+	<strong>label_dtype</strong> (optional):
+	None, datatype of the task labels taken from the intervals_file. Example: str, int, float, np.float32
+      </p>
+    
+      <p>
+	<strong>ignore_targets</strong> (optional):
+	if True, don&#39;t return any target variables
       </p>
     
   </div>
@@ -581,7 +595,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
                         </div>
                     </div>
@@ -615,9 +629,11 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>tensorflow<br></li>
+      <li>tensorflow&lt;=1.4.1<br></li>
     
-      <li>keras==1.2.2</li>
+      <li>keras==1.2.2<br></li>
+    
+      <li>kipoiseq</li>
     
 </u>
 
@@ -639,9 +655,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>bioconda::genomelake<br></li>
-    
       <li>bioconda::pybedtools<br></li>
+    
+      <li>bioconda::pyfaidx<br></li>
     
       <li>numpy<br></li>
     
@@ -655,6 +671,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     <strong>pip</strong>:<br>
                     
   <ul class="dependencies">
+    
+      <li>kipoiseq</li>
     
 </u>
 

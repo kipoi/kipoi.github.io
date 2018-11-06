@@ -191,9 +191,9 @@
                                             <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>weights</strong>: model_files/weights.h5<br>
+      <strong>arch</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1467114/files/model?download=1&#39;, md5=&#39;98aedb5d7c8f506e857e751d8c98fa10&#39;)<br>
     
-      <strong>arch</strong>: model_files/model.json<br>
+      <strong>weights</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1467114/files/weights.h5?download=1&#39;, md5=&#39;f56962a65ca58fece967473715ce1f38&#39;)<br>
     
   </div>
 "><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
@@ -207,6 +207,11 @@
                                             None
                                         
                                     </p>
+
+				    <!-- Model url  -->
+				    <p>
+				      <a href="https://github.com/kipoi/models/tree/master/extended_coda">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				    </p> 
                                 </div>
                             </div>
                         </div>
@@ -291,16 +296,16 @@ source activate kipoi-extended_coda</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>cd ~/.kipoi/models/extended_coda
+	<!-- <pre class="language-markup"><code>kipoi get-example extended_coda -o example
 kipoi predict extended_coda \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.tsv&#39;, &#39;input_data_sources&#39;: OrderedDict([(&#39;H3K27AC_subsampled&#39;, &#39;example_files/H3K27AC_subsampled.bw&#39;)]), &#39;batch_size&#39;: 4}&#39; \
+  --dataloader_args=&#39;{&#34;batch_size&#34;: 4, &#34;input_data_sources&#34;: &#34;example/input_data_sources&#34;, &#34;intervals_file&#34;: &#34;example/intervals_file&#34;}&#39; \
   -o &#39;/tmp/extended_coda.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/extended_coda.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">cd ~/.kipoi/models/extended_coda
+	<pre><code class="bash">kipoi get-example extended_coda -o example
 kipoi predict extended_coda \
-  --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example_files/intervals.tsv&#39;, &#39;input_data_sources&#39;: OrderedDict([(&#39;H3K27AC_subsampled&#39;, &#39;example_files/H3K27AC_subsampled.bw&#39;)]), &#39;batch_size&#39;: 4}&#39; \
+  --dataloader_args=&#39;{&#34;batch_size&#34;: 4, &#34;input_data_sources&#34;: &#34;example/input_data_sources&#34;, &#34;intervals_file&#34;: &#34;example/intervals_file&#34;}&#39; \
   -o &#39;/tmp/extended_coda.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/extended_coda.example_pred.tsv&#39;
@@ -357,9 +362,8 @@ model = kipoi.get_model(&#39;extended_coda&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.tsv&#39;, &#39;input_data_sources&#39;: OrderedDict([(&#39;H3K27AC_subsampled&#39;, &#39;example_files/H3K27AC_subsampled.bw&#39;)]), &#39;batch_size&#39;: 4}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/extended_coda&#39;))
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -367,9 +371,8 @@ it = dl.batch_iter(batch_size=4)
 # predict for a batch
 batch = next(it)
 model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># setup the example dataloader kwargs
-dl_kwargs = {&#39;intervals_file&#39;: &#39;example_files/intervals.tsv&#39;, &#39;input_data_sources&#39;: OrderedDict([(&#39;H3K27AC_subsampled&#39;, &#39;example_files/H3K27AC_subsampled.bw&#39;)]), &#39;batch_size&#39;: 4}
-import os; os.chdir(os.path.expanduser(&#39;~/.kipoi/models/extended_coda&#39;))
+	<pre><code class="python"># Download example dataloader kwargs
+dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
@@ -446,17 +449,19 @@ model &lt;- kipoi$get_model(&#39;extended_coda&#39;)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Get the dataloader
-setwd(&#39;~/.kipoi/models/extended_coda&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.tsv&#39;, input_data_sources=list(H3K27AC_subsampled=&#39;example_files/H3K27AC_subsampled.bw&#39;), batch_size=4)
+	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
 batch &lt;- iter_next(it)
 model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Get the dataloader
-setwd(&#39;~/.kipoi/models/extended_coda&#39;)
-dl &lt;- model$default_dataloader(intervals_file=&#39;example_files/intervals.tsv&#39;, input_data_sources=list(H3K27AC_subsampled=&#39;example_files/H3K27AC_subsampled.bw&#39;), batch_size=4)
+	<pre><code class="R"># Download example dataloader kwargs
+dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
+# Get the dataloader
+dl &lt;- model$default_dataloader(dl_kwargs)
 # get a batch iterator
 it &lt;- dl$batch_iter(batch_size=4)
 # predict for a batch
@@ -538,11 +543,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5">
-                    <p><strong>Relative path:</strong> .</p>
-                    <p><strong>Version:</strong> 0.1</p>
-                    <p><strong>Doc:</strong> DataLoader for single bp resolution ChIP-seq denoising</p>
-                    <p><strong>Authors:</strong> 
+              <div class="col-lg-5">
+		<!-- TODO - ifelse  -->
+		
+  		  <p><strong>Defined as:</strong> .</p>
+		
+                  <p><strong>Doc:</strong> DataLoader for single bp resolution ChIP-seq denoising</p>
+                  <p><strong>Authors:</strong> 
   
     
       
@@ -558,15 +565,25 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
   
 </p>
-                    <p><strong>Type:</strong> BatchGenerator</p>
-                    <p><strong>License:</strong> MIT</p>
+                  <p><strong>Type:</strong> BatchGenerator</p>
+                  <p><strong>License:</strong> MIT</p>
 
                 </div>
                 <hr class="w-100 clearfix d-lg-none">
                 <div class="col-lg-7">
-                    <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                    
+                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
+                  
   <div>
+    
+      <p>
+	<strong>batch_size</strong> (optional):
+	batch size. Default = 128
+      </p>
+    
+      <p>
+	<strong>input_data_sources</strong> :
+	Can either be `{data_name: &lt;path to genomelake directory&gt;}` or the path to the zipped genomelake directory.
+      </p>
     
       <p>
 	<strong>intervals_file</strong> :
@@ -574,18 +591,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
       </p>
     
       <p>
-	<strong>input_data_sources</strong> :
-	{data_name: &lt;path to genomelake directory&gt;}
-      </p>
-    
-      <p>
 	<strong>target_data_sources</strong> (optional):
 	optional; {data_name: &lt;path to genomelake directory&gt;}
-      </p>
-    
-      <p>
-	<strong>batch_size</strong> (optional):
-	batch size. Default = 128
       </p>
     
   </div>
@@ -593,7 +600,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
                         </div>
                     </div>
