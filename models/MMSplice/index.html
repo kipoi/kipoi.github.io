@@ -527,6 +527,69 @@
         
     </tbody>
 </table>
+<div class="row" style="margin-right: 0; margin-left: 0;">
+  <div class="col-lg-9 mx-auto readmecontent"><h2>Modular Modeling of Splicing (MMSplice)</h2>
+<p>MMSplice predicts variant effect with 5 modules scoring exon, donor, acceptor, 3' intron and 5' intron. Modular predictions are combined with a linear model to predict $\Delta logit(\Psi)$ or with a logistic regression model to predict variant pathogenicity.</p>
+<p>To score variants (including indels), we suggest to use primarily the <code>deltaLogitPSI</code> predictions.</p>
+<h3>Quick start example code</h3>
+<hr />
+<p>Install <code>kipoi</code> as described in: <a href="http://kipoi.org/docs/#installation">http://kipoi.org/docs/#installation</a></p>
+<ol>
+<li>Create a new conda environment with all dependencies installed
+<pre class="highlight"><code class="language-bash">kipoi env create MMSplice/deltaLogitPSI
+source activate kipoi-MMSplice__deltaLogitPSI</code></pre></li>
+<li>
+<p>Install model dependencies into current environment
+<pre class="highlight"><code class="language-bash">kipoi env install MMSplice/deltaLogitPSI</code></pre></p>
+</li>
+<li>
+<p>Run deltaLogitPSI prediction on example files from the command line with <code>kipoi predict</code>. MMSplice takes three input files: a gtf annotation file, a reference sequence fasta file and a vcf file with variants.</p>
+</li>
+</ol>
+<pre class="highlight"><code class="language-bash">cd ~/.kipoi/models/MMSplice/deltaLogitPSI
+kipoi predict MMSplice/deltaLogitPSI \
+  --dataloader_args='{'gtf_file': 'example_files/test.gtf', 'fasta_file': 'example_files/hg19.nochr.chr17.fa', 'vcf_file': 'example_files/test.vcf.gz'}' \  -o test.tsv
+# check the results
+head 'test.tsv'</code></pre>
+
+<p>We also documented the usage with CLI, python and R <a href="http://kipoi.org/models/MMSplice/deltaLogitPSI/">here</a>. </p>
+<h3>Prepare your own input files</h3>
+<h4>1. Prepare annotation (gtf) file</h4>
+<p>Standard human gene annotation file in GTF format can be downloaded from ensembl or gencode.
+<code>MMSplice</code> can work directly with those files, however, some filtering is higly recommended.</p>
+<ul>
+<li>Filter for protein coding genes.</li>
+<li>Filter out duplicated exons. The same exon can be annotated multiple times if it appears in multiple transcripts. 
+  This will cause duplicated predictions.</li>
+</ul>
+<p>We provide a filtered version <a href="https://raw.githubusercontent.com/gagneurlab/MMSplice_paper/master/data/shared/Homo_sapiens.GRCh37.75.chr.uniq_exon.gtf.gz">here</a>. 
+Note this version has chromosome names in the format <code>chr*</code>. You may need to remove them to match the chromosome names in your fasta file.</p>
+<h4>2. Prepare variant (VCF) file</h4>
+<p>A correctly formatted VCF file will work with <code>MMSplice</code>, however the following steps will make it less prone to false positives:</p>
+<ul>
+<li>Quality filtering. Low quality variants lead to unreliable predictions.</li>
+<li>Avoid presenting multiple variants in one line by splitting them into multiple lines. Example code to do this:
+  <pre class="highlight"><code class="language-bash">bcftools norm -m-both -o out.vcf in.vcf.gz</code></pre></li>
+<li>Left-normalization. For instance, GGCA--&gt;GG is not left-normalized while GCA--&gt;G is. Details on unified representation of genetic variants see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4481842/">Tan et al.</a>
+  <pre class="highlight"><code class="language-bash">bcftools norm -f reference.fasta -o out.vcf in.vcf</code></pre></li>
+</ul>
+<h4>3. Prepare reference genome (fasta) file</h4>
+<p>Human reference fasta file can be downloaded from ensembl/gencode. Make sure the chromosome names match with the GTF annotation file you use.</p>
+<!-- We show example with `deltaLogitPSI` model, other models follow the same logic. Kipoi also documented the usage with CLI, python and R [here](http://kipoi.org/models/MMSplice/). Click on the model of interest, for instance, to predict [deltaLogitPsi](http://kipoi.org/models/MMSplice/deltaLogitPSI/). -->
+
+<h2>Repository</h2>
+<p>This repository hosts following models:</p>
+<p><code>deltaLogitPSI</code>: predict $\Delta logit(\Psi)$. Returns one prediction per variant-exon pair. </p>
+<p><code>pathogenicity</code>: predict variant pathogenicity. Returns one prediction per variant.</p>
+<p><code>splicingEfficiency</code>: predict splicing efficiency changes. Returns one prediction per variant-exon pair. Splicing efficiency model were trained from MMSplice modules and exonic variants from MaPSy, thus only the predictions for exonic variants are calibrated. </p>
+<p><code>modularPredictions</code>: the raw predictions from the five modules for reference sequence and alternative sequence. Returns a vector of length 10 for each variant-exon pair. </p>
+<p><code>modules</code>: contains individual modules for exon, donor, acceptor, 3' intron and 5' intron.</p>
+<p><code>deltaLogitPSI</code>, <code>splicingEfficiency</code> and <code>pathogenicity</code> differ by the last modular combination model. </p>
+<h2>Publication</h2>
+<p>Paper: Cheng et al. <a href="https://doi.org/10.1101/438986">https://doi.org/10.1101/438986</a></p>
+<p>Package: <a href="https://github.com/gagneurlab/MMSplice">https://github.com/gagneurlab/MMSplice</a></p>
+<p><img alt="MMSplice" src="https://raw.githubusercontent.com/kipoi/models/master/MMSplice/Model.png" /></p></div>
+</div>
         </section>
         <!--/Section: model-list content-->
     </div>
@@ -634,6 +697,7 @@
             })
             $('.dataTables_info').addClass('col-md-5 text-right mt-2');
             $('.dataTables_paginate').addClass('col-md-7 mt-4');
+			$('.readmecontent img').css('max-width','100%')
         });
     </script>
 

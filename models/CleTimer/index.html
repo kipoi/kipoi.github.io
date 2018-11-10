@@ -334,6 +334,12 @@
         
     </tbody>
 </table>
+<div class="row" style="margin-right: 0; margin-left: 0;">
+  <div class="col-lg-9 mx-auto readmecontent"><h1>CleTimer</h1>
+<p>This is a linear model that predicts donor/acceptor cleavage time based on the extended intronic sequence. 
+See model readme (model.yaml) and dataloader readme (dataloader.yaml) for more information on the functions.
+NB! Current version of the model doesn't work on introns shorter than 80bp</p></div>
+</div>
         </section>
         <!--/Section: model-list content-->                        
     </div>
@@ -442,6 +448,7 @@
             })
             $('.dataTables_info').addClass('col-md-5 text-right mt-2');
             $('.dataTables_paginate').addClass('col-md-7 mt-4');
+			$('.readmecontent img').css('max-width','100%')
         });
     </script>
 
