@@ -116,25 +116,6 @@
     <li class="toctree-l3"><a href="#contributing-multiple-very-similar-models">Contributing multiple very similar models</a></li>
     
 
-    <li class="toctree-l3"><a href="#template-folder">template/ folder</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#softlinks">Softlinks</a></li>
-        
-            <li><a class="toctree-l4" href="#jinja-templating">Jinja templating</a></li>
-        
-            <li><a class="toctree-l4" href="#importing-common-functions-classes">Importing common functions, classes</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#test_subsettxt-testing-only-some-models">test_subset.txt - Testing only some models</a></li>
-    
-
-    <li class="toctree-l3"><a href="#reproducible-script">Reproducible script</a></li>
-    
-
     </ul>
                 </li>
     </ul>
@@ -250,163 +231,31 @@
             <div class="section">
               
                 <h2 id="contributing-multiple-very-similar-models">Contributing multiple very similar models</h2>
-<p>Consider an example where multiple models were trained, each for a different cell-lines (case for CpGenie). Here is 
-the final folder structure of the contributed model <em>group</em> (simplifed from the 
-<a href="https://github.com/kipoi/models/tree/master/CpGenie">CpGenie</a> model)</p>
-<pre><code>cell_line_1
-├── dataloader.py -&gt; ../template/dataloader.py
-├── dataloader.yaml -&gt; ../template/dataloader.yaml
-└── model.yaml # could be generated from ../template/model.yaml jinja template
-
-cell_line_2
-├── dataloader.py -&gt; ../template/dataloader.py
-├── dataloader.yaml -&gt; ../template/dataloader.yaml
-└── model.yaml # could be generated from ../template/model.yaml jinja template
-
-template
-├── dataloader.py
-├── dataloader.yaml
-└── model.yaml
-
-Makefile
-test_subset.txt
-</code></pre>
-
-<h2 id="template-folder"><code>template/</code> folder</h2>
-<p>The <code>template/</code> folder should contain all the common files or templates. This directory is ignored when listing models.</p>
-<h3 id="softlinks">Softlinks</h3>
-<p>One option to prevent code duplication is to use soft-links. In the simplest case (as shown above), all files 
-except model weights can be shared accross models. When selectively downloading files from git-lfs, Kipoi also 
-considers soft-links and downloads the original files (e.g. when running <code>kipoi predict my_model/cell_line_1 ...</code>, 
-the git-lfs files in <code>my_model/template</code> will also get downloaded).</p>
-<p><strong>Note</strong> Make sure you are using <strong>relative</strong> soft-links (as shown above). </p>
-<pre><code class="python"># example code-snippet to dump of multiple Keras models
-# and to softlink the remaining files
-
-def get_model(cell_line):
-    &quot;&quot;&quot;Returns the Keras model&quot;&quot;&quot;
-    pass
-
-
-def write_model(root_path, cell_line):
-    &quot;&quot;&quot;For a particular cell_line:
-    - write out the model
-    - softlink the other files from `template/`
-    &quot;&quot;&quot;
-    model_dir = os.path.join(root_path, cell_line)
-    os.makedirs(os.path.join(model_dir, &quot;model_files&quot;), exist_ok=True)
-
-    model = get_model(cell_line)
-
-    model.save(os.path.join(model_dir, &quot;model_files/model.h5&quot;))
-
-    symlink_files = [&quot;model.yaml&quot;, 
-                     &quot;example_files&quot;, 
-                     &quot;dataloader.yaml&quot;, 
-                     &quot;dataloader.py&quot;]
-    for f in symlink_files:
-        os.symlink(os.path.join(root_path, &quot;template&quot;, f),
-                   os.path.join(model_dir, f))
-
-
-for cell_line in all_cell_lines:
-    write_model(&quot;my_model_path&quot;, cell_line)
-</code></pre>
-
-<h3 id="jinja-templating">Jinja templating</h3>
-<p>Another option is to use template engines. Template engines are heavily used in web-development to dynamically generate html files. One of the most popular template engines is <a href="http://jinja.pocoo.org/">jinja</a>. Template engines offer more flexibility over softlinks. With softlinks you can only re-use the whole file, while with templating you can choose which pieces of the file are shared and which ones are specific to each model.</p>
-<pre><code class="yaml"># template_model.yaml
-defined_as: kipoi.model.KerasModel 
+<p>To easily contribute model groups with multiple models of the same kind, you can specify two files describing all the models:</p>
+<ul>
+<li><code>model-template.yaml</code> - template for model.yaml</li>
+<li><code>models.tsv</code> - tab-separated files holding custom model variables</li>
+</ul>
+<p>First few lines of <code>model-template.yaml</code>:</p>
+<pre><code class="yaml">type: keras
 args:
-    weights: model_files/model.h5
-...
-info:
-  trained_on: DNase-seq of {{cell_line}} cell line
-  ...
-schema:
-    ...
-    targets:
-      name: output
-      doc: DNA accessibility in {{cell_line}} cell line
+  arch:
+    url: {{ args_arch_url }}
+    md5: {{ args_arch_md5 }}
+  weights:
+    url: {{ args_weights_url }}
+    md5: {{ args_weights_md5 }} 
 </code></pre>
 
-<pre><code class="python"># Script to generate &lt;cell line&gt;/model.yaml from template_model.yaml
-import os
-from jinja2 import Template
-
-def render_template(template_path, output_path, context, mkdir=False):
-    &quot;&quot;&quot;Render template with jinja
-
-    Args:
-      template_path: path to the jinja template
-      output_path: path where to write the rendered template
-      context: Dictionary containing context variable
-    &quot;&quot;&quot;
-    if mkdir:
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(template_path, &quot;r&quot;) as f:
-        template = Template(f.read())
-    out = template.render(**context)
-    with open(output_path, &quot;w&quot;) as f:
-        f.write(out)
-
-
-def write_model_yaml(root_path, cell_line):
-    &quot;&quot;&quot;For a particular cell_line:
-    - Generate `{cell_line}/model.yaml`
-    &quot;&quot;&quot;
-
-    render_template(os.path.join(root_path, &quot;template&quot;, &quot;template_model.yaml&quot;),
-                    os.path.join(root_path, cell_line, &quot;model.yaml&quot;),
-                    context={&quot;cell_line&quot;: cell_line},
-                    mkdir=True)
+<p>First few lines of <code>models.tsv</code>:</p>
+<pre><code class="tsv">model   args_arch   args_weights    args_arch_md5   args_weights_md5    args_arch_url   args_weights_url
+A549_ENCSR000DDI    model_files/A549_ENCSR000DDI.json   model_files/A549_ENCSR000DDI.h5 6d3a971ce766128ca444dd70ef76df70    f23198b146ad8e4d6755cb215fe75e0f    https://zenodo.org/record/1466073/files/A549_ENCSR000DDI?download=1 https://zenodo.org/record/1466073/files/A549_ENCSR000DDI.h5?download=1
+BE2C_ENCSR000DEB    model_files/BE2C_ENCSR000DEB.json   model_files/BE2C_ENCSR000DEB.h5 919b2f7f675bebb9217d95021d92af74    159ea3cb7985c08eab8f64151eb1799e    https://zenodo.org/record/1466073/files/BE2C_ENCSR000DEB?download=1 https://zenodo.org/record/1466073/files/BE2C_ENCSR000DEB.h5?download=1
+BJ_ENCSR000DEA  model_files/BJ_ENCSR000DEA.json model_files/BJ_ENCSR000DEA.h5   6d3a971ce766128ca444dd70ef76df70    9ad8797caff0dd0e8274de6befded4e7    https://zenodo.org/record/1466073/files/A549_ENCSR000DDI?download=1 https://zenodo.org/record/1466073/files/BJ_ENCSR000DEA.h5?download=1
+CMK_ENCSR000DGJ model_files/CMK_ENCSR000DGJ.json    model_files/CMK_ENCSR000DGJ.h5  6d3a971ce766128ca444dd70ef76df70    d5c0c9dd55f1056036cc300ec1f61e1d    https://zenodo.org/record/1466073/files/A549_ENCSR000DDI?download=1 https://zenodo.org/record/1466073/files/CMK_ENCSR000DGJ.h5?download=1
 </code></pre>
 
-<h3 id="importing-common-functions-classes">Importing common functions, classes</h3>
-<p>In case the dataloaders or custom models vary between models and we want to re-use python code, we can import objects from modules in the <code>template/</code> directory:</p>
-<pre><code class="python">import os
-import inspect
-
-# Get the directory of this python file
-filename = inspect.getframeinfo(inspect.currentframe()).filename
-this_path = os.path.dirname(os.path.abspath(filename))
-
-# attach template to pythonpath
-import sys
-sys.path.append(os.path.join(this_path, &quot;../template&quot;))
-
-from model_template import TemplateModel
-
-class SpecificModel(TemplateModel):
-    def __init__(self):
-        super(SpecificModel, self).__init__(arg1=&quot;value&quot;)
-</code></pre>
-
-<h2 id="test_subsettxt-testing-only-some-models"><code>test_subset.txt</code> - Testing only some models</h2>
-<p>Since many models are essentially the same, the automatic tests should only test one or few models. To specify which 
-models to test,
-write the <code>test_subset.txt</code> file in the same directory level as the <code>template/</code> folder and list the models you want to 
-test.</p>
-<p>Examples:</p>
-<p><code>CpGenie/test_subset.txt</code>: </p>
-<pre><code>GM19239_ENCSR000DGH
-merged
-
-</code></pre>
-
-<p><code>rbp_eclip/test_subset.txt</code>: </p>
-<pre><code>AARS
-</code></pre>
-
-<h2 id="reproducible-script">Reproducible script</h2>
-<p>Regardless of which approch you choose to take, consider writing a single script/Makefile in the model-group root (at 
-the same directory level as <code>template/</code>). The script/Makefile should generate or softlink all the files given the 
-template folder, making it easier to update the files later.</p>
-<!-- - `generate.bash` -->
-
-<!-- - `make all` -->
-
-<!-- - `snakemake` -->
+<p>One row in <code>models.tsv</code> will represent a single model and will be used to populate <code>model-template.yaml</code> and construct <code>model.yaml</code> using <a href="http://jinja.pocoo.org/docs/2.10/">Jinja2 templating language</a>. This allows you to even write if statements in <code>model-template.yaml</code>. See <a href="https://github.com/kipoi/models/tree/kipoiseq_dl/CpGenie">CpGenie model</a> as an example.</p>
               
             </div>
           </div>
