@@ -144,6 +144,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Api</span>
     <ul class="subnav">
                 <li class="">
@@ -279,13 +284,18 @@ If instead you provide <code>get_model</code> a path to a model <em>group</em> (
 
 <h4 id="access-information-about-the-model">Access information about the model</h4>
 <p>In the following commands a few properties of the model will be shown:</p>
-<pre><code class="python">model.info # Information about the author:
+<pre><code class="python">model.info # Information about the author
+
+model.info.license # Display the model license
 
 model.default_dataloader # Access the default dataloader
 
 model.model # Access the underlying Keras model
 </code></pre>
 
+<h4 id="license">License</h4>
+<p>As you have seen in the code snippet above every model has a <code>license</code> field. If you use or aim to redistribute the 
+model please always make sure that the license gives you the permission to do so.</p>
 <h4 id="test-the-model">Test the model</h4>
 <p>Every Kipoi model comes with a small test dataset, which is used to assert its functionality in the nightly tests. This model test function can be accessed by:</p>
 <pre><code class="python">pred = model.pipeline.predict_example()

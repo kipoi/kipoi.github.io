@@ -158,6 +158,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Api</span>
     <ul class="subnav">
                 <li class="">
@@ -257,10 +262,11 @@ By default, it contains the model-zoo from <code>github.com/kipoi/models</code>.
 since bigger files are stored with <a href="https://git-lfs.github.com/">git large file storage (git-lfs)</a>.
 This repository will be stored locally under <code>local_path</code>. Advantage of using <code>git-lfs</code> is that only the files tracked by <code>git</code> will be downloaded first. Larger files stored in <code>git-lfs</code> will be downloaded individually for each model upon request (say when a user invokes a <code>kipoi predict</code> command).</p>
 <h3 id="all-possible-model-source-types">All possible model source types</h3>
-<p>In addition to the default <code>kipoi</code> source, you can modify <code>~/.kipoi/config.yaml</code> and add additional (private or public) model sources. Available model source types are:</p>
+<p>In addition to the default <code>kipoi</code> source, you can modify <code>~/.kipoi/config.yaml</code> and add additional (private or public) 
+model sources. Available model source types are:</p>
 <ul>
-<li><code>git-lfs</code> - As for <code>kipoi</code> model source. Model weights will get downloaded upon request (say when running <code>kipoi predict</code>).</li>
-<li><code>git</code> - Normal git repository, all the files will be downloaded on checkout.</li>
+<li><code>git-lfs</code> - Model weights will get downloaded from git-lfs upon request.</li>
+<li><code>git</code> - Normal git repository, all the files will be downloaded on checkout. This is the source type used by the public <code>kipoi</code> repository.</li>
 <li><code>local</code> - Local directory.</li>
 </ul>
 <p>Example:</p>
@@ -281,7 +287,8 @@ This repository will be stored locally under <code>local_path</code>. Advantage 
 </code></pre>
 
 <h3 id="about-model-definition">About model definition</h3>
-<p>A particular model is defined by its source (key under <code>model_sources</code>, say <code>kipoi</code>) and the relative path of the desired model directory from the model source root (say <code>rbp_eclip/UPF1</code>).</p>
+<p>A particular model is defined by its source (key under <code>model_sources</code>, say <code>kipoi</code>) and the relative path of the 
+desired model directory from the model source root (say <code>rbp_eclip/UPF1</code>).</p>
 <p>A directory is considered a model if it contains a <code>model.yaml</code> file.</p>
               
             </div>
