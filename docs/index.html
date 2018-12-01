@@ -310,7 +310,7 @@ For example to install an environment for model <code>rbp_eclip/UPF1</code>:</p>
 If instead you provide a path to a model <em>group</em> (e.g  "rbp_eclip" or "lsgkm-SVM/Tfbs/Ap2alpha/"), rather than one model (e.g "rbp_eclip/UPF1" or "lsgkm-SVM/Tfbs/Ap2alpha/Helas3/Sydh_Std"), or any other directory without a <code>model.yaml</code> file, a <code>ValueError</code> will be thrown.</p>
 </blockquote>
 <hr />
-<p>If you are working on a machine that has GPUs, you will want to add the <code>--gpu</code> flag to the command. And if you want to make use of the <code>kipoi-veff</code> plug-in then add <code>--vep</code>. For more options please run <code>kipoi env create --help</code>.</p>
+<p>If you are working on a machine that has GPUs, you will want to add the <code>--gpu</code> flag to the command. If you want to make use of the <code>kipoi-veff</code> plug-in then add <code>--vep</code>. If you want to make use of the <code>kipoi-interpret</code> plug-in then add <code>--interpret</code>. For more options please run <code>kipoi env create --help</code>.</p>
 <p>The command will tell you how the execution environment for the model is called, e.g.:</p>
 <p><code>INFO [kipoi.cli.env] Environment name: kipoi-rbp_eclip__UPF1</code></p>
 <p>Before using a model in any way, make sure that you have activated its environment, e.g.: prior to executing <code>kipoi</code> or <code>python</code> or <code>R</code> in the attempt to use Kipoi with the model. To activate the model environment run for example:</p>
@@ -455,5 +455,5 @@ pip install -e '.[develop]'
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-11-30 13:06:43
+Build Date UTC : 2018-12-01 21:30:31
 -->
