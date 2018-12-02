@@ -67,6 +67,8 @@
         
             <li><a class="toctree-l3" href="#documentation">Documentation</a></li>
         
+            <li><a class="toctree-l3" href="#tutorials">Tutorials</a></li>
+        
             <li><a class="toctree-l3" href="#citing-kipoi">Citing Kipoi</a></li>
         
             <li><a class="toctree-l3" href="#development">Development</a></li>
@@ -267,6 +269,8 @@
 <li><a href="http://kipoi.org/docs">kipoi.org/docs</a> - Documentation</li>
 <li><a href="https://github.com/kipoi/models">github.com/kipoi/models</a> - Model zoo for genomics maintained by the Kipoi team</li>
 <li><a href="https://doi.org/10.1101/375345">biorxiv preprint</a> - Kipoi: accelerating the community exchange and reuse of predictive models for genomics</li>
+<li><a href="https://medium.com/@zigaavsec/kipoi-utilizing-machine-learning-models-for-genomics-e75b7e26a56c">blog post introducing Kipoi</a>, <a href="https://medium.com/@zigaavsec/kipoi-0-6-release-notes-854a45bd6fdc">blog post describing 0.6 release</a></li>
+<li><a href="https://github.com/kipoi/examples">github.com/kipoi/examples</a> - Use-case oriented tutorials</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
@@ -276,36 +280,45 @@ Make sure you have either anaconda (<a href="https://www.anaconda.com/download/"
 </code></pre>
 
 <h2 id="quick-start">Quick start</h2>
-<p>The following diagram gives a short overview over Kipoi's workflow:
-<img src="http://kipoi.org/docs/img/kipoi-workflow.png" height=400></p>
-<p>If you want to check which models are available in Kipoi you can use the <a href="http://kipoi.org/groups/">website</a>, where you can also see example commands for how to use the models on the CLI, python and R.
-Alternatively you can run <code>kipoi ls</code> in the command line or in python:</p>
+<p>Explore available models on <a href="http://kipoi.org/groups/">https://kipoi.org/groups/</a>. Use-case oriented tutorials are available at <a href="https://github.com/kipoi/examples">https://github.com/kipoi/examples</a>.</p>
+<h3 id="installing-all-required-model-dependencies">Installing all required model dependencies</h3>
+<p>Use <code>kipoi env create &lt;model&gt;</code> to create a new conda environment for the model. You can use the following two commands to create common environments suitable for multiple models.</p>
+<pre><code>kipoi env create shared/envs/kipoi-py3-keras2   # add --gpu to install gpu-compatible deps
+kipoi env create shared/envs/kipoi-py3-keras1.2
+</code></pre>
+
+<p>Before using a model in any way, activate the right conda enviroment:</p>
+<pre><code class="bash">source activate $(kipoi env get &lt;model&gt;)
+</code></pre>
+
+<p>Alternatively, you can use the Singularity or Docker containers with all dependencies installed. Singularity containers can be seamlessly used with the CLI by adding the <code>--singularity</code> flag to <code>kipoi</code> commands.</p>
+<h3 id="python">Python</h3>
 <pre><code class="python">import kipoi
 
-kipoi.list_models()
+kipoi.list_models() # list available models
+
+model = kipoi.get_model(&quot;Basset&quot;) # load the model
+
+model = kipoi.get_model(  # load the model from a past commit
+    &quot;https://github.com/kipoi/models/tree/&lt;commit&gt;/&lt;model&gt;&quot;,
+    source='github-permalink'
+)
+
+# main attributes
+model.model # wrapped model (say keras.models.Model)
+model.default_dataloader # dataloader
+model.info # description, authors, paper link, ...
+
+# main methods
+model.dependencies.install() # calls `conda install` and `pip install`
+model.predict_on_batch(x) # implemented by all the models regardless of the framework
+model.pipeline.predict(dict(fasta_file=&quot;hg19.fa&quot;,
+                            intervals_file=&quot;intervals.bed&quot;))
+# runs: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; predictions 
 </code></pre>
 
-<p>Once a model has been selected (here: <code>rbp_eclip/UPF1</code>), the model environments have to be installed. To do so use one of the <code>kipoi env</code> commands.
-For example to install an environment for model <code>rbp_eclip/UPF1</code>:</p>
-<pre><code class="bash">kipoi env create rbp_eclip/UPF1
-</code></pre>
-
-<hr />
-<p><strong> Aside: models versus model groups</strong>: </p>
-<blockquote>
-<p>A Kipoi <code>model</code> is a path to a directory containing a <code>model.yaml</code> file.  This file specifies the underlying model, data loader, and other model attributes.<br />
-If instead you provide a path to a model <em>group</em> (e.g  "rbp_eclip" or "lsgkm-SVM/Tfbs/Ap2alpha/"), rather than one model (e.g "rbp_eclip/UPF1" or "lsgkm-SVM/Tfbs/Ap2alpha/Helas3/Sydh_Std"), or any other directory without a <code>model.yaml</code> file, a <code>ValueError</code> will be thrown.</p>
-</blockquote>
-<hr />
-<p>If you are working on a machine that has GPUs, you will want to add the <code>--gpu</code> flag to the command. If you want to make use of the <code>kipoi-veff</code> plug-in then add <code>--vep</code>. If you want to make use of the <code>kipoi-interpret</code> plug-in then add <code>--interpret</code>. For more options please run <code>kipoi env create --help</code>.</p>
-<p>The command will tell you how the execution environment for the model is called, e.g.:</p>
-<p><code>INFO [kipoi.cli.env] Environment name: kipoi-rbp_eclip__UPF1</code></p>
-<p>Before using a model in any way, make sure that you have activated its environment, e.g.: prior to executing <code>kipoi</code> or <code>python</code> or <code>R</code> in the attempt to use Kipoi with the model. To activate the model environment run for example:</p>
-<pre><code class="bash">source activate kipoi-rbp_eclip__UPF1
-</code></pre>
-
+<p>For more information see: <a href="notebooks/python-api.ipynb">notebooks/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
 <h3 id="command-line">Command-line</h3>
-<p>Once the model environment is activated Kipoi's API can be accessed from the commandline using:</p>
 <pre><code>$ kipoi
 usage: kipoi &lt;command&gt; [-h] ...
 
@@ -314,6 +327,7 @@ usage: kipoi &lt;command&gt; [-h] ...
     ls               List all the available models
     list_plugins     List all the available plugins
     info             Print dataloader keyword argument info
+    get-example      Download example files
     predict          Run the model prediction
     pull             Download the directory associated with the model
     preproc          Run the dataloader and save the results to an hdf5 array
@@ -326,31 +340,19 @@ usage: kipoi &lt;command&gt; [-h] ...
 
     # - plugin commands:
     veff             Variant effect prediction
-    interpret        Model interpretation using feature importance scores like ISM, grad*input or DeepLIFT.
+    interpret        Model interpretation using feature importance scores like ISM, grad*input or DeepLIFT
+</code></pre>
+
+<pre><code class="bash"># Run model predictions and save the results
+# sequentially into an HDF5 file
+kipoi predict &lt;Model&gt; --dataloader_args='{
+  &quot;intervals_file&quot;: &quot;intervals.bed&quot;,
+  &quot;fasta_file&quot;: &quot;hg38.fa&quot;}' \
+  --singularity \
+  -o '&lt;Model&gt;.preds.h5'
 </code></pre>
 
 <p>Explore the CLI usage by running <code>kipoi &lt;command&gt; -h</code>. Also, see <a href="http://kipoi.org/docs/using/01_Getting_started/#command-line-interface-quick-start">docs/using/getting started cli</a> for more information.</p>
-<h3 id="python">Python</h3>
-<p>Once the model environment is activated (<code>source activate kipoi-rbp_eclip__UPF1</code>) Kipoi's python API can be used to:</p>
-<p>The following commands give a short overview. For details please take a look at the python API documentation.
-Load the model from model the source:</p>
-<pre><code class="python">import kipoi
-model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;) # load the model
-</code></pre>
-
-<p>To get model predictions using the dataloader we can run:</p>
-<pre><code class="python">model.pipeline.predict(dict(fasta_file=&quot;hg19.fa&quot;,
-                            intervals_file=&quot;intervals.bed&quot;,
-                            gtf_file=&quot;gencode.v24.annotation_chr22.gtf&quot;))
-# runs: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; predictions 
-</code></pre>
-
-<p>To predict the values of a model input <code>x</code>, which for example was generated by dataloader, we can use:</p>
-<pre><code class="python">model.predict_on_batch(x) # implemented by all the models regardless of the framework
-</code></pre>
-
-<p>Here <code>x</code> has to be a <code>numpy.ndarray</code> or a list or a dict of a <code>numpy.ndarray</code>, depending on the model requirements, for details please see the documentation of the API or of <code>datalaoder.yaml</code> and <code>model.yaml</code>.</p>
-<p>For more information see: <a href="notebooks/python-api.ipynb">notebooks/python-api.ipynb</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a></p>
 <h3 id="configure-kipoi-in-kipoiconfigyaml">Configure Kipoi in <code>.kipoi/config.yaml</code></h3>
 <p>You can add your own (private) model sources. See <a href="http://kipoi.org/docs/using/03_Model_sources/">docs/using/03_Model_sources/</a>.</p>
 <h3 id="contributing-models">Contributing models</h3>
@@ -368,7 +370,14 @@ model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;) # load the model
 </code></pre>
 
 <h2 id="documentation">Documentation</h2>
-<p>Documentation can be found here: <a href="http://kipoi.org/docs">kipoi.org/docs</a></p>
+<ul>
+<li><a href="http://kipoi.org/docs">kipoi.org/docs</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://github.com/kipoi/examples">https://github.com/kipoi/examples</a> - Use-case oriented tutorials</li>
+<li><a href="https://github.com/kipoi/kipoi/tree/master/notebooks">notebooks</a></li>
+</ul>
 <h2 id="citing-kipoi">Citing Kipoi</h2>
 <p>If you use Kipoi for your research, please cite the publication of the model you are using (see model's <code>cite_as</code> entry) and our Biorxiv preprint: https://doi.org/10.1101/375345.</p>
 <pre><code class="bibtex">@article {kipoi,
@@ -442,5 +451,5 @@ pip install -e '.[develop]'
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-12-02 12:35:06
+Build Date UTC : 2018-12-02 14:37:17
 -->
