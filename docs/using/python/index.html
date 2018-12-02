@@ -266,23 +266,14 @@
 
 <h3 id="get-the-model">Get the model</h3>
 <p>Before getting started with models take a short look what a Kipoi model actually is. Kipoi model have to have the following folder structure in which all the relevant files have their assigned places:</p>
-<pre><code>├── dataloader.py     # implements the dataloader
-├── dataloader.yaml   # describes the dataloader
-├── dataloader_files/      #/ files required by the dataloader
-│   ├── x_transfomer.pkl
-│   └── y_transfomer.pkl
-├── model.yaml        # describes the model
-├── model_files/           #/ files required by the model
-│   ├── model.json
-│   └── weights.h5
-└── example_files/         #/ small example files
-    ├── features.csv
-    └── targets.csv
+<pre><code>├── model.yaml        # describes the model
+├── dataloader.yaml   # (optional) describes the dataloader
+└── dataloader.py     # (optional) implements the dataloader
 </code></pre>
 
 <p>The core file that defines a model is <code>model.yaml</code>, for more details please look at the docs for <a href="../contributing/01_Getting_started/">contributing models</a>.</p>
 <p>Now let's get started with the model:</p>
-<pre><code class="python">model = kipoi.get_model(&quot;rbp_eclip/AARS&quot;)
+<pre><code class="python">model = kipoi.get_model(&quot;Basset&quot;)
 </code></pre>
 
 <hr />
@@ -323,17 +314,11 @@ model.model # Access the underlying Keras model
 <pre><code class="python">model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;...&quot;, &quot;targets_file&quot;: &quot;...&quot;})
 </code></pre>
 
-<p>Specifically, for the <code>rbp_eclip/AARS</code> model, you would run the following:</p>
-<pre><code class="python"># Make sure we are in the directory containing the example files
-import os
-os.chdir(os.path.expanduser('~/.kipoi/models/rbp_eclip/AARS'))
+<p>Specifically, for the <code>Basset</code> model, you would run the following:</p>
+<pre><code class="python">dl_kwargs = model.default_dataloader.download_example('example')
 
 # Run the prediction
-model.pipeline.predict({'intervals_file': 'example_files/intervals.bed', 
-                        'fasta_file': 'example_files/hg38_chr22.fa', 
-                    'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf', 
-                    'filter_protein_coding': True, 
-                    'target_file': 'example_files/targets.tsv'})
+pred = model.pipeline.predict(dl_kwargs, batch_size=4)
 </code></pre>
 
 <h3 id="setup-the-dataloader">Setup the dataloader</h3>
