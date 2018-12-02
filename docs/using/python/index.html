@@ -282,7 +282,7 @@
 
 <p>The core file that defines a model is <code>model.yaml</code>, for more details please look at the docs for <a href="../contributing/01_Getting_started/">contributing models</a>.</p>
 <p>Now let's get started with the model:</p>
-<pre><code class="python">model = kipoi.get_model(&quot;rbp_eclip/UPF1&quot;)
+<pre><code class="python">model = kipoi.get_model(&quot;rbp_eclip/AARS&quot;)
 </code></pre>
 
 <hr />
@@ -323,10 +323,10 @@ model.model # Access the underlying Keras model
 <pre><code class="python">model.pipeline.predict({&quot;dataloader_arg1&quot;: &quot;...&quot;, &quot;targets_file&quot;: &quot;...&quot;})
 </code></pre>
 
-<p>Specifically, for the <code>rbp_eclip/UPF1</code> model, you would run the following:</p>
+<p>Specifically, for the <code>rbp_eclip/AARS</code> model, you would run the following:</p>
 <pre><code class="python"># Make sure we are in the directory containing the example files
 import os
-os.chdir(os.path.expanduser('~/.kipoi/models/rbp_eclip/UPF1'))
+os.chdir(os.path.expanduser('~/.kipoi/models/rbp_eclip/AARS'))
 
 # Run the prediction
 model.pipeline.predict({'intervals_file': 'example_files/intervals.bed', 
