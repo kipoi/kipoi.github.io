@@ -296,7 +296,7 @@
 <p>HDF5 file writer</p>
 <p><strong>Arguments</strong></p>
 <ul>
-<li><strong>file_path (str)</strong>: File path of the output tsv file</li>
+<li><strong>file_path (str)</strong>: File path of the output .h5 file</li>
 <li><strong>chunk_size (str)</strong>: Chunk size for storing the files</li>
 <li><strong>nested_sep</strong>: What separator to use for flattening the nested dictionary structure
     into a single key</li>
@@ -322,6 +322,52 @@
 <h3 id="kipoi.writers.HDF5BatchWriter.dump">dump</h3>
 
 <pre><code class="python">HDF5BatchWriter.dump(file_path, batch)
+</code></pre>
+
+<p>In a single shot write the batch/data to a file and
+close the file.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: file path</li>
+<li><strong>batch</strong>: batch of data. Either a single <code>np.array</code> or a list/dict thereof.</li>
+</ul>
+<h2 id="kipoi.writers.ZarrBatchWriter">ZarrBatchWriter</h2>
+
+<pre><code class="python">ZarrBatchWriter(self, file_path, chunk_size=10000, store=None, string_dtype=None, compressor=None)
+</code></pre>
+
+<p>Zarr file writer</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path (str)</strong>: File path of the output zarr file</li>
+<li><strong>chunk_size (str)</strong>: Chunk size for storing the files</li>
+<li><strong>store</strong>: zarr.storage. If not specified, it's inferred from the file-name.</li>
+<li><strong>For example</strong>: <em>.lmdb.zarr uses LMDB, </em>.zip.zarr uses Zip, and no special suffix
+    uses DirectoryStore</li>
+<li><strong>compressor (str)</strong>: Zarr compressor from numcodecs. Example:
+    from numcodecs import Blosc
+    compressor = Blosc(cname='zstd', clevel=3, shuffle=Blosc.BITSHUFFLE)</li>
+<li><strong>string_dtype</strong>: how to encode the string. If None, variable length is used</li>
+</ul>
+<h3 id="kipoi.writers.ZarrBatchWriter.batch_write">batch_write</h3>
+
+<pre><code class="python">ZarrBatchWriter.batch_write(self, batch)
+</code></pre>
+
+<p>Write a batch of data to bed file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>batch</strong>: batch of data. Either a single <code>np.array</code> or a list/dict thereof.</li>
+</ul>
+<h3 id="kipoi.writers.ZarrBatchWriter.close">close</h3>
+
+<pre><code class="python">ZarrBatchWriter.close(self)
+</code></pre>
+
+<p>Close the file handle</p>
+<h3 id="kipoi.writers.ZarrBatchWriter.dump">dump</h3>
+
+<pre><code class="python">ZarrBatchWriter.dump(file_path, batch)
 </code></pre>
 
 <p>In a single shot write the batch/data to a file and

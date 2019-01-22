@@ -300,6 +300,68 @@
 <li><strong>file_path</strong>: HDF5 file path</li>
 <li><strong>unflatten</strong>: see <code>load_all</code></li>
 </ul>
+<h2 id="kipoi.readers.ZarrReader">ZarrReader</h2>
+
+<pre><code class="python">ZarrReader(self, file_path)
+</code></pre>
+
+<p>Read the Zarr file. Convenience wrapper around zarr.group</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: File path to an Zarr file</li>
+</ul>
+<h3 id="kipoi.readers.ZarrReader.ls">ls</h3>
+
+<pre><code class="python">ZarrReader.ls(self)
+</code></pre>
+
+<p>Recursively list the arrays</p>
+<h3 id="kipoi.readers.ZarrReader.load_all">load_all</h3>
+
+<pre><code class="python">ZarrReader.load_all(self, unflatten=True)
+</code></pre>
+
+<p>Load the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>unflatten</strong>: if True, nest/unflatten the keys.
+      e.g. an entry <code>f['/foo/bar']</code> would need to be accessed</li>
+<li><strong>using two nested <code>get</code> call</strong>: <code>f['foo']['bar']</code></li>
+</ul>
+<h3 id="kipoi.readers.ZarrReader.batch_iter">batch_iter</h3>
+
+<pre><code class="python">ZarrReader.batch_iter(self, batch_size=16, **kwargs)
+</code></pre>
+
+<p>Create a batch iterator over the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>batch_size</strong>: batch size</li>
+<li><strong>**kwargs</strong>: ignored argument. Used for consistency with other dataloaders</li>
+</ul>
+<h3 id="kipoi.readers.ZarrReader.open">open</h3>
+
+<pre><code class="python">ZarrReader.open(self)
+</code></pre>
+
+<p>Open the file</p>
+<h3 id="kipoi.readers.ZarrReader.close">close</h3>
+
+<pre><code class="python">ZarrReader.close(self)
+</code></pre>
+
+<p>Close the file</p>
+<h3 id="kipoi.readers.ZarrReader.load">load</h3>
+
+<pre><code class="python">ZarrReader.load(file_path, unflatten=True)
+</code></pre>
+
+<p>Load the data all at once (classmethod).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: Zarr file path</li>
+<li><strong>unflatten</strong>: see <code>load_all</code></li>
+</ul>
               
             </div>
           </div>
