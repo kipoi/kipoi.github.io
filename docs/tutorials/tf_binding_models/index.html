@@ -292,67 +292,43 @@ chr22   49486843    49486944    0
 
 <p>Next, to evaluate the DeepBind model for JUND, we will 1) install software requirements to run the model, 2) load the model, and 3) get model predictions using our intervals and fasta file.</p>
 <h2 id="install-deepbind-model-software-requirements">Install DeepBind model software requirements</h2>
-<pre><code class="python">deepbind_model_name = &quot;DeepBind/D00776.005&quot;
+<pre><code class="python">deepbind_model_name = &quot;DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF&quot;
 kipoi.install_model_requirements(deepbind_model_name)
 # Use `$ kipoi env install DeepBind/D00776.005 --gpu` from the command-line to install the gpu version of the dependencies
 </code></pre>
 
-<pre><code>Conda dependencies to be installed:
-['python=2.7', 'h5py']
-Fetching package metadata ...........
-Solving package specifications: .
-
-# All requested packages already installed.
-# packages in environment at /users/jisraeli/local/anaconda/envs/kipoi:
-#
-h5py                      2.7.1            py27h2697762_0  
-pip dependencies to be installed:
-['tensorflow==1.4', 'keras==2.1.4']
-Requirement already satisfied: tensorflow==1.4 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages
-Collecting keras==2.1.4
-  Using cached Keras-2.1.4-py2.py3-none-any.whl
-Requirement already satisfied: enum34&gt;=1.1.6 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: backports.weakref&gt;=1.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: wheel in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: mock&gt;=2.0.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: numpy&gt;=1.12.1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: protobuf&gt;=3.3.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: six&gt;=1.10.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow==1.4)
-Requirement already satisfied: pyyaml in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from keras==2.1.4)
-Requirement already satisfied: scipy&gt;=0.14 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from keras==2.1.4)
-Requirement already satisfied: funcsigs&gt;=1; python_version &lt; "3.3" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow==1.4)
-Requirement already satisfied: pbr&gt;=0.11 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow==1.4)
-Requirement already satisfied: bleach==1.5.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
-Requirement already satisfied: futures&gt;=3.1.1; python_version &lt; "3.2" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
-Requirement already satisfied: markdown&gt;=2.6.8 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
-Requirement already satisfied: werkzeug&gt;=0.11.10 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
-Requirement already satisfied: html5lib==0.9999999 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow==1.4)
-Requirement already satisfied: setuptools in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from protobuf&gt;=3.3.0-&gt;tensorflow==1.4)
-Installing collected packages: keras
-  Found existing installation: Keras 2.0.4
-    Uninstalling Keras-2.0.4:
-      Successfully uninstalled Keras-2.0.4
-Successfully installed keras-2.1.4
-</code></pre>
 <h2 id="load-deepbind-model">Load DeepBind model</h2>
 <pre><code class="python">deepbind_model = kipoi.get_model(deepbind_model_name)
 </code></pre>
 
-<pre><code>/users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+<pre><code>Downloading https://sandbox.zenodo.org/record/248887/files/Homo_sapiens-TF-D00328.018_ChIP-seq_CTCF?download=1 to /home/avsec/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/arch/0d6747991a525b94a1ac9174459c2bf4
+
+
+8.19kB [00:00, 11.9kB/s]
+
+
+Downloading https://sandbox.zenodo.org/record/248887/files/Homo_sapiens-TF-D00328.018_ChIP-seq_CTCF.h5?download=1 to /home/avsec/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/weights/838eb7287139a2542f21984e692a9be2
+
+
+32.8kB [00:02, 11.0kB/s]                   
+/home/avsec/bin/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 Using TensorFlow backend.
+/home/avsec/bin/anaconda3/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
+  return f(*args, **kwds)
 </code></pre>
 <h2 id="get-deepbind-predictions">Get DeepBind predictions</h2>
 <pre><code class="python">deepbind_predictions = deepbind_model.pipeline.predict(dl_kwargs, batch_size=1000)
 </code></pre>
 
+<pre><code>2it [00:01,  1.04s/it]
+</code></pre>
 <h2 id="evaluate-deepbind-predictions">Evaluate DeepBind predictions</h2>
 <p>Let's check the auROC of deepbind predictions:</p>
 <pre><code class="python">roc_auc_score(labels, deepbind_predictions)
 </code></pre>
 
-<pre><code>0.808138
+<pre><code>0.6148564999999999
 </code></pre>
 <h2 id="load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</h2>
 <pre><code class="python">pwm_model_name = &quot;pwm_HOCOMOCO/human/JUND&quot;
@@ -364,47 +340,13 @@ print(&quot;PWM auROC:&quot;)
 roc_auc_score(labels, pwm_predictions)
 </code></pre>
 
-<pre><code>Conda dependencies to be installed:
-['python=3.5', 'h5py']
-Fetching package metadata ...........
-Solving package specifications: .
-
-# All requested packages already installed.
-# packages in environment at /users/jisraeli/local/anaconda/envs/kipoi:
-#
-h5py                      2.7.1            py27h2697762_0  
-pip dependencies to be installed:
-['tensorflow', 'keras==2.0.4']
-Requirement already satisfied: tensorflow in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages
-Collecting keras==2.0.4
-Requirement already satisfied: enum34&gt;=1.1.6 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: backports.weakref&gt;=1.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: wheel in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: mock&gt;=2.0.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: numpy&gt;=1.12.1 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: protobuf&gt;=3.3.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: six&gt;=1.10.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow)
-Requirement already satisfied: theano in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages/Theano-1.0.1-py2.7.egg (from keras==2.0.4)
-Requirement already satisfied: pyyaml in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from keras==2.0.4)
-Requirement already satisfied: funcsigs&gt;=1; python_version &lt; "3.3" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow)
-Requirement already satisfied: pbr&gt;=0.11 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from mock&gt;=2.0.0-&gt;tensorflow)
-Requirement already satisfied: bleach==1.5.0 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
-Requirement already satisfied: futures&gt;=3.1.1; python_version &lt; "3.2" in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
-Requirement already satisfied: markdown&gt;=2.6.8 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
-Requirement already satisfied: werkzeug&gt;=0.11.10 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
-Requirement already satisfied: html5lib==0.9999999 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from tensorflow-tensorboard&lt;0.5.0,&gt;=0.4.0rc1-&gt;tensorflow)
-Requirement already satisfied: setuptools in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from protobuf&gt;=3.3.0-&gt;tensorflow)
-Requirement already satisfied: scipy&gt;=0.14 in /users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages (from theano-&gt;keras==2.0.4)
-Installing collected packages: keras
-  Found existing installation: Keras 2.1.4
-    Uninstalling Keras-2.1.4:
-      Successfully uninstalled Keras-2.1.4
-Successfully installed keras-2.0.4
+<pre><code>Downloading https://zenodo.org/record/1466139/files/human-JUND.h5?download=1 to /home/avsec/.kipoi/models/pwm_HOCOMOCO/downloaded/model_files/human/JUND/weights/bb64a335f37cff4537b1bde4c11cab8b
 
 
-/users/jisraeli/local/anaconda/envs/kipoi/lib/python2.7/site-packages/keras/models.py:255: UserWarning: No training configuration found in save file: the model was *not* compiled. Compile it manually.
-  custom_objects=custom_objects)
+16.4kB [00:00, 28.8kB/s]                   
+/home/avsec/bin/anaconda3/lib/python3.6/site-packages/keras/models.py:255: UserWarning: No training configuration found in save file: the model was *not* compiled. Compile it manually.
+  warnings.warn('No training configuration found in save file: '
+2it [00:00,  2.19it/s]
 
 
 PWM auROC:
