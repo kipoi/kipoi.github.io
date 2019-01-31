@@ -268,14 +268,14 @@ source activate kipoi-MMSplice__deltaLogitPSI</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>kipoi get-example MMSplice/deltaLogitPSI -o example
 kipoi predict MMSplice/deltaLogitPSI \
-  --dataloader_args=&#39;{&#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
+  --dataloader_args=&#39;{&#34;gtf&#34;: &#34;example/gtf&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
   -o &#39;/tmp/MMSplice|deltaLogitPSI.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/MMSplice|deltaLogitPSI.example_pred.tsv&#39;
 </code></pre> -->
 	<pre><code class="bash">kipoi get-example MMSplice/deltaLogitPSI -o example
 kipoi predict MMSplice/deltaLogitPSI \
-  --dataloader_args=&#39;{&#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
+  --dataloader_args=&#39;{&#34;gtf&#34;: &#34;example/gtf&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
   -o &#39;/tmp/MMSplice|deltaLogitPSI.example_pred.tsv&#39;
 # check the results
 head &#39;/tmp/MMSplice|deltaLogitPSI.example_pred.tsv&#39;
@@ -547,7 +547,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
   <div>
     
       <p>
-	<strong>gtf_file</strong> :
+	<strong>gtf</strong> :
 	path to the GTF file required by the models (Ensemble)
       </p>
     
@@ -564,6 +564,11 @@ model$predict_on_batch(batch$inputs)</code></pre>
       <p>
 	<strong>split_seq</strong> (optional):
 	Whether split the sequence in dataloader
+      </p>
+    
+      <p>
+	<strong>variant_filter</strong> (optional):
+	If set True (default), variants with `FILTER` field other than `PASS` will be filtered out.
       </p>
     
       <p>
@@ -655,7 +660,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>scikit-learn</li>
+      <li>scikit-learn<br></li>
+    
+      <li>mmsplice&gt;=0.2.7</li>
     
 </u>
 
@@ -694,7 +701,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
       <li>kipoi<br></li>
     
-      <li>mmsplice</li>
+      <li>mmsplice&gt;=0.2.7</li>
     
 </u>
 
