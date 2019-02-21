@@ -418,25 +418,34 @@ close the file.</p>
 <p>Close the file</p>
 <h2 id="kipoi.writers.BigWigWriter">BigWigWriter</h2>
 
-<pre><code class="python">BigWigWriter(self, file_path)
+<pre><code class="python">BigWigWriter(self, file_path, genome_file=None, chrom_sizes=None, is_sorted=True)
 </code></pre>
 
-<p>BigWig entries have to be sorted so the generated values are cached in a bedgraph file.</p>
 <p><strong>Arguments</strong></p>
 <ul>
 <li><strong>file_path (str)</strong>: File path of the output tsv file</li>
+<li><strong>genome_file</strong>: genome file containing chromosome sizes. Can
+    be None. Can be overriden by <code>chrom_sizes</code>.</li>
+<li><strong>chrom_sizes</strong>: a list of tuples containing chromosome sizes.
+    If not None, it overrided <code>genome_file</code>.</li>
+<li>
+<p><strong>is_sorted</strong>: if True, the provided entries need to be sorted beforehand</p>
+</li>
+<li>
+<p><strong>Note</strong>: One of <code>genome_file</code> or <code>chrom_sizes</code> shouldn't be None.</p>
+</li>
 </ul>
-<h3 id="kipoi.writers.BigWigWriter.write_entry">write_entry</h3>
+<h3 id="kipoi.writers.BigWigWriter.region_write">region_write</h3>
 
-<pre><code class="python">BigWigWriter.write_entry(self, chr, start, end, value)
+<pre><code class="python">BigWigWriter.region_write(self, region, data)
 </code></pre>
 
-<p>Write region to file.</p>
+<p>Write region to file. Note: the written regions need to be sorted beforehand.</p>
 <p><strong>Arguments</strong></p>
 <ul>
-<li><strong>region</strong>: Defines the region that will be written position by position. Example: <code>{"chr":"chr1", "start":0, "end":4}</code>.</li>
-<li><strong>data</strong>: a 1D or 2D numpy array vector that has length "end" - "start". if 2D array is passed then
-        <code>data.sum(axis=1)</code> is performed on it first.</li>
+<li><strong>region</strong>: a <code>kipoi.metadata.GenomicRanges</code>,  <code>pybedtools.Interval</code> or a dictionary with at least keys:</li>
+<li><strong>"chr", "start", "end" and list-values. Example</strong>: <code>{"chr":"chr1", "start":0, "end":4}</code>.</li>
+<li><strong>data</strong>: a 1D-array of values to be written - where the 0th entry is at 0-based "start"</li>
 </ul>
 <h3 id="kipoi.writers.BigWigWriter.close">close</h3>
 
