@@ -242,8 +242,15 @@
 <ul>
 <li><strong>model (str)</strong>: model name</li>
 <li><strong>source (str)</strong>: model source</li>
-<li><strong>and_dataloaders (bool)</strong>: if True, install also the dependencies
-        for the default dataloader</li>
+<li>
+<p><strong>and_dataloaders (bool)</strong>: if True, install also the dependencies
+        for the default dataloader</p>
+</li>
+<li>
+<p><strong>.. deprecated</strong>:: 0.6.8
+   This will be removed in 0.7.0.  installing packages in a running python env is error prone.
+                        Use command line interface of kipoi to install packages.</p>
+</li>
 </ul>
 <h1 id="kipoi.install_dataloader_requirements">install_dataloader_requirements</h1>
 
@@ -254,7 +261,14 @@
 <p><strong>Arguments</strong></p>
 <ul>
 <li><strong>datalaoder (str)</strong>: dataloader name</li>
-<li><strong>source (str)</strong>: model source</li>
+<li>
+<p><strong>source (str)</strong>: model source</p>
+</li>
+<li>
+<p><strong>.. deprecated</strong>:: 0.6.8
+   This will be removed in 0.7.0.  installing packages in a running python env is error prone.
+                        Use command line interface of kipoi to install packages.</p>
+</li>
 </ul>
               
             </div>

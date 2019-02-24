@@ -293,6 +293,10 @@ kipoi env create shared/envs/kipoi-py3-keras1.2
 
 <p>Alternatively, you can use the Singularity or Docker containers with all dependencies installed. Singularity containers can be seamlessly used with the CLI by adding the <code>--singularity</code> flag to <code>kipoi</code> commands.</p>
 <h3 id="python">Python</h3>
+<p>Before using a model from python in any way, activate the right conda enviroment:</p>
+<pre><code class="bash">source activate $(kipoi env get &lt;model&gt;)
+</code></pre>
+
 <pre><code class="python">import kipoi
 
 kipoi.list_models() # list available models
@@ -310,7 +314,6 @@ model.default_dataloader # dataloader
 model.info # description, authors, paper link, ...
 
 # main methods
-model.dependencies.install() # calls `conda install` and `pip install`
 model.predict_on_batch(x) # implemented by all the models regardless of the framework
 model.pipeline.predict(dict(fasta_file=&quot;hg19.fa&quot;,
                             intervals_file=&quot;intervals.bed&quot;))
@@ -451,5 +454,5 @@ pip install -e '.[develop]'
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-02-21 18:08:39
+Build Date UTC : 2019-02-24 19:56:26
 -->
