@@ -78,9 +78,6 @@
     <a class="current" href="./">Extractors</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#fastastringextractor">FastaStringExtractor</a></li>
-    
-
     </ul>
 	    </li>
           
@@ -119,21 +116,7 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="fastastringextractor">FastaStringExtractor</h2>
-<pre><code class="python">FastaStringExtractor(self, fasta_file, use_strand=False, force_upper=False)
-</code></pre>
-
-<p>Fasta file extractor</p>
-<p>NOTE: The extractor is not thread-save.
-If you with to use it with multiprocessing,
-create a new extractor object in each process.</p>
-<p><strong>Arguments</strong></p>
-<ul>
-<li><strong>fasta_file (str)</strong>: path to the fasta_file</li>
-<li><strong>use_strand (bool)</strong>: if True, the extracted sequence
-    is reverse complemented in case interval.strand == "-"</li>
-<li><strong>force_upper (bool)</strong>: Force uppercase output</li>
-</ul>
+                
               
             </div>
           </div>
