@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <!-- Model title -->
-                            <h1 class="h1-responsive"><a href="/models/KipoiSplice">KipoiSplice</a>/4cons</h1>
+                            <h1 class="h1-responsive">BPNet-OSKN</h1>
                         </div>
                         <!-- Model details -->
                         <div class="col-lg-5">
@@ -112,38 +112,7 @@
   
     
       
-  Roman Kreuzhuber
-  
-    <a href="https://github.com/krrome" class="github">
-      <i class="fa fa-github" aria-hidden="true"></i>
-    </a>
-  
-  
-
-    
-    , 
-  
-    
-      
-  Johnny Israeli
-  
-  
-
-    
-    , 
-  
-    
-      
-  Nancy Xu
-  
-  
-
-    
-    , 
-  
-    
-      
-  Jun Cheng
+  Melanie Weilert
   
   
 
@@ -161,7 +130,7 @@
   
     
       
-  Abhimanyu Banerjee
+  Amr Alexandari
   
   
 
@@ -170,7 +139,7 @@
   
     
       
-  Daniel S. Kim
+  Sabrina Krueger
   
   
 
@@ -179,7 +148,34 @@
   
     
       
-  Lara Urban
+  Khyati Dalal
+  
+  
+
+    
+    , 
+  
+    
+      
+  Robin Fropf
+  
+  
+
+    
+    , 
+  
+    
+      
+  Charles McAnany
+  
+  
+
+    
+    , 
+  
+    
+      
+  Julien Gagneur
   
   
 
@@ -197,16 +193,7 @@
   
     
       
-  Oliver Stegle
-  
-  
-
-    
-    , 
-  
-    
-      
-  Julien Gagneur
+  Julia Zeitlinger
   
   
 
@@ -234,19 +221,6 @@
   
 
     
-    , 
-  
-    
-      
-  Roman Kreuzhuber
-  
-    <a href="https://github.com/krrome" class="github">
-      <i class="fa fa-github" aria-hidden="true"></i>
-    </a>
-  
-  
-
-    
     
   
 </p>
@@ -256,7 +230,7 @@
   
       
   
-    <a href="https://doi.org/10.1101/375345">https://doi.org/10.1101/375345</a>
+    <a href="https://doi.org/10.1101/737981">https://doi.org/10.1101/737981</a>
   
 
     
@@ -267,15 +241,7 @@
                                     <!-- Model type -->
                                     <p>Type:
                                         
-                                      <a data-toggle="tooltip" data-placement="top" data-html="true" title="
-  <div>
-    
-      <strong>pkl_file</strong>: RemoteFile(url=&#39;https://zenodo.org/record/1466091/files/4cons-model.pkl?download=1&#39;, md5=&#39;e18417759ba73a2b5b7f57ac4f9bc362&#39;)<br>
-    
-      <strong>predict_method</strong>: predict_proba<br>
-    
-  </div>
-"><span class="badge badge-pill rgba-stylish-strong hoverable" >sklearn</span></a>
+                                      None
                                       
                                     </p>
 
@@ -290,13 +256,13 @@
                                     <!-- Trained on -->
                                     <p>Trained on: 
   
-    ClinVar (release 2018-04-29) variants in the range [-40nt, 10nt] around the splicing acceptor or variants in the range [-10, 10] nt around the splice donor of a protein coding gene. Only variants labelled &#39;Pathogenic&#39; or &#39;Benign&#39; were used. Data from all chromosomes was used for training.
+    ChIP-nexus data in mm10. test chromosomes 1, 8, 9, validation chromosomes 2, 3, 4
   
 </p>
 
 				    <!-- Model url  -->
 				    <p>
-				      <a href="https://github.com/kipoi/models/tree/master/KipoiSplice/4cons">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				      <a href="https://github.com/kipoi/models/tree/master/BPNet-OSKN">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
 				    </p> 
                                 </div>
                             </div>
@@ -305,8 +271,7 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-sm-12">
                             <!-- Model description -->
-                            <p class="lead">This model is similar to KipoiSplice/4, but is additionally base on 4 conservational features  - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
-</p>
+                            <p class="lead">BPNet model predicting the ChIP-nexus profiles of Oct4, Sox2, Nanog and Klf4</p>
 							<p></p>
                         </div>
 
@@ -337,10 +302,10 @@
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env create KipoiSplice/4cons
-source activate kipoi-KipoiSplice__4cons</code></pre> -->
-	<pre><code class="bash">kipoi env create KipoiSplice/4cons
-source activate kipoi-KipoiSplice__4cons</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env create BPNet-OSKN
+source activate kipoi-BPNet-OSKN</code></pre> -->
+	<pre><code class="bash">kipoi env create BPNet-OSKN
+source activate kipoi-BPNet-OSKN</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -354,8 +319,8 @@ source activate kipoi-KipoiSplice__4cons</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env install KipoiSplice/4cons</code></pre> -->
-	<pre><code class="bash">kipoi env install KipoiSplice/4cons</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env install BPNet-OSKN</code></pre> -->
+	<pre><code class="bash">kipoi env install BPNet-OSKN</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -369,8 +334,8 @@ source activate kipoi-KipoiSplice__4cons</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi test KipoiSplice/4cons --source=kipoi</code></pre> -->
-	<pre><code class="bash">kipoi test KipoiSplice/4cons --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi test BPNet-OSKN --source=kipoi</code></pre> -->
+	<pre><code class="bash">kipoi test BPNet-OSKN --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -384,19 +349,19 @@ source activate kipoi-KipoiSplice__4cons</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi get-example KipoiSplice/4cons -o example
-kipoi predict KipoiSplice/4cons \
-  --dataloader_args=&#39;{&#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;num_workers&#34;: 1, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;}&#39; \
-  -o &#39;/tmp/KipoiSplice|4cons.example_pred.tsv&#39;
+	<!-- <pre class="language-markup"><code>kipoi get-example BPNet-OSKN -o example
+kipoi predict BPNet-OSKN \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+  -o &#39;/tmp/BPNet-OSKN.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/KipoiSplice|4cons.example_pred.tsv&#39;
+head &#39;/tmp/BPNet-OSKN.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">kipoi get-example KipoiSplice/4cons -o example
-kipoi predict KipoiSplice/4cons \
-  --dataloader_args=&#39;{&#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;num_workers&#34;: 1, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;}&#39; \
-  -o &#39;/tmp/KipoiSplice|4cons.example_pred.tsv&#39;
+	<pre><code class="bash">kipoi get-example BPNet-OSKN -o example
+kipoi predict BPNet-OSKN \
+  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+  -o &#39;/tmp/BPNet-OSKN.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/KipoiSplice|4cons.example_pred.tsv&#39;
+head &#39;/tmp/BPNet-OSKN.example_pred.tsv&#39;
 </code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
@@ -419,9 +384,9 @@ head &#39;/tmp/KipoiSplice|4cons.example_pred.tsv&#39;
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>import kipoi
-model = kipoi.get_model(&#39;KipoiSplice/4cons&#39;)</code></pre> -->
+model = kipoi.get_model(&#39;BPNet-OSKN&#39;)</code></pre> -->
 	<pre><code class="python">import kipoi
-model = kipoi.get_model(&#39;KipoiSplice/4cons&#39;)</code></pre>
+model = kipoi.get_model(&#39;BPNet-OSKN&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -505,10 +470,10 @@ model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;KipoiSplice/4cons&#39;)</code></pre> -->
+model &lt;- kipoi$get_model(&#39;BPNet-OSKN&#39;)</code></pre> -->
 	<pre><code class="R">library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;KipoiSplice/4cons&#39;)</code></pre>
+model &lt;- kipoi$get_model(&#39;BPNet-OSKN&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -600,8 +565,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
   
     <p><strong>Name</strong>: None</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (16,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Model predictions of MaxEntscan, HAL and labranchor + conservation</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1000, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: One-hot encoded DNA sequence.</p>
 
 
             </div>
@@ -609,13 +574,27 @@ model$predict_on_batch(batch$inputs)</code></pre>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h4 class="card-title mt-2 mb-3">Targets</h4>
                 
-  <p>Single numpy array</p>
+  <p>Dictionary of numpy arrays</p>
   
-    <p><strong>Name</strong>: None</p>
+    <p><strong>Name</strong>: Oct4</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Pathogenicity score. 0th index represents the probability of being benign and 1st index represents the probability for being pathogenic.
-</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1000, 2)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Strand-specific ChIP-nexus data for Oct4.</p>
+
+    <p><strong>Name</strong>: Sox2</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1000, 2)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Strand-specific ChIP-nexus data for Sox2.</p>
+
+    <p><strong>Name</strong>: Nanog</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1000, 2)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Strand-specific ChIP-nexus data for Nanog.</p>
+
+    <p><strong>Name</strong>: Klf4</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1000, 2)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Strand-specific ChIP-nexus data for Klf4.</p>
 
 
             </div>
@@ -635,9 +614,10 @@ model$predict_on_batch(batch$inputs)</code></pre>
               <div class="col-lg-5">
 		<!-- TODO - ifelse  -->
 		
-  		  <p><strong>Defined as:</strong> .</p>
+  		  <p><strong>Defined as:</strong> kipoiseq.dataloaders.SeqIntervalDl</p>
 		
-                  <p><strong>Doc:</strong> Predictions of 4 splicing models + conservation for all splice-sites in the GTF.</p>
+                  <p><strong>Doc:</strong> Dataloader for a combination of fasta and tab-delimited input files such as bed files. The dataloader extracts regions from the fasta file as defined in the tab-delimited `intervals_file` and converts them into one-hot encoded format. Returned sequences are of the type np.array with the shape inferred from the arguments: `alphabet_axis` and `dummy_axis`.
+</p>
                   <p><strong>Authors:</strong> 
   
     
@@ -667,7 +647,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
     
   
 </p>
-                  <p><strong>Type:</strong> PreloadedDataset</p>
+                  <p><strong>Type:</strong> Dataset</p>
                   <p><strong>License:</strong> MIT</p>
 
                 </div>
@@ -678,34 +658,18 @@ model$predict_on_batch(batch$inputs)</code></pre>
   <div>
     
       <p>
-	<strong>batch_size</strong> (optional):
-	batch size to use with all the models
+	<strong>intervals_file</strong> :
+	bed3+&lt;columns&gt; file path containing intervals + (optionally) labels
       </p>
     
       <p>
 	<strong>fasta_file</strong> :
-	reference genome fasta file
+	Reference genome FASTA file path.
       </p>
     
       <p>
-	<strong>gtf_file</strong> :
-	path to the GTF file required by the models (Ensemble)
-      </p>
-    
-      <p>
-	<strong>num_workers</strong> (optional):
-	number of workers to use for each model
-      </p>
-    
-      <p>
-	<strong>tmpdir</strong> (optional):
-	path to the temporary directory where to store the predictions
-      </p>
-    
-      <p>
-	<strong>vcf_file</strong> :
-	Path to the input vcf file. The file has to be annotated with VEP. Specifically, it has to contain the following 4 scores - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
-
+	<strong>num_chr_fasta</strong> (optional):
+	True, the the dataloader will make sure that the chromosomes don&#39;t start with chr.
       </p>
     
   </div>
@@ -736,6 +700,34 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
+      <li>python=3.6<br></li>
+    
+      <li>bioconda::pybedtools&gt;=0.7.10<br></li>
+    
+      <li>bioconda::bedtools&gt;=2.27.1<br></li>
+    
+      <li>bioconda::pybigwig&gt;=0.3.10<br></li>
+    
+      <li>bioconda::pysam&gt;=0.14.0<br></li>
+    
+      <li>bioconda::genomelake&gt;=0.1.4<br></li>
+    
+      <li>pytorch::pytorch<br></li>
+    
+      <li>cython<br></li>
+    
+      <li>h5py&gt;=2.7.0<br></li>
+    
+      <li>numpy<br></li>
+    
+      <li>pandas&gt;=0.23.0<br></li>
+    
+      <li>fastparquet<br></li>
+    
+      <li>python-snappy<br></li>
+    
+      <li>nb_conda</li>
+    
 </u>
 
                 </div>
@@ -745,7 +737,11 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>scikit-learn</li>
+      <li>tensorflow&gt;=1.0<br></li>
+    
+      <li>git+https://github.com/kundajelab/DeepExplain.git<br></li>
+    
+      <li>bpnet[extras]</li>
     
 </u>
 
@@ -767,21 +763,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>bioconda::pysam<br></li>
-    
-      <li>bioconda::maxentpy<br></li>
-    
       <li>bioconda::pybedtools<br></li>
     
-      <li>bioconda::cyvcf2<br></li>
-    
-      <li>pandas<br></li>
+      <li>bioconda::pyfaidx<br></li>
     
       <li>numpy<br></li>
     
-      <li>h5py<br></li>
-    
-      <li>python=3.5</li>
+      <li>pandas</li>
     
 </u>
 
@@ -792,25 +780,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>pyvcf<br></li>
-    
-      <li>intervaltree<br></li>
-    
-      <li>joblib<br></li>
-    
-      <li>scikit-learn<br></li>
-    
-      <li>sklearn-pandas<br></li>
-    
-      <li>kipoi<br></li>
-    
-      <li>kipoi_veff<br></li>
-    
-      <li>tqdm<br></li>
-    
-      <li>tensorflow&gt;=1.0.0<br></li>
-    
-      <li>keras==2.2.4</li>
+      <li>kipoiseq</li>
     
 </u>
 
@@ -943,8 +913,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
       
       var disqus_config = function () {
-        this.page.url = "http://localhost/models/KipoiSplice/4cons/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/models/KipoiSplice/4cons/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://localhost/models/BPNet-OSKN/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/models/BPNet-OSKN/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       
       (function() { // DON'T EDIT BELOW THIS LINE
