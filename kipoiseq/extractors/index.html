@@ -78,6 +78,36 @@
     <a class="current" href="./">Extractors</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#fastastringextractor">FastaStringExtractor</a></li>
+    
+
+    <li class="toctree-l2"><a href="#multisamplevcf">MultiSampleVCF</a></li>
+    
+
+    <li class="toctree-l2"><a href="#numbervariantquery">NumberVariantQuery</a></li>
+    
+
+    <li class="toctree-l2"><a href="#variantintervalqueryable">VariantIntervalQueryable</a></li>
+    
+
+    <li class="toctree-l2"><a href="#intervalseqbuilder">IntervalSeqBuilder</a></li>
+    
+
+    <li class="toctree-l2"><a href="#variantseqextractor">VariantSeqExtractor</a></li>
+    
+
+    <li class="toctree-l2"><a href="#singlevariantvcfseqextractor">SingleVariantVCFSeqExtractor</a></li>
+    
+
+    <li class="toctree-l2"><a href="#singleseqvcfseqextractor">SingleSeqVCFSeqExtractor</a></li>
+    
+
+    <li class="toctree-l2"><a href="#variants_to_pyranges">variants_to_pyranges</a></li>
+    
+
+    <li class="toctree-l2"><a href="#singlevariantmatcher">SingleVariantMatcher</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -116,7 +146,75 @@
           <div role="main">
             <div class="section">
               
-                
+                <h2 id="fastastringextractor">FastaStringExtractor</h2>
+<pre><code class="python">FastaStringExtractor(self, fasta_file, use_strand=False, force_upper=False)
+</code></pre>
+
+<p>Fasta file extractor</p>
+<p>NOTE: The extractor is not thread-save.
+If you with to use it with multiprocessing,
+create a new extractor object in each process.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>fasta_file (str)</strong>: path to the fasta_file</li>
+<li><strong>use_strand (bool)</strong>: if True, the extracted sequence
+    is reverse complemented in case interval.strand == "-"</li>
+<li><strong>force_upper (bool)</strong>: Force uppercase output</li>
+</ul>
+<h2 id="multisamplevcf">MultiSampleVCF</h2>
+<pre><code class="python">MultiSampleVCF(self, *args, **kwargs)
+</code></pre>
+
+<h2 id="numbervariantquery">NumberVariantQuery</h2>
+<pre><code class="python">NumberVariantQuery(self, max_num=inf, min_num=0)
+</code></pre>
+
+<p>Closure for variant query. Filter variants for interval
+  if number of variants in given limits.</p>
+<h2 id="variantintervalqueryable">VariantIntervalQueryable</h2>
+<pre><code class="python">VariantIntervalQueryable(self, vcf, variant_intervals:List[Tuple[Iterable[kipoiseq.dataclasses.Variant], kipoiseq.dataclasses.Interval]], progress=False)
+</code></pre>
+
+<h2 id="intervalseqbuilder">IntervalSeqBuilder</h2>
+<pre><code class="python">IntervalSeqBuilder(self, /, *args, **kwargs)
+</code></pre>
+
+<p>String builder for <code>pyfaidx.Sequence</code> and <code>Interval</code> objects.</p>
+<h2 id="variantseqextractor">VariantSeqExtractor</h2>
+<pre><code class="python">VariantSeqExtractor(self, fasta_file)
+</code></pre>
+
+<h2 id="singlevariantvcfseqextractor">SingleVariantVCFSeqExtractor</h2>
+<pre><code class="python">SingleVariantVCFSeqExtractor(self, fasta_file, vcf_file)
+</code></pre>
+
+<p>Fetch list of sequence in which each variant applied based
+on given vcf file.</p>
+<h2 id="singleseqvcfseqextractor">SingleSeqVCFSeqExtractor</h2>
+<pre><code class="python">SingleSeqVCFSeqExtractor(self, fasta_file, vcf_file)
+</code></pre>
+
+<p>Fetch sequence in which all variant applied based on given vcf file.</p>
+<h2 id="variants_to_pyranges">variants_to_pyranges</h2>
+<pre><code class="python">variants_to_pyranges(variants:List[kipoiseq.dataclasses.Variant])
+</code></pre>
+
+<p>Create pyrange object given list of variant objects.</p>
+<p>Args:
+  variants: list of variant objects have CHROM, POS, REF, ALT properties.</p>
+<h2 id="singlevariantmatcher">SingleVariantMatcher</h2>
+<pre><code class="python">SingleVariantMatcher(self, vcf_file, gtf_path=None, bed_path=None, pranges=None, intervals=None, interval_attrs=None, vcf_lazy=True, variant_batch_size=10000)
+</code></pre>
+
+<p>Match and iterate variants with intervals.</p>
+<p>Args:
+  vcf_file: path of vcf file
+  gtf_path: (optional) path of gtf file contains features
+  bed_path: (optional) path of bed file
+  pranges: (optional) pyranges object
+  intervals: (optional) list of intervals
+  interval_attrs: attr of intervals should read from files or
+    pyranges object. This argument is not valid with intervals.</p>
               
             </div>
           </div>
