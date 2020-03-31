@@ -112,6 +112,30 @@
 </code></pre>
 
 <p>Convert a one-hot encoded array back to string</p>
+<h2 id="rc_dna">rc_dna</h2>
+<pre><code class="python">rc_dna(seq)
+</code></pre>
+
+<p>Reverse complement the DNA sequence</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>assert rc_seq("TATCG") == "CGATA"</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="rc_rna">rc_rna</h2>
+<pre><code class="python">rc_rna(seq)
+</code></pre>
+
+<p>Reverse complement the RNA sequence</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>assert rc_seq("TATCG") == "CGATA"</p>
+</blockquote>
+</blockquote>
+</blockquote>
 <h2 id="tokenize">tokenize</h2>
 <pre><code class="python">tokenize(seq, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet=['N'])
 </code></pre>
@@ -186,6 +210,17 @@ Aplicable also for lists of characters</p>
     interval: pybedtools.Interval object or an object containing <code>start</code> and <code>end</code> attributes
     width: desired width of the output interval
     anchor (str): which part of the sequence should be anchored. Choices: 'start', 'center', or 'end'</p>
+<h2 id="translate">translate</h2>
+<pre><code class="python">translate(seq:str, hg38=False)
+</code></pre>
+
+<p>Translate the DNA/RNA sequence into AA.</p>
+<p>Note: it stops after it encounters a stop codon</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seq</strong>: DNA/RNA sequence</li>
+<li><strong>stop_none</strong>: return None if a stop codon is encountered</li>
+</ul>
               
             </div>
           </div>
