@@ -103,22 +103,7 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="fastastringextractor">FastaStringExtractor</h2>
-<pre><code class="python">FastaStringExtractor(self, fasta_file, use_strand=False, force_upper=False)
-</code></pre>
-
-<p>Fasta file extractor</p>
-<p>NOTE: The extractor is not thread-save.
-If you with to use it with multiprocessing,
-create a new extractor object in each process.</p>
-<p><strong>Arguments</strong></p>
-<ul>
-<li><strong>fasta_file (str)</strong>: path to the fasta_file</li>
-<li><strong>use_strand (bool)</strong>: if True, the extracted sequence
-    is reverse complemented in case interval.strand == "-"</li>
-<li><strong>force_upper (bool)</strong>: Force uppercase output</li>
-</ul>
-<h2 id="multisamplevcf">MultiSampleVCF</h2>
+                <h2 id="multisamplevcf">MultiSampleVCF</h2>
 <pre><code class="python">MultiSampleVCF(self, *args, **kwargs)
 </code></pre>
 
@@ -159,6 +144,11 @@ on given vcf file.</p>
 <p>Create pyrange object given list of variant objects.</p>
 <p>Args:
   variants: list of variant objects have CHROM, POS, REF, ALT properties.</p>
+<h2 id="basevariantmatcher">BaseVariantMatcher</h2>
+<pre><code class="python">BaseVariantMatcher(self, vcf_file:str, gtf_path:str=None, bed_path:str=None, pranges:pyranges.pyranges.PyRanges=None, intervals:List[kipoiseq.dataclasses.Interval]=None, interval_attrs:List[str]=None, vcf_lazy:bool=True, variant_batch_size:int=10000)
+</code></pre>
+
+<p>Base variant intervals matcher</p>
 <h2 id="singlevariantmatcher">SingleVariantMatcher</h2>
 <pre><code class="python">SingleVariantMatcher(self, *args, **kwargs)
 </code></pre>
