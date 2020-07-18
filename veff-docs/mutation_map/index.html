@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Mutation maps - Kipoi-veff</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Kipoi-veff</a>
         <div role="search">
@@ -45,105 +47,75 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../overview/">Overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../using/">Functions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../variant_effect_pred/">Variant effect prediction</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Mutation maps</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#mutation-maps">Mutation maps</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../using/">Functions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../variant_effect_pred/">Variant effect prediction</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Mutation maps</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#calculating-mutation-maps">Calculating mutation maps</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#calculating-mutation-maps">Calculating mutation maps</a></li>
-        
-            <li><a class="toctree-l4" href="#transformation-of-queries-to-model-input">Transformation of queries to model input</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#python-r-api">Python / R API</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#query_region">query_region</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#query_bed">query_bed</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#query_vcf">query_vcf</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mutationmapplotter">MutationMapPlotter</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../tutorials/variant_effect_prediction_simple/">Simple</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../tutorials/variant_effect_prediction/">Advanced</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../tutorials/mutation_map/">Mutation map</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../api/score_variants/">score_variants</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../api/predict_snvs/">predict_snvs</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../api/scores/">Available scores</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../api/MutationMap/">MutationMap</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../api/MutationMapPlotter/">MutationMapPlotter</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../api/KipoiVCFParser/">KipoiVCFParser</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-cli">The CLI</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#plotting">Plotting</a>
+    </li>
         </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transformation-of-queries-to-model-input">Transformation of queries to model input</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/variant_effect_prediction_simple/">Simple</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/variant_effect_prediction/">Advanced</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/mutation_map/">Mutation map</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/score_variants/">score_variants</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/predict_snvs/">predict_snvs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/scores/">Available scores</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/MutationMap/">MutationMap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/MutationMapPlotter/">MutationMapPlotter</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/KipoiVCFParser/">KipoiVCFParser</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -175,6 +147,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -240,7 +213,7 @@ mm = MutationMap(model, dataloader, dataloader_arguments)
 <p>The meaning of the parameters is identical to the ones in the python API mentioned above. The plotting functionality in the CLI is limited to zooming into genomic region and reverse-complementation of sequences. For examaples please take a look at the <code>mutation_map.ipynb</code>.</p>
 <h2 id="transformation-of-queries-to-model-input">Transformation of queries to model input</h2>
 <p>This section gives the necessary information to understand how the tested region is derived from a query file.</p>
-<p>In order to perform a query on a model the query input must be transformed into genomic regions compatible with the model. Similar to variant effect prediction using the <code>score_variants</code> the automatically chosen region generation method will be chosen based on whether a dataloader offers a bed file input for postprocessing. <code>dataloader.yaml &gt; postprocessing &gt; variant_effects &gt; bed_input</code>. By setting this value the mutation map method will automatically generate a temporary bed input file requesting model input for genomic regions. The path of this temporary bed file is then passed on to the dataloader by resetting the respective argument in the <code>datalaoder_arguments</code>. For some models it is not possible to freely define the genomic region for which model input data should be generated - in that case the dataloader.yaml does not have the <code>dataloader.yaml &gt; postprocessing &gt; variant_effects &gt; bed_input</code> set. In those cases the datalaoder is executed without modifying the <code>dataloader_arguments</code>. The metadata generated alongside the model input is then used to identify model input that overlaps a query region / query variant.</p>
+<p>In order to perform a query on a model the query input must be transformed into genomic regions compatible with the model. Similar to variant effect prediction using the <code>score_variants</code> the automatically chosen region generation method will be chosen based on whether a dataloader offers a bed file input for postprocessing. <code>dataloader.yaml &gt; postprocessing &gt; variant_effects &gt; bed_input</code>. By setting this value the mutation map method will automatically generate a temporary bed input file requesting model input for genomic regions. The path of this temporary bed file is then passed on to the dataloader by resetting the respective argument in the <code>dataloader_arguments</code>. For some models it is not possible to freely define the genomic region for which model input data should be generated - in that case the dataloader.yaml does not have the <code>dataloader.yaml &gt; postprocessing &gt; variant_effects &gt; bed_input</code> set. In those cases the dataloader is executed without modifying the <code>dataloader_arguments</code>. The metadata generated alongside the model input is then used to identify model input that overlaps a query region / query variant.</p>
 <p>For cases when genomic regions can be defined freely for a model, the input samples will always have to generated matching the model input sequence length. This means that for query variants a region of the length of the model input will be centered on the query variant position. For query regions (e.g.: bed input file) every region is overlapped with windows of length of the model input. The first of those regions will start at the same position as the selected query region. Regions of the length of the model input sequence length will then be generated consecutively in order to cover the full region defined by the respective query region - see this schematic:</p>
 <p><img alt='variant effect prediction sketch' src='../img/overview/mutationmap_query_to_region_bed.png'></p>
 <p>In the top bit of this schematic on can see the case in which the dataloader accepts a bed file as an input to generate
@@ -275,7 +248,7 @@ plotting (<code>input_entry</code> in <code>plot_mutmap</code> method of Mutatio
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -285,7 +258,7 @@ plotting (<code>input_entry</code> in <code>plot_mutmap</code> method of Mutatio
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi-veff/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -301,6 +274,11 @@ plotting (<code>input_entry</code> in <code>plot_mutmap</code> method of Mutatio
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

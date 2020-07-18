@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Available scores - Kipoi-veff</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi-veff</a>
         <div role="search">
@@ -45,94 +47,65 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../overview/">Overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/">Functions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../variant_effect_pred/">Variant effect prediction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../mutation_map/">Mutation maps</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../overview/">Overview</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/">Functions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../variant_effect_pred/">Variant effect prediction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mutation_map/">Mutation maps</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/variant_effect_prediction_simple/">Simple</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/variant_effect_prediction/">Advanced</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/mutation_map/">Mutation map</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../score_variants/">score_variants</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../predict_snvs/">predict_snvs</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Available scores</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ref">Ref</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#alt">Alt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#diff">Diff</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#logitref">LogitRef</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#logitalt">LogitAlt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#logit">Logit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deepsea_effect">DeepSEA_effect</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../tutorials/variant_effect_prediction_simple/">Simple</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/variant_effect_prediction/">Advanced</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/mutation_map/">Mutation map</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../score_variants/">score_variants</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../predict_snvs/">predict_snvs</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Available scores</a>
-    <ul class="subnav">
-            
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../MutationMap/">MutationMap</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../MutationMapPlotter/">MutationMapPlotter</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../KipoiVCFParser/">KipoiVCFParser</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../MutationMap/">MutationMap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../MutationMapPlotter/">MutationMapPlotter</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../KipoiVCFParser/">KipoiVCFParser</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -164,15 +137,14 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
             <div class="section">
               
-                <h1 id="kipoi_veff.scores">kipoi_veff.scores</h1>
-
-<h2 id="kipoi_veff.scores.Ref">Ref</h2>
-
+                <h1 id="kipoi_veffscores">kipoi_veff.scores</h1>
+<h2 id="ref">Ref</h2>
 <pre><code class="python">Ref(self, rc_merging='mean')
 </code></pre>
 
@@ -182,8 +154,7 @@ the reverse-complement of the sequence into account then the returned value is a
 the function defined in <code>rc_merging</code>. Allowed values for <code>rc_merging</code> are: "min", "max", "mean", "median",
 "absmax" or any callable that accepts/expects two arguments:  <code>my_func(fwd_pred, rc_pred)</code>.</p>
 <p>Reverse-complement-averaging, where applicable, is performed after score calculation.</p>
-<h2 id="kipoi_veff.scores.Alt">Alt</h2>
-
+<h2 id="alt">Alt</h2>
 <pre><code class="python">Alt(self, rc_merging='mean')
 </code></pre>
 
@@ -193,8 +164,7 @@ the reverse-complement of the sequence into account then the returned value is a
 the function defined in <code>rc_merging</code>. Allowed values for <code>rc_merging</code> are: "min", "max", "mean", "median",
 "absmax" or any callable that accepts/expects two arguments:  <code>my_func(fwd_pred, rc_pred)</code>.</p>
 <p>Reverse-complement-averaging, where applicable, is performed after score calculation.</p>
-<h2 id="kipoi_veff.scores.Diff">Diff</h2>
-
+<h2 id="diff">Diff</h2>
 <pre><code class="python">Diff(self, rc_merging='mean')
 </code></pre>
 
@@ -205,8 +175,7 @@ the reverse-complement of the sequence into account then the returned value is a
 the function defined in <code>rc_merging</code>. Allowed values for <code>rc_merging</code> are: "min", "max", "mean", "median",
 "absmax" or any callable that accepts/expects two arguments:  <code>my_func(fwd_pred, rc_pred)</code>.</p>
 <p>Reverse-complement-averaging, where applicable, is performed after score calculation.</p>
-<h2 id="kipoi_veff.scores.LogitRef">LogitRef</h2>
-
+<h2 id="logitref">LogitRef</h2>
 <pre><code class="python">LogitRef(self, rc_merging='mean')
 </code></pre>
 
@@ -216,8 +185,7 @@ the reverse-complement of the sequence into account then the returned value is a
 the function defined in <code>rc_merging</code>. Allowed values for <code>rc_merging</code> are: "min", "max", "mean", "median",
 "absmax" or any callable that accepts/expects two arguments:  <code>my_func(fwd_pred, rc_pred)</code>.</p>
 <p>Reverse-complement-averaging, where applicable, is performed after score calculation.</p>
-<h2 id="kipoi_veff.scores.LogitAlt">LogitAlt</h2>
-
+<h2 id="logitalt">LogitAlt</h2>
 <pre><code class="python">LogitAlt(self, rc_merging='mean')
 </code></pre>
 
@@ -227,8 +195,7 @@ the reverse-complement of the sequence into account then the returned value is a
 the function defined in <code>rc_merging</code>. Allowed values for <code>rc_merging</code> are: "min", "max", "mean", "median",
 "absmax" or any callable that accepts/expects two arguments:  <code>my_func(fwd_pred, rc_pred)</code>.</p>
 <p>Reverse-complement-averaging, where applicable, is performed after score calculation.</p>
-<h2 id="kipoi_veff.scores.Logit">Logit</h2>
-
+<h2 id="logit">Logit</h2>
 <pre><code class="python">Logit(self, rc_merging='mean')
 </code></pre>
 
@@ -239,8 +206,7 @@ the reverse-complement of the sequence into account then the returned value is a
 the function defined in <code>rc_merging</code>. Allowed values for <code>rc_merging</code> are: "min", "max", "mean", "median",
 "absmax" or any callable that accepts/expects two arguments:  <code>my_func(fwd_pred, rc_pred)</code>.</p>
 <p>Reverse-complement-averaging, where applicable, is performed after score calculation.</p>
-<h2 id="kipoi_veff.scores.DeepSEA_effect">DeepSEA_effect</h2>
-
+<h2 id="deepsea_effect">DeepSEA_effect</h2>
 <pre><code class="python">DeepSEA_effect(self, rc_merging='mean')
 </code></pre>
 
@@ -272,7 +238,7 @@ the function defined in <code>rc_merging</code>. Allowed values for <code>rc_mer
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -282,7 +248,7 @@ the function defined in <code>rc_merging</code>. Allowed values for <code>rc_mer
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi-veff/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -298,6 +264,11 @@ the function defined in <code>rc_merging</code>. Allowed values for <code>rc_mer
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
