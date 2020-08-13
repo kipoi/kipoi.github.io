@@ -109,7 +109,7 @@
       <div class="col-md-6 col-sm-12">
         <p class="p-3">
           Kipoi (pronounce: kípi; from the Greek &kappa;&#x3AE;&pi;&omicron;&iota;: gardens) is an <a href='https://github.com/kipoi/kipoi'>API</a> and a <a href='https://github.com/kipoi/models'>repository</a> of ready-to-use
-          trained models for genomics. It currently contains 2138
+          trained models for genomics. It currently contains 2133
           different models, covering canonical predictive tasks in transcriptional and post-transcriptional gene regulation.
 
           Kipoi's API is implemented as a python package (<a href='https://github.com/kipoi/kipoi'>github.com/kipoi/kipoi</a>) and it is also accessible from the command line or R.
@@ -144,7 +144,7 @@
     <div class="row mb-5">
       <div class="col-lg-4 col-md-6 col-sm-6 col-12">
         <h4>Numbers</h4>
-        <p><strong># of models:</strong> 2138</p>
+        <p><strong># of models:</strong> 2133</p>
         <p><strong># of model groups:</strong> 27</p>
         <p><strong># of contributors:</strong> 8</p>
         <p><strong># of model groups supporting postprocessing:</strong></p>
@@ -339,12 +339,12 @@
     var myPieChart = new Chart(ctxP, {
       type: 'doughnut',
       data: {
-        labels: ['keras', 'pytorch', 'custom', 'sklearn', 'tensorflow'],
+        labels: ['keras', 'pytorch', 'custom', 'tensorflow', 'sklearn'],
         datasets: [
           {
             data: [8, 3, 2, 1, 1],
-            backgroundColor: ['#ff8f5a', '#8da0cb', '#66c2a5', '#e78ac3', '#ffd92f'],
-	    hoverBackgroundColor: ['#ff8f5a', '#8da0cb', '#66c2a5', '#e78ac3', '#ffd92f'],
+            backgroundColor: ['#ff8f5a', '#8da0cb', '#66c2a5', '#ffd92f', '#e78ac3'],
+	    hoverBackgroundColor: ['#ff8f5a', '#8da0cb', '#66c2a5', '#ffd92f', '#e78ac3'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
 	       hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]*/
           }
@@ -359,7 +359,7 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'Apache License v2', 'BSD 3-Clause', 'GPL-v3', 'CC-BY 3.0', 'CC BY-NC 4.0'],
+     *     labels: ['MIT', 'Apache License v2', 'BSD 3-Clause', 'CC-BY 3.0', 'CC BY-NC 4.0', 'GPL-v3'],
      *     datasets: [
      *       {
      *         data: [20, 3, 1, 1, 1, 1],
@@ -377,7 +377,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['RNA splicing', 'DNA binding', 'DNA accessibility', 'Histone modification', 'RNA expression', 'DNA methylation', 'RNA binding'],
+        labels: ['RNA splicing', 'DNA binding', 'DNA accessibility', 'Histone modification', 'RNA expression', 'RNA binding', 'DNA methylation'],
         datasets: [{
           label: null,
           data: [7, 6, 4, 3, 3, 2, 2],

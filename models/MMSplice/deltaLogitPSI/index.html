@@ -478,12 +478,57 @@ model$predict_on_batch(batch$inputs)</code></pre>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h4 class="card-title mt-2 mb-3">Inputs</h4>
                 
-  <p>Single numpy array</p>
+  <p>Dictionary of numpy arrays</p>
   
-    <p><strong>Name</strong>: None</p>
+    <p><strong>Name</strong>: acceptor_intron</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (5,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: modular predictions</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor intron</p>
+
+    <p><strong>Name</strong>: acceptor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor</p>
+
+    <p><strong>Name</strong>: exon</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of exon</p>
+
+    <p><strong>Name</strong>: donor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor</p>
+
+    <p><strong>Name</strong>: donor_intron</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor intron</p>
+
+    <p><strong>Name</strong>: acceptor_intron</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor intron</p>
+
+    <p><strong>Name</strong>: acceptor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor</p>
+
+    <p><strong>Name</strong>: exon</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of exon</p>
+
+    <p><strong>Name</strong>: donor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor</p>
+
+    <p><strong>Name</strong>: donor_intron</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor intron</p>
 
 
             </div>
@@ -516,7 +561,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
               <div class="col-lg-5">
 		<!-- TODO - ifelse  -->
 		
-  		  <p><strong>Defined as:</strong> .</p>
+  		  <p><strong>Defined as:</strong> ..</p>
 		
                   <p><strong>Doc:</strong> This model first predicts the effect of variants using 5 sub-modules (acceptor intron module, acceptor module,  exon module, donor module, donor intron module), and then integrates those predictions using linear regression. The model has been trained to predict delta PSI subject to variants.
 </p>
@@ -567,11 +612,6 @@ model$predict_on_batch(batch$inputs)</code></pre>
       </p>
     
       <p>
-	<strong>variant_filter</strong> (optional):
-	If set True (default), variants with `FILTER` field other than `PASS` will be filtered out.
-      </p>
-    
-      <p>
 	<strong>encode</strong> (optional):
 	If split the sequence, whether one hot encoding
       </p>
@@ -616,11 +656,6 @@ model$predict_on_batch(batch$inputs)</code></pre>
 	what length in donor intron to consider for donor site model
       </p>
     
-      <p>
-	<strong>kwargs</strong> (optional):
-	other arguments for GenerateExonIntervalTree
-      </p>
-    
   </div>
 
                 </div>
@@ -649,8 +684,6 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>numpy</li>
-    
 </u>
 
                 </div>
@@ -660,9 +693,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>scikit-learn<br></li>
-    
-      <li>mmsplice==0.2.7</li>
+      <li>mmsplice==1.0.3</li>
     
 </u>
 
@@ -684,11 +715,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>bioconda::cyvcf2<br></li>
+      <li>bioconda::cyvcf2=0.11.5<br></li>
     
-      <li>numpy<br></li>
+      <li>bioconda::pyranges=0.0.66<br></li>
     
-      <li>python=3.5</li>
+      <li>bioconda::pysam=0.15.3<br></li>
+    
+      <li>python=3.6</li>
     
 </u>
 
@@ -699,9 +732,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>kipoi<br></li>
-    
-      <li>mmsplice==0.2.7</li>
+      <li>mmsplice==1.0.3</li>
     
 </u>
 

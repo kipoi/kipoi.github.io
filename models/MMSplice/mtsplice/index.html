@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <!-- Model title -->
-                            <h1 class="h1-responsive"><a href="/models/MMSplice">MMSplice</a>/<a href="/models/MMSplice/modules">modules</a>/exon_3prime</h1>
+                            <h1 class="h1-responsive"><a href="/models/MMSplice">MMSplice</a>/mtsplice</h1>
                         </div>
                         <!-- Model details -->
                         <div class="col-lg-5">
@@ -109,10 +109,6 @@
       <i class="fa fa-github" aria-hidden="true"></i>
     </a>
   
-  
-    <a href="mailto:s6juncheng@gmail.com">
-      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-    </a>
   
 
     
@@ -137,10 +133,6 @@
     </a>
   
   
-    <a href="mailto:s6juncheng@gmail.com">
-      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-    </a>
-  
 
     
     
@@ -158,14 +150,12 @@
                                       <a data-toggle="tooltip" data-placement="top" data-html="true" title="
   <div>
     
-      <strong>weights</strong>: RemoteFile(url=&#39;https://sandbox.zenodo.org/record/248604/files/Exon_prime3.h5?download=1&#39;, md5=&#39;bba955cf0e88f27f280df0233ba53c5d&#39;)<br>
+      <strong>file</strong>: model.py<br>
     
-      <strong>backend</strong>: tensorflow<br>
-    
-      <strong>image_dim_ordering</strong>: tf<br>
+      <strong>object</strong>: MMSpliceModel<br>
     
   </div>
-"><span class="badge badge-pill rgba-stylish-strong hoverable" >keras</span></a>
+"><span class="badge badge-pill rgba-stylish-strong hoverable" >custom</span></a>
                                       
                                     </p>
 
@@ -180,14 +170,14 @@
                                     <!-- Trained on -->
                                     <p>Trained on: 
   
-    MPRA (Rosenberg 2015) exonic random sequence. Chromosome 1 to chromosome 8 were provided as training data. The remaining chromosomes 9 to 22 and chromosome X were held out.
+    MPRA (Rosenberg 2015), GENCODE annotation 24, Vex-seq (Adamson et al., 2018). Chromosome 1 to chromosome 8 were provided as training data. The remaining chromosomes 9 to 22 and chromosome X were held out.
 
   
 </p>
 
 				    <!-- Model url  -->
 				    <p>
-				      <a href="https://github.com/kipoi/models/tree/master/MMSplice/modules/exon_3prime">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
+				      <a href="https://github.com/kipoi/models/tree/master/MMSplice/mtsplice">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
 				    </p> 
                                 </div>
                             </div>
@@ -196,9 +186,10 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-sm-12">
                             <!-- Model description -->
-                            <p class="lead">Exon 3&#39; module of MMSplice model</p>
+                            <p class="lead">Predict splicing variant effect (delta logit PSI) from VCF
+</p>
 							<p>
-<p>Score exon sequence with Exon 3' module.  </p></p>
+<p>Tissue specific prediction of $\Delta logit(\Psi)$. Returns one prediction per variant-exon pair for each tissue. </p></p>
                         </div>
 
                         <div class="col-lg-5 col-md-12 col-sm-12">
@@ -228,10 +219,10 @@
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env create MMSplice/modules/exon_3prime
-source activate kipoi-MMSplice__modules__exon_3prime</code></pre> -->
-	<pre><code class="bash">kipoi env create MMSplice/modules/exon_3prime
-source activate kipoi-MMSplice__modules__exon_3prime</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env create MMSplice/mtsplice
+source activate kipoi-MMSplice__mtsplice</code></pre> -->
+	<pre><code class="bash">kipoi env create MMSplice/mtsplice
+source activate kipoi-MMSplice__mtsplice</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -245,8 +236,8 @@ source activate kipoi-MMSplice__modules__exon_3prime</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env install MMSplice/modules/exon_3prime</code></pre> -->
-	<pre><code class="bash">kipoi env install MMSplice/modules/exon_3prime</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi env install MMSplice/mtsplice</code></pre> -->
+	<pre><code class="bash">kipoi env install MMSplice/mtsplice</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -260,8 +251,8 @@ source activate kipoi-MMSplice__modules__exon_3prime</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi test MMSplice/modules/exon_3prime --source=kipoi</code></pre> -->
-	<pre><code class="bash">kipoi test MMSplice/modules/exon_3prime --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi test MMSplice/mtsplice --source=kipoi</code></pre> -->
+	<pre><code class="bash">kipoi test MMSplice/mtsplice --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -275,19 +266,19 @@ source activate kipoi-MMSplice__modules__exon_3prime</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi get-example MMSplice/modules/exon_3prime -o example
-kipoi predict MMSplice/modules/exon_3prime \
-  --dataloader_args=&#39;{&#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13, &#34;maxExonLength&#34;: 300}&#39; \
-  -o &#39;/tmp/MMSplice|modules|exon_3prime.example_pred.tsv&#39;
+	<!-- <pre class="language-markup"><code>kipoi get-example MMSplice/mtsplice -o example
+kipoi predict MMSplice/mtsplice \
+  --dataloader_args=&#39;{&#34;gtf&#34;: &#34;example/gtf&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
+  -o &#39;/tmp/MMSplice|mtsplice.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/MMSplice|modules|exon_3prime.example_pred.tsv&#39;
+head &#39;/tmp/MMSplice|mtsplice.example_pred.tsv&#39;
 </code></pre> -->
-	<pre><code class="bash">kipoi get-example MMSplice/modules/exon_3prime -o example
-kipoi predict MMSplice/modules/exon_3prime \
-  --dataloader_args=&#39;{&#34;gtf_file&#34;: &#34;example/gtf_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13, &#34;maxExonLength&#34;: 300}&#39; \
-  -o &#39;/tmp/MMSplice|modules|exon_3prime.example_pred.tsv&#39;
+	<pre><code class="bash">kipoi get-example MMSplice/mtsplice -o example
+kipoi predict MMSplice/mtsplice \
+  --dataloader_args=&#39;{&#34;gtf&#34;: &#34;example/gtf&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
+  -o &#39;/tmp/MMSplice|mtsplice.example_pred.tsv&#39;
 # check the results
-head &#39;/tmp/MMSplice|modules|exon_3prime.example_pred.tsv&#39;
+head &#39;/tmp/MMSplice|mtsplice.example_pred.tsv&#39;
 </code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
@@ -310,9 +301,9 @@ head &#39;/tmp/MMSplice|modules|exon_3prime.example_pred.tsv&#39;
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>import kipoi
-model = kipoi.get_model(&#39;MMSplice/modules/exon_3prime&#39;)</code></pre> -->
+model = kipoi.get_model(&#39;MMSplice/mtsplice&#39;)</code></pre> -->
 	<pre><code class="python">import kipoi
-model = kipoi.get_model(&#39;MMSplice/modules/exon_3prime&#39;)</code></pre>
+model = kipoi.get_model(&#39;MMSplice/mtsplice&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -396,10 +387,10 @@ model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
       <div class="code-container">
 	<!-- <pre class="language-markup"><code>library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;MMSplice/modules/exon_3prime&#39;)</code></pre> -->
+model &lt;- kipoi$get_model(&#39;MMSplice/mtsplice&#39;)</code></pre> -->
 	<pre><code class="R">library(reticulate)
 kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;MMSplice/modules/exon_3prime&#39;)</code></pre>
+model &lt;- kipoi$get_model(&#39;MMSplice/mtsplice&#39;)</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -489,10 +480,55 @@ model$predict_on_batch(batch$inputs)</code></pre>
                 
   <p>Dictionary of numpy arrays</p>
   
-    <p><strong>Name</strong>: input_4</p>
+    <p><strong>Name</strong>: acceptor_intron</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: One-hot encoded exon sequence</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor intron</p>
+
+    <p><strong>Name</strong>: acceptor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor</p>
+
+    <p><strong>Name</strong>: exon</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of exon</p>
+
+    <p><strong>Name</strong>: donor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor</p>
+
+    <p><strong>Name</strong>: donor_intron</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor intron</p>
+
+    <p><strong>Name</strong>: acceptor_intron</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor intron</p>
+
+    <p><strong>Name</strong>: acceptor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of acceptor</p>
+
+    <p><strong>Name</strong>: exon</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of exon</p>
+
+    <p><strong>Name</strong>: donor</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor</p>
+
+    <p><strong>Name</strong>: donor_intron</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (None, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: alternative sequence of donor intron</p>
 
 
             </div>
@@ -504,8 +540,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
   
     <p><strong>Name</strong>: None</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicted score for exon sequence</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (56,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicted delta logit(psi) for each tissue</p>
 
 
             </div>
@@ -527,7 +563,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
 		
   		  <p><strong>Defined as:</strong> .</p>
 		
-                  <p><strong>Doc:</strong> Exon 5&#39; module of MMSplice model</p>
+                  <p><strong>Doc:</strong> This model first predicts the effect of variants using 5 sub-modules (acceptor intron module, acceptor module,  exon module, donor module, donor intron module), and then integrates those predictions using linear regression. The model has been trained to predict delta PSI subject to variants.
+</p>
                   <p><strong>Authors:</strong> 
   
     
@@ -538,10 +575,6 @@ model$predict_on_batch(batch$inputs)</code></pre>
       <i class="fa fa-github" aria-hidden="true"></i>
     </a>
   
-  
-    <a href="mailto:s6juncheng@gmail.com">
-      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-    </a>
   
 
     
@@ -559,13 +592,18 @@ model$predict_on_batch(batch$inputs)</code></pre>
   <div>
     
       <p>
-	<strong>gtf_file</strong> :
+	<strong>gtf</strong> :
 	path to the GTF file required by the models (Ensemble)
       </p>
     
       <p>
 	<strong>fasta_file</strong> :
 	reference genome fasta file
+      </p>
+    
+      <p>
+	<strong>vcf_file</strong> :
+	Path to the input vcf file
       </p>
     
       <p>
@@ -618,16 +656,6 @@ model$predict_on_batch(batch$inputs)</code></pre>
 	what length in donor intron to consider for donor site model
       </p>
     
-      <p>
-	<strong>maxExonLength</strong> (optional):
-	maximum exon length. Longer exons will be cliped and shorter ones will be padded
-      </p>
-    
-      <p>
-	<strong>kwargs</strong> (optional):
-	other arguments for GenerateExons
-      </p>
-    
   </div>
 
                 </div>
@@ -665,9 +693,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>tensorflow&gt;=1.0.0<br></li>
-    
-      <li>keras&gt;=2.0.4</li>
+      <li>mmsplice==2.0.0</li>
     
 </u>
 
@@ -689,11 +715,13 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>bioconda::cyvcf2<br></li>
+      <li>bioconda::cyvcf2=0.11.5<br></li>
     
-      <li>numpy<br></li>
+      <li>bioconda::pyranges=0.0.71<br></li>
     
-      <li>python=3.5</li>
+      <li>bioconda::pysam=0.15.3<br></li>
+    
+      <li>python=3.6</li>
     
 </u>
 
@@ -704,9 +732,7 @@ model$predict_on_batch(batch$inputs)</code></pre>
                     
   <ul class="dependencies">
     
-      <li>kipoi<br></li>
-    
-      <li>mmsplice==0.2.7</li>
+      <li>mmsplice==2.0.0</li>
     
 </u>
 
@@ -839,8 +865,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
       
       var disqus_config = function () {
-        this.page.url = "http://localhost/models/MMSplice/modules/exon_3prime/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/models/MMSplice/modules/exon_3prime/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://localhost/models/MMSplice/mtsplice/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/models/MMSplice/mtsplice/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       
       (function() { // DON'T EDIT BELOW THIS LINE
