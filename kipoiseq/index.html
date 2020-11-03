@@ -118,7 +118,7 @@
 </a></p>
 <p>Standard set of data-loaders for training and making predictions for DNA sequence-based models.</p>
 <p>All dataloaders in <code>kipoiseq.dataloaders</code> decorated with <code>@kipoi_dataloader</code> (SeqIntervalDl and StringSeqIntervalDl) are compatible Kipoi models and can be directly used when specifying a new model in <code>model.yaml</code>:</p>
-<pre><code class="yaml">...
+<pre><code class="language-yaml">...
 default_dataloader:
   defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
@@ -129,18 +129,15 @@ dependencies:
     - kipoiseq
 ...
 </code></pre>
-
 <h2 id="installation">Installation</h2>
-<pre><code class="bash">pip install kipoiseq
+<pre><code class="language-bash">pip install kipoiseq
 </code></pre>
-
 <p>Optional dependencies:</p>
-<pre><code class="bash">pip install cyvcf2, pyranges
+<pre><code class="language-bash">pip install cyvcf2, pyranges
 conda install cyvcf2, pyranges
 </code></pre>
-
 <h2 id="getting-started">Getting started</h2>
-<pre><code class="python">from kipoiseq.dataloaders import SeqIntervalDl
+<pre><code class="language-python">from kipoiseq.dataloaders import SeqIntervalDl
 
 dl = SeqIntervalDl.init_example()  # use the provided example files
 # your own files
@@ -162,7 +159,6 @@ it = dl.batch_iter(32, num_workers=8)  # load batches of data in parallel using 
 it = dl.batch_train_iter(32, num_workers=8)
 # returns a tuple: (inputs, targets), can be used directly with keras' `model.fit_generator`
 </code></pre>
-
 <p>More info:
 - Follow the getting-started <a href="https://colab.research.google.com/github/kipoi/kipoiseq/blob/master/notebooks/getting-started.ipynb">colab notebook</a>.
 - See <a href="https://kipoi.org/kipoiseq/">docs</a></p>
@@ -228,5 +224,5 @@ it = dl.batch_train_iter(32, num_workers=8)
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-06-25 16:44:48.167033+00:00
+Build Date UTC : 2020-11-03 17:24:22.192614+00:00
 -->

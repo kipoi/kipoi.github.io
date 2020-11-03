@@ -104,55 +104,45 @@
             <div class="section">
               
                 <h2 id="multisamplevcf">MultiSampleVCF</h2>
-<pre><code class="python">MultiSampleVCF(self, *args, **kwargs)
+<pre><code class="language-python">MultiSampleVCF(self, *args, **kwargs)
 </code></pre>
-
 <h2 id="numbervariantquery">NumberVariantQuery</h2>
-<pre><code class="python">NumberVariantQuery(self, max_num=inf, min_num=0)
+<pre><code class="language-python">NumberVariantQuery(self, max_num=inf, min_num=0)
 </code></pre>
-
 <p>Closure for variant query. Filter variants for interval
   if number of variants in given limits.</p>
 <h2 id="variantintervalqueryable">VariantIntervalQueryable</h2>
-<pre><code class="python">VariantIntervalQueryable(self, vcf, variant_intervals:List[Tuple[Iterable[kipoiseq.dataclasses.Variant], kipoiseq.dataclasses.Interval]], progress=False)
+<pre><code class="language-python">VariantIntervalQueryable(self, vcf, variant_intervals:List[Tuple[Iterable[kipoiseq.dataclasses.Variant], kipoiseq.dataclasses.Interval]], progress=False)
 </code></pre>
-
 <h2 id="intervalseqbuilder">IntervalSeqBuilder</h2>
-<pre><code class="python">IntervalSeqBuilder(self, /, *args, **kwargs)
+<pre><code class="language-python">IntervalSeqBuilder(self, /, *args, **kwargs)
 </code></pre>
-
 <p>String builder for <code>pyfaidx.Sequence</code> and <code>Interval</code> objects.</p>
 <h2 id="variantseqextractor">VariantSeqExtractor</h2>
-<pre><code class="python">VariantSeqExtractor(self, fasta_file:str=None, reference_sequence:kipoiseq.extractors.base.BaseExtractor=None)
+<pre><code class="language-python">VariantSeqExtractor(self, fasta_file:str=None, reference_sequence:kipoiseq.extractors.base.BaseExtractor=None)
 </code></pre>
-
 <h2 id="singlevariantvcfseqextractor">SingleVariantVCFSeqExtractor</h2>
-<pre><code class="python">SingleVariantVCFSeqExtractor(self, fasta_file, vcf_file)
+<pre><code class="language-python">SingleVariantVCFSeqExtractor(self, fasta_file, vcf_file)
 </code></pre>
-
 <p>Fetch list of sequence in which each variant applied based
 on given vcf file.</p>
 <h2 id="singleseqvcfseqextractor">SingleSeqVCFSeqExtractor</h2>
-<pre><code class="python">SingleSeqVCFSeqExtractor(self, fasta_file, vcf_file)
+<pre><code class="language-python">SingleSeqVCFSeqExtractor(self, fasta_file, vcf_file)
 </code></pre>
-
 <p>Fetch sequence in which all variant applied based on given vcf file.</p>
 <h2 id="variants_to_pyranges">variants_to_pyranges</h2>
-<pre><code class="python">variants_to_pyranges(variants:List[kipoiseq.dataclasses.Variant]) -&gt; pyranges.pyranges.PyRanges
+<pre><code class="language-python">variants_to_pyranges(variants:List[kipoiseq.dataclasses.Variant]) -&gt; pyranges.pyranges.PyRanges
 </code></pre>
-
 <p>Create pyrange object given list of variant objects.</p>
 <p>Args:
   variants: list of variant objects have CHROM, POS, REF, ALT properties.</p>
 <h2 id="basevariantmatcher">BaseVariantMatcher</h2>
-<pre><code class="python">BaseVariantMatcher(self, vcf_file:str, gtf_path:str=None, bed_path:str=None, pranges:pyranges.pyranges.PyRanges=None, intervals:List[kipoiseq.dataclasses.Interval]=None, interval_attrs:List[str]=None, vcf_lazy:bool=True, variant_batch_size:int=10000)
+<pre><code class="language-python">BaseVariantMatcher(self, vcf_file:str, gtf_path:str=None, bed_path:str=None, pranges:pyranges.pyranges.PyRanges=None, intervals:List[kipoiseq.dataclasses.Interval]=None, interval_attrs:List[str]=None, vcf_lazy:bool=True, variant_batch_size:int=10000)
 </code></pre>
-
 <p>Base variant intervals matcher</p>
 <h2 id="singlevariantmatcher">SingleVariantMatcher</h2>
-<pre><code class="python">SingleVariantMatcher(self, *args, **kwargs)
+<pre><code class="language-python">SingleVariantMatcher(self, *args, **kwargs)
 </code></pre>
-
 <p>Match and iterate variants with intervals.</p>
               
             </div>

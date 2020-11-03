@@ -108,9 +108,8 @@
             <div class="section">
               
                 <h2 id="compose">Compose</h2>
-<pre><code class="python">Compose(self, transforms)
+<pre><code class="language-python">Compose(self, transforms)
 </code></pre>
-
 <p>Composes several transforms together.</p>
 <p><strong>Arguments</strong></p>
 <ul>
@@ -126,25 +125,21 @@
 </li>
 </ul>
 <h2 id="dummyaxis">DummyAxis</h2>
-<pre><code class="python">DummyAxis(self, axis=None)
+<pre><code class="language-python">DummyAxis(self, axis=None)
 </code></pre>
-
 <p>np.expand_dims wrapper - Insert a dummy axis (calls np.expand_dims)</p>
 <h2 id="swapaxes">SwapAxes</h2>
-<pre><code class="python">SwapAxes(self, axis1=None, axis2=None)
+<pre><code class="language-python">SwapAxes(self, axis1=None, axis2=None)
 </code></pre>
-
 <p>np.swapaxes wrapper</p>
 <p>If any if the axis is None, do nothing.</p>
 <h2 id="resizeinterval">ResizeInterval</h2>
-<pre><code class="python">ResizeInterval(self, width, anchor='center')
+<pre><code class="language-python">ResizeInterval(self, width, anchor='center')
 </code></pre>
-
 <p>Resize the interval</p>
 <h2 id="onehot">OneHot</h2>
-<pre><code class="python">OneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None)
+<pre><code class="language-python">OneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None)
 </code></pre>
-
 <p>One-hot encode the sequence</p>
 <p><strong>Arguments</strong></p>
 <ul>
@@ -157,9 +152,8 @@
 <li><strong>dummy_axis</strong>: defines in which dimension a dummy axis should be added. None if no dummy axis is required.</li>
 </ul>
 <h2 id="reorderedonehot">ReorderedOneHot</h2>
-<pre><code class="python">ReorderedOneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None, alphabet_axis=1, dummy_axis=None)
+<pre><code class="language-python">ReorderedOneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None, alphabet_axis=1, dummy_axis=None)
 </code></pre>
-
 <p>Flexible one-hot encoding class that can account for
 many different one-hot encoding formats.</p>
 <p><strong>Arguments</strong></p>
@@ -181,9 +175,8 @@ many different one-hot encoding formats.</p>
 <li><strong>- <code>(4, 1, None)</code></strong>: <code>alphabet_axis=0, dummy_axis=1</code></li>
 </ul>
 <h2 id="splitsplicingseq">SplitSplicingSeq</h2>
-<pre><code class="python">SplitSplicingSeq(self, exon_cut_l=0, exon_cut_r=0, intron5prime_cut=6, intron3prime_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13)
+<pre><code class="language-python">SplitSplicingSeq(self, exon_cut_l=0, exon_cut_r=0, intron5prime_cut=6, intron3prime_cut=6, acceptor_intron_len=50, acceptor_exon_len=3, donor_exon_len=5, donor_intron_len=13)
 </code></pre>
-
 <p>Split returned splice sequence (exon with flanking intron) to required format.
 It splits into ['intron5prime', 'acceptor', 'exon', 'donor', 'intron3prime'].
 'intron5prime' is the intron 5' of the exon, while 'intron3prime' is from the 3'.</p>
