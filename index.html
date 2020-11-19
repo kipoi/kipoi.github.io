@@ -339,12 +339,12 @@
     var myPieChart = new Chart(ctxP, {
       type: 'doughnut',
       data: {
-        labels: ['keras', 'pytorch', 'custom', 'sklearn', 'tensorflow'],
+        labels: ['keras', 'custom', 'pytorch', 'sklearn', 'tensorflow'],
         datasets: [
           {
-            data: [8, 3, 2, 1, 1],
-            backgroundColor: ['#ff8f5a', '#8da0cb', '#66c2a5', '#e78ac3', '#ffd92f'],
-	    hoverBackgroundColor: ['#ff8f5a', '#8da0cb', '#66c2a5', '#e78ac3', '#ffd92f'],
+            data: [8, 2, 2, 1, 1],
+            backgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#e78ac3', '#ffd92f'],
+	    hoverBackgroundColor: ['#ff8f5a', '#66c2a5', '#8da0cb', '#e78ac3', '#ffd92f'],
             /* backgroundcolor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
 	       hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]*/
           }
@@ -359,7 +359,7 @@
      * var myPieChart = new Chart(ctxP, {
      *   type: 'doughnut',
      *   data: {
-     *     labels: ['MIT', 'Apache License v2', 'CC BY-NC 4.0', 'GPL-v3', 'CC-BY 3.0', 'BSD 3-Clause'],
+     *     labels: ['MIT', 'Apache License v2', 'BSD 3-Clause', 'Non-comercial', 'CC BY-NC 4.0', 'GPL-v3'],
      *     datasets: [
      *       {
      *         data: [20, 3, 1, 1, 1, 1],
@@ -377,7 +377,7 @@
     var myBarChart = new Chart(ctxB, {
       type: 'horizontalBar',
       data: {
-        labels: ['RNA splicing', 'DNA binding', 'DNA accessibility', 'RNA expression', 'Histone modification', 'RNA binding', 'DNA methylation'],
+        labels: ['RNA splicing', 'DNA binding', 'DNA accessibility', 'Histone modification', 'RNA expression', 'RNA binding', 'DNA methylation'],
         datasets: [{
           label: null,
           data: [7, 6, 4, 3, 3, 2, 2],
