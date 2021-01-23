@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="None">
   
+  
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <title>Kipoi documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,182 +47,118 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">Home</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#kipoi-model-zoo-for-genomics">Kipoi: Model zoo for genomics</a></li>
-    
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#links">Links</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#links">Links</a></li>
-        
-            <li><a class="toctree-l3" href="#installation">Installation</a></li>
-        
-            <li><a class="toctree-l3" href="#quick-start">Quick start</a></li>
-        
-            <li><a class="toctree-l3" href="#plugins">Plugins</a></li>
-        
-            <li><a class="toctree-l3" href="#documentation">Documentation</a></li>
-        
-            <li><a class="toctree-l3" href="#tutorials">Tutorials</a></li>
-        
-            <li><a class="toctree-l3" href="#citing-kipoi">Citing Kipoi</a></li>
-        
-            <li><a class="toctree-l3" href="#development">Development</a></li>
-        
-            <li><a class="toctree-l3" href="#license">License</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#installing-all-required-model-dependencies">Installing all required model dependencies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#command-line">Command-line</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configure-kipoi-in-kipoiconfigyaml">Configure Kipoi in .kipoi/config.yaml</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#contributing-models">Contributing models</a>
+    </li>
         </ul>
-    
-
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="contributing/01_Getting_started/">Getting started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="contributing/02_Writing_model.yaml/">model.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="contributing/04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="contributing/05_Writing_model.py/">model.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="contributing/06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="tutorials/contributing_models/">Contributing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="tutorials/python-api/">Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="tutorials/R-api/">R API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="tutorials/tf_binding_models/">Comparing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="tutorials/composing_models/">Composing models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#kipoi_veff">kipoi_veff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kipoi_interpret">kipoi_interpret</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorials">Tutorials</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#citing-kipoi">Citing Kipoi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#development">Development</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="contributing/01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="contributing/02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="contributing/05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="tutorials/contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="tutorials/python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="tutorials/R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="tutorials/tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="tutorials/composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -248,6 +186,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -278,9 +217,8 @@
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
 Make sure you have either anaconda (<a href="https://www.anaconda.com/download/">download page</a>) or miniconda (<a href="https://conda.io/miniconda.html">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX/">Installing python on OSX</a>. Supported python versions: 2.7 and &gt;=3.5.</p>
 <p>Install Kipoi using <a href="https://pip.pypa.io/en/stable/">pip</a>:</p>
-<pre><code class="bash">pip install kipoi
+<pre><code class="language-bash">pip install kipoi
 </code></pre>
-
 <h2 id="quick-start">Quick start</h2>
 <p>Explore available models on <a href="http://kipoi.org/groups/">https://kipoi.org/groups/</a>. Use-case oriented tutorials are available at <a href="https://github.com/kipoi/examples">https://github.com/kipoi/examples</a>.</p>
 <h3 id="installing-all-required-model-dependencies">Installing all required model dependencies</h3>
@@ -288,18 +226,15 @@ Make sure you have either anaconda (<a href="https://www.anaconda.com/download/"
 <pre><code>kipoi env create shared/envs/kipoi-py3-keras2   # add --gpu to install gpu-compatible deps
 kipoi env create shared/envs/kipoi-py3-keras1.2
 </code></pre>
-
 <p>Before using a model in any way, activate the right conda enviroment:</p>
-<pre><code class="bash">source activate $(kipoi env get &lt;model&gt;)
+<pre><code class="language-bash">source activate $(kipoi env get &lt;model&gt;)
 </code></pre>
-
 <p>Alternatively, you can use the Singularity or Docker containers with all dependencies installed. Singularity containers can be seamlessly used with the CLI by adding the <code>--singularity</code> flag to <code>kipoi</code> commands.</p>
 <h3 id="python">Python</h3>
 <p>Before using a model from python in any way, activate the right conda enviroment:</p>
-<pre><code class="bash">source activate $(kipoi env get &lt;model&gt;)
+<pre><code class="language-bash">source activate $(kipoi env get &lt;model&gt;)
 </code></pre>
-
-<pre><code class="python">import kipoi
+<pre><code class="language-python">import kipoi
 
 kipoi.list_models() # list available models
 
@@ -321,7 +256,6 @@ model.pipeline.predict(dict(fasta_file=&quot;hg19.fa&quot;,
                             intervals_file=&quot;intervals.bed&quot;))
 # runs: raw files -[dataloader]-&gt; numpy arrays -[model]-&gt; predictions 
 </code></pre>
-
 <p>For more information see: <a href="notebooks/python-api.ipynb">notebooks/python-api.ipynb</a> and <a href="https://kipoi.org/docs/using/python/">docs/using/python</a></p>
 <h3 id="command-line">Command-line</h3>
 <pre><code>$ kipoi
@@ -347,8 +281,7 @@ usage: kipoi &lt;command&gt; [-h] ...
     veff             Variant effect prediction
     interpret        Model interpretation using feature importance scores like ISM, grad*input or DeepLIFT
 </code></pre>
-
-<pre><code class="bash"># Run model predictions and save the results
+<pre><code class="language-bash"># Run model predictions and save the results
 # sequentially into an HDF5 file
 kipoi predict &lt;Model&gt; --dataloader_args='{
   &quot;intervals_file&quot;: &quot;intervals.bed&quot;,
@@ -356,7 +289,6 @@ kipoi predict &lt;Model&gt; --dataloader_args='{
   --singularity \
   -o '&lt;Model&gt;.preds.h5'
 </code></pre>
-
 <p>Explore the CLI usage by running <code>kipoi &lt;command&gt; -h</code>. Also, see <a href="http://kipoi.org/docs/using/cli/">docs/using/cli/</a> for more information.</p>
 <h3 id="configure-kipoi-in-kipoiconfigyaml">Configure Kipoi in <code>.kipoi/config.yaml</code></h3>
 <p>You can add your own (private) model sources. See <a href="http://kipoi.org/docs/using/03_Model_sources/">docs/using/03_Model_sources/</a>.</p>
@@ -366,14 +298,12 @@ kipoi predict &lt;Model&gt; --dataloader_args='{
 <p>Kipoi supports plug-ins which are published as additional python packages. Two plug-ins that are available are:</p>
 <h3 id="kipoi_veff"><a href="https://github.com/kipoi/kipoi-veff">kipoi_veff</a></h3>
 <p>Variant effect prediction plugin compatible with (DNA) sequence based models. It allows to annotate a vcf file using model predictions for the reference and alternative alleles. The output is written to a new VCF file. For more information see <a href="https://kipoi.org/veff-docs/">https://kipoi.org/veff-docs/</a>.</p>
-<pre><code class="bash">pip install kipoi_veff
+<pre><code class="language-bash">pip install kipoi_veff
 </code></pre>
-
 <h3 id="kipoi_interpret"><a href="https://github.com/kipoi/kipoi-interpret">kipoi_interpret</a></h3>
 <p>Model interpretation plugin for Kipoi. Allows to use feature importance scores like in-silico mutagenesis (ISM), saliency maps or DeepLift with a wide range of Kipoi models. <a href="https://github.com/kipoi/kipoi-interpret/blob/master/notebooks/1-DNA-seq-model-example.ipynb">example notebook</a></p>
-<pre><code class="bash">pip install kipoi_interpret
+<pre><code class="language-bash">pip install kipoi_interpret
 </code></pre>
-
 <h2 id="documentation">Documentation</h2>
 <ul>
 <li><a href="http://kipoi.org/docs">kipoi.org/docs</a></li>
@@ -385,7 +315,7 @@ kipoi predict &lt;Model&gt; --dataloader_args='{
 </ul>
 <h2 id="citing-kipoi">Citing Kipoi</h2>
 <p>If you use Kipoi for your research, please cite the publication of the model you are using (see model's <code>cite_as</code> entry) and the paper describing Kipoi: https://doi.org/10.1038/s41587-019-0140-0.</p>
-<pre><code class="bibtex">@article{kipoi,
+<pre><code class="language-bibtex">@article{kipoi,
   title={The Kipoi repository accelerates community exchange and reuse of predictive models for genomics},
   author={Avsec, Ziga and Kreuzhuber, Roman and Israeli, Johnny and Xu, Nancy and Cheng, Jun and Shrikumar, Avanti and Banerjee, Abhimanyu and Kim, Daniel S and Beier, Thorsten and Urban, Lara and others},
   journal={Nature biotechnology},
@@ -394,14 +324,12 @@ kipoi predict &lt;Model&gt; --dataloader_args='{
   publisher={Nature Publishing Group}
 }
 </code></pre>
-
 <h2 id="development">Development</h2>
 <p>If you want to help with the development of Kipoi, you are more than welcome to join in! </p>
 <p>For the local setup for development, you should install <code>kipoi</code> using:</p>
-<pre><code class="bash">conda install pytorch-cpu
+<pre><code class="language-bash">conda install pytorch-cpu
 pip install -e '.[develop]'
 </code></pre>
-
 <p>This will install some additional packages like <code>pytest</code>. You can test the package by running <code>py.test</code>. </p>
 <p>If you wish to run tests in parallel, run <code>py.test -n 6</code>.</p>
 <h2 id="license">License</h2>
@@ -426,7 +354,7 @@ pip install -e '.[develop]'
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -436,7 +364,7 @@ pip install -e '.[develop]'
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -450,11 +378,16 @@ pip install -e '.[develop]'
     <script>var base_url = '.';</script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-01-10 01:00:28
+MkDocs version : 1.1.2
+Build Date UTC : 2021-01-23 22:28:12.564588+00:00
 -->

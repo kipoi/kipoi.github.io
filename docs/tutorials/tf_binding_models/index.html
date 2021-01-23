@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Comparing models - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,178 +47,96 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Comparing models</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#load-software-tools">Load software tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prepare-data-files">Prepare data files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#install-deepbind-model-software-requirements">Install DeepBind model software requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#load-deepbind-model">Load DeepBind model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-deepbind-predictions">Get DeepBind predictions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#evaluate-deepbind-predictions">Evaluate DeepBind predictions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../contributing_models/">Contributing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../python-api/">Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../R-api/">R API</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Comparing models</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#model-benchmarking-with-kipoi">Model benchmarking with Kipoi</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#load-software-tools">Load software tools</a></li>
-        
-            <li><a class="toctree-l4" href="#prepare-data-files">Prepare data files</a></li>
-        
-            <li><a class="toctree-l4" href="#install-deepbind-model-software-requirements">Install DeepBind model software requirements</a></li>
-        
-            <li><a class="toctree-l4" href="#load-deepbind-model">Load DeepBind model</a></li>
-        
-            <li><a class="toctree-l4" href="#get-deepbind-predictions">Get DeepBind predictions</a></li>
-        
-            <li><a class="toctree-l4" href="#evaluate-deepbind-predictions">Evaluate DeepBind predictions</a></li>
-        
-            <li><a class="toctree-l4" href="#load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../composing_models/">Composing models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -248,6 +168,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -258,22 +179,19 @@
 <p>This tutorial will show to to easily benchmark tf-binding models in Kipoi. By providing a unified access to models, it takes the same effort to run a simple PWM scanning model then to run a more complicated model (DeepBind in this example).</p>
 <h2 id="load-software-tools">Load software tools</h2>
 <p>Let's start by loading software for this tutorial: the kipoi model zoo, </p>
-<pre><code class="python">import kipoi
+<pre><code class="language-python">import kipoi
 import numpy as np
 from sklearn.metrics import roc_auc_score
 </code></pre>
-
 <h2 id="prepare-data-files">Prepare data files</h2>
 <p>Next, we introduce a labeled BED-format interval file and a genome fasta file</p>
-<pre><code class="python">intervals_file = 'example_data/chr22.101bp.2000_intervals.JUND.HepG2.tsv'
+<pre><code class="language-python">intervals_file = 'example_data/chr22.101bp.2000_intervals.JUND.HepG2.tsv'
 fasta_file  = 'example_data/hg19_chr22.fa'
 dl_kwargs = {'intervals_file': intervals_file, 'fasta_file': fasta_file}
 </code></pre>
-
 <p>Let's look at the first few lines in the intervals file</p>
-<pre><code class="python">!head $intervals_file
+<pre><code class="language-python">!head $intervals_file
 </code></pre>
-
 <pre><code>chr22   20208963    20209064    0
 chr22   29673572    29673673    0
 chr22   28193720    28193821    0
@@ -287,20 +205,17 @@ chr22   49486843    49486944    0
 </code></pre>
 <p>The four columns in this file contain chromosomes, interval start coordinate, interval end coordinate, and the label. This file contains 2000 examples, 1000 positives and 1000 negatives.</p>
 <p>Let's load the labels from the last column: </p>
-<pre><code class="python">labels = np.loadtxt(intervals_file, usecols=(3,))
+<pre><code class="language-python">labels = np.loadtxt(intervals_file, usecols=(3,))
 </code></pre>
-
 <p>Next, to evaluate the DeepBind model for JUND, we will 1) install software requirements to run the model, 2) load the model, and 3) get model predictions using our intervals and fasta file.</p>
 <h2 id="install-deepbind-model-software-requirements">Install DeepBind model software requirements</h2>
-<pre><code class="python">deepbind_model_name = &quot;DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF&quot;
+<pre><code class="language-python">deepbind_model_name = &quot;DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF&quot;
 kipoi.install_model_requirements(deepbind_model_name)
 # Use `$ kipoi env install DeepBind/D00776.005 --gpu` from the command-line to install the gpu version of the dependencies
 </code></pre>
-
 <h2 id="load-deepbind-model">Load DeepBind model</h2>
-<pre><code class="python">deepbind_model = kipoi.get_model(deepbind_model_name)
+<pre><code class="language-python">deepbind_model = kipoi.get_model(deepbind_model_name)
 </code></pre>
-
 <pre><code>Downloading https://sandbox.zenodo.org/record/248887/files/Homo_sapiens-TF-D00328.018_ChIP-seq_CTCF?download=1 to /home/avsec/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/arch/0d6747991a525b94a1ac9174459c2bf4
 
 
@@ -318,20 +233,18 @@ Using TensorFlow backend.
   return f(*args, **kwds)
 </code></pre>
 <h2 id="get-deepbind-predictions">Get DeepBind predictions</h2>
-<pre><code class="python">deepbind_predictions = deepbind_model.pipeline.predict(dl_kwargs, batch_size=1000)
+<pre><code class="language-python">deepbind_predictions = deepbind_model.pipeline.predict(dl_kwargs, batch_size=1000)
 </code></pre>
-
 <pre><code>2it [00:01,  1.04s/it]
 </code></pre>
 <h2 id="evaluate-deepbind-predictions">Evaluate DeepBind predictions</h2>
 <p>Let's check the auROC of deepbind predictions:</p>
-<pre><code class="python">roc_auc_score(labels, deepbind_predictions)
+<pre><code class="language-python">roc_auc_score(labels, deepbind_predictions)
 </code></pre>
-
 <pre><code>0.6148564999999999
 </code></pre>
 <h2 id="load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</h2>
-<pre><code class="python">pwm_model_name = &quot;pwm_HOCOMOCO/human/JUND&quot;
+<pre><code class="language-python">pwm_model_name = &quot;pwm_HOCOMOCO/human/JUND&quot;
 kipoi.install_model_requirements(pwm_model_name)
 # Use `$ kipoi env install pwm_HOCOMOCO/human/JUND --gpu` from the command-line to install the gpu version of the dependencies
 pwm_model = kipoi.get_model(pwm_model_name)
@@ -339,7 +252,6 @@ pwm_predictions = pwm_model.pipeline.predict(dl_kwargs, batch_size=1000)
 print(&quot;PWM auROC:&quot;)
 roc_auc_score(labels, pwm_predictions)
 </code></pre>
-
 <pre><code>Downloading https://zenodo.org/record/1466139/files/human-JUND.h5?download=1 to /home/avsec/.kipoi/models/pwm_HOCOMOCO/downloaded/model_files/human/JUND/weights/bb64a335f37cff4537b1bde4c11cab8b
 
 
@@ -380,7 +292,7 @@ PWM auROC:
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -390,7 +302,7 @@ PWM auROC:
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -406,6 +318,11 @@ PWM auROC:
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

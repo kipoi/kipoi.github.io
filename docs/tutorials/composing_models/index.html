@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Composing models - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,183 +47,82 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Composing models</a>
+    <ul class="current">
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../contributing_models/">Contributing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../python-api/">Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../R-api/">R API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../tf_binding_models/">Comparing models</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Composing models</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#composing-models">Composing models</a></li>
-    
-
-    <li class="toctree-l3"><a href="#all-models-in-the-same-framework">All models in the same framework</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#contributing-to-kipoi">Contributing to Kipoi</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#models-in-different-frameworks">Models in different frameworks</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#compatible-dependencies">Compatible dependencies</a></li>
-        
-            <li><a class="toctree-l4" href="#incompatible-dependencies">Incompatible dependencies</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#uploading-composite-models-to-kipoi">Uploading composite models to Kipoi</a></li>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -253,6 +154,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -273,12 +175,11 @@
 <p>In case all models are written in the same framework, you can stitch things together in the framework. Here is an example of how to do this in Keras.</p>
 <p><img alt="img" src="/docs/img/notebooks/comp_models3.gv.svg" /></p>
 <p>Let's first dump 4 dummy models:</p>
-<pre><code class="python">import keras.layers as kl
+<pre><code class="language-python">import keras.layers as kl
 from keras.models import Model
 from keras.models import load_model
 </code></pre>
-
-<pre><code class="python"># create model 1
+<pre><code class="language-python"># create model 1
 inp1 = kl.Input((3,), name=&quot;input1&quot;)
 out1 = kl.Dense(4)(inp1)
 m1 = Model(inp1, out1)
@@ -302,20 +203,18 @@ out4 = kl.Dense(1)(inp4)
 m4 = Model(inp4, out4)
 m4.save(&quot;/tmp/m4.h5&quot;)
 </code></pre>
-
 <p>Next, we load the models back:</p>
-<pre><code class="python">## Load models
+<pre><code class="language-python">## Load models
 m1 = load_model(&quot;/tmp/m1.h5&quot;)
 m2 = load_model(&quot;/tmp/m2.h5&quot;)
 m3 = load_model(&quot;/tmp/m3.h5&quot;)
 m4 = load_model(&quot;/tmp/m4.h5&quot;)
 </code></pre>
-
 <pre><code>/opt/modules/i12g/anaconda/3-5.0.1/lib/python3.6/site-packages/keras/models.py:255: UserWarning: No training configuration found in save file: the model was *not* compiled. Compile it manually.
   warnings.warn('No training configuration found in save file: '
 </code></pre>
 <p>And compose them</p>
-<pre><code class="python">m2_in = kl.concatenate([m1.output, m1.input])
+<pre><code class="language-python">m2_in = kl.concatenate([m1.output, m1.input])
 m2_out = m2(m2_in)
 
 m3_in = kl.concatenate([m2_out, m3.output])
@@ -323,14 +222,12 @@ out = m4(m3_in)
 
 m = Model(inputs=[m1.input, m3.input], outputs=out)
 </code></pre>
-
-<pre><code class="python">from IPython.display import SVG
+<pre><code class="language-python">from IPython.display import SVG
 from keras.utils.vis_utils import model_to_dot
 
 svg_img = model_to_dot(m, ).create(prog='dot', format='svg')
 SVG(svg_img)
 </code></pre>
-
 <p><img alt="svg" src="/docs/img/ipynb/composing_models_files/composing_models_8_0.svg" /></p>
 <p>Now we could go ahead, merge the dataloaders from model1 and model3 into a single one (providing input1 and input2) and train this global network for a new task. In case we would like to freeze supparts of the network, we should 'freeze' the underlying models by setting <code>m1.trainable = False</code>.</p>
 <h3 id="contributing-to-kipoi">Contributing to Kipoi</h3>
@@ -340,7 +237,7 @@ SVG(svg_img)
 <h3 id="compatible-dependencies">Compatible dependencies</h3>
 <p>To compose compatible models, we pack the majority of the models into the dataloader and then have the final ensembling model stored as the model.</p>
 <p><img alt="img" src="/docs/img/notebooks/comp_models2.gv.svg" /></p>
-<pre><code class="python">def new_dataloader(dl1_kwargs, dl2_kwargs, target_file, batch_size=32, num_workers=1):
+<pre><code class="language-python">def new_dataloader(dl1_kwargs, dl2_kwargs, target_file, batch_size=32, num_workers=1):
     m1 = kipoi.get_model(&quot;model1&quot;)
     m2 = kipoi.get_model(&quot;model2&quot;)
     m3 = kipoi.get_model(&quot;model3&quot;)
@@ -369,8 +266,7 @@ SVG(svg_img)
                            }
               }
 </code></pre>
-
-<pre><code class="python"># create model 4
+<pre><code class="language-python"># create model 4
 inp2 = kl.Input((3,), name=&quot;model2&quot;)
 inp3 = kl.Input((4,), name=&quot;model3&quot;)
 x = kl.concatenate([inp2, inp3])
@@ -380,8 +276,7 @@ m4.compile('rmsprop',
            loss='categorical_crossentropy',
            metrics=['accuracy'])
 </code></pre>
-
-<pre><code class="python"># Train model4
+<pre><code class="language-python"># Train model4
 def create_train_gen(**kwargs):
     while True:
         gen = new_dataloader(**kwargs)
@@ -392,18 +287,16 @@ def create_train_gen(**kwargs):
 train_gen = create_train_gen(...)            
 m4.fit_generator(train_gen, ...)
 </code></pre>
-
-<pre><code class="python"># Dump model4
+<pre><code class="language-python"># Dump model4
 m4.save(&quot;model_files/model.h5&quot;)
 </code></pre>
-
 <h3 id="incompatible-dependencies">Incompatible dependencies</h3>
 <p>Sometimes, making a prediction for all the models in the same python environment might be difficult or impossible due to the incompatible dependencies. </p>
 <p>In that case, we should run the prediction of each model in a separate environment and save the predictions to the disk.</p>
 <p>Luckily, there exist many Make-like tools that can support this kind of a workflow. My favorite is Snakemake <a href="http://snakemake.readthedocs.io/">http://snakemake.readthedocs.io/</a>. I'll show you how to do this in snakemake.</p>
 <p>Let's consider the following case:</p>
 <p><img alt="img" src="/docs/img/notebooks/comp_models4.gv.svg" /></p>
-<pre><code class="python"># Python part of the Snakefile
+<pre><code class="language-python"># Python part of the Snakefile
 import os
 import subprocess
 py_path = subprocess.check_output(['which', 'python']).decode().strip()
@@ -420,8 +313,7 @@ def get_args(wildcards):
     else:
         return {&quot;arg2&quot;: 1}
 </code></pre>
-
-<pre><code class="yaml"># Yaml part of the Snakefile
+<pre><code class="language-yaml"># Yaml part of the Snakefile
 rule all:
   inputs: expand(&quot;predictions/{model}.h5&quot;, [&quot;model1&quot;, &quot;model2&quot;])
 
@@ -449,14 +341,13 @@ rule run_predictions:
         -o {output} 
       &quot;&quot;&quot;
 </code></pre>
-
 <p>This snakefile will generate the following hdf5 files</p>
 <ul>
 <li><code>predictions/model1.h5</code></li>
 <li><code>predictions/model2.h5</code></li>
 </ul>
 <p>To combine them, let's write new dataloader, taking as input the hdf5 files containing predictions</p>
-<pre><code class="python">import deepdish
+<pre><code class="language-python">import deepdish
 
 
 def new_dataloader(model1_h5, model2_h5, target_file):
@@ -475,21 +366,17 @@ def new_dataloader(model1_h5, model2_h5, target_file):
         }
     }
 </code></pre>
-
-<pre><code class="python"># get the training data ...
+<pre><code class="language-python"># get the training data ...
 data_train = new_dataloader(&quot;predictions/model1.h5&quot;
                             &quot;predictions/model1.h5&quot;,
                             &quot;target_file.h5&quot;)
 </code></pre>
-
-<pre><code class="python"># train the model...
+<pre><code class="language-python"># train the model...
 m4.fit(data_train['inputs'], data_train['targets'])
 </code></pre>
-
-<pre><code class="python"># Dump the model
+<pre><code class="language-python"># Dump the model
 m4.save(&quot;model_files/model.h5&quot;)
 </code></pre>
-
 <h2 id="uploading-composite-models-to-kipoi">Uploading composite models to Kipoi</h2>
 <p>Since every Kipoi model pipeline consists of a single dataloader and a single model, we have to pack multiple models either into a single model or a single dataloader. Here is the recommendation how to do so:</p>
 <ul>
@@ -531,7 +418,7 @@ m4.save(&quot;model_files/model.h5&quot;)
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -541,7 +428,7 @@ m4.save(&quot;model_files/model.h5&quot;)
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -557,6 +444,11 @@ m4.save(&quot;model_files/model.h5&quot;)
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

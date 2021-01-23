@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>dataloader.yaml - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,178 +47,110 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01_Getting_started/">Getting started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02_Writing_model.yaml/">model.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">dataloader.yaml</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#dataloaderyaml">dataloader.yaml</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">dataloader.yaml</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#type">type</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#defined_as">defined_as</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#args">args</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#info">info</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output_schema">output_schema</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#type">type</a></li>
-        
-            <li><a class="toctree-l4" href="#defined_as">defined_as</a></li>
-        
-            <li><a class="toctree-l4" href="#args">args</a></li>
-        
-            <li><a class="toctree-l4" href="#info">info</a></li>
-        
-            <li><a class="toctree-l4" href="#output_schema">output_schema</a></li>
-        
-            <li><a class="toctree-l4" href="#dependencies">dependencies</a></li>
-        
-            <li><a class="toctree-l4" href="#postprocessing">postprocessing</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#inputs">inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#targets">targets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metadata">metadata</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../05_Writing_model.py/">model.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/python-api/">Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/R-api/">R API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/tf_binding_models/">Comparing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/composing_models/">Composing models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">dependencies</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conda">conda</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pip">pip</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#postprocessing">postprocessing</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -248,6 +182,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -266,7 +201,7 @@ dataloader.yaml is essential for the use of a model in the zoo. Make sure you ha
 <p>To help understand the syntax of YAML please take a look at: 
 <a href="http://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics">YAML Syntax Basics</a></p>
 <p>Here is an example <code>dataloader.yaml</code>:</p>
-<pre><code class="yaml">defined_as: dataloader.MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
+<pre><code class="language-yaml">defined_as: dataloader.MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
 args:
     features_file:
         # descr: &gt; allows multi-line fields
@@ -311,7 +246,6 @@ output_schema:
             type: int
             doc: Just an example metadata column
 </code></pre>
-
 <h2 id="type">type</h2>
 <p>The type of the dataloader indicates from which class the dataloader is inherits. It has to be one of the following values:</p>
 <ul>
@@ -333,7 +267,7 @@ refers to file <code>file.py</code> in the same directory as <code>dataloader.ya
 <p>A dataloader will always require arguments, they might for example be a path to the reference genome fasta file, a 
 bed file that defines which regions should be investigated, etc. Dataloader arguments are given defined as a yaml 
 dictionary with argument names as keys, e.g.:</p>
-<pre><code class="yaml">args:
+<pre><code class="language-yaml">args:
    reference_fasta:
        example:
            url: https://zenodo.org/path/to/example_files/chr22.fa
@@ -343,7 +277,6 @@ dictionary with argument names as keys, e.g.:</p>
            url: https://zenodo.org/path/to/example_files/example_input.txt
            md5: 786as8d7aasd
 </code></pre>
-
 <p>An argument has the following fields:</p>
 <ul>
 <li><code>doc</code>: A free text field describing the argument</li>
@@ -357,7 +290,7 @@ assigned. See example below.</li>
 <li><code>optional</code>: Optional: Boolean flag (<code>true</code> / <code>false</code>) for an argument if it is optional.</li>
 </ul>
 <p>If your dataloader requires an external data file at runtime which are not example/test files, you can specify these using the <code>default</code> attribute. <code>default</code> will override the default arguments of the dataloader init method (e.g. <code>dataloader.MyDataloader.__init__</code>). Example:</p>
-<pre><code class="yaml">defined_as: dataloader.MyDataset
+<pre><code class="language-yaml">defined_as: dataloader.MyDataset
 args:
    ...
    override_me:
@@ -368,7 +301,6 @@ args:
            md5: 765sadf876a
 ...
 </code></pre>
-
 <h2 id="info">info</h2>
 <p>The <code>info</code> field of a dataloader.yaml file contains general information about the model.</p>
 <ul>
@@ -380,7 +312,7 @@ args:
 <li><code>tags</code>: A list of key words describing the dataloader and its use cases</li>
 </ul>
 <p>A dummy example could look like this:</p>
-<pre><code class="yaml">info:
+<pre><code class="language-yaml">info:
   authors:
     - name: My Name
       github: myGithubName
@@ -392,7 +324,6 @@ args:
     - TFBS
     - tag2
 </code></pre>
-
 <h2 id="output_schema">output_schema</h2>
 <p><code>output_schema</code> defines what the dataloader outputs are, what they consist in, what the dimensions are and some 
 additional meta data.</p>
@@ -406,34 +337,31 @@ lists or dictionaries in the yaml definition:</p>
 <ul>
 <li>A single numpy array as input or target:</li>
 </ul>
-<pre><code class="yaml">output_schema:
+<pre><code class="language-yaml">output_schema:
     inputs:
        name: seq
        shape: (1000,4)
 </code></pre>
-
 <ul>
 <li>A list of numpy arrays as inputs or targets:</li>
 </ul>
-<pre><code class="yaml">output_schema:
+<pre><code class="language-yaml">output_schema:
     targets:
        - name: seq
          shape: (1000,4)
        - name: inp2
          shape: (10)
 </code></pre>
-
 <ul>
 <li>A list of numpy arrays as inputs or targets:</li>
 </ul>
-<pre><code class="yaml">output_schema:
+<pre><code class="language-yaml">output_schema:
     inputs:
        seq:
          shape: (1000,4)
        inp2:
          shape: (10)
 </code></pre>
-
 <h3 id="inputs"><code>inputs</code></h3>
 <p>The <code>inputs</code> fields of <code>output_schema</code> may be lists, dictionaries or single occurences of the following entries:</p>
 <ul>
@@ -459,7 +387,7 @@ lists or dictionaries in the yaml definition:</p>
 </ul>
 <p>Definition of <code>metadata</code> is essential for postprocessing algorihms as variant effect prediction. Please refer to their detailed description for their requirements.</p>
 <p>An example of the defintion of dataloader.yaml with <code>metadata</code> can be seen here:</p>
-<pre><code class="yaml">output_schema:
+<pre><code class="language-yaml">output_schema:
     inputs:
        - name: seq
          shape: (1000,4)
@@ -472,7 +400,6 @@ lists or dictionaries in the yaml definition:</p>
             type: GenomicRanges
             doc: Region from where inputs.seq was extracted
 </code></pre>
-
 <h2 id="dependencies">dependencies</h2>
 <p>One of the core elements of ensuring functionality of a dataloader is to define software dependencies correctly and strictly. Dependencies can be defined for conda and for pip using the <code>conda</code> and <code>pip</code> sections respectively.</p>
 <p>Both can either be defined as a list of packages or as a text file (ending in <code>.txt</code>) which lists the dependencies.</p>
@@ -506,7 +433,7 @@ lists or dictionaries in the yaml definition:</p>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -516,7 +443,7 @@ lists or dictionaries in the yaml definition:</p>
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -532,6 +459,11 @@ lists or dictionaries in the yaml definition:</p>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

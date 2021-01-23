@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>model.py - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,160 +47,82 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">model.py</a>
+    <ul class="current">
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01_Getting_started/">Getting started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02_Writing_model.yaml/">model.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../03_Writing_dataloader.yaml/">dataloader.yaml</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">model.py</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#modelpy">model.py</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/python-api/">Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/R-api/">R API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/tf_binding_models/">Comparing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/composing_models/">Composing models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -230,6 +154,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -240,7 +165,7 @@
 <p>Also, custom models should never deviate from using only numpy arrays, lists thereof, or dictionaries thereof as input for the <code>predict_on_batch</code> function. This is essential to maintain a homogeneous and clear interface between dataloaders and models in the Kipoi zoo!</p>
 <p>The use of a custom model requires definition of a Kipoi-compliant model object, which can then be referred to by the model.yaml file. The model class has to be a subclass of <code>BaseModel</code> defined in <code>kipoi.model</code>, which in other words means that <code>def predict_on_batch(self, x)</code> has to be implemented. So for example if <code>batch</code> is  what the dataloader returns for a batch then <code>predict_on_batch(batch['inputs'])</code> has to run the model prediction on the given input.</p>
 <p>A very simple version of such a model definition that can be stored in for example <code>model.py</code> may be:</p>
-<pre><code class="python">from kipoi.model import BaseModel
+<pre><code class="language-python">from kipoi.model import BaseModel
 
 class MyModel(BaseModel):
     def __init__(self, file_path):
@@ -251,9 +176,8 @@ class MyModel(BaseModel):
     def predict_on_batch(self, x):
         return self.model.predict(x)
 </code></pre>
-
 <p>This can then be integrated in the model.yaml in the following way:</p>
-<pre><code class="yaml">defined_as: model.MyModel
+<pre><code class="language-yaml">defined_as: model.MyModel
 args:
   file_path: # get model parameters from an url
     url: https://zenodo.org/path/to/my/architecture/file
@@ -282,7 +206,7 @@ args:
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -292,7 +216,7 @@ args:
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -308,6 +232,11 @@ args:
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

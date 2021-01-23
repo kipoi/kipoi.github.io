@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>model.yaml - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,178 +47,138 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01_Getting_started/">Getting started</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">model.yaml</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#modelyaml">model.yaml</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">model.yaml</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#defined_as">defined_as</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#args">args</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#defined_as">defined_as</a></li>
-        
-            <li><a class="toctree-l4" href="#args">args</a></li>
-        
-            <li><a class="toctree-l4" href="#info">info</a></li>
-        
-            <li><a class="toctree-l4" href="#default_dataloader">default_dataloader</a></li>
-        
-            <li><a class="toctree-l4" href="#schema">schema</a></li>
-        
-            <li><a class="toctree-l4" href="#dependencies">dependencies</a></li>
-        
-            <li><a class="toctree-l4" href="#postprocessing">postprocessing</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#kipoimodelkerasmodel-models">kipoi.model.KerasModel models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kipoimodelpytorchmodel-models">kipoi.model.PyTorchModel models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kipoimodelsklearnmodel-models">kipoi.model.SklearnModel models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kipoimodeltensorflowmodel-models">kipoi.model.TensorFlowModel models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-models">custom models</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../03_Writing_dataloader.yaml/">dataloader.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../05_Writing_model.py/">model.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../tutorials/contributing_models/">Contributing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/python-api/">Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/R-api/">R API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/tf_binding_models/">Comparing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../tutorials/composing_models/">Composing models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#info">info</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#default_dataloader">default_dataloader</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-a-pre-defined-dataloader">Using a pre-defined dataloader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-a-custom-dataloader">Using a custom dataloader</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#schema">schema</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#inputs">inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#targets">targets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-model-types-handle-schemas">How model types handle schemas</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#kerasmodel-models">KerasModel models</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pytorchmodel-models">PyTorchModel models</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sklearnmodel-models">SklearnModel models</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tensorflowmodel-models">TensorFlowModel models</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">dependencies</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conda">conda</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pip">pip</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#postprocessing">postprocessing</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -248,6 +210,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -260,7 +223,7 @@ full use of Kipoi features and make sure that a model can be executed at any poi
 <p>To help understand the syntax of YAML please take a look at: 
 <a href="http://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics">YAML Syntax Basics</a></p>
 <p>Here is an example <code>model.yaml</code>:</p>
-<pre><code class="yaml">defined_as: kipoi.model.KerasModel  
+<pre><code class="language-yaml">defined_as: kipoi.model.KerasModel  
 args:  # arguments of `kipoi.model.KerasModel`
     arch:
         url: https://zenodo.org/path/to/my/architecture/file
@@ -295,7 +258,6 @@ schema:  # Model schema
         shape: (3,)
         doc: &quot;One-hot encoded array of classes: setosa, versicolor, virginica.&quot;
 </code></pre>
-
 <p>The model.yaml file has the following mandatory fields:</p>
 <h2 id="defined_as">defined_as</h2>
 <p>The model type refers to base framework which the model was defined in. Kipoi comes with a support for Keras, PyTorch, 
@@ -307,9 +269,8 @@ SciKit-learn and tensorflow models. To indicate which kind of model will be used
 <p>The model type is required to find the right internal prepresentation of a model within Kipoi, which enables loading 
 weights and architecture correctly and offers to have a unified API across frameworks.</p>
 <p>In the model.yaml file the definition of a Keras model would like this:</p>
-<pre><code class="yaml">defined_as: kipoi.model.KerasModel  
+<pre><code class="language-yaml">defined_as: kipoi.model.KerasModel  
 </code></pre>
-
 <h2 id="args">args</h2>
 <p>Model arguments define where the files are files and functions are located to instantiate the model. Most entries 
 of <code>args</code> will contain links to zenodo or figshare downloads. The correct 
@@ -328,7 +289,7 @@ definition of <code>args</code> depends on the model <code>defined_as</code> tha
 <ul>
 <li>Architecture and weights can be stored separately:</li>
 </ul>
-<pre><code class="yaml">defined_as: kipoi.model.KerasModel
+<pre><code class="language-yaml">defined_as: kipoi.model.KerasModel
 args:
     arch: 
         url: https://zenodo.org/path/to/my/architecture/file
@@ -337,34 +298,30 @@ args:
         url: https://zenodo.org/path/to/my/model/weights.h5
         md5: 1234567890abc
 </code></pre>
-
 <ul>
 <li>The architecture can be stored together with the weights:</li>
 </ul>
-<pre><code class="yaml">defined_as: kipoi.model.KerasModel
+<pre><code class="language-yaml">defined_as: kipoi.model.KerasModel
 args:
     weights:
         url: https://zenodo.org/path/to/my/model/weights.h5
         md5: 1234567890abc
 </code></pre>
-
 <p>In Keras models can have custom layers, which then have to be available at the instantiation of the Keras model,
 those should be stored in one python file that is uploaded with the model architecture and weights. This file defines a
 dictionary containing custom Keras components called <code>OBJECTS</code>. These objects will be added to <code>custom_objects</code> 
 when loading the model with <code>keras.models.load_model</code>.</p>
 <p>Example of a <code>custom_keras_objects.py</code>:</p>
-<pre><code class="python">from concise.layers import SplineT
+<pre><code class="language-python">from concise.layers import SplineT
 
 OBJECTS = {&quot;SplineT&quot;: SplineT}
 </code></pre>
-
 <p>Example of the corresponding model.yaml entry:</p>
-<pre><code class="yaml">defined_as: kipoi.model.KerasModel
+<pre><code class="language-yaml">defined_as: kipoi.model.KerasModel
 args:
     ...
     custom_objects: custom_keras_objects.py
 </code></pre>
-
 <p>Here all the objects present in <code>custom_keras_objects.py</code> will be made available to Keras when loading the model.</p>
 <h3 id="kipoimodelpytorchmodel-models"><code>kipoi.model.PyTorchModel</code> models</h3>
 <p>Pytorch offers much freedom as to how the model is stored. In Kipoi a pytorch model has the following <code>args</code>: 
@@ -373,7 +330,7 @@ PyTorch models require python code in which the model is defined. The code that 
 attempt load the weights, as this is done inside the <code>PyTorchModel</code> class in Kipoi using the 
 <code>model.load_state_dict(torch.load(weights))</code> command.</p>
 <p>For example the pytorch model definition could be in a file <code>my_pytorch_model.py</code>:</p>
-<pre><code class="python">from torch import nn
+<pre><code class="language-python">from torch import nn
 
 class DummyModel(nn.Module):
     def __init__(self, x, y, z):
@@ -384,10 +341,9 @@ class DummyModel(nn.Module):
         # some code here
         return x
 </code></pre>
-
 <p>Assuming that the <code>my_pytorch_model.py</code> file lies in the same folder as the <code>model.yaml</code>, the default way for loading 
 this model in Kiopi is then as follows:</p>
-<pre><code class="yaml">defined_as: kipoi.model.PyTorchModel
+<pre><code class="language-yaml">defined_as: kipoi.model.PyTorchModel
 args:
     module_class: my_pytorch_model.DummyModel
     module_kwargs: 
@@ -398,26 +354,23 @@ args:
         url: https://zenodo.org/path/to/my/model/weights.pth
         md5: 1234567890abc
 </code></pre>
-
 <p>If the module class does not have any arguments then <code>module_kwargs</code> can be omitted.</p>
 <p>If you use Sequential models (<code>torch.nn.Sequential</code>) or you generate a module instance in your <code>my_sequential.py</code> file, 
 then you can use the <code>module_obj</code> in <code>model.yaml</code> to load that module:</p>
-<pre><code class="yaml">defined_as: kipoi.model.PyTorchModel
+<pre><code class="language-yaml">defined_as: kipoi.model.PyTorchModel
 args:
     module_obj: my_sequential.sequential_model
     weights: 
         url: https://zenodo.org/path/to/my/model/weights.pth
         md5: 1234567890abc
 </code></pre>
-
 <p>where <code>my_sequential.py</code> for example contains:</p>
-<pre><code class="python">import torch
+<pre><code class="language-python">import torch
 sequential_model = torch.nn.Sequential(...)
 </code></pre>
-
 <p>If you have trouble with the imports or if you would like to
 import a module from a parent directory you can explicitly specify the python file path:</p>
-<pre><code class="python">defined_as: kipoi.model.PyTorchModel
+<pre><code class="language-python">defined_as: kipoi.model.PyTorchModel
 args:
     module_file: ./my_sequential.py
     module_obj: sequential_model
@@ -425,26 +378,24 @@ args:
         url: https://zenodo.org/path/to/my/model/weights.pth
         md5: 1234567890abc
 </code></pre>
-
 <p>If <code>cuda</code> is available on the system then the model will automatically be switched to cuda mode, so the 
 user does not have to take care of that. </p>
 <h3 id="kipoimodelsklearnmodel-models"><code>kipoi.model.SklearnModel</code> models</h3>
 <p>SciKit-learn models can be loaded from a pickle file as defined below. The command used for loading is: 
 <code>joblib.load(pkl_file)</code></p>
-<pre><code class="yaml">defined_as: kipoi.model.SklearnModel
+<pre><code class="language-yaml">defined_as: kipoi.model.SklearnModel
 args:
   pkl_file: 
       url: https://zenodo.org/path/to/my/model.pkl
       md5: 1234567890abc
   predict_method: predict_proba  # Optional. predict by default. Available: predict, predict_proba, predict_log_proba
 </code></pre>
-
 <h3 id="kipoimodeltensorflowmodel-models"><code>kipoi.model.TensorFlowModel</code> models</h3>
 <p>Tensorflow models are expected to be stored by calling <code>saver = tf.train.Saver(); saver.save(checkpoint_path)</code>. The 
 <code>input_nodes</code> argument is then a string, list of strings or dictionary of strings that define the input node names. 
 The <code>target_nodes</code> argument is a string, list of strings or dictionary of strings that define the model target node 
 names.</p>
-<pre><code class="yaml">defined_as: kipoi.model.TensorFlowModel
+<pre><code class="language-yaml">defined_as: kipoi.model.TensorFlowModel
 args:
   input_nodes: &quot;inputs&quot;
   target_nodes: &quot;preds&quot;
@@ -452,12 +403,11 @@ args:
       url: https://zenodo.org/path/to/my/model.tf
       md5: 1234567890abc
 </code></pre>
-
 <p>If a model requires a constant feed of data which is not provided by the dataloader the <code>const_feed_dict_pkl</code> argument 
 can be defined additionally to the above. Values given in the pickle file will be added to the batch samples created 
 by the dataloader. If values with identical keys have been created by the dataloader they will be overwritten with 
 what is given in <code>const_feed_dict_pkl</code>.</p>
-<pre><code class="yaml">
+<pre><code class="language-yaml">
 defined_as: kipoi.model.TensorFlowModel
 args:
   ...
@@ -465,7 +415,6 @@ args:
       url: https://zenodo.org/path/to/my/const_feed_dict.pkl
       md5: 1234567890abc
 </code></pre>
-
 <h3 id="custom-models">custom models</h3>
 <p>It is possible to defined a model class independent of the ones which are made available in Kipoi. In that case the 
 contributor-defined <code>Model</code> class must be a subclass of <code>BaseModel</code> defined in <code>kipoi.model</code>. Custom models should 
@@ -473,32 +422,29 @@ never deviate from using only numpy arrays, lists thereof, or dictionaries there
 function. This is essential to maintain a homogeneous and clear interface between dataloaders and models in the 
 Kipoi zoo!</p>
 <p>If for example a custom model class definition (<code>MyModel</code>) is in a file <code>my_model.py</code>, then the model.yaml will contain:</p>
-<pre><code class="yaml">defined_as: my_model.MyModel
+<pre><code class="language-yaml">defined_as: my_model.MyModel
 </code></pre>
-
 <p>Kipoi will then use an instance of MyModel as a model. Keep in mind that MyModel has to be subclass of <code>BaseModel</code>, 
 which in other words means that <code>def predict_on_batch(self, x)</code> has to be implemented. So if <code>batch</code> is for example 
 what the dataloader returns for a batch then <code>predict_on_batch(batch['inputs'])</code> has to work.</p>
 <p>It is likely that <code>MyModel</code> will require additional files to work. The Kipoi way of using such files is by defining 
 Model in the following way:</p>
-<pre><code class="python">from kipoi.model import BaseModel
+<pre><code class="language-python">from kipoi.model import BaseModel
 
 class MyModel(BaseModel):
     def __init__(self, external_file):
         self.data = read_my_file(external_file)
         #...
 </code></pre>
-
 <p>The file will be downloaded from zenodo or figshare automatically and assigned to the <code>external_file</code> argument if the
 <code>model.yaml</code> contains:</p>
-<pre><code class="yaml">defined_as: my_model.MyModel
+<pre><code class="language-yaml">defined_as: my_model.MyModel
 args:
   external_file:
     default:
         url: https://zenodo.org/path/to/my/data
         md5: 1234567890abc
 </code></pre>
-
 <h2 id="info">info</h2>
 <p>The <code>info</code> field of a model.yaml file contains general information about the model.</p>
 <ul>
@@ -512,7 +458,7 @@ args:
 <li><code>training_procedure</code>: Description of the training procedure</li>
 </ul>
 <p>A dummy example could look like this:</p>
-<pre><code class="yaml">info:
+<pre><code class="language-yaml">info:
   authors:
     - name: My Name
       github: myGithubName
@@ -527,7 +473,6 @@ args:
   trained_on: The XXXX dataset from YYYY
   training_procedure: 10-fold cross validation
 </code></pre>
-
 <h2 id="default_dataloader">default_dataloader</h2>
 <p>The <code>default_dataloader</code> defines the dataloader that should be used for the given model. It can either be defined by 
 a package like <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> or it can be defined by the contributor.</p>
@@ -535,7 +480,7 @@ a package like <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> or it ca
 <p>If one of the ready-made dataloaders on <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> fits the needs of your model, 
 then please follow the instructions on <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a>. The <code>default_dataloader</code> in the 
 <code>model.yaml</code> would then for example be:</p>
-<pre><code class="yaml">default_dataloader:
+<pre><code class="language-yaml">default_dataloader:
   defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
     auto_resize_len: 1000
@@ -543,16 +488,14 @@ then please follow the instructions on <a href="https://github.com/kipoi/kipoise
     dummy_axis: 1
     dtype: float32
 </code></pre>
-
 <h4 id="using-a-custom-dataloader">Using a custom dataloader</h4>
 <p>If you need a specialised dataloader you are encouraged to used as many methods and classes from within 
 <a href="https://github.com/kipoi/kipoiseq">kipoiseq</a> as possible as their functionality is tested. See more information on 
 writing a <a href="../04_Writing_dataloader.py/">dataloader</a> and its <a href="../03_Writing_dataloader.yaml/">companion</a> yaml. Both 
 of those files should lie in the same folder as the <code>model.yaml</code>. Then the <code>default_dataloader</code> entry in <code>model.yaml</code> 
 is:</p>
-<pre><code class="yaml">default_dataloader: .
+<pre><code class="language-yaml">default_dataloader: .
 </code></pre>
-
 <p>It points to the location of the dataloader.yaml file. 
 If dataloader.yaml lies in different subfolder then <code>default_dataloader: path/to/folder</code> would be used where 
 dataloader.yaml would lie in <code>folder</code>.</p>
@@ -566,34 +509,31 @@ lists or dictionaries in the yaml definition:</p>
 <ul>
 <li>A single numpy array as input or target:</li>
 </ul>
-<pre><code class="yaml">schema:
+<pre><code class="language-yaml">schema:
     inputs:
        name: seq
        shape: (1000,4)
 </code></pre>
-
 <ul>
 <li>A list of numpy arrays as inputs or targets:</li>
 </ul>
-<pre><code class="yaml">schema:
+<pre><code class="language-yaml">schema:
     targets:
        - name: seq
          shape: (1000,4)
        - name: inp2
          shape: (10)
 </code></pre>
-
 <ul>
 <li>A dictionary of numpy arrays as inputs or targets:</li>
 </ul>
-<pre><code class="yaml">schema:
+<pre><code class="language-yaml">schema:
     inputs:
        seq:
          shape: (1000,4)
        inp2:
          shape: (10)
 </code></pre>
-
 <h3 id="inputs"><code>inputs</code></h3>
 <p>The <code>inputs</code> fields of <code>schema</code> may be lists, dictionaries or single occurences of the following entries:</p>
 <ul>
@@ -696,7 +636,7 @@ postprocessing feature available in Kipoi. At the moment only variant effect pre
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -706,7 +646,7 @@ postprocessing feature available in Kipoi. At the moment only variant effect pre
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -722,6 +662,11 @@ postprocessing feature available in Kipoi. At the moment only variant effect pre
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

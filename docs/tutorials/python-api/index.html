@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Python API - Kipoi documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Kipoi documentation</a>
         <div role="search">
@@ -45,174 +47,130 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Using</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../using/python/">Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/cli/">CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/R/">R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/plugins/">Plugins</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/03_Model_sources/">Private and public model sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Contributing</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../contributing/01_Getting_started/">Getting started</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/05_Writing_model.py/">model.py</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../contributing_models/">Contributing models</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Python API</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#kipoi-python-api">Kipoi python API</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Python API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#list-of-main-commands">List of main commands</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#quick-start">Quick start</a></li>
-        
-            <li><a class="toctree-l4" href="#list-of-main-commands">List of main commands</a></li>
-        
-            <li><a class="toctree-l4" href="#model">Model</a></li>
-        
-            <li><a class="toctree-l4" href="#dataloader_1">DataLoader</a></li>
-        
-            <li><a class="toctree-l4" href="#run-dataloader-on-some-examples">Run dataloader on some examples</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#source">Source</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#note">Note</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../R-api/">R API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../tf_binding_models/">Comparing models</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../composing_models/">Composing models</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Api</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/list_/">list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/install_/">install</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/model/">Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/dataloader/">Dataloader</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/pipeline/">Pipeline</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/sources/">sources</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/metadata/">metadata</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/readers/">readers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/writers/">writers</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#model">Model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#available-fields">Available fields:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#model_1">Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dataloader">Dataloader</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#info">Info</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#schema">Schema</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#default-dataloader">Default dataloader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#predict_on_batch">Predict_on_batch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#others">Others</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dataloader_1">DataLoader</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-dataloader-on-some-examples">Run dataloader on some examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-whole-dataset">Get the whole dataset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-iterator-to-run-predictions">Get the iterator to run predictions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pipeline">Pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#re-train-the-keras-model">Re-train the Keras model</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../R-api/">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -244,6 +202,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -277,12 +236,11 @@
 <p>Install the dependencies
 - <code>kipoi.install_model_dependencies()</code>
 - <code>kipoi.install_dataloader_dependencies()</code></p>
-<pre><code class="python">import kipoi
+<pre><code class="language-python">import kipoi
 </code></pre>
-
 <h3 id="source">Source</h3>
 <p>Available sources are specified in the config file located at: <code>~/.kipoi/config.yaml</code>. Here is an example config file:</p>
-<pre><code class="yaml">model_sources:
+<pre><code class="language-yaml">model_sources:
     kipoi: # default
         type: git-lfs # git repository with large file storage (git-lfs)
         remote_url: git@github.com:kipoi/models.git # git remote
@@ -292,7 +250,6 @@
         remote_url: https://i12g-gagneurweb.informatik.tu-muenchen.de/gitlab/gagneurlab/model-zoo.git
         local_path: /s/project/model-zoo
 </code></pre>
-
 <p>There are three different model sources possible: </p>
 <ul>
 <li><strong><code>git-lfs</code></strong> - git repository with source files tracked normally by git and all the binary files like model weights (located in <code>files*</code> directories) are tracked by <a href="https://git-lfs.github.com">git-lfs</a>. </li>
@@ -304,19 +261,16 @@
 <h4 id="note">Note</h4>
 <p>A particular model/dataloader is defined by its source (say <code>kipoi</code> or <code>my_git_models</code>) and the relative path of the desired model directory from the model source root (say <code>rbp/</code>).</p>
 <p>A directory is considered a model if it contains a <code>model.yaml</code> file.</p>
-<pre><code class="python">import kipoi
+<pre><code class="language-python">import kipoi
 </code></pre>
-
-<pre><code class="python">import warnings
+<pre><code class="language-python">import warnings
 warnings.filterwarnings('ignore')
 
 import logging
 logging.disable(1000)
 </code></pre>
-
-<pre><code class="python">kipoi.list_sources()
+<pre><code class="language-python">kipoi.list_sources()
 </code></pre>
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -357,17 +311,14 @@ logging.disable(1000)
 </table>
 </div>
 
-<pre><code class="python">s = kipoi.get_source(&quot;kipoi&quot;)
+<pre><code class="language-python">s = kipoi.get_source(&quot;kipoi&quot;)
 </code></pre>
-
-<pre><code class="python">s
+<pre><code class="language-python">s
 </code></pre>
-
 <pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/home/avsec/.kipoi/models/')
 </code></pre>
-<pre><code class="python">kipoi.list_models().head()
+<pre><code class="language-python">kipoi.list_models().head()
 </code></pre>
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -500,18 +451,15 @@ logging.disable(1000)
 
 <h2 id="model">Model</h2>
 <p>Let's choose to use the <code>rbp_eclip/UPF1</code> model from kipoi</p>
-<pre><code class="python">MODEL = &quot;rbp_eclip/UPF1&quot;
+<pre><code class="language-python">MODEL = &quot;rbp_eclip/UPF1&quot;
 </code></pre>
-
 <p><strong>NOTE:</strong> If you are using python2, use a different model like <code>MaxEntScan/3prime</code> to following this example.</p>
-<pre><code class="python"># Note. Install all the dependencies for that model:
+<pre><code class="language-python"># Note. Install all the dependencies for that model:
 # add --gpu flag to install gpu-compatible dependencies (e.g. installs tensorflow-gpu instead of tensorflow)
 !kipoi env install {MODEL}
 </code></pre>
-
-<pre><code class="python">model = kipoi.get_model(MODEL)
+<pre><code class="language-python">model = kipoi.get_model(MODEL)
 </code></pre>
-
 <h3 id="available-fields">Available fields:</h3>
 <h4 id="model_1">Model</h4>
 <ul>
@@ -562,33 +510,28 @@ logging.disable(1000)
 <li>batch_predict_iter()</li>
 <li>load_all()</li>
 </ul>
-<pre><code class="python">model
+<pre><code class="language-python">model
 </code></pre>
-
 <pre><code>&lt;kipoi.model.KerasModel at 0x7f95b27af2b0&gt;
 </code></pre>
-<pre><code class="python">model.type
+<pre><code class="language-python">model.type
 </code></pre>
-
 <pre><code>'keras'
 </code></pre>
 <h3 id="info">Info</h3>
-<pre><code class="python">model.info
+<pre><code class="language-python">model.info
 </code></pre>
-
 <pre><code>ModelInfo(authors=[Author(name='Ziga Avsec', github='avsecz', email=None)], doc='\'RBP binding model from Avsec et al: "Modeling positional effects of regulatory sequences with spline transformations increases prediction accuracy of deep neural networks". \'
 </code></pre>
 <p>', name=None, version='0.1', license='MIT', tags=['RNA binding'], contributors=[Author(name='Ziga Avsec', github='avsecz', email=None)], cite_as='https://doi.org/10.1093/bioinformatics/btx727', trained_on='RBP occupancy peaks measured by eCLIP-seq (Van Nostrand et al., 2016 - https://doi.org/10.1038/nmeth.3810), https://github.com/gagneurlab/Manuscript_Avsec_Bioinformatics_2017
 ', training_procedure='Single task training with ADAM')</p>
-<pre><code class="python">model.info.version
+<pre><code class="language-python">model.info.version
 </code></pre>
-
 <pre><code>'0.1'
 </code></pre>
 <h3 id="schema">Schema</h3>
-<pre><code class="python">dict(model.schema.inputs)
+<pre><code class="language-python">dict(model.schema.inputs)
 </code></pre>
-
 <pre><code>{'dist_exon_intron': ArraySchema(shape=(1, 10), doc='Distance the nearest exon_intron (splice donor) site transformed with B-splines', name='dist_exon_intron', special_type=None, associated_metadata=[], column_labels=None),
  'dist_gene_end': ArraySchema(shape=(1, 10), doc='Distance the nearest gene end transformed with B-splines', name='dist_gene_end', special_type=None, associated_metadata=[], column_labels=None),
  'dist_gene_start': ArraySchema(shape=(1, 10), doc='Distance the nearest gene start transformed with B-splines', name='dist_gene_start', special_type=None, associated_metadata=[], column_labels=None),
@@ -599,58 +542,49 @@ logging.disable(1000)
  'dist_tss': ArraySchema(shape=(1, 10), doc='Distance the nearest TSS site transformed with B-splines', name='dist_tss', special_type=None, associated_metadata=[], column_labels=None),
  'seq': ArraySchema(shape=(101, 4), doc='One-hot encoded RNA sequence', name='seq', special_type=&lt;ArraySpecialType.DNASeq: 'DNASeq'&gt;, associated_metadata=[], column_labels=None)}
 </code></pre>
-<pre><code class="python">model.schema.targets
+<pre><code class="language-python">model.schema.targets
 </code></pre>
-
 <pre><code>ArraySchema(shape=(1,), doc='Predicted binding strength', name=None, special_type=None, associated_metadata=[], column_labels=None)
 </code></pre>
 <h3 id="default-dataloader">Default dataloader</h3>
 <p>Model already has the default dataloder present. To use it, specify</p>
-<pre><code class="python">model.source_dir
+<pre><code class="language-python">model.source_dir
 </code></pre>
-
 <pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
 </code></pre>
-<pre><code class="python">model.default_dataloader
+<pre><code class="language-python">model.default_dataloader
 </code></pre>
-
 <pre><code>dataloader.SeqDistDataset
 </code></pre>
-<pre><code class="python">model.default_dataloader.info
+<pre><code class="language-python">model.default_dataloader.info
 </code></pre>
-
 <pre><code>Info(authors=[Author(name='Ziga Avsec', github='avsecz', email=None)], doc='RBP binding model taking as input 101nt long sequence as well as 8 distances to nearest genomic landmarks -  tss, poly-A, exon-intron boundary, intron-exon boundary, start codon, stop codon, gene start, gene end
 </code></pre>
 <p>', name=None, version='0.1', license='MIT', tags=[])</p>
 <h3 id="predict_on_batch">Predict_on_batch</h3>
-<pre><code class="python">model.predict_on_batch
+<pre><code class="language-python">model.predict_on_batch
 </code></pre>
-
 <pre><code>&lt;bound method KerasModel.predict_on_batch of &lt;kipoi.model.KerasModel object at 0x7f95b27af2b0&gt;&gt;
 </code></pre>
 <h3 id="others">Others</h3>
-<pre><code class="python"># Model source
+<pre><code class="language-python"># Model source
 model.source
 </code></pre>
-
 <pre><code>GitLFSSource(remote_url='git@github.com:kipoi/models.git', local_path='/home/avsec/.kipoi/models/')
 </code></pre>
-<pre><code class="python"># model location directory
+<pre><code class="language-python"># model location directory
 model.source_dir
 </code></pre>
-
 <pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
 </code></pre>
 <h2 id="dataloader_1">DataLoader</h2>
-<pre><code class="python">DataLoader = kipoi.get_dataloader_factory(MODEL)
+<pre><code class="language-python">DataLoader = kipoi.get_dataloader_factory(MODEL)
 # same as DataLoader = model.default_dataloader
 </code></pre>
-
 <p>A dataloader will most likely require input arguments in which the input files are defined, for example input fasta files or bed files, based on which the model input is generated. There are several options where the dataloader input keyword arguments are displayed:</p>
-<pre><code class="python"># Display information about the dataloader
+<pre><code class="language-python"># Display information about the dataloader
 print(DataLoader.__doc__)
 </code></pre>
-
 <pre><code>    Args:
         intervals_file: file path; tsv file
             Assumes bed-like `chrom start end id score strand` format.
@@ -661,10 +595,9 @@ print(DataLoader.__doc__)
         target_file: file path; path to the targets
         batch_size: int
 </code></pre>
-<pre><code class="python"># Alternatively the dataloader keyword arguments can be displayed using the function:
+<pre><code class="language-python"># Alternatively the dataloader keyword arguments can be displayed using the function:
 kipoi.print_dl_kwargs(DataLoader)
 </code></pre>
-
 <pre><code>Keyword argument: `intervals_file`
     doc: bed6 file with `chrom start end id score strand` columns
     type: str
@@ -698,26 +631,22 @@ Keyword argument: `use_linecache`
 Example keyword arguments are: {'intervals_file': 'example_files/intervals.bed', 'fasta_file': 'example_files/hg38_chr22.fa', 'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf', 'filter_protein_coding': True, 'target_file': 'example_files/targets.tsv'}
 </code></pre>
 <h2 id="run-dataloader-on-some-examples">Run dataloader on some examples</h2>
-<pre><code class="python"># each dataloader already provides example files which can be used to illustrate its use:
+<pre><code class="language-python"># each dataloader already provides example files which can be used to illustrate its use:
 DataLoader.example_kwargs
 </code></pre>
-
 <pre><code>{'fasta_file': 'example_files/hg38_chr22.fa',
  'filter_protein_coding': True,
  'gtf_file': 'example_files/gencode.v24.annotation_chr22.gtf',
  'intervals_file': 'example_files/intervals.bed',
  'target_file': 'example_files/targets.tsv'}
 </code></pre>
-<pre><code class="python">import os
+<pre><code class="language-python">import os
 </code></pre>
-
-<pre><code class="python"># cd into the source directory 
+<pre><code class="language-python"># cd into the source directory 
 os.chdir(DataLoader.source_dir)
 </code></pre>
-
-<pre><code class="python">!tree
+<pre><code class="language-python">!tree
 </code></pre>
-
 <pre><code>.
 ├── custom_keras_objects.py -&gt; ../template/custom_keras_objects.py
 ├── dataloader_files
@@ -734,82 +663,68 @@ os.chdir(DataLoader.source_dir)
 
 4 directories, 8 files
 </code></pre>
-<pre><code class="python">dl = DataLoader(**DataLoader.example_kwargs)
+<pre><code class="language-python">dl = DataLoader(**DataLoader.example_kwargs)
 # could be also done with DataLoader.init_example()
 </code></pre>
-
-<pre><code class="python"># This particular dataloader is of type Dataset
+<pre><code class="language-python"># This particular dataloader is of type Dataset
 # i.e. it implements the __getitem__ method:
 dl[0].keys()
 </code></pre>
-
 <pre><code>dict_keys(['inputs', 'targets', 'metadata'])
 </code></pre>
-<pre><code class="python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
+<pre><code class="language-python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
 </code></pre>
-
 <pre><code>array([[0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25]], dtype=float32)
 </code></pre>
-<pre><code class="python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
+<pre><code class="language-python">dl[0][&quot;inputs&quot;][&quot;seq&quot;][:5]
 </code></pre>
-
 <pre><code>array([[0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25],
        [0.25, 0.25, 0.25, 0.25]], dtype=float32)
 </code></pre>
-<pre><code class="python">len(dl)
+<pre><code class="language-python">len(dl)
 </code></pre>
-
 <pre><code>14
 </code></pre>
 <h3 id="get-the-whole-dataset">Get the whole dataset</h3>
-<pre><code class="python">whole_data = dl.load_all()
+<pre><code class="language-python">whole_data = dl.load_all()
 </code></pre>
-
 <pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  6.24it/s]
 </code></pre>
-<pre><code class="python">whole_data.keys()
+<pre><code class="language-python">whole_data.keys()
 </code></pre>
-
 <pre><code>dict_keys(['inputs', 'targets', 'metadata'])
 </code></pre>
-<pre><code class="python">whole_data[&quot;inputs&quot;][&quot;seq&quot;].shape
+<pre><code class="language-python">whole_data[&quot;inputs&quot;][&quot;seq&quot;].shape
 </code></pre>
-
 <pre><code>(14, 101, 4)
 </code></pre>
 <h3 id="get-the-iterator-to-run-predictions">Get the iterator to run predictions</h3>
-<pre><code class="python">it = dl.batch_iter(batch_size=1, shuffle=False, num_workers=0, drop_last=False)
+<pre><code class="language-python">it = dl.batch_iter(batch_size=1, shuffle=False, num_workers=0, drop_last=False)
 </code></pre>
-
-<pre><code class="python">next(it)[&quot;inputs&quot;][&quot;seq&quot;].shape
+<pre><code class="language-python">next(it)[&quot;inputs&quot;][&quot;seq&quot;].shape
 </code></pre>
-
 <pre><code>(1, 101, 4)
 </code></pre>
-<pre><code class="python">model.predict_on_batch(next(it)[&quot;inputs&quot;])
+<pre><code class="language-python">model.predict_on_batch(next(it)[&quot;inputs&quot;])
 </code></pre>
-
 <pre><code>array([[0.1351]], dtype=float32)
 </code></pre>
 <h3 id="pipeline">Pipeline</h3>
 <p>Pipeline object will take the dataloader arguments and run the whole pipeline directly:</p>
 <pre><code>dataloader arguments --Dataloader--&gt;  numpy arrays --Model--&gt; prediction
 </code></pre>
-
-<pre><code class="python">example_kwargs = model.default_dataloader.example_kwargs
+<pre><code class="language-python">example_kwargs = model.default_dataloader.example_kwargs
 </code></pre>
-
-<pre><code class="python">preds = model.pipeline.predict_example()
+<pre><code class="language-python">preds = model.pipeline.predict_example()
 preds
 </code></pre>
-
 <pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  6.78it/s]
 
 
@@ -831,9 +746,8 @@ array([[0.4208],
        [0.4208],
        [0.4208]], dtype=float32)
 </code></pre>
-<pre><code class="python">model.pipeline.predict(example_kwargs)
+<pre><code class="language-python">model.pipeline.predict(example_kwargs)
 </code></pre>
-
 <pre><code>1it [00:01,  1.56s/it]
 
 
@@ -843,16 +757,14 @@ array([[0.4208],
 array([0.4208, 0.0005, 0.0005, 0.4208, 0.4208, 0.4208, 0.0005, 0.4208, 0.4208, 0.4208, 0.4208,
        0.4208, 0.4208, 0.4208], dtype=float32)
 </code></pre>
-<pre><code class="python">next(model.pipeline.predict_generator(example_kwargs, batch_size=2))
+<pre><code class="language-python">next(model.pipeline.predict_generator(example_kwargs, batch_size=2))
 </code></pre>
-
 <pre><code>array([[0.4208],
        [0.0005]], dtype=float32)
 </code></pre>
-<pre><code class="python">from kipoi_utils.data_utils import numpy_collate
+<pre><code class="language-python">from kipoi_utils.data_utils import numpy_collate
 numpy_collate_concat(list(model.pipeline.predict_generator(example_kwargs)))
 </code></pre>
-
 <pre><code>array([[0.4208],
        [0.0005],
        [0.0005],
@@ -870,18 +782,14 @@ numpy_collate_concat(list(model.pipeline.predict_generator(example_kwargs)))
 </code></pre>
 <h3 id="re-train-the-keras-model">Re-train the Keras model</h3>
 <p>Keras model is stored under the <code>.model</code> attribute.</p>
-<pre><code class="python">model.model.compile(&quot;adam&quot;, &quot;binary_crossentropy&quot;)
+<pre><code class="language-python">model.model.compile(&quot;adam&quot;, &quot;binary_crossentropy&quot;)
 </code></pre>
-
-<pre><code class="python">train_it = dl.batch_train_iter(batch_size=2)
+<pre><code class="language-python">train_it = dl.batch_train_iter(batch_size=2)
 </code></pre>
-
-<pre><code class="python"># model.model.summary()
+<pre><code class="language-python"># model.model.summary()
 </code></pre>
-
-<pre><code class="python">model.model.fit_generator(train_it, steps_per_epoch=3, epochs=1)
+<pre><code class="language-python">model.model.fit_generator(train_it, steps_per_epoch=3, epochs=1)
 </code></pre>
-
 <pre><code>Epoch 1/1
 3/3 [==============================] - 1s 291ms/step - loss: 1.3592
 
@@ -913,7 +821,7 @@ numpy_collate_concat(list(model.pipeline.predict_generator(example_kwargs)))
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -923,7 +831,7 @@ numpy_collate_concat(list(model.pipeline.predict_generator(example_kwargs)))
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -939,6 +847,11 @@ numpy_collate_concat(list(model.pipeline.predict_generator(example_kwargs)))
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
