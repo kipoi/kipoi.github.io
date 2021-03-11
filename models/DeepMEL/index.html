@@ -31,7 +31,7 @@
         
 <!--Navbar-->
 
-<nav class="navbar fixed-top navbar-expand-sm navbar-dark unique-color-kipoi">
+<nav class="navbar fixed-top navbar-expand-md navbar-dark unique-color-kipoi">
 
     <!-- Navbar brand -->
     <span>
@@ -49,11 +49,11 @@
         <ul class="navbar-nav mr-auto text-center">
 	  <!-- Group list --> 
             <li class="nav-item">
-              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/groups/">Models</a>
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button btn-active" href="/groups/">Models</a>
             </li>
             <!-- About --> 
             <li class="nav-item">
-              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/about/">About</a>
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button btn-active" href="/about/">About</a>
             </li>
 	    <!-- Docs --> 
             <li class="nav-item">
@@ -63,9 +63,16 @@
 
         <!-- Search form -->
         
+          <form class="navbar-nav form-inline promenent-search rounded">
+            <div class="text-nowrap" style="width: 100%;">
+              <label for="search-bar"><i class="fa fa-search fa-fw px-3" aria-hidden="true"></i></label>
+              <input id="search-bar" class="form-control model-search" type="text" placeholder="Search" aria-label="Search" autofocus/>
+            </div>
+          </form>
+        
 
       
-        <ul class="navbar-nav ml-auto text-center d-sm-none d-md-flex">
+        <ul class="navbar-nav ml-auto text-center d-md-none d-lg-flex">
       
           <li class="nav-item">
             <a id="components-related-4" class="text-nowrap nav-link waves-effect waves-light" href="https://www.biorxiv.org/content/early/2018/07/24/375345.full.pdf">White paper<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
@@ -84,34 +91,156 @@
 
     <section class="main-content">
         
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <!--Section: model-details content-->
-        <section class="model-details">
-            <!--<h2 class="">Model Details</h2>-->
-
-                <div class="jumbotron">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <!-- Model title -->
-                            <h1 class="h1-responsive">DeepMEL</h1>
-                        </div>
-                        <!-- Model details -->
-                        <div class="col-lg-5">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <p>Authors: 
+<div class="row" style="margin-right: 0; margin-left: 0;">
+    <div class="col-xl-12">
+        <!--Section: model-list content-->
+        <section class="model-list">
+            <table id="model-list-table" class="mdl-data-table table-responsive-xl" cellspacing="0" style="width:100%">
+    <thead>
+        <tr>
+            <th class="text-left">Model name</th>
+            <th>Version</th>
+            <th>Authors</th>
+            <th>Contributed by</th>
+            <th>Type</th>
+            <th>Cite as</th>
+            <th>License</th>
+            <th>Training procedure</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th class="text-left">Model name</th>
+            <th>Version</th>
+            <th>Authors</th>
+            <th>Contributed by</th>
+            <th>Type</th>
+            <th>Cite as</th>
+            <th>License</th>
+            <th>Training procedure</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepMEL/DeepMEL">
+                DeepMEL/DeepMEL
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
   
-    
+     
       
+	
   Liesbeth Minnoye
   
   
-
-    
-    , 
-  
-    
+ <i>et al.</i>
       
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
   Ibrahim Ihsan Taskiran
   
     <a href="https://github.com/itaskiran" class="github">
@@ -119,179 +248,129 @@
     </a>
   
   
-    <a href="mailto:ibrahimihsan.taskiran@kuleuven.vib.be">
+    <a href="mailto:ibrahimihsan.taskiran@kuleuven.be">
       <i class="fa fa-envelope-o" aria-hidden="true"></i>
     </a>
   
-
-    
-    , 
-  
-    
+ <i>et al.</i>
       
-  David Mauduit
-  
-  
-
     
-    , 
-  
     
+  
+     
       
-  Maurizio Fazio
+    
+    
   
+     
+      
+    
+    
   
 
-    
-    , 
+            </td>
+            <td>None</td>
+            <td>
+                
   
-    
+  
       
-  Linde Van Aerschot
   
-  
-
-    
-    , 
-  
-    
-      
-  Gert Hulsemans
-  
+    <a href="https://doi.org/10.1101/gr.260844.120">https://doi.org/10.1101/gr.260844.120</a>
   
 
     
-    , 
-  
-    
-      
-  Valerie Christiaens
-  
   
 
-    
-    , 
+            </td>
+            <td>
+                
   
-    
-      
-  Samira Makhzami
-  
+    MIT
   
 
-    
-    , 
-  
-    
-      
-  Monika Seltenhammer
-  
+            </td>
+            <td>
+                
   
 
-    
-    , 
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepMEL/DeepMEL2">
+                DeepMEL/DeepMEL2
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
   
-    
+     
       
-  Panagiotis Karras
+	
+  Zeynep Kalender Atak
   
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
   
 
-    
-    , 
+            </td>
+            <td>
+              
   
-    
+     
       
-  Aline Primot
-  
-  
-
-    
-    , 
-  
-    
-      
-  Edouard Cadieu
-  
-  
-
-    
-    , 
-  
-    
-      
-  Ellen van Rooijen
-  
-  
-
-    
-    , 
-  
-    
-      
-  Jean-Christophe Marine
-  
-  
-
-    
-    , 
-  
-    
-      
-  Giorgia Egidy Maskos
-  
-  
-
-    
-    , 
-  
-    
-      
-  Ghanem-Elias Ghanem
-  
-  
-
-    
-    , 
-  
-    
-      
-  Leonard Zon
-  
-  
-
-    
-    , 
-  
-    
-      
-  Jasper Wouters
-  
-  
-
-    
-    , 
-  
-    
-      
-  Stein Aerts
-  
-  
-
-    
-    
-  
-</p>
-                                    <!-- <p>
-                                         Name:
-                                         
-					 </p> -->
-                                    <!-- <p>Version: 0.1</p> -->
-                                    <!-- License -->
-                                    <p>License: MIT</p>
-                                    <p>Contributed by: 
-  
-    
-      
+	
   Ibrahim Ihsan Taskiran
   
     <a href="https://github.com/itaskiran" class="github">
@@ -299,513 +378,129 @@
     </a>
   
   
-    <a href="mailto:ibrahimihsan.taskiran@kuleuven.vib.be">
+    <a href="mailto:ibrahimihsan.taskiran@kuleuven.be">
       <i class="fa fa-envelope-o" aria-hidden="true"></i>
     </a>
   
-
-    
-    , 
-  
-    
+ <i>et al.</i>
       
-  Liesbeth Minnoye
-  
-  
-
     
-    , 
-  
     
+  
+     
       
-  Stein Aerts
+    
+    
   
+     
+      
+    
+    
   
 
-    
-    
-  
-</p>
-                                    <!-- Cite as -->
-                                    <p>Cite as: 
+            </td>
+            <td>None</td>
+            <td>
+                
   
   
       
   
-    <a href="https://doi.org/10.1101/2019.12.21.885715">https://doi.org/10.1101/2019.12.21.885715</a>
+    <a href="https://doi.org/10.1101/2019.12.21.885806">https://doi.org/10.1101/2019.12.21.885806</a>
   
 
     
   
-</p>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-xs-12">
-                                    <!-- Model type -->
-                                    <p>Type:
-                                        
-                                      None
-                                      
-                                    </p>
 
-                                    <!-- Model postprocessing -->
-                                    <p>
-                                      Postprocessing:
-                                      
-                                      None
-                                      
-                                    </p>
-				    
-                                    <!-- Trained on -->
-                                    <p>Trained on: 
+            </td>
+            <td>
+                
   
-    Accessible genomic sites. Held-out chromosome chr2.
+    MIT
   
-</p>
 
-				    <!-- Model url  -->
-				    <p>
-				      <a href="https://github.com/kipoi/models/tree/master/DeepMEL">Source files <i class="fa fa-github" aria-hidden="true"></i></a>
-				    </p> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-7 col-md-12 col-sm-12">
-                            <!-- Model description -->
-                            <p class="lead">Model predicting melanoma-specific accessible regions</p>
-							<p></p>
-                        </div>
-
-                        <div class="col-lg-5 col-md-12 col-sm-12">
-                            <!-- Model code snippets -->
-                            <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#cli" role="tab">CLI</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#python" role="tab">python</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#r" role="tab">R</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#docker" role="tab">docker</a>
-    </li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-    <!-- CLI code snippet tab -->
-    <div class="tab-pane active" id="cli" role="tabpanel">
-        <div class="border border-top-0 code-snippet-container">
-            
+            </td>
+            <td>
                 
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Create a new conda environment with all dependencies installed</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env create DeepMEL
-source activate kipoi-DeepMEL</code></pre> -->
-	<pre><code class="bash">kipoi env create DeepMEL
-source activate kipoi-DeepMEL</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Install model dependencies into current environment</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi env install DeepMEL</code></pre> -->
-	<pre><code class="bash">kipoi env install DeepMEL</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Test the model</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi test DeepMEL --source=kipoi</code></pre> -->
-	<pre><code class="bash">kipoi test DeepMEL --source=kipoi</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Make a prediction</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>kipoi get-example DeepMEL -o example
-kipoi predict DeepMEL \
-  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
-  -o &#39;/tmp/DeepMEL.example_pred.tsv&#39;
-# check the results
-head &#39;/tmp/DeepMEL.example_pred.tsv&#39;
-</code></pre> -->
-	<pre><code class="bash">kipoi get-example DeepMEL -o example
-kipoi predict DeepMEL \
-  --dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
-  -o &#39;/tmp/DeepMEL.example_pred.tsv&#39;
-# check the results
-head &#39;/tmp/DeepMEL.example_pred.tsv&#39;
-</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-        </div>
-    </div>
-
-    <!-- python code snippet tab -->
-    <div class="tab-pane" id="python" role="tabpanel">
-        <div class="border border-top-0 code-snippet-container">
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Get the model</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>import kipoi
-model = kipoi.get_model(&#39;DeepMEL&#39;)</code></pre> -->
-	<pre><code class="python">import kipoi
-model = kipoi.get_model(&#39;DeepMEL&#39;)</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Make a prediction for example files</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>pred = model.pipeline.predict_example()</code></pre> -->
-	<pre><code class="python">pred = model.pipeline.predict_example()</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Use dataloader and model separately</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
-dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
-# Get the dataloader and instantiate it
-dl = model.default_dataloader(**dl_kwargs)
-# get a batch iterator
-it = dl.batch_iter(batch_size=4)
-# predict for a batch
-batch = next(it)
-model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
-	<pre><code class="python"># Download example dataloader kwargs
-dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
-# Get the dataloader and instantiate it
-dl = model.default_dataloader(**dl_kwargs)
-# get a batch iterator
-it = dl.batch_iter(batch_size=4)
-# predict for a batch
-batch = next(it)
-model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Make predictions for custom files directly</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>pred = model.pipeline.predict(dl_kwargs, batch_size=4)</code></pre> -->
-	<pre><code class="python">pred = model.pipeline.predict(dl_kwargs, batch_size=4)</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-        </div>
-    </div>
-    
-    <!-- R code snippet tab -->
-    <div class="tab-pane" id="r" role="tabpanel">
-        <div class="border border-top-0 code-snippet-container">
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Get the model</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>library(reticulate)
-kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;DeepMEL&#39;)</code></pre> -->
-	<pre><code class="R">library(reticulate)
-kipoi &lt;- import(&#39;kipoi&#39;)
-model &lt;- kipoi$get_model(&#39;DeepMEL&#39;)</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Make a prediction for example files</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>predictions &lt;- model$pipeline$predict_example()</code></pre> -->
-	<pre><code class="R">predictions &lt;- model$pipeline$predict_example()</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Use dataloader and model separately</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code># Download example dataloader kwargs
-dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
-# Get the dataloader
-dl &lt;- model$default_dataloader(dl_kwargs)
-# get a batch iterator
-it &lt;- dl$batch_iter(batch_size=4)
-# predict for a batch
-batch &lt;- iter_next(it)
-model$predict_on_batch(batch$inputs)</code></pre> -->
-	<pre><code class="R"># Download example dataloader kwargs
-dl_kwargs &lt;- model$default_dataloader$download_example(&#39;example&#39;)
-# Get the dataloader
-dl &lt;- model$default_dataloader(dl_kwargs)
-# get a batch iterator
-it &lt;- dl$batch_iter(batch_size=4)
-# predict for a batch
-batch &lt;- iter_next(it)
-model$predict_on_batch(batch$inputs)</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Make predictions for custom files directly</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>pred &lt;- model$pipeline$predict(dl_kwargs, batch_size=4)</code></pre> -->
-	<pre><code class="R">pred &lt;- model$pipeline$predict(dl_kwargs, batch_size=4)</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-        </div>
-    </div>
-
-    <!-- docker code snippet tab -->
-    <div class="tab-pane" id="docker" role="tabpanel">
-        <div class="border border-top-0 code-snippet-container">
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Get the docker image</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker pull haimasree/kipoi-docker:deepmel</code></pre> -->
-	<pre><code class="docker">docker pull haimasree/kipoi-docker:deepmel</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Get the activated conda environment inside the container</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run -it haimasree/kipoi-docker:deepmel</code></pre> -->
-	<pre><code class="docker">docker run -it haimasree/kipoi-docker:deepmel</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Test the model</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run haimasree/kipoi-docker:deepmel kipoi test DeepMEL --source=kipoi</code></pre> -->
-	<pre><code class="docker">docker run haimasree/kipoi-docker:deepmel kipoi test DeepMEL --source=kipoi</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Make prediction for custom files directly</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code># Create an example directory containing the data
-mkdir -p $PWD/kipoi-example 
-# You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:deepmel \
-kipoi get-example DeepMEL -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:deepmel \
-kipoi predict DeepMEL \
---dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;/app/example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;/app/example/fasta_file&#39;}&#39; \
--o &#39;/app/DeepMEL.example_pred.tsv&#39; 
-# check the results
-head $PWD/kipoi-example/DeepMEL.example_pred.tsv
-</code></pre> -->
-	<pre><code class="docker"># Create an example directory containing the data
-mkdir -p $PWD/kipoi-example 
-# You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:deepmel \
-kipoi get-example DeepMEL -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:deepmel \
-kipoi predict DeepMEL \
---dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;/app/example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;/app/example/fasta_file&#39;}&#39; \
--o &#39;/app/DeepMEL.example_pred.tsv&#39; 
-# check the results
-head $PWD/kipoi-example/DeepMEL.example_pred.tsv
-</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-        </div>
-    </div>
-</div>
-                        </div>
-                    </div>
-                    
-                    <hr class="w-100 clearfix">
-
-                    <div class="row">
-                        <div class="col-lg-5 col-md-12">
-                            <!-- Model schema -->
-                            <div class="card">
-    <div class="card-header primary-color white-text">
-        Schema
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h4 class="card-title mt-2 mb-3">Inputs</h4>
-                
-  <p>List of numpy arrays</p>
   
-    <p><strong>Name</strong>: None</p>
-    <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (500, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: DNA sequence</p>
 
-    <p><strong>Name</strong>: None</p>
-    <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (500, 4)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Reverse-complemented DNA sequence</p>
-
-
-            </div>
-            <hr class="w-100 clearfix d-md-none">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h4 class="card-title mt-2 mb-3">Targets</h4>
-                
-  <p>Single numpy array</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="text-left">
+                <a class="" href="/models/DeepMEL/DeepMEL2_GABPA">
+                DeepMEL/DeepMEL2_GABPA
+                </a>
+            </td>
+            <td>0.1</td>
+            <td>
+              
   
-    <p><strong>Name</strong>: topic</p>
-    <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (24,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Topic Prediction (4-MEL, 7-MES)</p>
-
-
-            </div>
-        </div>
-    </div>
-</div>
-                        </div>
-                        <hr class="w-100 clearfix d-lg-none">
-                        
-                            <div class="col-lg-7 col-md-12">
-                                <!-- Dataloader details -->
-                                <div class="card">
-        <div class="card-header warning-color-dark white-text clearfix">
-            Dataloader
-        </div>
-        <div class="card-body">
-            <div class="row">
-              <div class="col-lg-5">
-		<!-- TODO - ifelse  -->
-		
-  		  <p><strong>Defined as:</strong> .</p>
-		
-                  <p><strong>Doc:</strong> Data-loader returning one-hot encoded sequences given genome intervals</p>
-                  <p><strong>Authors:</strong> 
-  
-    
+     
       
+	
+  Zeynep Kalender Atak
+  
+  
+ <i>et al.</i>
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
+
+            </td>
+            <td>
+              
+  
+     
+      
+	
   Ibrahim Ihsan Taskiran
   
     <a href="https://github.com/itaskiran" class="github">
@@ -813,151 +508,65 @@ head $PWD/kipoi-example/DeepMEL.example_pred.tsv
     </a>
   
   
-    <a href="mailto:ibrahimihsan.taskiran@kuleuven.vib.be">
+    <a href="mailto:ibrahimihsan.taskiran@kuleuven.be">
       <i class="fa fa-envelope-o" aria-hidden="true"></i>
     </a>
   
-
+ <i>et al.</i>
+      
     
     
   
-</p>
-                  <p><strong>Type:</strong> None</p>
-                  <p><strong>License:</strong> MIT</p>
+     
+      
+    
+    
+  
+     
+      
+    
+    
+  
 
-                </div>
-                <hr class="w-100 clearfix d-lg-none">
-                <div class="col-lg-7">
-                  <h4 class="card-title mt-2 mb-3">Arguments</h4>
-                  
-  <div>
-    
-      <p>
-	<strong>intervals_file</strong> :
-	intervals file bed3
-      </p>
-    
-      <p>
-	<strong>fasta_file</strong> :
-	Reference genome FASTA file path.
-      </p>
-    
-      <p>
-	<strong>ignore_targets</strong> (optional):
-	if True, don&#39;t return any target variables
-      </p>
-    
-  </div>
-
-                </div>
-            </div>
-        </div>
-</div>
-    
-                            </div>
-                        
-                    </div>
+            </td>
+            <td>None</td>
+            <td>
                 
-                    <hr class="w-100 clearfix">
-                    
-                    <!-- Model and dataloader dependencies -->
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-    <div class="card">
-        <div class="card-header">
-            Model dependencies
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <strong>conda</strong>:<br>
-                    
-  <ul class="dependencies">
-    
-      <li>python=3.6<br></li>
-    
-      <li>h5py==2.10.0</li>
-    
-</u>
+  
+  
+      
+  
+    <a href="https://doi.org/10.1101/2019.12.21.885806">https://doi.org/10.1101/2019.12.21.885806</a>
+  
 
-                </div>
-                <hr class="w-100 clearfix d-sm-none">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <strong>pip</strong>:<br>
-                    
-  <ul class="dependencies">
     
-      <li>keras&gt;=2.2.4<br></li>
-    
-      <li>tensorflow&gt;=1.14.0</li>
-    
-</u>
+  
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr class="w-100 clearfix d-md-none">
-<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-    <div class="card">
-        <div class="card-header">
-            Dataloader dependencies
-        </div>
-        <div class="card-body">
-            <div class="row">
+            </td>
+            <td>
                 
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <strong>conda</strong>:<br>
-                        
-  <ul class="dependencies">
-    
-      <li>python=3.6<br></li>
-    
-      <li>bioconda::pybedtools<br></li>
-    
-      <li>bioconda::pysam<br></li>
-    
-      <li>bioconda::pyfaidx<br></li>
-    
-      <li>numpy<br></li>
-    
-      <li>pandas</li>
-    
-</u>
+  
+    MIT
+  
 
-                    </div>
-                    <hr class="w-100 clearfix d-sm-none">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <strong>pip</strong>:<br>
-                        
-  <ul class="dependencies">
-    
-      <li>kipoiseq</li>
-    
-</u>
-
-                    </div>
+            </td>
+            <td>
                 
-            </div>
-        </div>
-    </div>
+  
+
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<div class="row" style="margin-right: 0; margin-left: 0;">
+  <div class="col-lg-9 mx-auto readmecontent"></div>
 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="w-100 clearfix">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                          <div id="disqus_thread"></div>
-                        </div>
-                    </div>
-                </div>
         </section>
-        <!--/Section: model-details content-->                        
+        <!--/Section: model-list content-->                        
     </div>
+    
+</div>
 
     </section>
     
@@ -1047,41 +656,23 @@ head $PWD/kipoi-example/DeepMEL.example_pred.tsv
     
     
     <script language="JavaScript">
-      // Enable code highlighting
-      hljs.initHighlightingOnLoad();
+        $(document).ready(function() {
+            $('#model-list-table').DataTable({
+                "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+                "pageLength": 50,
+                "dom": 'rtip'
+            });
+            $('.dt-table').css('width', '100%');
 
-      $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-
-        $('.copy-to-clipboard').on('click', function() {
-          /* Get the code field */
-          var copyCode = $(this).closest('.code-container').find('code').text();
-          var $temp = $("<textarea>");
-          $("body").append($temp);
-          $temp.val(copyCode).select();
-          document.execCommand("copy");
-          $temp.remove();
+            oTable = $('#model-list-table').DataTable();
+            $('#search-bar').keyup(function(){
+                oTable.search($(this).val()).draw() ;
+            })
+            $('.dataTables_info').addClass('col-md-5 text-right mt-2');
+            $('.dataTables_paginate').addClass('col-md-7 mt-4');
+			$('.readmecontent img').css('max-width','100%')
         });
-      });
-
-      /**
-       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-      
-      var disqus_config = function () {
-        this.page.url = "http://localhost/models/DeepMEL/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/models/DeepMEL/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      
-      (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kipoi-org.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
 
 </body>
 
