@@ -450,8 +450,8 @@ logging.disable(1000)
 </div>
 
 <h2 id="model">Model</h2>
-<p>Let's choose to use the <code>rbp_eclip/UPF1</code> model from kipoi</p>
-<pre><code class="language-python">MODEL = &quot;rbp_eclip/UPF1&quot;
+<p>Let's choose to use the <code>rbp_eclip/XRCC6</code> model from kipoi</p>
+<pre><code class="language-python">MODEL = &quot;rbp_eclip/XRCC6&quot;
 </code></pre>
 <p><strong>NOTE:</strong> If you are using python2, use a different model like <code>MaxEntScan/3prime</code> to following this example.</p>
 <pre><code class="language-python"># Note. Install all the dependencies for that model:
@@ -550,7 +550,7 @@ logging.disable(1000)
 <p>Model already has the default dataloder present. To use it, specify</p>
 <pre><code class="language-python">model.source_dir
 </code></pre>
-<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
+<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/XRCC6'
 </code></pre>
 <pre><code class="language-python">model.default_dataloader
 </code></pre>
@@ -575,7 +575,7 @@ model.source
 <pre><code class="language-python"># model location directory
 model.source_dir
 </code></pre>
-<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/UPF1'
+<pre><code>'/home/avsec/.kipoi/models/rbp_eclip/XRCC6'
 </code></pre>
 <h2 id="dataloader_1">DataLoader</h2>
 <pre><code class="language-python">DataLoader = kipoi.get_dataloader_factory(MODEL)
