@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Nejc Zupan">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <title>Kipoi</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+<!-- Material Design Bootstrap -->
+<link rel="stylesheet" type="text/css" href="/static/css/mdb.min.css">
+<!-- Material Design Lite -->
+<link rel="stylesheet" type="text/css" href="/static/css/material.min.css">
+<!-- DataTables Material Design -->    
+<link rel="stylesheet" type="text/css" href="/static/css/dataTables.material.css"/>
+<!-- Highlight -->
+<link rel="stylesheet" type="text/css" href="/static/css/custom_highlight_github.css"/>
+
+<!-- Custom styles -->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css?v=150318">
+</head>
+
+<body>
+    <section class="mb-3">
+        
+<!--Navbar-->
+
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark unique-color-kipoi">
+
+    <!-- Navbar brand -->
+    <span>
+      <a class="nav-title-link navbar-brand-nopad text-hide left-margin" href="/"
+	 ><img src="/static/img/nav_bar_logo_v3.png" height="50px" alt="Kipoi"/></a>
+    </span>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse text-center" id="navbarNav1">
+        
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto text-center">
+	  <!-- Group list --> 
+            <li class="nav-item">
+              <a id="components-related-1" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/groups/">Models</a>
+            </li>
+            <!-- About --> 
+            <li class="nav-item">
+              <a id="components-related-2" class="nav-button btn btn-outline-primary navbar-dark nabar-button " href="/about/">About</a>
+            </li>
+	    <!-- Docs --> 
+            <li class="nav-item">
+              <a id="components-related-3" class="nav-button btn btn-outline-primary navbar-dark nabar-button" href="/docs/">Docs</a>
+            </li>
+        <!-- Seminar -->
+            <li class="nav-item">
+              <a id="components-related-4" class="nav-button btn btn-outline-primary navbar-dark nabar-button btn-active" href="/seminar/">Seminar</a>
+            </li>
+        </ul>
+
+        <!-- Search form -->
+        
+
+      
+        <ul class="navbar-nav ml-auto text-center d-sm-none d-md-flex">
+      
+          <li class="nav-item">
+            <a id="components-related-5" class="text-nowrap nav-link waves-effect waves-light" href="https://www.biorxiv.org/content/early/2018/07/24/375345.full.pdf">White paper<i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="components-related-6" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/models">Model repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="components-related-7" class="text-nowrap nav-link waves-effect waves-light" href="https://github.com/kipoi/kipoi">API repository<i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+        
+    </div>
+</nav>
+    </section>
+
+    <section class="main-content">
+        
+
+<!-- - what is it?
+- when is it?
+- how to register?
+- agenda?
+- next speaker?
+- past speakers
+- apply as speaker-->
+<div class="row" style="margin-right: 0; margin-left: 0;">
+  <div class="col-lg-5 mx-auto">
+    <!-- <h3 class="media-heading">About</h3> -->
+    <h3>Kipoi - Seminar</h3>
+    <p>
+        The monthly virtual seminar series is designed as a platform for interested Kipoi users and developers and will host talks on the applications of deep learning on biological data.
+        The seminar is held on every first Wednesday of the month at 5:30 p.m. - 6:30 p.m. CET. We are also happy to share the recordings of the seminar on <a href="https://www.youtube.com/channel/UCL_iKCHUxepOi7_Wk010--g">YouTube</a>.
+    </p>
+    <h4>How to take part</h4>
+    <p>
+        The Virtual Seminar Series takes place via Zoom.
+        To take part in the seminar, you can register for the online Zoom conference <a href='https://tum-conf.zoom.us/meeting/register/u5MpcuCvqDwoHtRxJTdDig7co4LJoiHrYugn'>here</a>.
+        Your personal join link will be valid for all upcoming lectures of the series.
+    </p>
+      <h4>How to apply as a speaker</h4>
+      <p>The seminar is a great opportunity to present your recent work to a nerdy audience.
+        If you want to apply as a speaker, please use the contact in the registration confirmation email.</p>
+    <h4>Next seminar</h4>
+    <h6> SAILER and UFOLD: Deep Learning for scATAC-seq and RNA Secondary Structure Prediction </h6>
+     Date: 07/04/2021 5:30 p.m. - 6:30 p.m. Central European Summer time
+      <p>Speaker: <strong><a href="https://cellfate.uci.edu/themes/center-fellows/">Yingxin Cao</a></strong>, PhD Student at UC Irvine</p>
+    <strong>Abstract:</strong>
+      <p align="justify">
+          SAILER:
+Single-cell sequencing assay for transposase-accessible chromatin (scATAC-seq) provides new opportunities to dissect epigenomic heterogeneity and elucidate transcriptional regulatory mechanisms. However, computational modelling of scATAC-seq data is challenging due to its high dimension, extreme sparsity, complex dependencies, and high sensitivity to confounding factors from various sources.
+In this work we propose a new deep generative model framework, named SAILER, for analyzing scATAC-seq data. SAILER aims to learn a low-dimensional nonlinear latent representation of each cell that defines its intrinsic chromatin state, invariant to extrinsic confounding factors like read depth and batch effects. SAILER adopts the conventional encoder-decoder framework to learn the latent representation but imposes additional constraints to ensure the independence of the learned representations from the confounding factors. Experimental results on both simulated and real scATAC-seq datasets demonstrate that SAILER learns better and biologically more meaningful representations of cells than other methods. Its noise-free cell embeddings bring in significant benefits in downstream analyses: Clustering and imputation based on SAILER result in significant improvements over existing methods, respectively. Moreover, because no matrix factorization is involved, SAILER can easily scale to process millions of cells. We implemented SAILER into a software package, freely available to all for large-scale scATAC-seq data analysis.
+      </p>
+ <p align="justify">
+UFold:
+For many RNA molecules, the secondary structure is essential for the correct function of the RNA. Predicting RNA secondary structure from nucleotide sequences is a long-standing problem in genomics, but the prediction performance has reached a plateau over time. Traditional RNA secondary structure prediction algorithms are primarily based on thermodynamic models through free energy minimization, which imposes strong prior assumptions and is slow to run.
+Here we propose a deep learning-based data-driven method, called UFold, for RNA secondary structure prediction, trained directly on annotated data without any thermodynamic assumptions. UFold improves substantially upon previous models. UFold is also fast with an inference time about 160ms per sequence up to 1600bp length. We provide an online web server that implements UFold for RNA structure prediction and is made freely available.
+</p>
+
+      <h4>Upcoming speakers</h4>
+      <ul>
+          <li>5 May 2021 - <strong>Anshul Kundaje</strong></li>
+          <li>2 June 2021 - <strong>Johannes Linder</strong></li>
+          <li>7 July 2021 - <strong>Qiangfeng Cliff Zhang</strong></li>
+      </ul>
+
+      <h4>Previous speakers</h4>
+      <ul>
+          <li>3 March 2021 - <strong>Avanti Shrikumar</strong></li>
+          <li>3 February 2021 - <strong>Uwe Ohler</strong></li>
+          <li>2 December 2021 - <strong>Ron Schwessinger</strong></li>
+          <li>4 November 2020 - <strong>David Kelley</strong></li>
+          <li>7 October 2020 - <strong>Vikram Agarwal</strong></li>
+      </ul>
+</div>
+
+    </section>
+    
+    <footer class="page-footer center-on-small-only unique-color">
+    <!--Footer links-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--First column-->
+            <div class="col-lg-3 col-md-6 ml-auto">
+                <h5 class="title mb-3"><strong>About KIPOI project</strong></h5>
+                <p>Kipoi is an API and a repository of ready-to-use trained models for genomics.</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Second column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+              <h5 class="title mb-3"><strong>Useful links</strong></h5>
+              <ul>
+                <li>
+                  <a href="https://github.com/kipoi/kipoi">API repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/models">Model repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/kipoi/website">Website repository <i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!--/.Second column-->
+            <hr class="w-100 clearfix d-lg-none">
+            <!--Third column-->
+            <div class="col-lg-4 col-md-12 ml-auto text-center">
+                <ul>
+                    <li>
+                        <h5>Like the project?</h5>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://twitter.com/KipoiZoo" class="btn btn-primary waves-effect waves-light" rel="nofollow">Tweet us!</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Third column-->
+        </div>
+    </div>
+    <!--/.Footer links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="containter-fluid">
+            © 2021 The Kipoi team, website developed by 
+            <a href="https://github.com/zupan" class="Nejc Zupan github">
+                Nejc Zupan
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <!--/.Copyright-->
+</footer>
+
+    <!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/static/js/mdb.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/dataTables.material.min.js"></script>
+
+<!-- Highlight -->
+<script type="text/javascript" src="/static/js/highlight.pack.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115025493-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115025493-1');
+</script>
+    
+    
+</body>
+
+</html>
