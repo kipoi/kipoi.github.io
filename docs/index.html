@@ -215,9 +215,11 @@
 </ul>
 <h2 id="installation">Installation</h2>
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
-Make sure you have either anaconda (<a href="https://www.anaconda.com/download/">download page</a>) or miniconda (<a href="https://conda.io/miniconda.html">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX/">Installing python on OSX</a>. Supported python versions: 2.7 and &gt;=3.5.</p>
+Make sure you have either anaconda (<a href="https://www.anaconda.com/download/">download page</a>) or miniconda (<a href="https://conda.io/miniconda.html">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX/">Installing python on OSX</a>. Supported python versions: 2.7 and &gt;=3.5&lt;=3.7.</p>
 <p>Install Kipoi using <a href="https://pip.pypa.io/en/stable/">pip</a>:</p>
-<pre><code class="language-bash">pip install kipoi
+<pre><code class="language-bash">conda create -n py36 python=3.6
+conda activate py36
+pip install kipoi
 </code></pre>
 <h2 id="quick-start">Quick start</h2>
 <p>Explore available models on <a href="http://kipoi.org/groups/">https://kipoi.org/groups/</a>. Use-case oriented tutorials are available at <a href="https://github.com/kipoi/examples">https://github.com/kipoi/examples</a>.</p>
@@ -392,5 +394,5 @@ pip install -e '.[develop]'
 
 <!--
 MkDocs version : 1.2.1
-Build Date UTC : 2021-06-10 15:23:38.966337+00:00
+Build Date UTC : 2021-06-10 15:24:15.491120+00:00
 -->
