@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Composing models - Kipoi documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Composing models";
+    var mkdocs_page_input_path = "tutorials/composing_models.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Kipoi documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/python.html">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/cli.html">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/R.html">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/plugins.html">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/03_Model_sources.html">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/04_Installing_on_OSX.html">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/01_Getting_started.html">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/02_Writing_model.yaml.html">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/04_Writing_dataloader.py.html">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/03_Writing_dataloader.yaml.html">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/05_Writing_model.py.html">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/06_dumping_models_programatically.html">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="contributing_models.html">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="python-api.html">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="R-api.html">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="tf_binding_models.html">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="composing_models.html">Composing models</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/list_.html">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/install_.html">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/model.html">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/dataloader.html">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/pipeline.html">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/sources.html">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/metadata.html">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/readers.html">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/writers.html">writers</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Kipoi documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Composing models</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/tutorials/composing_models.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/notebooks/composing_models.ipynb">notebooks/composing_models.ipynb</a></p>
+<h2 id="composing-models">Composing models</h2>
+<p>by Ziga Avsec</p>
+<p>Composing models means that we take the predictions of some model and use it as input for another model like this:</p>
+<p><img alt="img" src="/docs/img/notebooks/comp_models.gv.svg" /></p>
+<p>Three different scenarios can occur when we want to compose models from Kipoi:</p>
+<ol>
+<li>all models are written in the same framework (say Keras)</li>
+<li>models are written in different frameworks but can all be executed in the same python environment</li>
+<li>models are written in different frameworks and can't be executed in the same python environment due to dependency incompatibilities</li>
+</ol>
+<h2 id="all-models-in-the-same-framework">All models in the same framework</h2>
+<p>In case all models are written in the same framework, you can stitch things together in the framework. Here is an example of how to do this in Keras.</p>
+<p><img alt="img" src="/docs/img/notebooks/comp_models3.gv.svg" /></p>
+<p>Let's first dump 4 dummy models:</p>
+<pre><code class="language-python">import keras.layers as kl
+from keras.models import Model
+from keras.models import load_model
+</code></pre>
+<pre><code class="language-python"># create model 1
+inp1 = kl.Input((3,), name=&quot;input1&quot;)
+out1 = kl.Dense(4)(inp1)
+m1 = Model(inp1, out1)
+m1.save(&quot;/tmp/m1.h5&quot;)
+
+# create model 2
+inp2 = kl.Input((7,), name=&quot;input1_model1&quot;)
+out2 = kl.Dense(3)(inp2)
+m2 = Model(inp2, out2)
+m2.save(&quot;/tmp/m2.h5&quot;)
+
+# create model 3
+inp3 = kl.Input((6,), name=&quot;input2&quot;)
+out3 = kl.Dense(4)(inp3)
+m3 = Model(inp3, out3)
+m3.save(&quot;/tmp/m3.h5&quot;)
+
+# create model 4
+inp4 = kl.Input((7,), name=&quot;model2_model3&quot;)
+out4 = kl.Dense(1)(inp4)
+m4 = Model(inp4, out4)
+m4.save(&quot;/tmp/m4.h5&quot;)
+</code></pre>
+<p>Next, we load the models back:</p>
+<pre><code class="language-python">## Load models
+m1 = load_model(&quot;/tmp/m1.h5&quot;)
+m2 = load_model(&quot;/tmp/m2.h5&quot;)
+m3 = load_model(&quot;/tmp/m3.h5&quot;)
+m4 = load_model(&quot;/tmp/m4.h5&quot;)
+</code></pre>
+<pre><code>/opt/modules/i12g/anaconda/3-5.0.1/lib/python3.6/site-packages/keras/models.py:255: UserWarning: No training configuration found in save file: the model was *not* compiled. Compile it manually.
+  warnings.warn('No training configuration found in save file: '
+</code></pre>
+<p>And compose them</p>
+<pre><code class="language-python">m2_in = kl.concatenate([m1.output, m1.input])
+m2_out = m2(m2_in)
+
+m3_in = kl.concatenate([m2_out, m3.output])
+out = m4(m3_in)
+
+m = Model(inputs=[m1.input, m3.input], outputs=out)
+</code></pre>
+<pre><code class="language-python">from IPython.display import SVG
+from keras.utils.vis_utils import model_to_dot
+
+svg_img = model_to_dot(m, ).create(prog='dot', format='svg')
+SVG(svg_img)
+</code></pre>
+<p><img alt="svg" src="/docs/img/ipynb/composing_models_files/composing_models_8_0.svg" /></p>
+<p>Now we could go ahead, merge the dataloaders from model1 and model3 into a single one (providing input1 and input2) and train this global network for a new task. In case we would like to freeze supparts of the network, we should 'freeze' the underlying models by setting <code>m1.trainable = False</code>.</p>
+<h3 id="contributing-to-kipoi">Contributing to Kipoi</h3>
+<p>To contribute such model to Kipoi, we would need to submit the merged dataloader (providing input1 and input2 from raw files) and dump the stitched Keras model. </p>
+<h2 id="models-in-different-frameworks">Models in different frameworks</h2>
+<p>There are two scenarios when composing models from different frameworks. Either their dependencies (dataloader, etc) are compatible (say a tensorflow and a keras model) or they are incompatible (one model uses <code>keras=0.3</code> and and another one <code>keras=2.0</code>).</p>
+<h3 id="compatible-dependencies">Compatible dependencies</h3>
+<p>To compose compatible models, we pack the majority of the models into the dataloader and then have the final ensembling model stored as the model.</p>
+<p><img alt="img" src="/docs/img/notebooks/comp_models2.gv.svg" /></p>
+<pre><code class="language-python">def new_dataloader(dl1_kwargs, dl2_kwargs, target_file, batch_size=32, num_workers=1):
+    m1 = kipoi.get_model(&quot;model1&quot;)
+    m2 = kipoi.get_model(&quot;model2&quot;)
+    m3 = kipoi.get_model(&quot;model3&quot;)
+
+    dl1 = m1.default_dataloader(**dl1_kwargs)
+    dl2 = m1.default_dataloader(**dl2_kwargs)
+
+    target_gen = get_target_gen(target_file)
+
+    batch_it1 = dl1.batch_iter(batch_size=batch_size, num_workers=num_workers)
+    batch_it2 = dl2.batch_iter(batch_size=batch_size, num_workers=num_workers)
+
+    while True:
+        batch1 = next(batch_it1)['inputs']
+        batch2 = next(batch_it2)['inputs']
+        targets, ids = next(target_gen)
+
+        m1_pred = m1.predict_on_batch(batch1)
+        m2_pred = m2.predict_on_batch(np.concatenate((batch1, m1_pred), axis=1))
+        m3_pred = m3.predict_on_batch(batch2)
+        yield {&quot;inputs&quot;: {&quot;model2&quot;: m2_pred, &quot;model3&quot;: m3_pred}, 
+               &quot;targets&quot;: targets, 
+               &quot;metadata&quot;: {&quot;model1_id&quot;: batch1[&quot;metadata&quot;][&quot;id&quot;],
+                            &quot;model3_id&quot;: batch2[&quot;metadata&quot;][&quot;id&quot;],
+                            &quot;targets_id&quot;: ids,
+                           }
+              }
+</code></pre>
+<pre><code class="language-python"># create model 4
+inp2 = kl.Input((3,), name=&quot;model2&quot;)
+inp3 = kl.Input((4,), name=&quot;model3&quot;)
+x = kl.concatenate([inp2, inp3])
+out4 = kl.Dense(1)(x)
+m4 = Model([inp2, inp3], out4)
+m4.compile('rmsprop',
+           loss='categorical_crossentropy',
+           metrics=['accuracy'])
+</code></pre>
+<pre><code class="language-python"># Train model4
+def create_train_gen(**kwargs):
+    while True:
+        gen = new_dataloader(**kwargs)
+        while True:
+            batch = next(gen)
+            yield (batch['inputs'], batch['targets'])
+
+train_gen = create_train_gen(...)            
+m4.fit_generator(train_gen, ...)
+</code></pre>
+<pre><code class="language-python"># Dump model4
+m4.save(&quot;model_files/model.h5&quot;)
+</code></pre>
+<h3 id="incompatible-dependencies">Incompatible dependencies</h3>
+<p>Sometimes, making a prediction for all the models in the same python environment might be difficult or impossible due to the incompatible dependencies. </p>
+<p>In that case, we should run the prediction of each model in a separate environment and save the predictions to the disk.</p>
+<p>Luckily, there exist many Make-like tools that can support this kind of a workflow. My favorite is Snakemake <a href="http://snakemake.readthedocs.io/">http://snakemake.readthedocs.io/</a>. I'll show you how to do this in snakemake.</p>
+<p>Let's consider the following case:</p>
+<p><img alt="img" src="/docs/img/notebooks/comp_models4.gv.svg" /></p>
+<pre><code class="language-python"># Python part of the Snakefile
+import os
+import subprocess
+py_path = subprocess.check_output(['which', 'python']).decode().strip()
+env_paths = os.path.join(os.path.dirname(py_path), &quot;../envs&quot;)
+
+def get_args(wildcards):
+    &quot;&quot;&quot;Function returning a dictionary of dataloader kwargs
+    for the corresponding model
+    &quot;&quot;&quot;
+    if wildcards.model == &quot;model3&quot;:
+        return {&quot;arg1&quot;: 1}
+    elif wildcards.model == &quot;model3&quot;:
+        return {&quot;&quot;}
+    else:
+        return {&quot;arg2&quot;: 1}
+</code></pre>
+<pre><code class="language-yaml"># Yaml part of the Snakefile
+rule all:
+  inputs: expand(&quot;predictions/{model}.h5&quot;, [&quot;model1&quot;, &quot;model2&quot;])
+
+rule create_evironment:
+  &quot;&quot;&quot;Create a new conda environment for each model&quot;&quot;&quot;
+  output: os.path.join(env_paths, &quot;kipoi-{model}&quot;, &quot;bin/kipoi&quot;)
+  shell: &quot;kipoi env create {wildcards.model} -e kipoi-{wildcards.model}&quot;
+
+rule run_predictions:
+  &quot;&quot;&quot;Create a new conda environment for each model&quot;&quot;&quot;
+  input: os.path.join(env_paths, &quot;kipoi-{model}&quot;, &quot;bin/kipoi&quot;)
+  output: &quot;predictions/{model}.h5&quot;
+  params:
+    dl_args: get_args
+    batch_size: 15
+  threads: 8
+  shell: 
+      &quot;&quot;&quot;
+      source activate kipoi-{wildcards.model}
+      kipoi predict {wildcards.model} \
+        -n {threads} \
+        --dataloader_args='{params.dl_args}' \
+        --batch_size={params.batch_size} \
+        -f hdf5 \
+        -o {output} 
+      &quot;&quot;&quot;
+</code></pre>
+<p>This snakefile will generate the following hdf5 files</p>
+<ul>
+<li><code>predictions/model1.h5</code></li>
+<li><code>predictions/model2.h5</code></li>
+</ul>
+<p>To combine them, let's write new dataloader, taking as input the hdf5 files containing predictions</p>
+<pre><code class="language-python">import deepdish
+
+
+def new_dataloader(model1_h5, model2_h5, target_file):
+    d1 = deepdish.io.load(model1_h5)
+    d2 = deepdish.io.load(model2_h5)
+    targets = load_target_file(target_file)
+    return {
+        &quot;inputs&quot;: {
+            &quot;model1&quot;: d1[&quot;predictions&quot;],
+            &quot;model2&quot;: d2[&quot;predictions&quot;],
+        },
+        &quot;targets&quot;: targets,
+        &quot;metadata&quot;: {
+            &quot;model1_id&quot;: d1[&quot;metdata&quot;][&quot;id&quot;],
+            &quot;model2_id&quot;: d2[&quot;metdata&quot;][&quot;id&quot;],
+        }
+    }
+</code></pre>
+<pre><code class="language-python"># get the training data ...
+data_train = new_dataloader(&quot;predictions/model1.h5&quot;
+                            &quot;predictions/model1.h5&quot;,
+                            &quot;target_file.h5&quot;)
+</code></pre>
+<pre><code class="language-python"># train the model...
+m4.fit(data_train['inputs'], data_train['targets'])
+</code></pre>
+<pre><code class="language-python"># Dump the model
+m4.save(&quot;model_files/model.h5&quot;)
+</code></pre>
+<h2 id="uploading-composite-models-to-kipoi">Uploading composite models to Kipoi</h2>
+<p>Since every Kipoi model pipeline consists of a single dataloader and a single model, we have to pack multiple models either into a single model or a single dataloader. Here is the recommendation how to do so:</p>
+<ul>
+<li>All models in the same framework<ul>
+<li><strong>Dataloader:</strong> newly written, combines dataloaders</li>
+<li><strong>Model:</strong> combines models by stitching them together in the framework</li>
+</ul>
+</li>
+<li>Different frameworks, compatible dependencies<ul>
+<li><strong>Dataloader:</strong> newly written, combines dataloaders and models</li>
+<li><strong>Model:</strong> final ensembling model (model 4)</li>
+</ul>
+</li>
+<li>Different frameworks, in-compatible dependencies<ul>
+<li><strong>Dataloader:</strong> newly written, loads data from the hdf5 files containing model predictions</li>
+<li><strong>Model:</strong> final ensembling model (model 4)</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq.html" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="tf_binding_models.html" class="btn btn-neutral" title="Comparing models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="tf_binding_models.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../faq.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

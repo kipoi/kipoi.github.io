@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>dataloader.yaml - Kipoi documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "dataloader.yaml";
+    var mkdocs_page_input_path = "contributing/03_Writing_dataloader.yaml.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Kipoi documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/python.html">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/cli.html">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/R.html">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/plugins.html">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/03_Model_sources.html">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/04_Installing_on_OSX.html">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="01_Getting_started.html">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="02_Writing_model.yaml.html">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="04_Writing_dataloader.py.html">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="03_Writing_dataloader.yaml.html">dataloader.yaml</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#type">type</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#defined_as">defined_as</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#args">args</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#info">info</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output_schema">output_schema</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#inputs">inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#targets">targets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metadata">metadata</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">dependencies</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conda">conda</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pip">pip</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#postprocessing">postprocessing</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="05_Writing_model.py.html">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="06_dumping_models_programatically.html">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/contributing_models.html">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/python-api.html">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/R-api.html">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/tf_binding_models.html">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/composing_models.html">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/list_.html">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/install_.html">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/model.html">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/dataloader.html">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/pipeline.html">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/sources.html">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/metadata.html">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/readers.html">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/writers.html">writers</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Kipoi documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Contributing &raquo;</li>
+        
+      
+    
+    <li>dataloader.yaml</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/contributing/03_Writing_dataloader.yaml.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dataloaderyaml">dataloader.yaml</h1>
+<aside class="warning">
+Before writing a dataloader yourself please check whether the same functionality can be achieved using a ready-made 
+dataloader in [kipoiseq](https://github.com/kipoi/kipoiseq).
+</aside>
+
+<p>The dataloader.yaml file describes how a dataloader for a certain model can be created and how it has to be set up. 
+A model without functional dataloader is as bad as a model that doesn't work, so the correct setup of the 
+dataloader.yaml is essential for the use of a model in the zoo. Make sure you have read 
+<a href="04_Writing_dataloader.py.html">Writing dataloader.py</a>.</p>
+<p>To help understand the syntax of YAML please take a look at: 
+<a href="http://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics">YAML Syntax Basics</a></p>
+<p>Here is an example <code>dataloader.yaml</code>:</p>
+<pre><code class="language-yaml">defined_as: dataloader.MyDataset  # We need to implement MyDataset class inheriting from kipoi.data.Dataset in dataloader.py
+args:
+    features_file:
+        # descr: &gt; allows multi-line fields
+        doc: &gt;
+          Csv file of the Iris Plants Database from
+          http://archive.ics.uci.edu/ml/datasets/Iris features.
+        type: str
+        example: 
+            url: https://zenodo.org/path/to/example_files/features.csv  # example file
+            md5: 7a6s5d76as5d76a5sd7
+    targets_file:
+        doc: &gt;
+          Csv file of the Iris Plants Database targets.
+          Not required for making the prediction.
+        type: str
+        example:
+            url: https://zenodo.org/path/to/example_files/targets.csv  # example file
+            md5: 76sd8f7687sd6fs68a67
+        optional: True  # if not present, the `targets` field will not be present in the dataloader output
+info:
+    authors: 
+        - name: Your Name
+          github: your_github_account
+          email: your_email@host.org
+    doc: Model predicting the Iris species
+dependencies:
+    conda:
+      - python=3.5
+      - pandas
+      - numpy
+      - sklearn
+output_schema:
+    inputs:
+        features:
+            shape: (4,)
+            doc: Features in cm: sepal length, sepal width, petal length, petal width.
+    targets:
+        shape: (3, )
+        doc: One-hot encoded array of classes: setosa, versicolor, virginica.
+    metadata:  # field providing additional information to the samples (not directly required by the model)
+        example_row_number:
+            type: int
+            doc: Just an example metadata column
+</code></pre>
+<h2 id="type">type</h2>
+<p>The type of the dataloader indicates from which class the dataloader is inherits. It has to be one of the following values:</p>
+<ul>
+<li><code>PreloadedDataset</code></li>
+<li><code>Dataset</code></li>
+<li><code>BatchDataset</code></li>
+<li><code>SampleIterator</code></li>
+<li><code>SampleGenerator</code></li>
+<li><code>BatchIterator</code></li>
+<li><code>BatchGenerator</code></li>
+</ul>
+<h2 id="defined_as">defined_as</h2>
+<p><code>defined_as</code> indicates where the dataloader class can be found. It is a string value of <code>file.ClassName</code> where file 
+refers to file <code>file.py</code> in the same directory as <code>dataloader.yaml</code> which contains the data-loader class <code>ClassName</code>.
+ E.g.: <code>dataloader.MyDataLoader</code>.</p>
+<p>This class will then be instantiated by Kipoi with keyword arguments that have to be mentioned explicitly in 
+<code>args</code> (see below).</p>
+<h2 id="args">args</h2>
+<p>A dataloader will always require arguments, they might for example be a path to the reference genome fasta file, a 
+bed file that defines which regions should be investigated, etc. Dataloader arguments are given defined as a yaml 
+dictionary with argument names as keys, e.g.:</p>
+<pre><code class="language-yaml">args:
+   reference_fasta:
+       example:
+           url: https://zenodo.org/path/to/example_files/chr22.fa
+           md5: 765sadf876a
+   argument_2:
+       example:
+           url: https://zenodo.org/path/to/example_files/example_input.txt
+           md5: 786as8d7aasd
+</code></pre>
+<p>An argument has the following fields:</p>
+<ul>
+<li><code>doc</code>: A free text field describing the argument</li>
+<li><code>example</code>: A value that can be used to demonstrate the functionality of the dataloader and of the entire model. 
+Those example files are very useful for users and for automatic testing procedures. For example the command line 
+call <code>kipoi test</code> uses the exmaple values given for dataloader arguments to assess that a model can be used and 
+is functional. It is therefore important to submit the URLs of all necessary example files with the model.</li>
+<li><code>type</code>: Optional: datatype of the argument (<code>str</code>, <code>bool</code>, <code>int</code>, <code>float</code>)</li>
+<li><code>default</code>: This field is used to define external zenodo or figshare links that are automatically downloaded and 
+assigned. See example below.</li>
+<li><code>optional</code>: Optional: Boolean flag (<code>true</code> / <code>false</code>) for an argument if it is optional.</li>
+</ul>
+<p>If your dataloader requires an external data file at runtime which are not example/test files, you can specify these using the <code>default</code> attribute. <code>default</code> will override the default arguments of the dataloader init method (e.g. <code>dataloader.MyDataloader.__init__</code>). Example:</p>
+<pre><code class="language-yaml">defined_as: dataloader.MyDataset
+args:
+   ...
+   override_me:
+       default: 10
+   essential_other_file:
+       default:  # download and replace with the path on the local filesystem
+           url: https://zenodo.org/path/to/my/essential/other/file.xyz
+           md5: 765sadf876a
+...
+</code></pre>
+<h2 id="info">info</h2>
+<p>The <code>info</code> field of a dataloader.yaml file contains general information about the model.</p>
+<ul>
+<li><code>authors</code>: a list of authors with the field: <code>name</code>, and the optional fields: <code>github</code> and <code>email</code>. Where the 
+<code>github</code> name is the github user id of the respective author</li>
+<li><code>doc</code>: Free text documentation of the dataloader. A short description of what it does.</li>
+<li><code>version</code>: Version of the dataloader</li>
+<li><code>license</code>: String indicating the license, if not defined it defaults to <code>MIT</code></li>
+<li><code>tags</code>: A list of key words describing the dataloader and its use cases</li>
+</ul>
+<p>A dummy example could look like this:</p>
+<pre><code class="language-yaml">info:
+  authors:
+    - name: My Name
+      github: myGithubName
+      email: my@email.com
+  doc: Datalaoder for my fancy model description
+  version: 1.0
+  license: GNU
+  tags:
+    - TFBS
+    - tag2
+</code></pre>
+<h2 id="output_schema">output_schema</h2>
+<p><code>output_schema</code> defines what the dataloader outputs are, what they consist in, what the dimensions are and some 
+additional meta data.</p>
+<p><code>output_schema</code> contains three categories <code>inputs</code>, <code>targets</code> and <code>metadata</code>. <code>inputs</code> and <code>targets</code> each specify the 
+shapes of data generated for the model input and model. Offering the <code>targets</code> option enables the opportunity to 
+possibly train models with the same dataloader.</p>
+<p>In general model inputs and outputs can either be a numpy array, a list of numpy arrays or a dictionary (or 
+<code>OrderedDict</code>) of numpy arrays. Whatever format is defined in the schema is expected to be produced by the dataloader 
+and is expected to be accepted as input by the model. The three different kinds are represented by the single entries, 
+lists or dictionaries in the yaml definition:</p>
+<ul>
+<li>A single numpy array as input or target:</li>
+</ul>
+<pre><code class="language-yaml">output_schema:
+    inputs:
+       name: seq
+       shape: (1000,4)
+</code></pre>
+<ul>
+<li>A list of numpy arrays as inputs or targets:</li>
+</ul>
+<pre><code class="language-yaml">output_schema:
+    targets:
+       - name: seq
+         shape: (1000,4)
+       - name: inp2
+         shape: (10)
+</code></pre>
+<ul>
+<li>A list of numpy arrays as inputs or targets:</li>
+</ul>
+<pre><code class="language-yaml">output_schema:
+    inputs:
+       seq:
+         shape: (1000,4)
+       inp2:
+         shape: (10)
+</code></pre>
+<h3 id="inputs"><code>inputs</code></h3>
+<p>The <code>inputs</code> fields of <code>output_schema</code> may be lists, dictionaries or single occurences of the following entries:</p>
+<ul>
+<li><code>shape</code>: Required: A tuple defining the shape of a single input sample. E.g. for a model that predicts a batch of <code>(1000, 4)</code> inputs <code>shape: (1000, 4)</code> should be set. If a dimension is of variable size then the numerical should be replaced by <code>None</code>.</li>
+<li><code>doc</code>: A free text description of the model input</li>
+<li><code>name</code>: Name of model input, not required if input is a dictionary.</li>
+<li><code>special_type</code>: Possibility to flag that respective input is a 1-hot encoded DNA sequence (<code>special_type: DNASeq</code>) or a string DNA sequence (<code>special_type: DNAStringSeq</code>), which is important for variant effect prediction.</li>
+<li><code>associated_metadata</code>: Link the respective model input to metadata, such as a genomic region. E.g: If model input is a DNA sequence, then metadata may contain the genomic region from where it was extracted. If the associated <code>metadata</code> field is called <code>ranges</code> then <code>associated_metadata: ranges</code> has to be set.</li>
+</ul>
+<h3 id="targets"><code>targets</code></h3>
+<p>The <code>targets</code> fields of <code>schema</code> may be lists, dictionaries or single occurences of the following entries:</p>
+<ul>
+<li><code>shape</code>: Required: Details see in <code>input</code></li>
+<li><code>doc</code>: A free text description of the model target</li>
+<li><code>name</code>: Name of model  target, not required if target is a dictionary.</li>
+<li><code>column_labels</code>: Labels for the tasks of a multitask matrix output. Can be the file name of a text file containing the task labels (one label per line).</li>
+</ul>
+<h3 id="metadata"><code>metadata</code></h3>
+<p>Metadata fields capture additional information on the data generated by the dataloader. So for example a model input can be linked to a metadata field using its <code>associated_metadata</code> flag (see above). The metadata fields themselves are yaml dictionaries where the name of the metadata field is the key of dictionary and possible attributes are:</p>
+<ul>
+<li><code>doc</code>: A free text description of the metadata element</li>
+<li><code>type</code>: The datatype of the metadata field: <code>str</code>, <code>int</code>, <code>float</code>, <code>array</code>, <code>GenomicRanges</code>. Where the convenience class <code>GenomicRanges</code> is defined in <code>kipoi.metadata</code>, which is essentially an in-memory representation of a bed file.</li>
+</ul>
+<p>Definition of <code>metadata</code> is essential for postprocessing algorihms as variant effect prediction. Please refer to their detailed description for their requirements.</p>
+<p>An example of the defintion of dataloader.yaml with <code>metadata</code> can be seen here:</p>
+<pre><code class="language-yaml">output_schema:
+    inputs:
+       - name: seq
+         shape: (1000,4)
+         associated_metadata: my_ranges
+       - name: inp2
+         shape: (10)
+    ...
+    metadata:
+         my_ranges:
+            type: GenomicRanges
+            doc: Region from where inputs.seq was extracted
+</code></pre>
+<h2 id="dependencies">dependencies</h2>
+<p>One of the core elements of ensuring functionality of a dataloader is to define software dependencies correctly and strictly. Dependencies can be defined for conda and for pip using the <code>conda</code> and <code>pip</code> sections respectively.</p>
+<p>Both can either be defined as a list of packages or as a text file (ending in <code>.txt</code>) which lists the dependencies.</p>
+<p>Conda as well as pip dependencies can and should be defined with exact versions of the required packages, as defining a package version using e.g.: <code>package&gt;=1.0</code> is very likely to break at some point in future.</p>
+<h3 id="conda">conda</h3>
+<p>Conda dependencies can be defined as lists or if the dependencies are defined in a text file then the path of the text must be given (ending in <code>.txt</code>).</p>
+<p>If conda packages need to be loaded from a channel then the nomenclature <code>channel_name::package_name</code> can be used.</p>
+<h3 id="pip">pip</h3>
+<p>Pip dependencies can be defined as lists or if the dependencies are defined in a text file then the path of the text must be given (ending in <code>.txt</code>).</p>
+<h2 id="postprocessing">postprocessing</h2>
+<p>The postprocessing section of a dataloader.yaml is necessary to indicate that a dataloader is compatible with a certain kind of postprocessing feature available in Kipoi. At the moment only variant effect prediction is available for postprocessing. To understand how to set your dataloader up for variant effect prediction, please take a look at the documentation of variant effect prediction.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05_Writing_model.py.html" class="btn btn-neutral float-right" title="model.py">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="04_Writing_dataloader.py.html" class="btn btn-neutral" title="dataloader.py"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="04_Writing_dataloader.py.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="05_Writing_model.py.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>readers - Kipoi documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "readers";
+    var mkdocs_page_input_path = "api/readers.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Kipoi documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/python.html">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/cli.html">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/R.html">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/plugins.html">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/03_Model_sources.html">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../using/04_Installing_on_OSX.html">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/01_Getting_started.html">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/02_Writing_model.yaml.html">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/04_Writing_dataloader.py.html">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/03_Writing_dataloader.yaml.html">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/05_Writing_model.py.html">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/06_dumping_models_programatically.html">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/contributing_models.html">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/python-api.html">Python API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/R-api.html">R API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/tf_binding_models.html">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/composing_models.html">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="list_.html">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="install_.html">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="model.html">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="dataloader.html">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="sources.html">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="metadata.html">metadata</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="readers.html">readers</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hdf5reader">HDF5Reader</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ls">ls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#load_all">load_all</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch_iter">batch_iter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#open">open</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#close">close</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#load">load</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#zarrreader">ZarrReader</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ls_1">ls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#load_all_1">load_all</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch_iter_1">batch_iter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#open_1">open</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#close_1">close</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#load_1">load</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="writers.html">writers</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Kipoi documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api &raquo;</li>
+        
+      
+    
+    <li>readers</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/api/readers.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="kipoireaders">kipoi.readers</h1>
+<p>Readers useful for creating new dataloaders</p>
+<ul>
+<li>HDF5Reader</li>
+</ul>
+<h2 id="hdf5reader">HDF5Reader</h2>
+<pre><code class="language-python">HDF5Reader(self, file_path)
+</code></pre>
+<p>Read the HDF5 file. Convenience wrapper around h5py.File</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: File path to an HDF5 file</li>
+</ul>
+<h3 id="ls">ls</h3>
+<pre><code class="language-python">HDF5Reader.ls(self)
+</code></pre>
+<p>Recursively list the arrays</p>
+<h3 id="load_all">load_all</h3>
+<pre><code class="language-python">HDF5Reader.load_all(self, unflatten=True)
+</code></pre>
+<p>Load the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>unflatten</strong>: if True, nest/unflatten the keys.
+      e.g. an entry <code>f['/foo/bar']</code> would need to be accessed</li>
+<li><strong>using two nested <code>get</code> call</strong>: <code>f['foo']['bar']</code></li>
+</ul>
+<h3 id="batch_iter">batch_iter</h3>
+<pre><code class="language-python">HDF5Reader.batch_iter(self, batch_size=16, **kwargs)
+</code></pre>
+<p>Create a batch iterator over the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>batch_size</strong>: batch size</li>
+<li><strong>**kwargs</strong>: ignored argument. Used for consistency with other dataloaders</li>
+</ul>
+<h3 id="open">open</h3>
+<pre><code class="language-python">HDF5Reader.open(self)
+</code></pre>
+<p>Open the file</p>
+<h3 id="close">close</h3>
+<pre><code class="language-python">HDF5Reader.close(self)
+</code></pre>
+<p>Close the file</p>
+<h3 id="load">load</h3>
+<pre><code class="language-python">HDF5Reader.load(file_path, unflatten=True)
+</code></pre>
+<p>Load the data all at once (classmethod).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: HDF5 file path</li>
+<li><strong>unflatten</strong>: see <code>load_all</code></li>
+</ul>
+<h2 id="zarrreader">ZarrReader</h2>
+<pre><code class="language-python">ZarrReader(self, file_path)
+</code></pre>
+<p>Read the Zarr file. Convenience wrapper around zarr.group</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: File path to an Zarr file</li>
+</ul>
+<h3 id="ls_1">ls</h3>
+<pre><code class="language-python">ZarrReader.ls(self)
+</code></pre>
+<p>Recursively list the arrays</p>
+<h3 id="load_all_1">load_all</h3>
+<pre><code class="language-python">ZarrReader.load_all(self, unflatten=True)
+</code></pre>
+<p>Load the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>unflatten</strong>: if True, nest/unflatten the keys.
+      e.g. an entry <code>f['/foo/bar']</code> would need to be accessed</li>
+<li><strong>using two nested <code>get</code> call</strong>: <code>f['foo']['bar']</code></li>
+</ul>
+<h3 id="batch_iter_1">batch_iter</h3>
+<pre><code class="language-python">ZarrReader.batch_iter(self, batch_size=16, **kwargs)
+</code></pre>
+<p>Create a batch iterator over the whole file</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>batch_size</strong>: batch size</li>
+<li><strong>**kwargs</strong>: ignored argument. Used for consistency with other dataloaders</li>
+</ul>
+<h3 id="open_1">open</h3>
+<pre><code class="language-python">ZarrReader.open(self)
+</code></pre>
+<p>Open the file</p>
+<h3 id="close_1">close</h3>
+<pre><code class="language-python">ZarrReader.close(self)
+</code></pre>
+<p>Close the file</p>
+<h3 id="load_1">load</h3>
+<pre><code class="language-python">ZarrReader.load(file_path, unflatten=True)
+</code></pre>
+<p>Load the data all at once (classmethod).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>file_path</strong>: Zarr file path</li>
+<li><strong>unflatten</strong>: see <code>load_all</code></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="writers.html" class="btn btn-neutral float-right" title="writers">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="metadata.html" class="btn btn-neutral" title="metadata"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="metadata.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="writers.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
