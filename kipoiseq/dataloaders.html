@@ -8,13 +8,13 @@
   
   
   
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="shortcut icon" href="img/favicon.ico">
   <title>Dataloaders - Kipoiseq</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -23,11 +23,10 @@
     var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -38,34 +37,34 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Kipoiseq</a>
+        <a href="index.html" class="icon icon-home"> Kipoiseq</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Dataloaders</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="dataloaders.html">Dataloaders</a>
     <ul class="current">
     </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Transforms</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../transforms/functional/">Functional</a>
+                    <li class="toctree-l1"><a class="reference internal" href="transforms/functional.html">Functional</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../transforms/transforms/">Class-based</a>
+                    <li class="toctree-l1"><a class="reference internal" href="transforms/transforms.html">Class-based</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../extractors/">Extractors</a>
+                    <li class="toctree-l1"><a class="reference internal" href="extractors.html">Extractors</a>
                     </li>
                 </ul>
       </div>
@@ -77,7 +76,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Kipoiseq</a>
+        <a href="index.html">Kipoiseq</a>
       </nav>
 
       
@@ -85,7 +84,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
     
       
     
@@ -100,6 +99,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -195,6 +195,55 @@
 </ul>
 </li>
 </ul>
+<h2 id="anchoredgtfdl">AnchoredGTFDl</h2>
+<pre><code class="language-python">AnchoredGTFDl(self, gtf_file, fasta_file, num_upstream, num_downstream, gtf_filter='gene_type == &quot;protein_coding&quot;', anchor='tss', transform=&lt;function one_hot_dna at 0x7fc45190eea0&gt;, interval_attrs=['gene_id', 'Strand'], use_strand=True)
+</code></pre>
+<p>Dataloader for a combination of fasta and gtf files. The dataloader extracts fixed length regions around anchor points. Anchor points are extracted from the gtf based on the anchor parameter. The sequences corresponding to the region are then extracted from the fasta file and optionally trnasformed using a function given by the transform parameter.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>gtf_file</strong>: Path to a gtf file (str) <a href="https://zenodo.org/record/1466102/files/example_files-gencode.v24.annotation_chr22.gtf">example</a></li>
+<li><strong>fasta_file</strong>: Reference genome FASTA file path (str) <a href="https://zenodo.org/record/1466102/files/example_files-hg38_chr22.fa">example</a></li>
+<li><strong>num_upstream</strong>: Number of nt by which interval is extended upstream of the anchor point</li>
+<li><strong>num_downstream</strong>: Number of nt by which interval is extended downstream of the anchor point</li>
+<li>
+<p><strong>gtf_filter</strong>: Allows to filter the gtf before extracting the anchor points. Can be str, callable or None. If str, it is interpreted as argument to pandas .query(). If callable, it is interpreted as function that filters a pandas dataframe and returns the filtered df.</p>
+</li>
+<li>
+<p><strong>anchor</strong>: Defines the anchor points. Can be str or callable. If it is a callable, it is treated as function that takes a pandas dataframe and returns a modified version of the dataframe where each row represents one anchor point, the position of which is stored in the column called anchor_pos. If it is a string, a predefined function is loaded. Currently available are tss (anchor is the start of a gene), start_codon (anchor is the start of the start_codon), stop_codon (anchor is the position right after the stop_codon), polya (anchor is the position right after the end of a gene).</p>
+</li>
+<li>
+<p><strong>transform</strong>: Callable (or None) to transform the extracted sequence (e.g. one-hot)</p>
+</li>
+<li><strong>interval_attrs</strong>: Metadata to extract from the gtf, e.g. ["gene_id", "Strand"]</li>
+<li><strong>use_strand</strong>: True or False</li>
+</ul>
+<p><strong>Output schema</strong></p>
+<ul>
+<li><strong>inputs</strong>: <ul>
+<li><strong>shape=(None, 4)</strong>, exon sequence with flanking intronic sequence</li>
+</ul>
+</li>
+<li>
+<p><strong>targets</strong>: </p>
+</li>
+<li>
+<p><strong>metadata</strong>: </p>
+<ul>
+<li><strong>gene_id</strong>: <ul>
+<li>gene_id</li>
+</ul>
+</li>
+<li><strong>Strand</strong>: <ul>
+<li>Strand</li>
+</ul>
+</li>
+<li><strong>ranges</strong>: <ul>
+<li>Genomic ranges: chr, start, end, name, strand</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="mmsplicedl">MMSpliceDl</h1>
 <pre><code class="language-python">MMSpliceDl(self, gtf_file, fasta_file, intron5prime_len=100, intron3prime_len=100, transform=None, **kwargs)
 </code></pre>
@@ -241,10 +290,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../transforms/functional/" class="btn btn-neutral float-right" title="Functional">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="transforms/functional.html" class="btn btn-neutral float-right" title="Functional">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -267,21 +316,24 @@
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="http://github.com/kipoi/kipoiseq/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../transforms/functional/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="http://github.com/kipoi/kipoiseq/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="transforms/functional.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
