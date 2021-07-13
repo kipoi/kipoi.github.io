@@ -341,7 +341,7 @@ class SeqDataset(Dataset):
 <p>Since <code>FastaExtractor</code> is not multi-processing safe, we have initialized it on the first call of <code>__getitem__</code> instead of <code>__init__</code>. The reason for this is that when we use parallel dataloading, each process will get a copy of the <code>SeqDataset(...)</code> object. Upon the first call of <code>__getitem__</code> the <code>fasta_extractor</code> and hence the underlying file-handle will be setup for each worker independently.</p>
 <h3 id="required-static-files">Required static files</h3>
 <p>If your dataloader requires an external data file as for example in 
-<a href="../../tutorials/contributing_models">tutorials/contributing_models</a>, then the Kipoi way of automatically downloading 
+<a href="../tutorials/contributing_models.html">tutorials/contributing_models</a>, then the Kipoi way of automatically downloading 
 and using that file is by adding an argument to the dataloader implementation:</p>
 <pre><code class="language-python">from __future__ import absolute_import, division, print_function
 from kipoi.data import Dataset
