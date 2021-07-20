@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>R API - Kipoi documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "R API";
+    var mkdocs_page_input_path = "tutorials/R-api.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kipoi documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Using</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/cli/">CLI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/R/">R</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/plugins/">Plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/03_Model_sources/">Private and public model sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../using/04_Installing_on_OSX/">Installing on OSX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Contributing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/01_Getting_started/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/02_Writing_model.yaml/">model.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/04_Writing_dataloader.py/">dataloader.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/03_Writing_dataloader.yaml/">dataloader.yaml</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/05_Writing_model.py/">model.py</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contributing/06_dumping_models_programatically/">Multiple very similar models</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing_models/">Contributing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python-api/">Python API</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">R API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install-and-load-reticulate">Install and load reticulate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reticulate-quick-intro">Reticulate quick intro</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#type-mapping-r-python">Type mapping R &lt;-&gt; python</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup-the-python-environment">Setup the python environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#load-kipoi">Load kipoi</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#list-models">List models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-kipoi-model-and-make-a-prediction-for-the-example-files">Get the kipoi model and make a prediction for the example files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-the-model-and-dataloader-independently">Use the model and dataloader independently</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#run-the-same-code-in-python-or-cli">Run the same code in python or CLI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dependency-issues">Dependency issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#floatdouble-type-issues">Float/Double type issues</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tf_binding_models/">Comparing models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../composing_models/">Composing models</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/list_/">list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/install_/">install</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/model/">Model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/dataloader/">Dataloader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pipeline/">Pipeline</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/sources/">sources</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metadata/">metadata</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/readers/">readers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/writers/">writers</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kipoi documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>R API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="http://github.com/kipoi/kipoi/edit/master/docs/tutorials/R-api.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <p>Generated from <a href="https://github.com/kipoi/kipoi/blob/master/notebooks/R-api.ipynb">notebooks/R-api.ipynb</a></p>
+<h1 id="using-kipoi-from-r">Using Kipoi from R</h1>
+<p>Thanks to the <a href="https://github.com/rstudio/reticulate">reticulate</a> R package from RStudio, it is possible to easily call python functions from R. Hence one can use kipoi python API from R. This tutorial will show how to do that.</p>
+<p>Make sure you have git-lfs and Kipoi correctly installed: </p>
+<ol>
+<li>Install git-lfs<ul>
+<li><code>conda install -c conda-forge git-lfs &amp;&amp; git lfs install</code> (alternatively see <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>)</li>
+</ul>
+</li>
+<li>Install kipoi<ul>
+<li><code>pip install kipoi</code></li>
+</ul>
+</li>
+</ol>
+<p>Please read <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using/getting started</a> before going through this notebook.</p>
+<h2 id="install-and-load-reticulate">Install and load <code>reticulate</code></h2>
+<p>Make sure you have the reticulate R package installed</p>
+<pre><code class="language-R"># install.packages(&quot;reticulate&quot;)
+</code></pre>
+<pre><code class="language-R">library(reticulate)
+</code></pre>
+<h2 id="reticulate-quick-intro">Reticulate quick intro</h2>
+<p>In general, using Kipoi from R is almost the same as using it from Python: instead of using <code>object.method()</code> or <code>object.attribute</code> as in python, use <code>$</code>: <code>object$method()</code>, <code>object$attribute</code>. </p>
+<pre><code class="language-R"># short reticulate example 
+os &lt;- import(&quot;os&quot;)
+os$chdir(&quot;/tmp&quot;)
+os$getcwd()
+</code></pre>
+<p>'/tmp'</p>
+<h3 id="type-mapping-r-python">Type mapping R &lt;-&gt; python</h3>
+<p>Reticulate translates objects between R and python in the following way:</p>
+<table>
+<thead>
+<tr>
+<th>R</th>
+<th>Python</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single-element vector</td>
+<td>Scalar</td>
+<td><code>1</code>, <code>1L</code>, <code>TRUE</code>, <code>"foo"</code></td>
+</tr>
+<tr>
+<td>Multi-element vector</td>
+<td>List</td>
+<td><code>c(1.0, 2.0, 3.0)</code>, <code>c(1L, 2L, 3L)</code></td>
+</tr>
+<tr>
+<td>List of multiple types</td>
+<td>Tuple</td>
+<td><code>list(1L, TRUE, "foo")</code></td>
+</tr>
+<tr>
+<td>Named list</td>
+<td>Dict</td>
+<td><code>list(a = 1L, b = 2.0)</code>, <code>dict(x = x_data)</code></td>
+</tr>
+<tr>
+<td>Matrix/Array</td>
+<td>NumPy ndarray</td>
+<td><code>matrix(c(1,2,3,4), nrow = 2, ncol = 2)</code></td>
+</tr>
+<tr>
+<td>Function</td>
+<td>Python function</td>
+<td><code>function(x) x + 1</code></td>
+</tr>
+<tr>
+<td>NULL, TRUE, FALSE</td>
+<td>None, True, False</td>
+<td><code>NULL</code>, <code>TRUE</code>, <code>FALSE</code></td>
+</tr>
+</tbody>
+</table>
+<p>For more info on reticulate, please visit https://github.com/rstudio/reticulate/.</p>
+<h2 id="setup-the-python-environment">Setup the python environment</h2>
+<p>With <code>reticulate::py_config()</code> you can check if the python configuration used by reticulate is correct. You can can also choose to use a different conda environment with <code>use_condaenv(...)</code>. This comes handy when using different models depending on different conda environments.</p>
+<pre><code class="language-R">reticulate::py_config()
+</code></pre>
+<pre><code>python:         /home/avsec/bin/anaconda3/bin/python
+libpython:      /home/avsec/bin/anaconda3/lib/libpython3.6m.so
+pythonhome:     /home/avsec/bin/anaconda3:/home/avsec/bin/anaconda3
+version:        3.6.3 |Anaconda custom (64-bit)| (default, Oct 13 2017, 12:02:49)  [GCC 7.2.0]
+numpy:          /home/avsec/bin/anaconda3/lib/python3.6/site-packages/numpy
+numpy_version:  1.14.0
+os:             /home/avsec/bin/anaconda3/lib/python3.6/os.py
+
+python versions found: 
+ /home/avsec/bin/anaconda3/bin/python
+ /usr/bin/python
+ /usr/bin/python3
+</code></pre>
+<p>List all conda environments:</p>
+<pre><code class="language-R">reticulate::conda_list()
+</code></pre>
+<p>Create a new conda environment for the model:</p>
+<pre><code>$ kipoi env create HAL
+</code></pre>
+<p>Use that environment in R:</p>
+<pre><code class="language-R">reticulate::use_condaenv(&quot;kipoi-HAL')
+</code></pre>
+<h2 id="load-kipoi">Load kipoi</h2>
+<pre><code class="language-R">kipoi &lt;- import(&quot;kipoi&quot;)
+</code></pre>
+<h3 id="list-models">List models</h3>
+<pre><code class="language-R">kipoi$list_models()$head()
+</code></pre>
+<pre><code>  source                             model version  \
+0  kipoi                      DeepSEAKeras     0.1   
+1  kipoi                     extended_coda     0.1   
+2  kipoi      DeepCpG_DNA/Hou2016_mESC_dna   1.0.4   
+3  kipoi  DeepCpG_DNA/Smallwood2014_2i_dna   1.0.4   
+4  kipoi     DeepCpG_DNA/Hou2016_HepG2_dna   1.0.4
+
+                                             authors  \
+0  [Author(name='Jian Zhou', github=None, email=N...   
+1  [Author(name='Pang Wei Koh', github='kohpangwe...   
+2  [Author(name='Christof Angermueller', github='...   
+3  [Author(name='Christof Angermueller', github='...   
+4  [Author(name='Christof Angermueller', github='...
+
+                                        contributors  \
+0  [Author(name='Lara Urban', github='LaraUrban',...   
+1  [Author(name='Johnny Israeli', github='jisrael...   
+2  [Author(name='Roman Kreuzhuber', github='krrom...   
+3  [Author(name='Roman Kreuzhuber', github='krrom...   
+4  [Author(name='Roman Kreuzhuber', github='krrom...
+
+                                                 doc   type  \
+0  This CNN is based on the DeepSEA model from Zh...  keras   
+1  Single bp resolution ChIP-seq denoising - http...  keras   
+2  This is the extraction of the DNA-part of the ...  keras   
+3  This is the extraction of the DNA-part of the ...  keras   
+4  This is the extraction of the DNA-part of the ...  keras
+
+                 inputs                                            targets  \
+0                   seq                                     TFBS_DHS_probs   
+1  [H3K27AC_subsampled]                                          [H3K27ac]   
+2                 [dna]  [cpg/mESC1, cpg/mESC2, cpg/mESC3, cpg/mESC4, c...   
+3                 [dna]  [cpg/BS24_1_2I, cpg/BS24_2_2I, cpg/BS24_4_2I, ...   
+4                 [dna]  [cpg/HepG21, cpg/HepG22, cpg/HepG23, cpg/HepG2...
+
+   postproc_score_variants license  \
+0                     True     MIT   
+1                    False     MIT   
+2                     True     MIT   
+3                     True     MIT   
+4                     True     MIT
+
+                                             cite_as  \
+0                 https://doi.org/10.1038/nmeth.3547   
+1      https://doi.org/10.1093/bioinformatics/btx243   
+2  https://doi.org/10.1186/s13059-017-1189-z, htt...   
+3  https://doi.org/10.1186/s13059-017-1189-z, htt...   
+4  https://doi.org/10.1186/s13059-017-1189-z, htt...
+
+                                          trained_on  \
+0  ENCODE and Roadmap Epigenomics chromatin profi...   
+1  Described in https://academic.oup.com/bioinfor...   
+2  scBS-seq and scRRBS-seq datasets, https://geno...   
+3  scBS-seq and scRRBS-seq datasets, https://geno...   
+4  scBS-seq and scRRBS-seq datasets, https://geno...
+
+                                  training_procedure  \
+0  https://www.nature.com/articles/nmeth.3547#met...   
+1  Described in https://academic.oup.com/bioinfor...   
+2  Described in https://genomebiology.biomedcentr...   
+3  Described in https://genomebiology.biomedcentr...   
+4  Described in https://genomebiology.biomedcentr...
+
+                                                tags  
+0  [Histone modification, DNA binding, DNA access...  
+1                             [Histone modification]  
+2                                  [DNA methylation]  
+3                                  [DNA methylation]  
+4                                  [DNA methylation]
+</code></pre>
+<p><code>reticulate</code> currently doesn't support direct convertion from <code>pandas.DataFrame</code> to R's <code>data.frame</code>. Let's make a convenience function to create an R dataframe via matrix conversion.</p>
+<pre><code class="language-R">#' List models as an R data.frame
+kipoi_list_models &lt;- function() {
+    df_models &lt;- kipoi$list_models()
+    df &lt;- data.frame(df_models$as_matrix())
+    colnames(df) = df_models$columns$tolist()
+    return(df)
+
+}
+</code></pre>
+<pre><code class="language-R">df &lt;- kipoi_list_models()
+</code></pre>
+<pre><code class="language-R">head(df, 2)
+</code></pre>
+<table>
+<thead><tr><th scope=col>source</th><th scope=col>model</th><th scope=col>version</th><th scope=col>authors</th><th scope=col>contributors</th><th scope=col>doc</th><th scope=col>type</th><th scope=col>inputs</th><th scope=col>targets</th><th scope=col>postproc_score_variants</th><th scope=col>license</th><th scope=col>cite_as</th><th scope=col>trained_on</th><th scope=col>training_procedure</th><th scope=col>tags</th></tr></thead>
+<tbody>
+    <tr><td>kipoi                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </td><td>DeepSEAKeras                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td><td>0.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </td><td>&lt;environment: 0x556afc757e38&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                </td><td>&lt;environment: 0x556afbb0d538&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                </td><td>This CNN is based on the DeepSEA model from Zhou and Troyanskaya (2015). It categorically predicts 918 cell type-specific epigenetic features from DNA sequence. The model is trained on publicly available ENCODE and Roadmap Epigenomics data and on DNA sequences of size 1000bp. The input of the tensor has to be (N, 1000, 4) for N samples, 1000bp window size and 4 nucleotides. Per sample, 918 probabilities of showing a specific epigentic feature will be predicted.
+</td><td>keras                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </td><td>seq                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </td><td>TFBS_DHS_probs                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </td><td>TRUE                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </td><td>MIT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </td><td>https://doi.org/10.1038/nmeth.3547                                                                                                                                                                                                                                                                                                                                                                                                                                                 </td><td>ENCODE and Roadmap Epigenomics chromatin profiles https://www.nature.com/articles/nmeth.3547#methods                                                                                                                                                                                                                                                                                                                                                                               </td><td>https://www.nature.com/articles/nmeth.3547#methods                                                                                                                                                                                                                                                                                                                                                                                                                                 </td><td>&lt;environment: 0x556afcddfd50&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                </td></tr>
+    <tr><td>kipoi                                                                                    </td><td>extended_coda                                                                            </td><td>0.1                                                                                      </td><td>&lt;environment: 0x556afc764260&gt;                                                      </td><td>&lt;environment: 0x556afbaff708&gt;                                                      </td><td>Single bp resolution ChIP-seq denoising - https://github.com/kundajelab/coda             </td><td>keras                                                                                    </td><td>H3K27AC_subsampled                                                                       </td><td>H3K27ac                                                                                  </td><td>FALSE                                                                                    </td><td>MIT                                                                                      </td><td>https://doi.org/10.1093/bioinformatics/btx243                                            </td><td>Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343</td><td>Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343</td><td>&lt;environment: 0x556afcde7f60&gt;                                                      </td></tr>
+</tbody>
+</table>
+
+<h3 id="get-the-kipoi-model-and-make-a-prediction-for-the-example-files">Get the kipoi model and make a prediction for the example files</h3>
+<p>To run the following example, make sure you have all the dependencies installed. Run:</p>
+<pre><code class="language-R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
+</code></pre>
+<p>from R or</p>
+<pre><code class="language-bash">kipoi env install MaxEntScan/3prime
+</code></pre>
+<p>from the command-line. This will install all the required dependencies for both, the model and the dataloader.</p>
+<pre><code class="language-R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
+</code></pre>
+<pre><code class="language-R">model &lt;- kipoi$get_model(&quot;MaxEntScan/3prime&quot;)
+</code></pre>
+<pre><code class="language-R">predictions &lt;- model$pipeline$predict_example()
+</code></pre>
+<pre><code class="language-R">head(predictions)
+</code></pre>
+<ol class=list-inline>
+    <li>6.72899227874919</li>
+    <li>6.15729433240656</li>
+    <li>7.14095214875511</li>
+    <li>2.13760519765451</li>
+    <li>-9.52033554891735</li>
+    <li>9.54342300799607</li>
+</ol>
+
+<h3 id="use-the-model-and-dataloader-independently">Use the model and dataloader independently</h3>
+<pre><code class="language-R"># Get the dataloader
+setwd('~/.kipoi/models/MaxEntScan/3prime')
+
+dl &lt;- model$default_dataloader(gtf_file='example_files/hg19.chr22.gtf', fasta_file='example_files/hg19.chr22.fa')
+</code></pre>
+<pre><code class="language-R"># get a batch iterator
+it &lt;- dl$batch_iter(batch_size=4)
+</code></pre>
+<pre><code class="language-R">it
+</code></pre>
+<pre><code>DataLoaderIter
+</code></pre>
+<pre><code class="language-R"># Retrieve a batch of data
+batch &lt;- iter_next(it)
+</code></pre>
+<pre><code class="language-R">str(batch)
+</code></pre>
+<pre><code>List of 2
+ $ inputs  : chr [1:4(1d)] "TCTTCTCTCCCCAATCTCAGCCT" "ATTCTCAGTTGTCTTTACAGTTT" "CCTTAGTTTTATTTTTTCAGAGT" "ATTTTTGTTTTTAGACATAGGAT"
+ $ metadata:List of 5
+  ..$ geneID      : chr [1:4(1d)] "ENSG00000233866" "ENSG00000223875" "ENSG00000223875" "ENSG00000223875"
+  ..$ transcriptID: chr [1:4(1d)] "ENST00000424770" "ENST00000420638" "ENST00000420638" "ENST00000420638"
+  ..$ biotype     : chr [1:4(1d)] "lincRNA" "pseudogene" "pseudogene" "pseudogene"
+  ..$ order       : num [1:4(1d)] 0 0 1 2
+  ..$ ranges      :List of 5
+  .. ..$ chr   : chr [1:4(1d)] "22" "22" "22" "22"
+  .. ..$ start : num [1:4(1d)] 16062790 16118910 16101471 16100645
+  .. ..$ end   : num [1:4(1d)] 16062813 16118933 16101494 16100668
+  .. ..$ id    : chr [1:4(1d)] "ENSG00000233866" "ENSG00000223875" "ENSG00000223875" "ENSG00000223875"
+  .. ..$ strand: chr [1:4(1d)] "+" "-" "-" "-"
+</code></pre>
+<pre><code class="language-R"># make the prediction with a model
+model$predict_on_batch(batch$inputs)
+</code></pre>
+<ol class=list-inline>
+    <li>6.72899227874919</li>
+    <li>6.15729433240656</li>
+    <li>7.14095214875511</li>
+    <li>2.13760519765451</li>
+</ol>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Since Kipoi is not natively implemented in R, the error messages are cryptic and hence debugging can be a bit of a pain. </p>
+<h3 id="run-the-same-code-in-python-or-cli">Run the same code in python or CLI</h3>
+<p>When you encounter an error, try to run the analogous code snippet from the command line or python. A good starting point is to first run</p>
+<pre><code>$ kipoi test MaxEntScan/3prime --source=kipoi
+</code></pre>
+<p>from the command-line first. </p>
+<h3 id="dependency-issues">Dependency issues</h3>
+<p>It's very likely that the error will be due to missing dependencies. Also note that some models will work only with python 3 or python 2. To install all the required dependencies for the model, run:</p>
+<pre><code>$ kipoi env install MaxEntScan/3prime
+</code></pre>
+<p>This will install the dependencies into your current conda environment. If you wish to create a new environment with all the dependencies installed, run</p>
+<pre><code>$ kipoi env create MaxEntScan/3prime
+</code></pre>
+<p>To use that environment in R, run:</p>
+<pre><code class="language-R">use_condaenv(&quot;kipoi-MaxEntScan__3prime&quot;)
+</code></pre>
+<p>Make sure you run that code snippet right after importing the <code>reticulate</code> library (i.e. make sure you run it before <code>kipoi &lt;- import('kipoi')</code>)</p>
+<h3 id="floatdouble-type-issues">Float/Double type issues</h3>
+<p>When using a pytorch model: <code>DeepSEA/predict</code></p>
+<pre><code class="language-R">kipoi$install_model_requirements(&quot;DeepSEA/predict&quot;)
+</code></pre>
+<pre><code class="language-R"># Get the dataloader
+setwd('~/.kipoi/models/DeepSEA/predict')
+model &lt;- kipoi$get_model(&quot;DeepSEA/predict&quot;)
+dl &lt;- model$default_dataloader(intervals_file='example_files/intervals.bed', fasta_file='example_files/hg38_chr22.fa')
+# get a batch iterator
+it &lt;- dl$batch_iter(batch_size=4)
+# predict for a batch
+batch &lt;- iter_next(it)
+</code></pre>
+<pre><code class="language-R"># model$predict_on_batch(batch$inputs)
+</code></pre>
+<p>We get an error:</p>
+<pre><code>Error in py_call_impl(callable, dots$args, dots$keywords): RuntimeError: Input type (CUDADoubleTensor) and weight type (CUDAFloatTensor) should be the same
+</code></pre>
+<p>This means that the feeded array is Double instead of Float.</p>
+<p>R arrays are by default converted to float64 numpy dtype:</p>
+<pre><code class="language-R">np &lt;- import(&quot;numpy&quot;, convert=FALSE)
+np$array(0.1)$dtype
+</code></pre>
+<pre><code>float64
+</code></pre>
+<pre><code class="language-R">np$array(batch$inputs)$dtype
+</code></pre>
+<pre><code>float64
+</code></pre>
+<p>To fix this, we need to explicitly convert them to <code>float32</code> before passing the batch to the model:</p>
+<pre><code class="language-R">model$predict_on_batch(np$array(batch$inputs, dtype='float32'))
+</code></pre>
+<table>
+<tbody>
+    <tr><td>0.003497796 </td><td>0.003443634 </td><td>0.00475722  </td><td>0.006346597 </td><td>0.01217456  </td><td>0.008442441 </td><td>0.005778539 </td><td>0.007471715 </td><td>0.005652952 </td><td>0.009384833 </td><td>⋯           </td><td>0.0003717453</td><td>0.001310135 </td><td>0.01009644  </td><td>0.008201431 </td><td>0.0004381537</td><td>0.007473897 </td><td>0.009021533 </td><td>0.003500142 </td><td>0.003842842 </td><td>0.0003947651</td></tr>
+    <tr><td>0.003497796 </td><td>0.003443634 </td><td>0.00475722  </td><td>0.006346597 </td><td>0.01217456  </td><td>0.008442441 </td><td>0.005778539 </td><td>0.007471715 </td><td>0.005652952 </td><td>0.009384833 </td><td>⋯           </td><td>0.0003717453</td><td>0.001310135 </td><td>0.01009644  </td><td>0.008201431 </td><td>0.0004381537</td><td>0.007473897 </td><td>0.009021533 </td><td>0.003500142 </td><td>0.003842842 </td><td>0.0003947651</td></tr>
+    <tr><td>0.003497796 </td><td>0.003443634 </td><td>0.00475722  </td><td>0.006346597 </td><td>0.01217456  </td><td>0.008442441 </td><td>0.005778539 </td><td>0.007471715 </td><td>0.005652952 </td><td>0.009384833 </td><td>⋯           </td><td>0.0003717453</td><td>0.001310135 </td><td>0.01009644  </td><td>0.008201431 </td><td>0.0004381537</td><td>0.007473897 </td><td>0.009021533 </td><td>0.003500142 </td><td>0.003842842 </td><td>0.0003947651</td></tr>
+    <tr><td>0.003497796 </td><td>0.003443634 </td><td>0.00475722  </td><td>0.006346597 </td><td>0.01217456  </td><td>0.008442441 </td><td>0.005778539 </td><td>0.007471715 </td><td>0.005652952 </td><td>0.009384833 </td><td>⋯           </td><td>0.0003717453</td><td>0.001310135 </td><td>0.01009644  </td><td>0.008201431 </td><td>0.0004381537</td><td>0.007473897 </td><td>0.009021533 </td><td>0.003500142 </td><td>0.003842842 </td><td>0.0003947651</td></tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tf_binding_models/" class="btn btn-neutral float-right" title="Comparing models">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../python-api/" class="btn btn-neutral" title="Python API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="http://github.com/kipoi/kipoi/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../python-api/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tf_binding_models/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
