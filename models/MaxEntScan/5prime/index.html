@@ -515,8 +515,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker pull haimasree/kipoi-docker:sharedpy3keras2</code></pre> -->
-	<pre><code class="docker">docker pull haimasree/kipoi-docker:sharedpy3keras2</code></pre>
+	<!-- <pre class="language-markup"><code>docker pull kipoi/kipoi-docker:sharedpy3keras2</code></pre> -->
+	<pre><code class="docker">docker pull kipoi/kipoi-docker:sharedpy3keras2</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -530,8 +530,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run -it haimasree/kipoi-docker:sharedpy3keras2</code></pre> -->
-	<pre><code class="docker">docker run -it haimasree/kipoi-docker:sharedpy3keras2</code></pre>
+	<!-- <pre class="language-markup"><code>docker run -it kipoi/kipoi-docker:sharedpy3keras2</code></pre> -->
+	<pre><code class="docker">docker run -it kipoi/kipoi-docker:sharedpy3keras2</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -545,8 +545,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run haimasree/kipoi-docker:sharedpy3keras2 kipoi test MaxEntScan/5prime --source=kipoi</code></pre> -->
-	<pre><code class="docker">docker run haimasree/kipoi-docker:sharedpy3keras2 kipoi test MaxEntScan/5prime --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>docker run kipoi/kipoi-docker:sharedpy3keras2 kipoi test MaxEntScan/5prime --source=kipoi</code></pre> -->
+	<pre><code class="docker">docker run kipoi/kipoi-docker:sharedpy3keras2 kipoi test MaxEntScan/5prime --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -563,9 +563,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
 	<!-- <pre class="language-markup"><code># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:sharedpy3keras2 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2 \
 kipoi get-example MaxEntScan/5prime -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:sharedpy3keras2 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2 \
 kipoi predict MaxEntScan/5prime \
 --dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;/app/example/fasta_file&#39;, &#39;gtf_file&#39;: &#39;/app/example/gtf_file&#39;}&#39; \
 -o &#39;/app/MaxEntScan_5prime.example_pred.tsv&#39; 
@@ -575,9 +575,9 @@ head $PWD/kipoi-example/MaxEntScan_5prime.example_pred.tsv
 	<pre><code class="docker"># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:sharedpy3keras2 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2 \
 kipoi get-example MaxEntScan/5prime -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ haimasree/kipoi-docker:sharedpy3keras2 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2 \
 kipoi predict MaxEntScan/5prime \
 --dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;/app/example/fasta_file&#39;, &#39;gtf_file&#39;: &#39;/app/example/gtf_file&#39;}&#39; \
 -o &#39;/app/MaxEntScan_5prime.example_pred.tsv&#39; 
