@@ -137,7 +137,7 @@ on given vcf file.</p>
 <p>Args:
   variants: list of variant objects have CHROM, POS, REF, ALT properties.</p>
 <h2 id="basevariantmatcher">BaseVariantMatcher</h2>
-<pre><code class="language-python">BaseVariantMatcher(self, vcf_file:str, gtf_path:str=None, bed_path:str=None, pranges:pyranges.pyranges.PyRanges=None, intervals:List[kipoiseq.dataclasses.Interval]=None, interval_attrs:List[str]=None, vcf_lazy:bool=True, variant_batch_size:int=10000)
+<pre><code class="language-python">BaseVariantMatcher(self, vcf_file:str=None, variants:List[kipoiseq.dataclasses.Variant]=None, variant_fetcher:kipoiseq.variant_source.VariantFetcher=None, gtf_path:str=None, bed_path:str=None, pranges:pyranges.pyranges.PyRanges=None, intervals:List[kipoiseq.dataclasses.Interval]=None, interval_attrs:List[str]=None, vcf_lazy:bool=True, variant_batch_size:int=10000)
 </code></pre>
 <p>Base variant intervals matcher</p>
 <h2 id="singlevariantmatcher">SingleVariantMatcher</h2>
