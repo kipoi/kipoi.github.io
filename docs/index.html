@@ -69,9 +69,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#kipoi_veff">kipoi_veff</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#kipoi_interpret">kipoi_interpret</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#variant-effect-prediction-with-a-subset-of-kipoi-models">Variant effect prediction with a subset of Kipoi models</a>
     </li>
         </ul>
     </li>
@@ -281,7 +281,6 @@ usage: kipoi &lt;command&gt; [-h] ...
     test-source      Runs a set of unit-tests for many/all models in a source
 
     # - plugin commands:
-    veff             Variant effect prediction
     interpret        Model interpretation using feature importance scores like ISM, grad*input or DeepLIFT
 </code></pre>
 <pre><code class="language-bash"># Run model predictions and save the results
@@ -298,15 +297,13 @@ kipoi predict &lt;Model&gt; --dataloader_args='{
 <h3 id="contributing-models">Contributing models</h3>
 <p>See <a href="http://kipoi.org/docs/contributing/01_Getting_started">docs/contributing getting started</a> and <a href="http://kipoi.org/docs/tutorials/contributing_models">docs/tutorials/contributing/models</a> for more information.</p>
 <h2 id="plugins">Plugins</h2>
-<p>Kipoi supports plug-ins which are published as additional python packages. Two plug-ins that are available are:</p>
-<h3 id="kipoi_veff"><a href="https://github.com/kipoi/kipoi-veff">kipoi_veff</a></h3>
-<p>Variant effect prediction plugin compatible with (DNA) sequence based models. It allows to annotate a vcf file using model predictions for the reference and alternative alleles. The output is written to a new VCF file. For more information see <a href="https://kipoi.org/veff-docs/">https://kipoi.org/veff-docs/</a>.</p>
-<pre><code class="language-bash">pip install kipoi_veff
-</code></pre>
+<p>Kipoi supports plug-ins which are published as additional python packages. Currently available plug-in is:</p>
 <h3 id="kipoi_interpret"><a href="https://github.com/kipoi/kipoi-interpret">kipoi_interpret</a></h3>
 <p>Model interpretation plugin for Kipoi. Allows to use feature importance scores like in-silico mutagenesis (ISM), saliency maps or DeepLift with a wide range of Kipoi models. <a href="https://github.com/kipoi/kipoi-interpret/blob/master/notebooks/1-DNA-seq-model-example.ipynb">example notebook</a></p>
 <pre><code class="language-bash">pip install kipoi_interpret
 </code></pre>
+<h3 id="variant-effect-prediction-with-a-subset-of-kipoi-models">Variant effect prediction with a subset of Kipoi models</h3>
+<p>Variant effect prediction allows to annotate a vcf file using model predictions for the reference and alternative alleles. The output is written to a new tsv file. For more information see <a href="https://github.com/kipoi/kipoi-veff2">https://github.com/kipoi/kipoi-veff2</a>.</p>
 <h2 id="documentation">Documentation</h2>
 <ul>
 <li><a href="http://kipoi.org/docs">kipoi.org/docs</a></li>
@@ -396,5 +393,5 @@ pip install -e .
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-10-18 14:29:57.686241+00:00
+Build Date UTC : 2021-10-28 16:50:01.543118+00:00
 -->
