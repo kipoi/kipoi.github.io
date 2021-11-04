@@ -330,6 +330,9 @@ PWM database: HOCOMOCO URL:  http://hocomoco.autosome.ru/ Paper:  Kulakovskiy et
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#docker" role="tab">docker</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#singularity" role="tab">singularity</a>
+    </li>
 </ul>
 
 <!-- Tab panes -->
@@ -675,6 +678,81 @@ head $PWD/kipoi-example/pwm_HOCOMOCO_human_TBX20.example_pred.tsv
             
         </div>
     </div>
+
+    <!-- singularity code snippet tab -->
+    <div class="tab-pane" id="singularity" role="tabpanel">
+        <div class="border border-top-0 code-snippet-container">
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Get the singularity image</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>https://zenodo.org/record/5644007/files/kipoi-docker_sharedpy3keras2.sif?download=1</code></pre> -->
+	<pre><code class="singularity">https://zenodo.org/record/5644007/files/kipoi-docker_sharedpy3keras2.sif?download=1</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Test the model</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_sharedpy3keras2.sif kipoi test pwm_HOCOMOCO/human/TBX20 --source=kipoi</code></pre> -->
+	<pre><code class="singularity">singularity exec kipoi-docker_sharedpy3keras2.sif kipoi test pwm_HOCOMOCO/human/TBX20 --source=kipoi</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Make prediction for custom files directly</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
+	<!-- <pre class="language-markup"><code># Create an example directory containing the data
+mkdir -p $PWD/kipoi-example 
+# You can replace $PWD/kipoi-example with a different absolute path containing the data 
+singularity exec kipoi-docker_sharedpy3keras2.sif \
+kipoi get-example pwm_HOCOMOCO/human/TBX20 -o $PWD/kipoi-example/ 
+singularity exec kipoi-docker_sharedpy3keras2.sif \
+kipoi predict pwm_HOCOMOCO/human/TBX20 \
+--dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;}&#39; \
+-o &#39;pwm_HOCOMOCO_human_TBX20.example_pred.tsv&#39; 
+# check the results
+head $PWD/kipoi-example/pwm_HOCOMOCO_human_TBX20.example_pred.tsv
+</code></pre> -->
+	<pre><code class="singularity"># Create an example directory containing the data
+mkdir -p $PWD/kipoi-example 
+# You can replace $PWD/kipoi-example with a different absolute path containing the data 
+singularity exec kipoi-docker_sharedpy3keras2.sif \
+kipoi get-example pwm_HOCOMOCO/human/TBX20 -o $PWD/kipoi-example/ 
+singularity exec kipoi-docker_sharedpy3keras2.sif \
+kipoi predict pwm_HOCOMOCO/human/TBX20 \
+--dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;}&#39; \
+-o &#39;pwm_HOCOMOCO_human_TBX20.example_pred.tsv&#39; 
+# check the results
+head $PWD/kipoi-example/pwm_HOCOMOCO_human_TBX20.example_pred.tsv
+</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+        </div>
+    </div>
+
 </div>
                         </div>
                     </div>
