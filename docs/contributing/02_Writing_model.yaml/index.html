@@ -125,8 +125,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#postprocessing">postprocessing</a>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../04_Writing_dataloader.py/">dataloader.py</a>
@@ -541,7 +539,7 @@ lists or dictionaries in the yaml definition:</p>
 <li><code>shape</code>: Required: A tuple defining the shape of a single input sample. E.g. for a model that predicts a batch of <code>(1000, 4)</code> inputs <code>shape: (1000, 4)</code> should be set. If a dimension is of variable size then the numerical should be replaced by <code>None</code>.</li>
 <li><code>doc</code>: A free text description of the model input</li>
 <li><code>name</code>: Name of model input , not required if input is a dictionary.</li>
-<li><code>special_type</code>: Possibility to flag that respective input is a 1-hot encoded DNA sequence (<code>special_type: DNASeq</code>) or a string DNA sequence (<code>special_type: DNAStringSeq</code>), which is important for variant effect prediction.</li>
+<li><code>special_type</code>: Possibility to flag that respective input is a 1-hot encoded DNA sequence (<code>special_type: DNASeq</code>) or a string DNA sequence (<code>special_type: DNAStringSeq</code>).</li>
 </ul>
 <h3 id="targets"><code>targets</code></h3>
 <p>The <code>targets</code> fields of <code>schema</code> may be lists, dictionaries or single occurences of the following entries:</p>
@@ -612,9 +610,6 @@ must be given (ending in <code>.txt</code>).</p>
 <h3 id="pip">pip</h3>
 <p>Pip dependencies can be defined as lists or if the dependencies are defined in a text file then the path of the text 
 must be given (ending in <code>.txt</code>).</p>
-<h2 id="postprocessing">postprocessing</h2>
-<p>The postprocessing section of a model.yaml is necessary to indicate that a model is compatible with a certain kind of 
-postprocessing feature available in Kipoi. At the moment only variant effect prediction is available for postprocessing. To understand how to set your model up for variant effect prediction, please take a look at the documentation of variant effect prediction.</p>
               
             </div>
           </div>
