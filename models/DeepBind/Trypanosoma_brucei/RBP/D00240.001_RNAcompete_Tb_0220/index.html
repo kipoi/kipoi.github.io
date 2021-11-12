@@ -623,8 +623,8 @@ head $PWD/kipoi-example/DeepBind_Trypanosoma_brucei_RBP_D00240.001_RNAcompete_Tb
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_sharedpy3keras2.sif kipoi test DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 --source=kipoi</code></pre> -->
-	<pre><code class="singularity">singularity exec kipoi-docker_sharedpy3keras2.sif kipoi test DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_sharedpy3keras2 kipoi test DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 --source=kipoi</code></pre> -->
+	<pre><code class="singularity">singularity exec kipoi-docker_sharedpy3keras2 kipoi test DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -641,9 +641,9 @@ head $PWD/kipoi-example/DeepBind_Trypanosoma_brucei_RBP_D00240.001_RNAcompete_Tb
 	<!-- <pre class="language-markup"><code># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_sharedpy3keras2.sif \
+singularity exec kipoi-docker_sharedpy3keras2 \
 kipoi get-example DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_sharedpy3keras2.sif \
+singularity exec kipoi-docker_sharedpy3keras2 \
 kipoi predict DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 \
 --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;}&#39; \
 -o &#39;DeepBind_Trypanosoma_brucei_RBP_D00240.001_RNAcompete_Tb_0220.example_pred.tsv&#39; 
@@ -653,9 +653,9 @@ head $PWD/kipoi-example/DeepBind_Trypanosoma_brucei_RBP_D00240.001_RNAcompete_Tb
 	<pre><code class="singularity"># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_sharedpy3keras2.sif \
+singularity exec kipoi-docker_sharedpy3keras2 \
 kipoi get-example DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_sharedpy3keras2.sif \
+singularity exec kipoi-docker_sharedpy3keras2 \
 kipoi predict DeepBind/Trypanosoma_brucei/RBP/D00240.001_RNAcompete_Tb_0220 \
 --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;}&#39; \
 -o &#39;DeepBind_Trypanosoma_brucei_RBP_D00240.001_RNAcompete_Tb_0220.example_pred.tsv&#39; 

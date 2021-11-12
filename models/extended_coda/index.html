@@ -604,8 +604,8 @@ head $PWD/kipoi-example/extended_coda.example_pred.tsv
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>https://zenodo.org/api/files/e48e60fa-544a-4721-821c-37450be3cf5c/kipoi-docker_extended_coda.sif?versionId=88d8d2a2-9bbf-46b4-a802-0c4534405ade</code></pre> -->
-	<pre><code class="singularity">https://zenodo.org/api/files/e48e60fa-544a-4721-821c-37450be3cf5c/kipoi-docker_extended_coda.sif?versionId=88d8d2a2-9bbf-46b4-a802-0c4534405ade</code></pre>
+	<!-- <pre class="language-markup"><code>https://zenodo.org/record/5643936/files/kipoi-docker_extended_coda.sif?download=1</code></pre> -->
+	<pre><code class="singularity">https://zenodo.org/record/5643936/files/kipoi-docker_extended_coda.sif?download=1</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -619,8 +619,8 @@ head $PWD/kipoi-example/extended_coda.example_pred.tsv
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_extended_coda.sif kipoi test extended_coda --source=kipoi</code></pre> -->
-	<pre><code class="singularity">singularity exec kipoi-docker_extended_coda.sif kipoi test extended_coda --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_extended_coda kipoi test extended_coda --source=kipoi</code></pre> -->
+	<pre><code class="singularity">singularity exec kipoi-docker_extended_coda kipoi test extended_coda --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -637,9 +637,9 @@ head $PWD/kipoi-example/extended_coda.example_pred.tsv
 	<!-- <pre class="language-markup"><code># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_extended_coda.sif \
+singularity exec kipoi-docker_extended_coda \
 kipoi get-example extended_coda -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_extended_coda.sif \
+singularity exec kipoi-docker_extended_coda \
 kipoi predict extended_coda \
 --dataloader_args=&#39;{&#39;batch_size&#39;: 4, &#39;input_data_sources&#39;: &#39;example/input_data_sources&#39;, &#39;intervals_file&#39;: &#39;example/intervals_file&#39;}&#39; \
 -o &#39;extended_coda.example_pred.tsv&#39; 
@@ -649,9 +649,9 @@ head $PWD/kipoi-example/extended_coda.example_pred.tsv
 	<pre><code class="singularity"># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_extended_coda.sif \
+singularity exec kipoi-docker_extended_coda \
 kipoi get-example extended_coda -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_extended_coda.sif \
+singularity exec kipoi-docker_extended_coda \
 kipoi predict extended_coda \
 --dataloader_args=&#39;{&#39;batch_size&#39;: 4, &#39;input_data_sources&#39;: &#39;example/input_data_sources&#39;, &#39;intervals_file&#39;: &#39;example/intervals_file&#39;}&#39; \
 -o &#39;extended_coda.example_pred.tsv&#39; 
