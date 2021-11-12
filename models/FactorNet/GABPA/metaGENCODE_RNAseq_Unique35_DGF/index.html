@@ -606,8 +606,8 @@ head $PWD/kipoi-example/FactorNet_GABPA_metaGENCODE_RNAseq_Unique35_DGF.example_
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_sharedpy3keras2 kipoi test FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF --source=kipoi</code></pre> -->
-	<pre><code class="singularity">singularity exec kipoi-docker_sharedpy3keras2 kipoi test FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_sharedpy3keras2.sif kipoi test FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF --source=kipoi</code></pre> -->
+	<pre><code class="singularity">singularity exec kipoi-docker_sharedpy3keras2.sif kipoi test FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -624,9 +624,9 @@ head $PWD/kipoi-example/FactorNet_GABPA_metaGENCODE_RNAseq_Unique35_DGF.example_
 	<!-- <pre class="language-markup"><code># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_sharedpy3keras2 \
+singularity exec kipoi-docker_sharedpy3keras2.sif \
 kipoi get-example FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_sharedpy3keras2 \
+singularity exec kipoi-docker_sharedpy3keras2.sif \
 kipoi predict FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF \
 --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;, &#39;dnase_file&#39;: &#39;example/dnase_file&#39;, &#39;cell_line&#39;: &#39;PC-3&#39;, &#39;mappability_file&#39;: &#39;example/mappability_file&#39;}&#39; \
 -o &#39;FactorNet_GABPA_metaGENCODE_RNAseq_Unique35_DGF.example_pred.tsv&#39; 
@@ -636,9 +636,9 @@ head $PWD/kipoi-example/FactorNet_GABPA_metaGENCODE_RNAseq_Unique35_DGF.example_
 	<pre><code class="singularity"># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_sharedpy3keras2 \
+singularity exec kipoi-docker_sharedpy3keras2.sif \
 kipoi get-example FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_sharedpy3keras2 \
+singularity exec kipoi-docker_sharedpy3keras2.sif \
 kipoi predict FactorNet/GABPA/metaGENCODE_RNAseq_Unique35_DGF \
 --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;, &#39;dnase_file&#39;: &#39;example/dnase_file&#39;, &#39;cell_line&#39;: &#39;PC-3&#39;, &#39;mappability_file&#39;: &#39;example/mappability_file&#39;}&#39; \
 -o &#39;FactorNet_GABPA_metaGENCODE_RNAseq_Unique35_DGF.example_pred.tsv&#39; 
