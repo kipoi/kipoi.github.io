@@ -57,6 +57,8 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#installing-all-required-model-dependencies">Installing all required model dependencies</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-pre-made-containers">Using pre-made containers</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#command-line">Command-line</a>
@@ -232,7 +234,8 @@ kipoi env create shared/envs/kipoi-py3-keras1.2
 <p>Before using a model in any way, activate the right conda enviroment:</p>
 <pre><code class="language-bash">source activate $(kipoi env get &lt;model&gt;)
 </code></pre>
-<p>Alternatively, you can use the Singularity or Docker containers with all dependencies installed. Singularity containers can be seamlessly used with the CLI by adding the <code>--singularity</code> flag to <code>kipoi</code> commands.</p>
+<h3 id="using-pre-made-containers">Using pre-made containers</h3>
+<p>Alternatively, you can use the Singularity or Docker containers with all dependencies installed. Singularity containers can be seamlessly used with the CLI by adding the <code>--singularity</code> flag to <code>kipoi predict</code> commands. For example: Look at the sigularity tab under http://kipoi.org/models/Xpresso/human_median/. Alternatively, you can use the docker containers directly. For more information: Look at the docker tab under any model web page on kipoi.org such as http://kipoi.org/models/Xpresso/human_median/</p>
 <h3 id="python">Python</h3>
 <p>Before using a model from python in any way, activate the right conda enviroment:</p>
 <pre><code class="language-bash">source activate $(kipoi env get &lt;model&gt;)
@@ -393,5 +396,5 @@ pip install -e .
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-11-15 13:14:19.662648+00:00
+Build Date UTC : 2021-11-15 17:38:29.523594+00:00
 -->
