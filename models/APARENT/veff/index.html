@@ -628,27 +628,12 @@ head $PWD/kipoi-example/APARENT_veff.example_pred.tsv
                 
   <div class="row">
     <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Get the singularity image</div>
+      <div class="code-title">Install singularity</div>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>https://zenodo.org/record/5643822/files/kipoi-docker_aparent-veff.sif?download=1</code></pre> -->
-	<pre><code class="singularity">https://zenodo.org/record/5643822/files/kipoi-docker_aparent-veff.sif?download=1</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Test the model</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_aparent-veff.sif kipoi test APARENT/veff --source=kipoi</code></pre> -->
-	<pre><code class="singularity">singularity exec kipoi-docker_aparent-veff.sif kipoi test APARENT/veff --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>conda install --yes -c conda-forge singularity</code></pre> -->
+	<pre><code class="singularity">conda install --yes -c conda-forge singularity</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -662,29 +647,21 @@ head $PWD/kipoi-example/APARENT_veff.example_pred.tsv
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Create an example directory containing the data
-mkdir -p $PWD/kipoi-example 
-# You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_aparent-veff.sif \
-kipoi get-example APARENT/veff -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_aparent-veff.sif \
+	<!-- <pre class="language-markup"><code>kipoi get-example APARENT/veff -o example
 kipoi predict APARENT/veff \
---dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;example/chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example/chr22.gtf.gz&#39;, &#39;vcf_file&#39;: &#39;example/vcf_file&#39;, &#39;vcf_file_tbi&#39;: &#39;example/vcf_file.tbi&#39;, &#39;vcf_lazy&#39;: True}&#39; \
--o &#39;APARENT_veff.example_pred.tsv&#39; 
+--dataloader_args=&#39;{&#34;fasta_file&#34;: &#34;example/chr22.fa&#34;, &#34;gtf_file&#34;: &#34;example/chr22.gtf.gz&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;vcf_file_tbi&#34;: &#34;example/vcf_file.tbi&#34;, &#34;vcf_lazy&#34;: true}&#39; \
+-o &#39;APARENT_veff.example_pred.tsv&#39; \
+--singularity 
 # check the results
-head $PWD/kipoi-example/APARENT_veff.example_pred.tsv
+head APARENT_veff.example_pred.tsv
 </code></pre> -->
-	<pre><code class="singularity"># Create an example directory containing the data
-mkdir -p $PWD/kipoi-example 
-# You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_aparent-veff.sif \
-kipoi get-example APARENT/veff -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_aparent-veff.sif \
+	<pre><code class="singularity">kipoi get-example APARENT/veff -o example
 kipoi predict APARENT/veff \
---dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;example/chr22.fa&#39;, &#39;gtf_file&#39;: &#39;example/chr22.gtf.gz&#39;, &#39;vcf_file&#39;: &#39;example/vcf_file&#39;, &#39;vcf_file_tbi&#39;: &#39;example/vcf_file.tbi&#39;, &#39;vcf_lazy&#39;: True}&#39; \
--o &#39;APARENT_veff.example_pred.tsv&#39; 
+--dataloader_args=&#39;{&#34;fasta_file&#34;: &#34;example/chr22.fa&#34;, &#34;gtf_file&#34;: &#34;example/chr22.gtf.gz&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;vcf_file_tbi&#34;: &#34;example/vcf_file.tbi&#34;, &#34;vcf_lazy&#34;: true}&#39; \
+-o &#39;APARENT_veff.example_pred.tsv&#39; \
+--singularity 
 # check the results
-head $PWD/kipoi-example/APARENT_veff.example_pred.tsv
+head APARENT_veff.example_pred.tsv
 </code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>

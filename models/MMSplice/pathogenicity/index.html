@@ -567,27 +567,12 @@ head $PWD/kipoi-example/MMSplice_pathogenicity.example_pred.tsv
                 
   <div class="row">
     <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Get the singularity image</div>
+      <div class="code-title">Install singularity</div>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>https://zenodo.org/record/5643976/files/kipoi-docker_mmsplice.sif?download=1</code></pre> -->
-	<pre><code class="singularity">https://zenodo.org/record/5643976/files/kipoi-docker_mmsplice.sif?download=1</code></pre>
-	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
-      </div>
-    </div>
-  </div>
-
-            
-                
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-title">Test the model</div>
-    </div>
-    <div class="col-lg-12 col-xs-12">
-      <div class="code-container">
-	<!-- <pre class="language-markup"><code>singularity exec kipoi-docker_mmsplice.sif kipoi test MMSplice/pathogenicity --source=kipoi</code></pre> -->
-	<pre><code class="singularity">singularity exec kipoi-docker_mmsplice.sif kipoi test MMSplice/pathogenicity --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>conda install --yes -c conda-forge singularity</code></pre> -->
+	<pre><code class="singularity">conda install --yes -c conda-forge singularity</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -601,29 +586,21 @@ head $PWD/kipoi-example/MMSplice_pathogenicity.example_pred.tsv
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code># Create an example directory containing the data
-mkdir -p $PWD/kipoi-example 
-# You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_mmsplice.sif \
-kipoi get-example MMSplice/pathogenicity -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_mmsplice.sif \
+	<!-- <pre class="language-markup"><code>kipoi get-example MMSplice/pathogenicity -o example
 kipoi predict MMSplice/pathogenicity \
---dataloader_args=&#39;{&#39;gtf&#39;: &#39;example/gtf&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;, &#39;vcf_file&#39;: &#39;example/vcf_file&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13}&#39; \
--o &#39;MMSplice_pathogenicity.example_pred.tsv&#39; 
+--dataloader_args=&#39;{&#34;gtf&#34;: &#34;example/gtf&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
+-o &#39;MMSplice_pathogenicity.example_pred.tsv&#39; \
+--singularity 
 # check the results
-head $PWD/kipoi-example/MMSplice_pathogenicity.example_pred.tsv
+head MMSplice_pathogenicity.example_pred.tsv
 </code></pre> -->
-	<pre><code class="singularity"># Create an example directory containing the data
-mkdir -p $PWD/kipoi-example 
-# You can replace $PWD/kipoi-example with a different absolute path containing the data 
-singularity exec kipoi-docker_mmsplice.sif \
-kipoi get-example MMSplice/pathogenicity -o $PWD/kipoi-example/ 
-singularity exec kipoi-docker_mmsplice.sif \
+	<pre><code class="singularity">kipoi get-example MMSplice/pathogenicity -o example
 kipoi predict MMSplice/pathogenicity \
---dataloader_args=&#39;{&#39;gtf&#39;: &#39;example/gtf&#39;, &#39;fasta_file&#39;: &#39;example/fasta_file&#39;, &#39;vcf_file&#39;: &#39;example/vcf_file&#39;, &#39;exon_cut_l&#39;: 0, &#39;exon_cut_r&#39;: 0, &#39;acceptor_intron_cut&#39;: 6, &#39;donor_intron_cut&#39;: 6, &#39;acceptor_intron_len&#39;: 50, &#39;acceptor_exon_len&#39;: 3, &#39;donor_exon_len&#39;: 5, &#39;donor_intron_len&#39;: 13}&#39; \
--o &#39;MMSplice_pathogenicity.example_pred.tsv&#39; 
+--dataloader_args=&#39;{&#34;gtf&#34;: &#34;example/gtf&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;vcf_file&#34;: &#34;example/vcf_file&#34;, &#34;exon_cut_l&#34;: 0, &#34;exon_cut_r&#34;: 0, &#34;acceptor_intron_cut&#34;: 6, &#34;donor_intron_cut&#34;: 6, &#34;acceptor_intron_len&#34;: 50, &#34;acceptor_exon_len&#34;: 3, &#34;donor_exon_len&#34;: 5, &#34;donor_intron_len&#34;: 13}&#39; \
+-o &#39;MMSplice_pathogenicity.example_pred.tsv&#39; \
+--singularity 
 # check the results
-head $PWD/kipoi-example/MMSplice_pathogenicity.example_pred.tsv
+head MMSplice_pathogenicity.example_pred.tsv
 </code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
