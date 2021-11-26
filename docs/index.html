@@ -52,6 +52,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#links">Links</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#known-issue-h5py">Known issue: h5py</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a>
         <ul>
@@ -227,11 +231,17 @@
 <h2 id="installation">Installation</h2>
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
 Make sure you have either anaconda (<a href="https://www.anaconda.com/download/">download page</a>) or miniconda (<a href="https://conda.io/miniconda.html">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX">Installing python on OSX</a>. Maintained python versions: &gt;=3.6&lt;=3.9. </p>
-<p>For systems using python 3.8 and 3.9, is necessary to install hdf5 and pkgconfig prior to installing kipoi.</p>
-<pre><code class="language-bash">conda install --yes -c conda-forge hdf5 pkgconfig
-</code></pre>
 <p>Install Kipoi using <a href="https://pip.pypa.io/en/stable/">pip</a>:</p>
 <pre><code class="language-bash">pip install kipoi
+</code></pre>
+<h3 id="known-issue-h5py">Known issue: h5py</h3>
+<p>For systems using python 3.6 and 3.7, pretrained kipoi models of type kipoi.model.KerasModel and kipoi.model.TensorflowModel which were saved with h5py &lt;3.<em> are incompatible with h5py &gt;= 3.</em>. Please downgrade h5py after installing kipoi</p>
+<pre><code class="language-bash">pip install h5py==2.10.0
+</code></pre>
+<p>This is not a problem with systems using python 3.8 and 3.9.
+More information available <a href="https://github.com/tensorflow/tensorflow/issues/44467">here</a></p>
+<p>For systems using python 3.8 and 3.9, it is necessary to install hdf5 and pkgconfig prior to installing kipoi.</p>
+<pre><code class="language-bash">conda install --yes -c conda-forge hdf5 pkgconfig
 </code></pre>
 <h2 id="quick-start">Quick start</h2>
 <p>Explore available models on <a href="http://kipoi.org/groups/">https://kipoi.org/groups/</a>. Use-case oriented tutorials are available at <a href="https://github.com/kipoi/examples">https://github.com/kipoi/examples</a>.</p>
@@ -405,5 +415,5 @@ pip install -e .
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-11-25 17:25:32.421439+00:00
+Build Date UTC : 2021-11-26 15:08:09.607669+00:00
 -->
