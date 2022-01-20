@@ -204,6 +204,15 @@ head '/tmp/Basset.example_pred.tsv'
 <p>Test whether a model is defined correctly and whether is execution using the example files is successful.</p>
 <pre><code class="language-bash">kipoi test ~/.kipoi/models/Basset/example_files
 </code></pre>
+<p>In detail, <code>kipoi test &lt;model&gt;</code> checks for three things:
+- Whether the model specific conda environment can be created and activated successfully
+- Whether the data scheme that the dataloader outputs and the model expects match or not
+- Optionally, if there is a <code>'test'.'expect'</code> field in <code>model.yaml</code> pointing to some <code>*.h5</code> file, the predictions in the file are compared with the prediction produced by the the model. E.g.:
+  <code>yaml
+  test:
+    expect:
+      url: https://zenodo.org/record/5511940/files/APARENT.site_probabilities.predictions.hdf5?download=1
+      md5: 1adb12be84240ffb7d7ca556eeb19e01</code></p>
 <h3 id="env">env</h3>
 <h4 id="install">install</h4>
 <p>Install model dependencies</p>
