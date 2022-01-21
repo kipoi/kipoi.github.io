@@ -703,12 +703,18 @@ head APARENT_site_probabilities.example_pred.tsv
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h4 class="card-title mt-2 mb-3">Targets</h4>
                 
-  <p>Single numpy array</p>
+  <p>Dictionary of numpy arrays</p>
   
-    <p><strong>Name</strong>: None</p>
+    <p><strong>Name</strong>: distal_prop</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (206,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts 206 features: 1 prediction for % distal cleavage + 205 predictions for % cleavage at each position
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts proportion of cleavage occuring outside of the specified DNA range
+</p>
+
+    <p><strong>Name</strong>: site_props</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (205,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts proportion of cleavage occuring at each position in the specified DNA range. Sum of all site props + distal_prop = 1
 </p>
 
 
@@ -877,11 +883,11 @@ head APARENT_site_probabilities.example_pred.tsv
     
       <li>bioconda::kipoi<br></li>
     
+      <li>bioconda::kipoiseq&gt;=0.7.1<br></li>
+    
       <li>bioconda::cyvcf2<br></li>
     
-      <li>bioconda::pyranges<br></li>
-    
-      <li>pip&gt;=21.0.1</li>
+      <li>bioconda::pyranges</li>
     
 </u>
 
@@ -891,8 +897,6 @@ head APARENT_site_probabilities.example_pred.tsv
                         <strong>pip</strong>:<br>
                         
   <ul class="dependencies">
-    
-      <li>git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source</li>
     
 </u>
 

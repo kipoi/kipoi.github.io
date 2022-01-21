@@ -237,6 +237,7 @@
                                     <p>Trained on: 
   
     isoform expression data from over 3 million APA reporters, built by inserting random sequence into 12 distinct 3&#39;UTR contexts.
+
   
 </p>
 
@@ -710,16 +711,16 @@ head APARENT_veff.example_pred.tsv
                 
   <p>Dictionary of numpy arrays</p>
   
-    <p><strong>Name</strong>: delta_logit_polya_prob</p>
+    <p><strong>Name</strong>: delta_logit_distal_prop</p>
     <p>
       &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts logit percentage difference to reference of having a PolyA cut site in the specified DNA range
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts logit difference to reference of having a PolyA cut site **outside** of the specified DNA range
 </p>
 
-    <p><strong>Name</strong>: delta_logit_site_probs</p>
+    <p><strong>Name</strong>: delta_logit_proximal_prop</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (205,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts logit percentage difference to reference of having a PolyA cut site for each position in the specified DNA range</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>Shape</strong>: (1,)&nbsp;<a data-toggle="tooltip" data-placement="top" data-html="true" title="Numpy array shape for a single data point (i.e. batch dimension excluded)."><i class="fa fa-question-circle blue-grey-text" style="font-size: 0.9em;" aria-hidden="true"></i></a></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doc</strong>: Predicts logit difference to reference of having a PolyA cut site for each position in the specified DNA range</p>
 
 
             </div>
@@ -920,11 +921,11 @@ head APARENT_veff.example_pred.tsv
     
       <li>bioconda::kipoi<br></li>
     
+      <li>bioconda::kipoiseq&gt;=0.7.1<br></li>
+    
       <li>bioconda::cyvcf2<br></li>
     
-      <li>bioconda::pyranges<br></li>
-    
-      <li>pip&gt;=21.0.1</li>
+      <li>bioconda::pyranges</li>
     
 </u>
 
@@ -934,8 +935,6 @@ head APARENT_veff.example_pred.tsv
                         <strong>pip</strong>:<br>
                         
   <ul class="dependencies">
-    
-      <li>git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source</li>
     
 </u>
 
