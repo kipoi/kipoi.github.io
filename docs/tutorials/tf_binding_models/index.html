@@ -96,13 +96,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#install-deepbind-model-software-requirements">Install DeepBind model software requirements</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#load-deepbind-model">Load DeepBind model</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#get-deepbind-predictions">Get DeepBind predictions</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#evaluate-deepbind-predictions">Evaluate DeepBind predictions</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</a>
     </li>
     </ul>
                     </li>
@@ -209,59 +205,38 @@ chr22   49486843    49486944    0
 </code></pre>
 <p>Next, to evaluate the DeepBind model for JUND, we will 1) install software requirements to run the model, 2) load the model, and 3) get model predictions using our intervals and fasta file.</p>
 <h2 id="install-deepbind-model-software-requirements">Install DeepBind model software requirements</h2>
-<pre><code class="language-python">deepbind_model_name = &quot;DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF&quot;
-kipoi.install_model_requirements(deepbind_model_name)
-# Use `$ kipoi env install DeepBind/D00776.005 --gpu` from the command-line to install the gpu version of the dependencies
+<p>kipoi env create DeepBind --source=kipoi</p>
+<p>source activate kipoi-DeepBind</p>
+<pre><code class="language-python">## Load DeepBind model
+deepbind_model_name = &quot;DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF&quot;
+deepbind_model = kipoi.get_model(deepbind_model_name)
 </code></pre>
-<h2 id="load-deepbind-model">Load DeepBind model</h2>
-<pre><code class="language-python">deepbind_model = kipoi.get_model(deepbind_model_name)
-</code></pre>
-<pre><code>Downloading https://sandbox.zenodo.org/record/248887/files/Homo_sapiens-TF-D00328.018_ChIP-seq_CTCF?download=1 to /home/avsec/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/arch/0d6747991a525b94a1ac9174459c2bf4
-
-
-8.19kB [00:00, 11.9kB/s]
-
-
-Downloading https://sandbox.zenodo.org/record/248887/files/Homo_sapiens-TF-D00328.018_ChIP-seq_CTCF.h5?download=1 to /home/avsec/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/weights/838eb7287139a2542f21984e692a9be2
-
-
-32.8kB [00:02, 11.0kB/s]                   
-/home/avsec/bin/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-  from ._conv import register_converters as _register_converters
-Using TensorFlow backend.
-/home/avsec/bin/anaconda3/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
-  return f(*args, **kwds)
+<pre><code>Using downloaded and verified file: /Users/b260/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/arch/0d6747991a525b94a1ac9174459c2bf4
+Using downloaded and verified file: /Users/b260/.kipoi/models/DeepBind/downloaded/model_files/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/weights/838eb7287139a2542f21984e692a9be2
 </code></pre>
 <h2 id="get-deepbind-predictions">Get DeepBind predictions</h2>
 <pre><code class="language-python">deepbind_predictions = deepbind_model.pipeline.predict(dl_kwargs, batch_size=1000)
 </code></pre>
-<pre><code>2it [00:01,  1.04s/it]
+<pre><code>2it [00:02,  1.16s/it]
 </code></pre>
 <h2 id="evaluate-deepbind-predictions">Evaluate DeepBind predictions</h2>
 <p>Let's check the auROC of deepbind predictions:</p>
 <pre><code class="language-python">roc_auc_score(labels, deepbind_predictions)
 </code></pre>
-<pre><code>0.6148564999999999
+<pre><code>0.614856
 </code></pre>
-<h2 id="load-run-and-evaluate-a-hocomoco-pwm-model">Load, run, and evaluate a HOCOMOCO PWM model</h2>
+<p>kipoi env create pwm_HOCOMOCO</p>
+<p>source activate kipoi-pwm_HOCOMOCO</p>
 <pre><code class="language-python">pwm_model_name = &quot;pwm_HOCOMOCO/human/JUND&quot;
-kipoi.install_model_requirements(pwm_model_name)
-# Use `$ kipoi env install pwm_HOCOMOCO/human/JUND --gpu` from the command-line to install the gpu version of the dependencies
 pwm_model = kipoi.get_model(pwm_model_name)
 pwm_predictions = pwm_model.pipeline.predict(dl_kwargs, batch_size=1000)
 print(&quot;PWM auROC:&quot;)
 roc_auc_score(labels, pwm_predictions)
 </code></pre>
-<pre><code>Downloading https://zenodo.org/record/1466139/files/human-JUND.h5?download=1 to /home/avsec/.kipoi/models/pwm_HOCOMOCO/downloaded/model_files/human/JUND/weights/bb64a335f37cff4537b1bde4c11cab8b
+<pre><code>0.00B [00:00, ?B/s]Downloading https://zenodo.org/record/1466139/files/human-JUND.h5?download=1 to /Users/b260/.kipoi/models/pwm_HOCOMOCO/downloaded/model_files/human/JUND/weights/bb64a335f37cff4537b1bde4c11cab8b
+16.4kB [00:01, 16.0kB/s]                            
+2it [00:01,  1.51it/s]PWM auROC:
 
-
-16.4kB [00:00, 28.8kB/s]                   
-/home/avsec/bin/anaconda3/lib/python3.6/site-packages/keras/models.py:255: UserWarning: No training configuration found in save file: the model was *not* compiled. Compile it manually.
-  warnings.warn('No training configuration found in save file: '
-2it [00:00,  2.19it/s]
-
-
-PWM auROC:
 
 
 
@@ -269,7 +244,7 @@ PWM auROC:
 
 0.6431155
 </code></pre>
-<p>In this example, DeepBind's auROC of 80.8% outperforms the HOCOMOCO PWM auROC of 64.3%</p>
+<p>In this example, HOCOMOCO PWM's auROC of 64.3% outperforms the DeepBind auROC of 61.5%</p>
               
             </div>
           </div>
