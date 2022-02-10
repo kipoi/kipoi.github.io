@@ -138,7 +138,7 @@
 </code></pre>
 <p>Resize the interval</p>
 <h2 id="onehot">OneHot</h2>
-<pre><code class="language-python">OneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None)
+<pre><code class="language-python">OneHot(self, alphabet=('A', 'C', 'G', 'T'), neutral_alphabet='N', neutral_value=0.25, dtype=None)
 </code></pre>
 <p>One-hot encode the sequence</p>
 <p><strong>Arguments</strong></p>
@@ -152,7 +152,7 @@
 <li><strong>dummy_axis</strong>: defines in which dimension a dummy axis should be added. None if no dummy axis is required.</li>
 </ul>
 <h2 id="reorderedonehot">ReorderedOneHot</h2>
-<pre><code class="language-python">ReorderedOneHot(self, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet='N', neutral_value=0.25, dtype=None, alphabet_axis=1, dummy_axis=None)
+<pre><code class="language-python">ReorderedOneHot(self, alphabet=('A', 'C', 'G', 'T'), neutral_alphabet='N', neutral_value=0.25, dtype=None, alphabet_axis=1, dummy_axis=None)
 </code></pre>
 <p>Flexible one-hot encoding class that can account for
 many different one-hot encoding formats.</p>

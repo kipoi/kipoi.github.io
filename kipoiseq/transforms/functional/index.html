@@ -108,7 +108,7 @@
             <div class="section">
               
                 <h2 id="one_hot2string">one_hot2string</h2>
-<pre><code class="language-python">one_hot2string(arr, alphabet=['A', 'C', 'G', 'T'])
+<pre><code class="language-python">one_hot2string(arr, alphabet=('A', 'C', 'G', 'T'))
 </code></pre>
 <p>Convert a one-hot encoded array back to string</p>
 <h2 id="rc_dna">rc_dna</h2>
@@ -135,7 +135,7 @@ assert rc_seq("tatcg") == "cgata"</p>
 </blockquote>
 </blockquote>
 <h2 id="tokenize">tokenize</h2>
-<pre><code class="language-python">tokenize(seq, alphabet=['A', 'C', 'G', 'T'], neutral_alphabet=['N'])
+<pre><code class="language-python">tokenize(seq, alphabet=('A', 'C', 'G', 'T'), neutral_alphabet=['N'])
 </code></pre>
 <p>Convert sequence to integers</p>
 <p><strong>Arguments</strong></p>
@@ -151,7 +151,7 @@ assert rc_seq("tatcg") == "cgata"</p>
 </code></pre>
 <p>Note: everything out of the alphabet is transformed into <code>np.zeros(alphabet_size)</code></p>
 <h2 id="one_hot_dna">one_hot_dna</h2>
-<pre><code class="language-python">one_hot_dna(seq:str, alphabet:list=['A', 'C', 'G', 'T'], neutral_alphabet:str='N', neutral_value:Any=0.25, dtype=&lt;class 'numpy.float32'&gt;) -&gt; numpy.ndarray
+<pre><code class="language-python">one_hot_dna(seq:str, alphabet:list=('A', 'C', 'G', 'T'), neutral_alphabet:str='N', neutral_value:Any=0.25, dtype=&lt;class 'numpy.float32'&gt;) -&gt; numpy.ndarray
 </code></pre>
 <p>One-hot encode sequence.</p>
 <h2 id="fixed_len">fixed_len</h2>
