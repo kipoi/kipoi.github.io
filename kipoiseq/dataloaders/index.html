@@ -196,7 +196,7 @@
 </li>
 </ul>
 <h2 id="anchoredgtfdl">AnchoredGTFDl</h2>
-<pre><code class="language-python">AnchoredGTFDl(self, gtf_file, fasta_file, num_upstream, num_downstream, gtf_filter='gene_type == &quot;protein_coding&quot;', anchor='tss', transform=&lt;function one_hot_dna at 0x7f9e52f678c8&gt;, interval_attrs=['gene_id', 'Strand'], use_strand=True)
+<pre><code class="language-python">AnchoredGTFDl(self, gtf_file, fasta_file, num_upstream, num_downstream, gtf_filter='gene_type == &quot;protein_coding&quot;', anchor='tss', transform=&lt;function one_hot_dna at 0x7fd51aa918c8&gt;, interval_attrs=['gene_id', 'Strand'], use_strand=True)
 </code></pre>
 <p>Dataloader for a combination of fasta and gtf files. The dataloader extracts fixed length regions around anchor points. Anchor points are extracted from the gtf based on the anchor parameter. The sequences corresponding to the region are then extracted from the fasta file and optionally trnasformed using a function given by the transform parameter.</p>
 <p><strong>Arguments</strong></p>
