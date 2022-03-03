@@ -456,7 +456,8 @@ logging.disable(1000)
 <p><strong>NOTE:</strong> If you are using python2, use a different model like <code>MaxEntScan/3prime</code> to following this example.</p>
 <pre><code class="language-python"># Note. Install all the dependencies for that model:
 # add --gpu flag to install gpu-compatible dependencies (e.g. installs tensorflow-gpu instead of tensorflow)
-!kipoi env install {MODEL}
+!kipoi env create {MODEL}
+!source activate kipoi-{MODEL}
 </code></pre>
 <pre><code class="language-python">model = kipoi.get_model(MODEL)
 </code></pre>

@@ -398,7 +398,8 @@ kipoi_list_models &lt;- function() {
 <pre><code class="language-R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
 </code></pre>
 <p>from R or</p>
-<pre><code class="language-bash">kipoi env install MaxEntScan/3prime
+<pre><code class="language-bash">kipoi env create MaxEntScan
+source activate kipoi-MaxEntScan
 </code></pre>
 <p>from the command-line. This will install all the required dependencies for both, the model and the dataloader.</p>
 <pre><code class="language-R">kipoi$install_model_requirements(&quot;MaxEntScan/3prime&quot;)
@@ -469,10 +470,12 @@ model$predict_on_batch(batch$inputs)
 <p>from the command-line first. </p>
 <h3 id="dependency-issues">Dependency issues</h3>
 <p>It's very likely that the error will be due to missing dependencies. Also note that some models will work only with python 3 or python 2. To install all the required dependencies for the model, run:</p>
-<pre><code>$ kipoi env install MaxEntScan/3prime
+<pre><code>$ kipoi env create MaxEntScan
+$ source activate kipoi-MaxEntScan
 </code></pre>
 <p>This will install the dependencies into your current conda environment. If you wish to create a new environment with all the dependencies installed, run</p>
-<pre><code>$ kipoi env create MaxEntScan/3prime
+<pre><code>$ kipoi env create MaxEntScan
+$ source activate kipoi-MaxEntScan
 </code></pre>
 <p>To use that environment in R, run:</p>
 <pre><code class="language-R">use_condaenv(&quot;kipoi-MaxEntScan__3prime&quot;)
