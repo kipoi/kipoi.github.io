@@ -170,7 +170,7 @@
               
                 <h1 id="kipoimetadata">kipoi.metadata</h1>
 <p>Module defining different metadata classes compatible with dataloaders</p>
-<p>All classes inherit from <code>collections.Mapping</code> which allows to use
+<p>All classes inherit from <code>collections.abc.Mapping</code> which allows to use
 <code>kipoi.data_utils.numpy_collate</code> on them (e.g. they behave as a dictionary).</p>
 <h2 id="genomicranges">GenomicRanges</h2>
 <pre><code class="language-python">GenomicRanges(self, chr, start, end, id, strand='*')
