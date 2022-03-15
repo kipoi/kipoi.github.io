@@ -368,19 +368,19 @@ dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
-it = dl.batch_iter(batch_size=4)
-# predict for a batch
-batch = next(it)
-model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
+batch_iterator = dl.batch_iter(batch_size=4)
+for batch in batch_iterator:
+    # predict for a batch
+    batch_pred = model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre> -->
 	<pre><code class="python"># Download example dataloader kwargs
 dl_kwargs = model.default_dataloader.download_example(&#39;example&#39;)
 # Get the dataloader and instantiate it
 dl = model.default_dataloader(**dl_kwargs)
 # get a batch iterator
-it = dl.batch_iter(batch_size=4)
-# predict for a batch
-batch = next(it)
-model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
+batch_iterator = dl.batch_iter(batch_size=4)
+for batch in batch_iterator:
+    # predict for a batch
+    batch_pred = model.predict_on_batch(batch[&#39;inputs&#39;])</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
