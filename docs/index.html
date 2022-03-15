@@ -212,7 +212,7 @@
     <img alt='PyPi' src=https://img.shields.io/pypi/v/kipoi.svg style="max-height:20px;width:auto;">
 </a>
 <a href=https://www.python.org/downloads>
-    <img alt='Python' src=https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-cyan style="max-height:20px;width:auto;">
+    <img alt='Python' src=https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-cyan style="max-height:20px;width:auto;">
 </a>
 <a href=https://opensource.org/licenses/MIT>
     <img alt='License: MIT' src=https://img.shields.io/badge/License-MIT-yellow.svg style="max-height:20px;width:auto;">
@@ -230,7 +230,7 @@
 </ul>
 <h2 id="installation">Installation</h2>
 <p>Kipoi requires <a href="https://conda.io/">conda</a> to manage model dependencies.
-Make sure you have either anaconda (<a href="https://www.anaconda.com/download/">download page</a>) or miniconda (<a href="https://conda.io/miniconda.html">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX">Installing python on OSX</a>. Maintained python versions: &gt;=3.6&lt;=3.9. </p>
+Make sure you have either anaconda (<a href="https://www.anaconda.com/download/">download page</a>) or miniconda (<a href="https://conda.io/miniconda.html">download page</a>) installed. If you are using OSX, see <a href="http://kipoi.org/docs/using/04_Installing_on_OSX">Installing python on OSX</a>. Maintained python versions: &gt;=3.6&lt;=3.10. </p>
 <p>Install Kipoi using <a href="https://pip.pypa.io/en/stable/">pip</a>:</p>
 <pre><code class="language-bash">pip install kipoi
 </code></pre>
@@ -238,9 +238,9 @@ Make sure you have either anaconda (<a href="https://www.anaconda.com/download/"
 <p>For systems using python 3.6 and 3.7, pretrained kipoi models of type kipoi.model.KerasModel and kipoi.model.TensorflowModel which were saved with h5py &lt;3.<em> are incompatible with h5py &gt;= 3.</em>. Please downgrade h5py after installing kipoi</p>
 <pre><code class="language-bash">pip install h5py==2.10.0
 </code></pre>
-<p>This is not a problem with systems using python 3.8 and 3.9.
+<p>This is not a problem with systems using python &gt;=3.8&lt;=3.10.
 More information available <a href="https://github.com/tensorflow/tensorflow/issues/44467">here</a></p>
-<p>For systems using python 3.8 and 3.9, it is necessary to install hdf5 and pkgconfig prior to installing kipoi.</p>
+<p>For systems using python &gt;=3.8&lt;=3.10, it is necessary to install hdf5 and pkgconfig prior to installing kipoi.</p>
 <pre><code class="language-bash">conda install --yes -c conda-forge hdf5 pkgconfig
 </code></pre>
 <h2 id="quick-start">Quick start</h2>
@@ -415,5 +415,5 @@ pip install -e .
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2022-03-15 12:41:02.579430+00:00
+Build Date UTC : 2022-03-15 13:55:43.054931+00:00
 -->
