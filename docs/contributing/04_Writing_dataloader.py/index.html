@@ -300,8 +300,7 @@ dataloader in [kipoiseq](https://github.com/kipoi/kipoiseq).
 </table>
 <h3 id="dataset-example">Dataset example</h3>
 <p>Here is an example dataloader that gets as input a <a href="http://genetics.bwh.harvard.edu/pph/FASTA.html">fasta</a> file and a <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">bed</a> file and returns a one-hot encoded sequence (under 'inputs') along with the used genomic interval (under 'metadata/ranges').</p>
-<pre><code class="language-python">from __future__ import absolute_import, division, print_function
-import numpy as np
+<pre><code class="language-python">import numpy as np
 from pybedtools import BedTool
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
@@ -342,8 +341,7 @@ class SeqDataset(Dataset):
 <p>If your dataloader requires an external data file as for example in 
 <a href="../tutorials/contributing_models.html">tutorials/contributing_models</a>, then the Kipoi way of automatically downloading 
 and using that file is by adding an argument to the dataloader implementation:</p>
-<pre><code class="language-python">from __future__ import absolute_import, division, print_function
-from kipoi.data import Dataset
+<pre><code class="language-python">from kipoi.data import Dataset
 
 class SeqDataset(Dataset):
     &quot;&quot;&quot;
