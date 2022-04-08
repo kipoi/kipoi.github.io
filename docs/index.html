@@ -352,10 +352,21 @@ kipoi predict &lt;Model&gt; --dataloader_args='{
 </code></pre>
 <h2 id="development">Development</h2>
 <p>If you want to help with the development of Kipoi, you are more than welcome to join in! </p>
-<p>For the local setup for development, you should install all required dependencies using one of the provided dev-requirements-py&lt;36|37|38|39&gt;.yml files</p>
-<pre><code class="language-bash">conda env create -f dev-requirements-py39.yml
+<p>For the local setup for development, you should install all required dependencies using one of the provided dev-requirements(-py&lt;36|37&gt;).yml files</p>
+<p>For systems using python 3.6/3.7:</p>
+<pre><code class="language-bash">conda env create -f dev-requirements-py36.yml --experimental-solver=libmamba
+or
+conda env create -f dev-requirements-py37.yml --experimental-solver=libmamba
 conda activate kipoi-dev
 pip install -e .
+git lfs install
+</code></pre>
+<p>For systems using python &gt;=3.8&lt;=3.10:</p>
+<pre><code class="language-bash">conda create --name kipoi-dev python=3.8 (or 3.9, 3.10)
+conda activate kipoi-dev
+pip install -e .
+conda env update --name kipoi-dev --file dev-requirements.yml --experimental-solver=libmamba 
+git lfs install    
 </code></pre>
 <p>You can test the package by running <code>py.test</code>. </p>
 <p>If you wish to run tests in parallel, run <code>py.test -n 6</code>.</p>
@@ -419,5 +430,5 @@ pip install -e .
 
 <!--
 MkDocs version : 1.2.4
-Build Date UTC : 2022-04-08 14:05:01.982061+00:00
+Build Date UTC : 2022-04-08 15:57:32.776411+00:00
 -->
