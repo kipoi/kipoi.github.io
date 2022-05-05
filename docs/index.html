@@ -90,6 +90,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#citing-kipoi">Citing Kipoi</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#development">Development</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-note-about-cyvcf2-and-pybigwig">A note about cyvcf2 and pybigwig</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
     </li>
@@ -364,10 +368,13 @@ git lfs install
 <p>For systems using python &gt;=3.8&lt;=3.10:</p>
 <pre><code class="language-bash">conda create --name kipoi-dev python=3.8 (or 3.9, 3.10)
 conda activate kipoi-dev
-pip install -e .
 conda env update --name kipoi-dev --file dev-requirements.yml --experimental-solver=libmamba 
+pip install -e .
+conda install -c bioconda cyvcf2 pybigwig
 git lfs install    
 </code></pre>
+<h3 id="a-note-about-cyvcf2-and-pybigwig">A note about cyvcf2 and pybigwig</h3>
+<p>For python &gt;= 3.10, cyvcf2 and pybigwig are not available in conda yet. Install them from source like <a href="">here</a> and <a href="">here</a> instead. </p>
 <p>You can test the package by running <code>py.test</code>. </p>
 <p>If you wish to run tests in parallel, run <code>py.test -n 6</code>.</p>
 <h2 id="license">License</h2>
@@ -430,5 +437,5 @@ git lfs install
 
 <!--
 MkDocs version : 1.2.4
-Build Date UTC : 2022-04-24 12:08:46.554807+00:00
+Build Date UTC : 2022-05-05 14:48:30.388570+00:00
 -->
