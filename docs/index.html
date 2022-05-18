@@ -253,7 +253,8 @@ More information available <a href="https://github.com/tensorflow/tensorflow/iss
 <p>Explore available models on <a href="http://kipoi.org/groups/">https://kipoi.org/groups/</a>. Use-case oriented tutorials are available at <a href="https://github.com/kipoi/examples">https://github.com/kipoi/examples</a>.</p>
 <h3 id="installing-all-required-model-dependencies">Installing all required model dependencies</h3>
 <p>Use <code>kipoi env create &lt;model&gt;</code> to create a new conda environment for the model. You can use the following two commands to create common environments suitable for multiple models.</p>
-<pre><code>kipoi env create shared/envs/kipoi-py3-keras2   # add --gpu to install gpu-compatible deps
+<pre><code>kipoi env create shared/envs/kipoi-py3-keras2-tf1
+kipoi env create shared/envs/kipoi-py3-keras2-tf2
 kipoi env create shared/envs/kipoi-py3-keras1.2
 </code></pre>
 <p>Before using a model in any way, activate the right conda enviroment:</p>
@@ -437,5 +438,5 @@ git lfs install
 
 <!--
 MkDocs version : 1.2.4
-Build Date UTC : 2022-05-05 14:55:49.957405+00:00
+Build Date UTC : 2022-05-18 12:40:19.511324+00:00
 -->
