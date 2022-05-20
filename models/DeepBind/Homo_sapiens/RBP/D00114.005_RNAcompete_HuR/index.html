@@ -521,6 +521,21 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
+	<!-- <pre class="language-markup"><code>docker pull kipoi/kipoi-docker:sharedpy3keras2tf1-slim</code></pre> -->
+	<pre><code class="docker">docker pull kipoi/kipoi-docker:sharedpy3keras2tf1-slim</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Get the full sized docker image</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
 	<!-- <pre class="language-markup"><code>docker pull kipoi/kipoi-docker:sharedpy3keras2tf1</code></pre> -->
 	<pre><code class="docker">docker pull kipoi/kipoi-docker:sharedpy3keras2tf1</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
@@ -536,8 +551,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run -it kipoi/kipoi-docker:sharedpy3keras2tf1</code></pre> -->
-	<pre><code class="docker">docker run -it kipoi/kipoi-docker:sharedpy3keras2tf1</code></pre>
+	<!-- <pre class="language-markup"><code>docker run -it kipoi/kipoi-docker:sharedpy3keras2tf1-slim</code></pre> -->
+	<pre><code class="docker">docker run -it kipoi/kipoi-docker:sharedpy3keras2tf1-slim</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -551,8 +566,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run kipoi/kipoi-docker:sharedpy3keras2tf1 kipoi test DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR --source=kipoi</code></pre> -->
-	<pre><code class="docker">docker run kipoi/kipoi-docker:sharedpy3keras2tf1 kipoi test DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>docker run kipoi/kipoi-docker:sharedpy3keras2tf1-slim kipoi test DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR --source=kipoi</code></pre> -->
+	<pre><code class="docker">docker run kipoi/kipoi-docker:sharedpy3keras2tf1-slim kipoi test DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -569,9 +584,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
 	<!-- <pre class="language-markup"><code># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1-slim \
 kipoi get-example DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1-slim \
 kipoi predict DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR \
 --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;/app/example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;/app/example/fasta_file&#39;}&#39; \
 -o &#39;/app/DeepBind_Homo_sapiens_RBP_D00114.005_RNAcompete_HuR.example_pred.tsv&#39; 
@@ -581,9 +596,9 @@ head $PWD/kipoi-example/DeepBind_Homo_sapiens_RBP_D00114.005_RNAcompete_HuR.exam
 	<pre><code class="docker"># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1-slim \
 kipoi get-example DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1 \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:sharedpy3keras2tf1-slim \
 kipoi predict DeepBind/Homo_sapiens/RBP/D00114.005_RNAcompete_HuR \
 --dataloader_args=&#39;{&#39;intervals_file&#39;: &#39;/app/example/intervals_file&#39;, &#39;fasta_file&#39;: &#39;/app/example/fasta_file&#39;}&#39; \
 -o &#39;/app/DeepBind_Homo_sapiens_RBP_D00114.005_RNAcompete_HuR.example_pred.tsv&#39; 

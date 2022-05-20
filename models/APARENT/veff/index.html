@@ -528,6 +528,21 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
+	<!-- <pre class="language-markup"><code>docker pull kipoi/kipoi-docker:aparent-veff-slim</code></pre> -->
+	<pre><code class="docker">docker pull kipoi/kipoi-docker:aparent-veff-slim</code></pre>
+	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
+      </div>
+    </div>
+  </div>
+
+            
+                
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-title">Get the full sized docker image</div>
+    </div>
+    <div class="col-lg-12 col-xs-12">
+      <div class="code-container">
 	<!-- <pre class="language-markup"><code>docker pull kipoi/kipoi-docker:aparent-veff</code></pre> -->
 	<pre><code class="docker">docker pull kipoi/kipoi-docker:aparent-veff</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
@@ -543,8 +558,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run -it kipoi/kipoi-docker:aparent-veff</code></pre> -->
-	<pre><code class="docker">docker run -it kipoi/kipoi-docker:aparent-veff</code></pre>
+	<!-- <pre class="language-markup"><code>docker run -it kipoi/kipoi-docker:aparent-veff-slim</code></pre> -->
+	<pre><code class="docker">docker run -it kipoi/kipoi-docker:aparent-veff-slim</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -558,8 +573,8 @@ model$predict_on_batch(batch$inputs)</code></pre>
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>docker run kipoi/kipoi-docker:aparent-veff kipoi test APARENT/veff --source=kipoi</code></pre> -->
-	<pre><code class="docker">docker run kipoi/kipoi-docker:aparent-veff kipoi test APARENT/veff --source=kipoi</code></pre>
+	<!-- <pre class="language-markup"><code>docker run kipoi/kipoi-docker:aparent-veff-slim kipoi test APARENT/veff --source=kipoi</code></pre> -->
+	<pre><code class="docker">docker run kipoi/kipoi-docker:aparent-veff-slim kipoi test APARENT/veff --source=kipoi</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
@@ -576,9 +591,9 @@ model$predict_on_batch(batch$inputs)</code></pre>
 	<!-- <pre class="language-markup"><code># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff-slim \
 kipoi get-example APARENT/veff -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff-slim \
 kipoi predict APARENT/veff \
 --dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;/app/example/chr22.fa&#39;, &#39;gtf_file&#39;: &#39;/app/example/chr22.gtf.gz&#39;, &#39;vcf_file&#39;: &#39;/app/example/vcf_file&#39;, &#39;vcf_file_tbi&#39;: &#39;/app/example/vcf_file.tbi&#39;, &#39;vcf_lazy&#39;: True}&#39; \
 -o &#39;/app/APARENT_veff.example_pred.tsv&#39; 
@@ -588,9 +603,9 @@ head $PWD/kipoi-example/APARENT_veff.example_pred.tsv
 	<pre><code class="docker"># Create an example directory containing the data
 mkdir -p $PWD/kipoi-example 
 # You can replace $PWD/kipoi-example with a different absolute path containing the data 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff-slim \
 kipoi get-example APARENT/veff -o /app/example 
-docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff \
+docker run -v $PWD/kipoi-example:/app/ kipoi/kipoi-docker:aparent-veff-slim \
 kipoi predict APARENT/veff \
 --dataloader_args=&#39;{&#39;fasta_file&#39;: &#39;/app/example/chr22.fa&#39;, &#39;gtf_file&#39;: &#39;/app/example/chr22.gtf.gz&#39;, &#39;vcf_file&#39;: &#39;/app/example/vcf_file&#39;, &#39;vcf_file_tbi&#39;: &#39;/app/example/vcf_file.tbi&#39;, &#39;vcf_lazy&#39;: True}&#39; \
 -o &#39;/app/APARENT_veff.example_pred.tsv&#39; 
