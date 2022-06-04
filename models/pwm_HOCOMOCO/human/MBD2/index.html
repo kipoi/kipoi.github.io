@@ -608,8 +608,22 @@ head $PWD/kipoi-example/pwm_HOCOMOCO_human_MBD2.example_pred.tsv
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>Not available yet</code></pre> -->
-	<pre><code class="singularity">Not available yet</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi get-example pwm_HOCOMOCO/human/MBD2 -o example
+kipoi predict pwm_HOCOMOCO/human/MBD2 \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+-o &#39;pwm_HOCOMOCO_human_MBD2.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head pwm_HOCOMOCO_human_MBD2.example_pred.tsv
+</code></pre> -->
+	<pre><code class="singularity">kipoi get-example pwm_HOCOMOCO/human/MBD2 -o example
+kipoi predict pwm_HOCOMOCO/human/MBD2 \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+-o &#39;pwm_HOCOMOCO_human_MBD2.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head pwm_HOCOMOCO_human_MBD2.example_pred.tsv
+</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>

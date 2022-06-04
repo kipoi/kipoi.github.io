@@ -640,8 +640,22 @@ head $PWD/kipoi-example/DeepBind_Homo_sapiens_TF_D00700.006_ChIP-seq_USF1.exampl
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>Not available yet</code></pre> -->
-	<pre><code class="singularity">Not available yet</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi get-example DeepBind/Homo_sapiens/TF/D00700.006_ChIP-seq_USF1 -o example
+kipoi predict DeepBind/Homo_sapiens/TF/D00700.006_ChIP-seq_USF1 \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+-o &#39;DeepBind_Homo_sapiens_TF_D00700.006_ChIP-seq_USF1.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head DeepBind_Homo_sapiens_TF_D00700.006_ChIP-seq_USF1.example_pred.tsv
+</code></pre> -->
+	<pre><code class="singularity">kipoi get-example DeepBind/Homo_sapiens/TF/D00700.006_ChIP-seq_USF1 -o example
+kipoi predict DeepBind/Homo_sapiens/TF/D00700.006_ChIP-seq_USF1 \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+-o &#39;DeepBind_Homo_sapiens_TF_D00700.006_ChIP-seq_USF1.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head DeepBind_Homo_sapiens_TF_D00700.006_ChIP-seq_USF1.example_pred.tsv
+</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>

@@ -623,8 +623,22 @@ head $PWD/kipoi-example/FactorNet_NANOG_onePeak_Unique35_DGF.example_pred.tsv
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>Not available yet</code></pre> -->
-	<pre><code class="singularity">Not available yet</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi get-example FactorNet/NANOG/onePeak_Unique35_DGF -o example
+kipoi predict FactorNet/NANOG/onePeak_Unique35_DGF \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;dnase_file&#34;: &#34;example/dnase_file&#34;, &#34;mappability_file&#34;: &#34;example/mappability_file&#34;}&#39; \
+-o &#39;FactorNet_NANOG_onePeak_Unique35_DGF.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head FactorNet_NANOG_onePeak_Unique35_DGF.example_pred.tsv
+</code></pre> -->
+	<pre><code class="singularity">kipoi get-example FactorNet/NANOG/onePeak_Unique35_DGF -o example
+kipoi predict FactorNet/NANOG/onePeak_Unique35_DGF \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;, &#34;dnase_file&#34;: &#34;example/dnase_file&#34;, &#34;mappability_file&#34;: &#34;example/mappability_file&#34;}&#39; \
+-o &#39;FactorNet_NANOG_onePeak_Unique35_DGF.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head FactorNet_NANOG_onePeak_Unique35_DGF.example_pred.tsv
+</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>

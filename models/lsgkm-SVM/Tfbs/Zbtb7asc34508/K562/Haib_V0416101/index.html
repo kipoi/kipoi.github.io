@@ -600,8 +600,22 @@ head $PWD/kipoi-example/lsgkm-SVM_Tfbs_Zbtb7asc34508_K562_Haib_V0416101.example_
     </div>
     <div class="col-lg-12 col-xs-12">
       <div class="code-container">
-	<!-- <pre class="language-markup"><code>Not available yet</code></pre> -->
-	<pre><code class="singularity">Not available yet</code></pre>
+	<!-- <pre class="language-markup"><code>kipoi get-example lsgkm-SVM/Tfbs/Zbtb7asc34508/K562/Haib_V0416101 -o example
+kipoi predict lsgkm-SVM/Tfbs/Zbtb7asc34508/K562/Haib_V0416101 \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+-o &#39;lsgkm-SVM_Tfbs_Zbtb7asc34508_K562_Haib_V0416101.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head lsgkm-SVM_Tfbs_Zbtb7asc34508_K562_Haib_V0416101.example_pred.tsv
+</code></pre> -->
+	<pre><code class="singularity">kipoi get-example lsgkm-SVM/Tfbs/Zbtb7asc34508/K562/Haib_V0416101 -o example
+kipoi predict lsgkm-SVM/Tfbs/Zbtb7asc34508/K562/Haib_V0416101 \
+--dataloader_args=&#39;{&#34;intervals_file&#34;: &#34;example/intervals_file&#34;, &#34;fasta_file&#34;: &#34;example/fasta_file&#34;}&#39; \
+-o &#39;lsgkm-SVM_Tfbs_Zbtb7asc34508_K562_Haib_V0416101.example_pred.tsv&#39; \
+--singularity 
+# check the results
+head lsgkm-SVM_Tfbs_Zbtb7asc34508_K562_Haib_V0416101.example_pred.tsv
+</code></pre>
 	<div class="code-toolbar"><a data-toggle="tooltip" data-placement="top" data-html="true" title="Copy to clipboard!" class="btn btn-sm btn-info copy-to-clipboard">Copy</a></div>
       </div>
     </div>
