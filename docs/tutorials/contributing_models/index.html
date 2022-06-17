@@ -694,27 +694,22 @@ array([[ 3.2324865 , -0.29753828,  0.62135816],
 <ul>
 <li>Like all other types of virtual environment, conda environments are sensitive to changes in the ever changing world of python dependencies. It is recommended that you pin the versions of the packages listed under dependencies to that used in your local setup. If you already have a conda environment, simply do the following - <br>
     <code>conda env export --no-build &gt; env.yml</code><br>
-    <code>cat env.yml | grep keras</code> </li>
-<li>Your submitted models will be tested in our circleci infrastructure. The specifications are -<ul>
+    <code>cat env.yml | grep keras</code>     </li>
+<li>Try installing keras, tensorflow, h5py, numpy, pandas etc. from conda as opposed to pip. These packages depend on system libraries so installing them from pip is likely to lead to unintended inconsistencies.</li>
+<li>If you are using a specific conda channel for a particular dependency, you can specify them as channel::package=version such as bioconda::pysam=0.16</li>
+<li>During nightly tests, a conda environment is created for each model group from scratch. If there is a test template present in <code>model.yaml</code> generated 
+predictions are compared against predictions stored in a file. In general, kipoi maintainers will generate a test file and update <code>model.yaml</code> after your submission. However, optionally you can do this as well. The steps are as follows - <br><ul>
+<li><code>kipoi test &lt;model-name&gt; --source=dir  -o &lt;model-name&gt;.predictions.h5</code> <br></li>
+<li>Upload <code>&lt;model-name&gt;.predictions.h5</code>  on zenodo or a file hosting service of choice and get an url and checksum <br></li>
+<li>Add a snippet like <a href="https://github.com/kipoi/models/blob/346c44a8e89224b3f29a38571ab86759ac943494/TREDNet/phase_two_islet/model.yaml#L47-L51">this</a> to <code>model.yaml</code>. By default the desired precision is 7 decimal places. Feel free to adjust this.    </li>
+</ul>
+</li>
+<li>In some cases, you may submit a model group that contains multiple models with similar configuration. If you feel it is okay to just test a subset of them during kipoi repository's nightly tests - add a file in the top level called test_subset.txt and specify the name of the model like <a href="https://github.com/kipoi/models/blob/master/DeepBind/test_subset.txt">here</a>. In this case, the above test snippet needs to be modified like <a href="https://github.com/kipoi/models/blob/ca962e3881ba4e969a125144afab35ba4db442d5/DeepBind/model-template.yaml#L60-L65">so</a>. However, this is optional.</li>
+<li>FYI: Your submitted models will be tested in our circleci infrastructure. The specifications are -<ul>
 <li>OS: <a href="https://circleci.com/developer/machine/image/ubuntu-2004">ubuntu-2004:current</a></li>
 <li>conda: latest version</li>
 </ul>
 </li>
-<li>Try installing keras, tensorflow, h5py, numpy, pandas etc. from conda as opposed to pip. These packages depend on system libraries so installing them from pip is likely to lead to unintended inconsistencies.</li>
-<li>If you are using a specific conda channel for a particular dependency, you can specify them as channel::package=version such as bioconda::pysam=0.16</li>
-<li>During nightly tests, a conda environment is created for each model group from scratch. If there is a test template present in <code>model.yaml</code> generated 
-predictions are compared against predictions stored in a file. In general, kipoi maintainers will generate a test file and update <code>model.yaml</code> after your submission. However, if you wish you can do this as well. However, this is optional. The steps are as follows - <br><ul>
-<li><code>kipoi test &lt;model-name&gt; --source=dir  -o &lt;model-name&gt;.predictions.h5</code> <br></li>
-<li>Upload <code>&lt;model-name&gt;.predictions.h5</code>  on zenodo or a file hosting service of choice and get an url and checksum <br></li>
-<li>Add the following snippet to <code>model.yaml</code>. By default desired precision is 7 decimal places. Feel free to adjust this as shown below. 
-<code>test:
-  expect:
-    url: &lt;Insert url&gt;
-    md5: &lt;Insert md5 checksum&gt;
-  precision_decimal: 5</code>    </li>
-</ul>
-</li>
-<li>In some cases, you may submit a model group that contains multiple models with similar configuration. If you feel it is okay to just test a subset of them during kipoi repository's nightly tests - add a file in the top level called test_subset.txt and specify the name of the model like <a href="https://github.com/kipoi/models/blob/master/DeepBind/test_subset.txt">here</a>. In this case, the above test snippet needs to be modified like <a href="https://github.com/kipoi/models/blob/ca962e3881ba4e969a125144afab35ba4db442d5/DeepBind/model-template.yaml#L60-L65">so</a>. However, this is optional.</li>
 </ul>
 <h2 id="recap">Recap</h2>
 <p>Congrats! You made it through the tutorial! Feel free to use this model for your model template. Alternatively, you can use <code>kipoi init</code> to setup a model directory. Make sure you have read the <a href="http://kipoi.org/docs/contributing/01_Getting_started/">getting started guide</a> for contributing models.</p>
