@@ -194,7 +194,7 @@
 <pre><code class="language-python">model = kipoi.get_model(&quot;Basset&quot;)
 </code></pre>
 <hr />
-<p><strong> Aside: <code>get_model</code> and models versus model groups</strong>: </p>
+<p>** Aside: <code>get_model</code> and models versus model groups**: </p>
 <blockquote>
 <p><code>get_model</code> expects to receive a path to a directory containing a <code>model.yaml</code> file.  This file specifies the underlying model, data loader, and other model attributes.<br />
 If instead you provide <code>get_model</code> a path to a model <em>group</em> (e.g "lsgkm-SVM/Tfbs/Ap2alpha/"), rather than one model (e.g "lsgkm-SVM/Tfbs/Ap2alpha/Helas3/Sydh_Std"), or any other directory without a <code>model.yaml</code> file, <code>get_model</code> will throw a <code>ValueError</code>.</p>
