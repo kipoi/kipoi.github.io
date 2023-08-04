@@ -3689,7 +3689,8 @@
 <ol>
 <li>
 <p>Install kipoi:
-<pre class="highlight"><code class="language-shell">pip install kipoi</code></pre></p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>kipoi
+</code></pre></div></p>
 </li>
 <li>
 <p>Run <code>kipoi ls</code>. This will checkout the <code>kipoi/models</code> repo to <code>~/.kipoi/models</code>)</p>
@@ -3702,13 +3703,14 @@
 <p>To explore available models, visit <a href="http://kipoi.org/groups/">http://kipoi.org/models</a>. See <a href="https://github.com/kipoi/kipoi">kipoi/README.md</a> and <a href="http://kipoi.org/docs/using/01_Getting_started/">docs/using getting started</a> for more information on how to programatically access the models from this repository using CLI, python or R.</p>
 <h4>Configuring local storage location</h4>
 <p>This model source (<a href="https://github.com/kipoi/models">https://github.com/kipoi/models</a>) is included in the Kipoi config file (<code>~/.kipoi/config.yaml</code>) by default:</p>
-<pre class="highlight"><code class="language-yaml"># ~/.kipoi/config.yaml
-model_sources:
-    kipoi:
-        type: git-lfs
-        remote_url: git@github.com:kipoi/models.git
-        local_path: ~/.kipoi/models/
-        auto_update: True</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.kipoi/config.yaml</span>
+<span class="nt">model_sources</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kipoi</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git-lfs</span>
+<span class="w">        </span><span class="nt">remote_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git@github.com:kipoi/models.git</span>
+<span class="w">        </span><span class="nt">local_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.kipoi/models/</span>
+<span class="w">        </span><span class="nt">auto_update</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+</code></pre></div>
 <p>If you wish to keep the models stored elsewhere, edit the <code>local_path</code> accordingly.</p></div>
 </div>
         </section>

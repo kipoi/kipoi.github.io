@@ -476,21 +476,24 @@
 <p>Install <code>kipoi</code> as described in: <a href="http://kipoi.org/docs/#installation">http://kipoi.org/docs/#installation</a></p>
 <ol>
 <li>Create a new conda environment with all dependencies installed
-<pre class="highlight"><code class="language-bash">kipoi env create MMSplice/deltaLogitPSI
-source activate kipoi-MMSplice__deltaLogitPSI</code></pre></li>
+<div class="highlight"><pre><span></span><code>kipoi<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>MMSplice/deltaLogitPSI
+<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>kipoi-MMSplice__deltaLogitPSI
+</code></pre></div></li>
 <li>
 <p>Install model dependencies into current environment
-<pre class="highlight"><code class="language-bash">kipoi env install MMSplice/deltaLogitPSI</code></pre></p>
+<div class="highlight"><pre><span></span><code>kipoi<span class="w"> </span>env<span class="w"> </span>install<span class="w"> </span>MMSplice/deltaLogitPSI
+</code></pre></div></p>
 </li>
 <li>
 <p>Run deltaLogitPSI prediction on example files from the command line with <code>kipoi predict</code>. MMSplice takes three input files: a gtf annotation file, a reference sequence fasta file and a vcf file with variants.</p>
 </li>
 </ol>
-<pre class="highlight"><code class="language-bash">cd ~/.kipoi/models/MMSplice/deltaLogitPSI
-kipoi predict MMSplice/deltaLogitPSI \
-  --dataloader_args='{'gtf_file': 'example_files/test.gtf', 'fasta_file': 'example_files/hg19.nochr.chr17.fa', 'vcf_file': 'example_files/test.vcf.gz'}' \  -o test.tsv
-# check the results
-head 'test.tsv'</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/.kipoi/models/MMSplice/deltaLogitPSI
+kipoi<span class="w"> </span>predict<span class="w"> </span>MMSplice/deltaLogitPSI<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dataloader_args<span class="o">=</span><span class="s1">&#39;{&#39;</span>gtf_file<span class="s1">&#39;: &#39;</span>example_files/test.gtf<span class="s1">&#39;, &#39;</span>fasta_file<span class="s1">&#39;: &#39;</span>example_files/hg19.nochr.chr17.fa<span class="s1">&#39;, &#39;</span>vcf_file<span class="s1">&#39;: &#39;</span>example_files/test.vcf.gz<span class="s1">&#39;}&#39;</span><span class="w"> </span><span class="se">\ </span><span class="w"> </span>-o<span class="w"> </span>test.tsv
+<span class="c1"># check the results</span>
+head<span class="w"> </span><span class="s1">&#39;test.tsv&#39;</span>
+</code></pre></div>
 <p>We also documented the usage with CLI, python and R <a href="http://kipoi.org/models/MMSplice/deltaLogitPSI/">here</a>. </p>
 <h3>Prepare your own input files</h3>
 <h4>1. Prepare annotation (gtf) file</h4>
@@ -508,9 +511,11 @@ Note this version has chromosome names in the format <code>chr*</code>. You may 
 <ul>
 <li>Quality filtering. Low quality variants lead to unreliable predictions.</li>
 <li>Avoid presenting multiple variants in one line by splitting them into multiple lines. Example code to do this:
-  <pre class="highlight"><code class="language-bash">bcftools norm -m-both -o out.vcf in.vcf.gz</code></pre></li>
+  <div class="highlight"><pre><span></span><code>bcftools<span class="w"> </span>norm<span class="w"> </span>-m-both<span class="w"> </span>-o<span class="w"> </span>out.vcf<span class="w"> </span><span class="k">in</span>.vcf.gz
+</code></pre></div></li>
 <li>Left-normalization. For instance, GGCA--&gt;GG is not left-normalized while GCA--&gt;G is. Details on unified representation of genetic variants see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4481842/">Tan et al.</a>
-  <pre class="highlight"><code class="language-bash">bcftools norm -f reference.fasta -o out.vcf in.vcf</code></pre></li>
+  <div class="highlight"><pre><span></span><code>bcftools<span class="w"> </span>norm<span class="w"> </span>-f<span class="w"> </span>reference.fasta<span class="w"> </span>-o<span class="w"> </span>out.vcf<span class="w"> </span><span class="k">in</span>.vcf
+</code></pre></div></li>
 </ul>
 <h4>3. Prepare reference genome (fasta) file</h4>
 <p>Human reference fasta file can be downloaded from ensembl/gencode. Make sure the chromosome names match with the GTF annotation file you use.</p>
